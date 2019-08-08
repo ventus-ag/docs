@@ -50,8 +50,8 @@ feedback: true
 # logo: "assets/img/logo/SRCC-square-red.png"
 # logo: assets/img/logo/SRCC-square-red.png
 logo: assets/img/ventus.logo.black.svg
-# logo_pixels: 34
-# color: "#30638e"
+logo_pixels: 34
+color: "#30638e"
 # color: "#8c1515" # primary color for header, buttons
 
 # Build settings
