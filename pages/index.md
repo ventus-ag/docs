@@ -4,13 +4,13 @@ title: Docsy Jekyll Theme
 permalink: /
 ---
 
-# Welcome to Docsy Jekyll
+# Welcome to Ventus Documentation Portal
 
-This is a starter template for a docsy jekyll theme.
+This is a starter template for a Ventus docs.
 
 ![assets/img/docsy-jekyll.png](assets/img/docsy-jekyll.png)
 
-## Purpose
+## From author
 
 GitHub pages uses Jekyll natively, so when I make documentation, I typically
 look for Jekyll templates. Why? Using Jekyll means that I can use markdown,
