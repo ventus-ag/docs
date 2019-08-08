@@ -30,7 +30,7 @@ url: "https://ventus-ag.github.io" # the base hostname & protocol for your site
 
 # Social (First three Required)
 repo: "https://github.com/ventus-ag/docs"
-github_user: "olegchorny"
+github_user: "ventus-ag"
 github_repo: "docs"
 
 # Optional
@@ -53,7 +53,7 @@ color: "#30638e"
 # color: "#8c1515" # primary color for header, buttons
 
 # Build settings
-markdown: kramdown
+# markdown: kramdown
 
 # If you add tags to pages, you can link them to some external search
 # If you want to disable this, comment the URL.
