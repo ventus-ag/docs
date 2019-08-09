@@ -30,7 +30,7 @@ excluded_in_search: true
     margin-right: -4.4rem;
     margin-left: 0;
     padding-right: 4rem;
-    padding-left: 0;
+    padding-left: 0.2rem;
 }
 .gh-source__repository {
     display: inline-block;
