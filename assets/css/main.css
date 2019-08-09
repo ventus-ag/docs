@@ -28,14 +28,14 @@ excluded_in_search: true
 }
 [dir=rtl] .gh-source__icon+.gh-source__repository {
     margin-right: -4.4rem;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     padding-right: 4rem;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 }
 .gh-source__repository {
     display: inline-block;
     max-width: 100%;
-    margin-left: 1.2rem;
+    margin-left: 1rem;
     font-weight: 700;
     text-overflow: ellipsis;
     overflow: hidden;
