@@ -4,7 +4,7 @@ title: Ventus Documentation
 permalink: /
 ---
 
-# Welcome to Ventus Documentation Portal
+# Welcome to Ventus Documentation
 
 This is a starter template for a Ventus docs.
 
