@@ -72,8 +72,8 @@ excluded_in_search: true
 }
 .gh-source-file {
     display: inline-block;
-    margin: 1em .5em 1em 0;
-    padding-right: .5rem;
+    margin: .5em .5em 1em 0;
+    padding-right: .2rem;
     border-radius: .2rem;
     background-color: rgba(0, 0, 0, .07);
     font-size: 1.28rem;
