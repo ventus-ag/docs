@@ -31,7 +31,7 @@ url: "https://ventus-ag.github.io" # the base hostname & protocol for your site
 # Social (First three Required)
 repo: "https://github.com/ventus-ag/docs"
 github_user: "ventus-ag"
-github_repo: "docs"
+github_repo: "docs    "
 
 # Optional
 twitter: ventus
