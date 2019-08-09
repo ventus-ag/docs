@@ -24,18 +24,18 @@ excluded_in_search: true
 }
 .gh-source__icon+.gh-source__repository {
     margin-left: -4.4rem;
-    padding-left: 2rem;
+    padding-left: 4rem;
 }
 [dir=rtl] .gh-source__icon+.gh-source__repository {
     margin-right: -4.4rem;
-    margin-left: 1rem;
+    margin-left: 0;
     padding-right: 4rem;
-    padding-left: 1rem;
+    padding-left: 0;
 }
 .gh-source__repository {
     display: inline-block;
     max-width: 100%;
-    margin-left: 1rem;
+    margin-left: 1.2rem;
     font-weight: 700;
     text-overflow: ellipsis;
     overflow: hidden;
