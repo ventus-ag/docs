@@ -1,22 +1,22 @@
 - title: Documentation
-  url: ""
+  url: docs
   links:
     - title: "Overview"
-      url: "overview"
+      url: "docs/overview"
     - title: "Contribute"
-      url: "getting-started"
+      url: "docs/getting-started"
       children:
         - title: "Features"
-          url: "getting-started#getting-started"
+          url: "docs/getting-started#getting-started"
         - title: "Development"
-          url: "getting-started#development"
+          url: "docs/getting-started#development"
         - title: "Customization"
-          url: "getting-started#customization"
+          url: "docs/getting-started#customization"
         - title: "Extras"
-          url: "extras"
+          url: "docs/extras"
           children:
           - title: "Quizzes"
-            url: "extras/example-quiz"
+            url: "docs/extras/example-quiz"
         - title: "About"
           url: "about"
         - title: "News"
