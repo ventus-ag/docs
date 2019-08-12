@@ -50,7 +50,7 @@ The sample OpenStack configuration shown in figure 1 has the following character
 - A Cinder volume is attached to the database server as a data volume. To ensure redundancy across failure domains, the database in the active region is backed up to object storage and restored to the one in the backup region when necessary. (This architecture does not use real-time database replication, because bandwidth is limited between regions.)
 - This architecture provides an active-backup configuration. When you failover the service to another region, you restore the most recent backup to the database server in the backup region.
 
-![](assets/img/openstack-1.svg)
+![](../assets/img/openstack-1.svg)
 
 ## Regions and Availability zone
 In OpenStack, a region can span multiple data centers and consists of availability zones. Availability zone is commonly used to identify a set of servers that have a common attribute
@@ -72,7 +72,7 @@ This model allows to create tenant for separate divisions or groups within the c
 
 In a typical OpenStack Neutron deployment, each tenant’s virtual network is contained in its own private network space. As shown in figure 1, you don't necessarily have to use multiple subnets, but you can configure multiple subnets if you need to. Figure 3 shows an OpenStack virtual network that consists of a single virtual router and three virtual switches. Two of the virtual switches connect to the external network through the virtual router. AZ-1 and AZ-2 are availability zones.
 
-![](assets/img/openstack-2.svg)
+![](../assets/img/openstack-2.svg)
 
 ## IP addresses
 
@@ -130,7 +130,7 @@ Cinder volumes provide a persistent disk area that resides in external storage d
 
 Application software running on the instance can also access the object storage provided by OpenStack Swift.
 
-![](assets/img/openstack-3.svg)
+![](../assets/img/openstack-3.svg)
 
 ## VM instances
 
