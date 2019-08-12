@@ -3,6 +3,10 @@
   links:
     - title: "Platform Overview"
       url: "docs/overview"
+    - title: "Getting Started"
+      url: "docs/getting-started"
+    - title: "Core Tasks"
+      url: "docs/core-tasks"
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
       # children:
