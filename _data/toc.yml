@@ -6,16 +6,16 @@
     - title: "Contribute"
       url: "docs/getting-started"
       children:
-        - title: Features
+        - title: "Features"
           url: "docs/getting-started#getting-started"
-        - title: Development
+        - title: "Development"
           url: "docs/getting-started#development"
-        - title: Customization
+        - title: "Customization"
           url: "docs/getting-started#customization"
         - title: "Extras"
           url: "docs/extras"
           children:
-          - title: Quizzes
+          - title: "Quizzes"
             url: "docs/extras/example-quiz"
         - title: "About"
           url: "about"
