@@ -5,18 +5,18 @@
       url: "docs/getting-started"
       children:
         - title: Overview
-          url: "overview.md"
+          url: "docs/overview"
         - title: Features
-          url: "getting-started#getting-started"
+          url: "docs/getting-started#getting-started"
         - title: Development
-          url: "getting-started#development"
+          url: "docs/getting-started#development"
         - title: Customization
-          url: "getting-started#customization"
+          url: "docs/getting-started#customization"
     - title: "Extras"
       url: "docs/extras"
       children:
         - title: Quizzes
-          url: "extras/example-quiz"
+          url: "docs/extras/example-quiz"
     - title: "About"
       url: "about"
     - title: "News"
