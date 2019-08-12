@@ -9,9 +9,7 @@ weight: 1
 {: .no_toc }
 
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+{% include alert.html type="info" title="This is a placeholder page " content="that shows you how to use this template site." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
