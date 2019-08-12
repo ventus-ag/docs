@@ -9,28 +9,26 @@ weight: 1
 This is a placeholder page that shows you how to use this template site.
 {{% /pageinfo %}}
 
+Information in this section helps your user try your project themselves.
 
-The Overview is where your users find out about your project. Depending on the size of your docset, you can have a separate overview page (like this one) or put your overview contents in the Documentation landing page (like in the Docsy User Guide). 
+* What do your users need to do to start using your project? This could include downloading/installation instructions, including any prerequisites or system requirements.
 
-Try answering these questions for your user in this page:
+* Introductory “Hello World” example, if appropriate. More complex tutorials should live in the Tutorials section.
 
-## What is it?
+Consider using the headings below for your getting started page. You can delete any that are not applicable to your project.
 
-Introduce your project, including what it does or lets you do, why you would use it, and its primary goal (and how it achieves it). This should be similar to your README description, though you can go into a little more detail here if you want.
+## Prerequisites
 
-## Why do I want it?
+Are there any system requirements for using your project? What languages are supported (if any)? Do users need to already have any software or tools installed?
 
-Help your user know if your project will help them. Useful information can include: 
+## Installation
 
-* **What is it good for?**: What types of problems does your project solve? What are the benefits of using it?
+Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?
 
-* **What is it not good for?**: For example, point out situations that might intuitively seem suited for your project, but aren't for some reason. Also mention known limitations, scaling issues, or anything else that might let your users know if the project is not for them.
+## Setup
 
-* **What is it *not yet* good for?**: Highlight any useful features that are coming soon.
+Is there any initial setup users need to do after installation to try your project?
 
-## Where should I go next?
+## Try it out!
 
-Give your users next steps from the Overview. For example:
-
-* [Getting Started](/getting-started/): Get started with $project
-* [Examples](/examples/): Check out some example code!
+Can your users test their installation, for example by running a command or deploying a Hello World example?
