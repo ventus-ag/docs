@@ -1,9 +1,9 @@
 - title: Documentation
   url: docs
   links:
-    - title: "Overview"
+    - title: "Platform Overview"
       url: "docs/overview"
-    - title: "Contribute"
+    - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
       # children:
       #   - title: "Features"
