@@ -5,13 +5,13 @@
       url: "docs/overview"
     - title: "Contribute"
       url: "docs/contribute"
-      children:
-        - title: "Features"
-          url: "docs/contribute#contribute"
-        - title: "Development"
-          url: "docs/contribute#development"
-        - title: "Customization"
-          url: "docs/contribute#customization"
+      # children:
+      #   - title: "Features"
+      #     url: "docs/contribute#contribute"
+      #   - title: "Development"
+      #     url: "docs/contribute#development"
+      #   - title: "Customization"
+      #     url: "docs/contribute#customization"
         # - title: "Extras"
         #   url: "docs/extras"
         #   children:
