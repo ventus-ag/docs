@@ -7,7 +7,7 @@
       url: "docs/contribute"
       children:
         - title: "Features"
-          url: "docs/contribute#getting-started"
+          url: "docs/contribute#contribute"
         - title: "Development"
           url: "docs/contribute#development"
         - title: "Customization"

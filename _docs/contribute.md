@@ -6,7 +6,7 @@ tags:
 description: Getting started with Docsy Jekyll
 ---
 
-# Getting Started
+# Contribute
 
 ## Features
 
