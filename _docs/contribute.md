@@ -10,7 +10,7 @@ description: Getting started with Docsy Jekyll
 {: .no_toc }
 
 
-{% include alert.html type="info" title="This article is designed to enable people" content=to contribute to Ventus Cloud documentation." %}
+{% include alert.html type="info" title="This article is designed to enable people" content="to contribute to Ventus Cloud documentation." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
