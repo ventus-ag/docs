@@ -3,6 +3,7 @@ title: Overview
 tags: 
  - overview
 description: Getting started with Docsy Jekyll
+weight: 1
 ---
 
 {{% pageinfo %}}
