@@ -2,7 +2,7 @@
 title: Overview
 tags: 
  - overview
-description: Getting started with Docsy Jekyll
+description: Getting started with Ventus Cloud Platform
 weight: 1
 ---
 
