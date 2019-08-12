@@ -5,9 +5,20 @@ description: Getting started with Ventus Cloud Platform
 weight: 1
 ---
 
+# Getting started with Ventus Cloud Platform
+{: .no_toc }
+
+
 {{% pageinfo %}}
 This is a placeholder page that shows you how to use this template site.
 {{% /pageinfo %}}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 
 Information in this section helps your user try your project themselves.
 
