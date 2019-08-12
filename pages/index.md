@@ -21,4 +21,4 @@ Our company is ISO27001 certified, i.e. we provide you with a model for setting 
 ## Only pay what you use
 
 Our payment system is based on "pay to use", i.e. you only pay for what you actually use. We also try to offer our services with competitive prices:
-https://ventus.ag/pricing
+<https://ventus.ag/pricing>
