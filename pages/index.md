@@ -6,7 +6,7 @@ permalink: /
 
 # Welcome to Ventus Documentation
 
-This is a starter template for a Ventus docs.
+This is a starter template for Ventus docs.
 
 ![assets/img/docsy-jekyll.png](assets/img/docsy-jekyll.png)
 
