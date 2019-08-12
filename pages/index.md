@@ -6,10 +6,9 @@ permalink: /
 
 # Welcome to Ventus Documentation
 
-##Ventus Cloud AG
+## Ventus Cloud AG
 
 Ventus Cloud AG is a European cloud provider, headquartered in Switzerland, which offers cloud infrastructure products for companies of all types and sizes. The company offers a range of scalable, flexible cloud infrastructure products including Cloud Server, Cloud Block Storage, Private Cloud Network, Cloud Load Balancer, Cloud Firewall, Fully Managed Cloud and more. Through our competent team and support we guarantee 24/7 support for our customers.
-
 
 ## Europe
 
@@ -21,4 +20,5 @@ Our company is ISO27001 certified, i.e. we provide you with a model for setting 
 
 ## Only pay what you use
 
-Our payment system is based on "pay to use", i.e. you only pay for what you actually use. We also try to offer our services with competitive prices
+Our payment system is based on "pay to use", i.e. you only pay for what you actually use. We also try to offer our services with competitive prices:
+https://ventus.ag/pricing
