@@ -1,5 +1,5 @@
 ---
-title: Contribute
+title: Contribute to Ventus Documentation
 tags: 
  - jekyll
  - github

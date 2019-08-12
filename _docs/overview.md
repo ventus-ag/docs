@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Platform Overview
 tags: 
  - overview
 description: Ventus Cloud Platform Overview
@@ -99,7 +99,7 @@ For example, for the sample architecture, you define the following security grou
 |     |    Management Subnet	     |     SSH    |
 |web-application	     |   web-server	      |     TCP 8080    |
 |     |Management Subnet	         | SSH         |
-|database     |      web-application	   |  NYSQL       |
+|database     |      web-application	   |  MYSQL       |
 |     |    Management Subnet	         | SSH         |
 
 You can specify the packet source with a subnet range or the name of a security group. In the preceding table, Management Subnet stands for a subnet range from which system administrators sign in to the guest OS for maintenance purposes.
