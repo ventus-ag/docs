@@ -4,17 +4,19 @@
     - title: "Getting Started"
       url: "docs/getting-started"
       children:
+        - title: Overview
+          url: "overview.md"
         - title: Features
-          url: "docs/getting-started#getting-started"
+          url: "getting-started#getting-started"
         - title: Development
-          url: "docs/getting-started#development"
+          url: "getting-started#development"
         - title: Customization
-          url: "docs/getting-started#customization"
+          url: "getting-started#customization"
     - title: "Extras"
       url: "docs/extras"
       children:
         - title: Quizzes
-          url: "docs/extras/example-quiz"
+          url: "extras/example-quiz"
     - title: "About"
       url: "about"
     - title: "News"
