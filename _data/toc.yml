@@ -4,14 +4,14 @@
     - title: "Overview"
       url: "docs/overview"
     - title: "Contribute"
-      url: "docs/getting-started"
+      url: "docs/contribute"
       children:
         - title: "Features"
-          url: "docs/getting-started#getting-started"
+          url: "docs/contribute#getting-started"
         - title: "Development"
-          url: "docs/getting-started#development"
+          url: "docs/contribute#development"
         - title: "Customization"
-          url: "docs/getting-started#customization"
+          url: "docs/contribute#customization"
         - title: "Extras"
           url: "docs/extras"
           children:

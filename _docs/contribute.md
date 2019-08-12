@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Contribute
 tags: 
  - jekyll
  - github
