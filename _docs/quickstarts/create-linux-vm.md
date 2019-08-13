@@ -5,9 +5,9 @@ tags: [ featured, quickstart ]
 # permalink: /new-Linux-VM/
 ---
 
-# Create a Linux virtual machine in the Ventus portal
+# Create a Linux virtual machine
 
-{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal." content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial" %}
+{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial" %}
 
 ## Sign in to Ventus
 
