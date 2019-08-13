@@ -1,6 +1,6 @@
 ---
 title: Creating a new Linux VM 
-permalink: /new-Linux-VM/
+# permalink: /new-Linux-VM/
 ---
 1) Go to Computer -> Instances -> Click "Launch Instance"
 ![../assets/img/new-linux-vm/intances1.png](../assets/img/new-linux-vm/intances1.png)
