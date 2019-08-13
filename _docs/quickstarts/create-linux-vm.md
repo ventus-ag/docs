@@ -2,6 +2,7 @@
 title: Creating a new Linux VM 
 description: How to run Linux VM in Ventus Cloud 
 categories: featured
+tags: featured
 # permalink: /new-Linux-VM/
 ---
 
