@@ -7,9 +7,9 @@
       url: "docs/getting-started"
     - title: "Quickstarts"
       url: "docs/quickstarts"
-      children:
-        - title: "Creating a new Linux VM"
-          url: "docs/quickstarts/create-linux-vm" 
+      # children:
+      #   - title: "Creating a new Linux VM"
+      #     url: "docs/quickstarts/create-linux-vm" 
     - title: "Tutorials"
       url: "docs/tutorials"
     - title: "Contribute to Ventus Docs"
