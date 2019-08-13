@@ -2,6 +2,20 @@
 title: Creating a new Linux VM 
 # permalink: /new-Linux-VM/
 ---
+
+
+# Creating a new Linux VM
+{: .no_toc }
+
+{% include alert.html type="info" title="This article is designed to enable people to create basic Linux VM in Ventus Cloud." content="" %}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+
 1) Go to Computer -> Instances -> Click "Launch Instance"
 ![](../../assets/img/new-linux-vm/intances1.png)
 
