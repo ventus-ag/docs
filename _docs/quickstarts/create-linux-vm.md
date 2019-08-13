@@ -7,9 +7,9 @@ tags: [ featured, quickstart ]
 
 # Create a Linux virtual machine in the VENTUS portal
 
-VENTUS virtual machines (VMs) can be created through the VENTUS portal. The VENTUS portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the VENTUS portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial. 
+{% include alert.html type="info" title="VENTUS virtual machines (VMs) can be created through the VENTUS portal. The VENTUS portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the VENTUS portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial" content="" %}
 
-## Sign in to VENTUS
+ ## Sign in to VENTUS
 
 Sign in to the [VENTUS portal](https://cloud.vstack.ga).
 
