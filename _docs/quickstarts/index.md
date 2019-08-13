@@ -1,5 +1,5 @@
 ---
-title: Core Tasks
+title: Quickstarts
 tags: 
  - overview
 description: Ventus Cloud Platform Core Tasks
