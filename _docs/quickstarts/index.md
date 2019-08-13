@@ -6,7 +6,7 @@ description: Ventus Cloud Platform Core Tasks
 weight: 1
 ---
 
-# Йгшслыефкеы
+# Quickstarts
 {: .no_toc }
 
 {% include alert.html type="info" title="This is a placeholder page " content="that shows you how to use this template site." %}
