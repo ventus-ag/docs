@@ -5,13 +5,13 @@ tags: [ featured, quickstart ]
 # permalink: /new-Linux-VM/
 ---
 
-# Create a Linux virtual machine in the VENTUS portal
+# Create a Linux virtual machine in the Ventus portal
 
-{% include alert.html type="info" title="VENTUS virtual machines (VMs) can be created through the VENTUS portal. The VENTUS portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the VENTUS portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial" content="" %}
+Ventus virtual machines (VMs) can be created through the Ventus portal. The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial. 
 
- ## Sign in to VENTUS
+## Sign in to Ventus
 
-Sign in to the [VENTUS portal](https://cloud.vstack.ga).
+Sign in to the [Ventus portal](https://cloud.vstack.ga).
 
 ## Create SSH key pair
 
@@ -66,6 +66,6 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine through the VENTUS portal. To learn more about VENTUS virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine through the Ventus portal. To learn more about Ventus virtual machines, continue to the tutorial for Linux VMs.
 
 
