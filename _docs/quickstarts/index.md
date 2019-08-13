@@ -3,7 +3,7 @@ title: Quickstarts
 tags: 
  - overview
 description: Ventus Cloud Platform Core Tasks
-weight: 1
+order: 1
 ---
 
 # Quickstarts
