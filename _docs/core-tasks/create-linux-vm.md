@@ -3,6 +3,11 @@ title: Creating a new Linux VM
 # permalink: /new-Linux-VM/
 ---
 
+Example:
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal
+
+Each task should give the user:
+
 
 # Creating a new Linux VM
 {: .no_toc }
