@@ -1,5 +1,5 @@
 ---
-title: Creating a new Linux VM in OPENSTACK dashboard 
+title: Creating a new Linux VM 
 permalink: /new-Linux-VM/
 ---
 1) Go to Computer -> Instances -> Click "Launch Instance"

@@ -8,7 +8,7 @@
     - title: "Core Tasks"
       url: "docs/core-tasks"
       children:
-        - title: "Creating a new Linux VM in OPENSTACK dashboard"
+        - title: "Creating a new Linux VM"
           url: "new-Linux-VM" 
     - title: "Tutorials"
       url: "docs/tutorials"
