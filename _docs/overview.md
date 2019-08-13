@@ -4,6 +4,7 @@ tags:
  - overview
 description: Ventus Cloud Platform Overview
 weight: 1
+tags: featured
 ---
 
 # Platform Overview
