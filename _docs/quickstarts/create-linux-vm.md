@@ -1,52 +1,71 @@
 ---
 title: Creating a new Linux VM 
-description: How to run Linux VM in Ventus Cloud 
-categories: quickstart
+description: How to run Linux VM in Ventus Cloud
 tags: [ featured, quickstart ]
 # permalink: /new-Linux-VM/
 ---
 
-Example:
-https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal
+# Create a Linux virtual machine in the VENTUS portal
 
-# Creating a new Linux VM
-{: .no_toc }
+VENTUS virtual machines (VMs) can be created through the VENTUS portal. The VENTUS portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the VENTUS portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial. 
 
-{% include alert.html type="info" title="This article is designed to enable people to create basic Linux VM in Ventus Cloud." content="" %}
+## Sign in to VENTUS
 
-1) Go to Computer -> Instances -> Click "Launch Instance"
+Sign in to the [VENTUS portal](https://cloud.vstack.ga).
+
+## Create SSH key pair
+
+You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
+
+On the main Navigation Panal go to **Compute**, choose **Key Pairs** and  click the button **Create key pair**.   
+![](../../assets/img/new-linux-vm/intances0.png)
+
+## Create virtual machine
+
+1. On the main Navigation Panal go to **Compute**, choose **Instances** and  click the button **Launch Instance**.    
 ![](../../assets/img/new-linux-vm/intances1.png)
 
-2) Fill the main options, which are marked whith "*" and other you need
-
-3) Insert the name of the Instance (eg. "VZ1") and click Next Button
+2.  In the **Details** insert the name of the Instance (eg. "VZ1") and click **Next**
 ![](../../assets/img/new-linux-vm/intances2.png)
 
-4) Select Instance Boot Source (eg. Image), declare Volume Size (GB) and choose desired image (eg. cirros (12.67 MB) by clicking on arrow.
+3. Select **Instance Boot Source** (eg. Image), declare **Volume Size (GB)** and choose desired image (eg. ubuntu-1604-xenial) by clicking on arrow. After that click **Next**
 ![](../../assets/img/new-linux-vm/intances3.png)
 
-5) Choose "Flavour" (eg. 1x1)
+4.  In the **Flavor** choose which one should manage the sizing for the compute, memory and storage capacity of the instance and click on arrow (eg. 1x1). After that click **Next** 
 ![](../../assets/img/new-linux-vm/intances4.png)
 
-6) Click "Networking" and then choose desired networks
+5. In the **Networks**  you should choose desired networks
 ![](../../assets/img/new-linux-vm/intances5.png)
 
-7) Open "Security Groups", after that, choose "default" 
+6. Open **Security Groups**, after that, choose **default** and click **Next** 
 ![](../../assets/img/new-linux-vm/intances6.png)
 
-8) Launch your Instance by clicking on a "Launch Instance"
+7. In the **Key Pairs**  you should choose one from availables or click the button **Create Key Pair**
 
-9) You will see "Instances" menu whith your newly created VM
+8. Launch your Instance by clicking on a **Launch Instance**
+
+It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
+
+## View the Instance in action
+
+1. You will see "Instances" menu whith your newly created VM
 ![](../../assets/img/new-linux-vm/intances7.png)
 
-10) Open the drop-down menu and choose "Console"
+2. Open the drop-down menu and choose **Console**
 
-11) Click on the black terminal area (to activate access to the console). 
+3. Click on the black terminal area (to activate access to the console). 
 	
-12) Enter login and password. 
+4. Enter login and password. 
 ![](../../assets/img/new-linux-vm/intances8.png)
 
-13) Now you can type commands.
-	
-14) After you finish, type "exit"
+Now you can type commands. After you finish, type **exit**
+
+## Clean up resources
+
+When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete Instances**, then confirm the name of the resource group to delete.
+
+## Next steps
+
+In this quickstart, you deployed a simple virtual machine through the VENTUS portal. To learn more about VENTUS virtual machines, continue to the tutorial for Linux VMs.
+
 

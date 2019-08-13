@@ -10,8 +10,6 @@
       children:
         - title: "Creating a new Linux VM"
           url: "docs/quickstarts/create-linux-vm" 
-        - title: "Creating a new Linux VM full version"
-          url: "docs/quickstarts/create-linux-vm-full" 
     - title: "Tutorials"
       url: "docs/tutorials"
     - title: "Contribute to Ventus Docs"
