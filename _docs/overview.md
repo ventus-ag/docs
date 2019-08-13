@@ -3,7 +3,6 @@ title: Platform Overview
 tags: 
  - overview
 description: Ventus Cloud Platform Overview
-order: 3
 tags: featured
 ---
 
