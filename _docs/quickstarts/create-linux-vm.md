@@ -8,8 +8,6 @@ categories: featured
 Example:
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal
 
-
-
 # Creating a new Linux VM
 {: .no_toc }
 
