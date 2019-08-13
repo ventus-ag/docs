@@ -10,7 +10,7 @@ VENTUS virtual machines (VMs) can be created through the VENTUS portal. The VENT
 
 ## Sign in to VENTUS
 
-Sign in to the [VENTUS portal](https://cloud.vstack.gam).
+Sign in to the [VENTUS portal](https://cloud.vstack.ga).
 
 ## Create SSH key pair
 
