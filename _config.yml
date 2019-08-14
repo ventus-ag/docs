@@ -17,8 +17,7 @@
 title: " "
 email: ventus@ventus.ag
 author: ventus
-description: "A secure european cloud solution for your idea. 
-  Let your solution run on our infrastructure with the best performance and customer satisfaction."
+description: "A secure european cloud solution for your idea. Let your solution run on our infrastructure with the best performance and customer satisfaction."
 
 
 baseurl: "/docs" # the subpath of your site, e.g. /blog
@@ -47,7 +46,8 @@ feedback: true
 # If commented, will use material hat theme
 # logo: "assets/img/logo/SRCC-square-red.png"
 # logo: assets/img/logo/SRCC-square-red.png
-logo: assets/img/ventus.logo.black.svg
+# logo: assets/img/ventus.logo.black.svg
+logo: assets/img/ventus.logo.blue.svg
 logo_pixels: 34
 color: "#30638e"
 # color: "#8c1515" # primary color for header, buttons
