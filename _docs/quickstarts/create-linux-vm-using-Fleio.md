@@ -16,7 +16,6 @@ tags: [ featured, quickstart ]
 For creating new instance do following:
 
 1) On the main Navigation Panal go to **Cloud**, choose **Instances** and  click the plus (+) button from the bottom-right.
-
 ---  
 ![](../../assets/img/new-linux-vm-fl/instances-fleio1.png)
 ---
@@ -25,7 +24,6 @@ For creating new instance do following:
 
 - *Instance Name*: 
 This will set the name in the Fleio and OpenStack database. The hostname inside the instance will not be set.(eg. "Test1")
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio2.png)
 ---
@@ -36,7 +34,6 @@ Select the region (location) of your instance.
 
 - *Select a Boot source*: 
 Select the image to boot from, from the list of available images. You can also boot from an instance snapshot if any is available. (eg. "ubuntu-1604-xenial")
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio3.png)
 ---
@@ -44,7 +41,6 @@ Select the image to boot from, from the list of available images. You can also b
 
 - *Select a configuration*: 
 Configurations (flavors) hold information about the Instance memory, disk space and the number of virtual CPUs that will be available. (eg. "2x2")
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio4.png)
 ---
@@ -53,7 +49,6 @@ Configurations (flavors) hold information about the Instance memory, disk space 
 - *Select a SSH Key*: 
 A SSH key which you previously added in SSH keys page. Also, you can add your own key or generate a new one to use - cklick the button **Add a new key**, assign a name and click the button **Generate key**. 
 This field is optional,you can leave none selected. 
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio5.png)
 ---
@@ -65,7 +60,6 @@ You can view your typed password by clicking on the eye icon from right. The pas
 
 3. Hit **Create Instance** and the new instance will be created.
 
----
 ![](../../assets/img/new-linux-vm-fl/instances-fleio6.png)
 ---
 
@@ -83,9 +77,8 @@ Instance details area:
 - *Instance tab menu*: Access to following subpages: Info, System Log, Metrics, Snapshots, Volumes, History Log, Security Groups
 - *Specification*: Details about instance (installed image, flavor, RAM, CPUs, disk space)
 - *Network*: Details about network (private and public IPs)
-- *Other*: Other details like instance unique number and instance data creation
+- *Other*: Other details like instance unique number and instance data creation.
 
----
 ![](../../assets/img/new-linux-vm-fl/instances-fleio7.png)
 ---
 
@@ -93,7 +86,6 @@ Instance details area:
 ## Search for an instance
 
 To search for an instance, type your instance name in the search box from the top of the instance page.
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio8.png)
 ---
@@ -104,14 +96,12 @@ To search for an instance, type your instance name in the search box from the to
 There are two ways in interface for **Start / Shutdown / Restart** your instance:
 
 First one is directly from instance page. In each instance box, there is one icon for **Start/Shutdown** and one icon for **Restart**. See next image for reference:
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio9.png)
 ---
 
 
 Second way is from instance details (click on the instance you want)and there you will find, in the top-right of the instance window, one icon for Start/Shutdown and one icon for Restart, as you can see below:
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio10.png)
 ---
@@ -120,7 +110,6 @@ Second way is from instance details (click on the instance you want)and there yo
 
 You can launch the console window directly from instance page or from instance details. Click on the icon *<>*  for launching the console.
 After the new window with the console will appear, you can login into your VPS with your user details and start working.
-
 ---
 ![](../../assets/img/new-linux-vm-fl/instances-fleio11.png)
 ---
@@ -136,11 +125,10 @@ So whith this icon **More**, you can:
  - **Resize instance** (upgrade CPU, RAM, HDD)
  - **Change root password**
 
----
 ![](../../assets/img/new-linux-vm-fl/instances-fleio13.png)
 ---
 
-## Delete instance
+## Delete instance  
 
 If you want to delete an instance click the icon **More** and select **Delete**.
 ---
