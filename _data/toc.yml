@@ -10,7 +10,7 @@
       children:
         - title: "Creating a new Linux VM"
           url: "docs/quickstarts/create-linux-vm" 
-        - title: "Creating a new Linux VM by using Fleio"
+        - title: "Creating a new Linux VM using Fleio"
           url: "docs/quickstarts/create-linux-vm-using-Fleio" 
     - title: "Tutorials"
       url: "docs/tutorials"
