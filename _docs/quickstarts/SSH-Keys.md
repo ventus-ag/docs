@@ -18,24 +18,31 @@ In this page, you can find an explanation of how to add or generate a new SSH ke
 ## Add new SSH key
 On the main Navigation Panal go to `Cloud` and choose `SSH Keys`. On this page you find all added SSH Keys whith their details area.
 
-**SSH key details area includes:**  
-`SSH key name`  
+**SSH key details area includes:** 
+
+`SSH key name`: Shows the name for the key so that you can more easily identify it.  
+
 `Creation date`: Shows when a SSH key was created in month-day-year format.  
+
 `Fingerprint`: Shows each Public Key fingerprint which is a sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a Public Key.
 
-To add a SSH key which is already created, go to the SSH keys page and  click the plus `(+)` button from the bottom right *Add SSH Key*.
+To add a SSH key which is already created, go to the SSH keys page and  click the plus `(+)` button from the bottom right *Add SSH Key*.  
 ![](../../assets/img/ssh-key/ssh-key1.png)
 
 On the next page fill next fields:  
-`Name`: in this field you will set a name for the key, so you can identify it easier.  
+
+`Name`: in this field you will set a name for the key, so you can identify it easier. 
+
 `Key Content`: in this field you will add/paste your public key.  
 
 After filling the specified fields hit **Save Key** and a new SSH key will be added.
 
 ![](../../assets/img/ssh-key/ssh-key2.png)
 
-If you are prompted with the following message **Your form contains errors**, when trying to add a new SSH key, you have to check:  
-`Name`, as there might be some unsafe characters() used.  
+If you are prompted with the following message **Your form contains errors**, when trying to add a new SSH key, you have to check: 
+
+`Name`, as there might be some unsafe characters() used. 
+
 `Key Content`, as the SSH public key added might be invalid.  
 
 ![](../../assets/img/ssh-key/ssh-key00.png)
@@ -50,10 +57,14 @@ In order to generate a new SSH key from the Fleio interface
 
 ![](../../assets/img/ssh-key/ssh-key3.png)
 
-On the next page you can view the next fields:  
-`Name`: in this field you will see a name for the key, which you created, so you can identify it easier.  
-`Key Content`: In this field you will see the generated Public Key.  
-`Private Key`: This field will provide you the Private Key.  
+On the next page you can view the next fields: 
+
+`Name`: in this field you will see a name for the key, which you created, so you can identify it easier.
+
+`Key Content`: In this field you will see the generated Public Key.
+
+`Private Key`: This field will provide you the Private Key. 
+ 
 Hit **Save Key** and the new generated SSH key will be added.
 
 ![](../../assets/img/ssh-key/ssh-key4.png)
