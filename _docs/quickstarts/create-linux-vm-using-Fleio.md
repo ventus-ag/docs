@@ -5,9 +5,16 @@ tags: [ featured, quickstart ]
 # permalink: /new-Linux-VM-using-Fleio/
 ---
 # Create a Linux virtual machine
+{: .no_toc }
 ---
 
 {% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial" %}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## Create new instance
 ---
