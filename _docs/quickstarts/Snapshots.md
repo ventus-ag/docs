@@ -24,7 +24,7 @@ So you can use them to backup your instance and restore it later. Also, you can 
 
 Snapshot takes no time to create, and initially uses no disk space, because it stores only the incremental changes needed to roll the volume back to the state at the time the snapshot was created. The storage used by a volume's snapshots does not count against the volume's quota. 
 
-{% include alert.html type="info" title="Note" content="**Snapshot volumes inherit the auditing configurations of their original read-write volumes.**" %}
+{% include alert.html type="info" title="Note" content="Snapshot volumes inherit the auditing configurations of their original read-write volumes." %}
 
 ## How snapshot works
 
