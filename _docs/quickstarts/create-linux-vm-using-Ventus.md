@@ -26,6 +26,7 @@ For creating new instance do following:
 1) On the main Navigation Panal go to **Cloud**, choose **Instances** and  click the plus (+) button from the bottom-right.
  
 ![](../../assets/img/new-linux-vm-V/instances-Ventus1.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus0.png)
 
 
 2) On the following page fill in these fields:
