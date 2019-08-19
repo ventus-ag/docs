@@ -16,6 +16,8 @@
           url: "docs/quickstarts/SSH-Keys" 
         - title: "Snapshots"
           url: "docs/quickstarts/Snapshots" 
+        - title: "Resize virtual machines"
+          url: "docs/quickstarts/Resize-VM" 
     - title: "Tutorials"
       url: "docs/tutorials"
     - title: "Contribute to Ventus Docs"
