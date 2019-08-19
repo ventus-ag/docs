@@ -47,10 +47,10 @@ If you are prompted with the following message **Your form contains errors**, wh
 
 ![](../../assets/img/ssh-key/ssh-key00.png)
 
-{% include alert.html type="info" title="Note" content="Before copying your Public Key from a text editor it is recommended to save it as a single line text without empty spaces between characters and then paste it in Fleio interface." %}
+{% include alert.html type="info" title="Note" content="Before copying your Public Key from a text editor it is recommended to save it as a single line text without empty spaces between characters and then paste it in Ventus interface." %}
 
 ## Generate new SSH key
-In order to generate a new SSH key from the Fleio interface
+In order to generate a new SSH key from the Ventus interface
 - click on the plus `(+)` button from the bottom right **Add SSH Key**  
 - create a name of a new SSH Key (only letters and numbers are accepted)   
 - hit **Generate Key**  

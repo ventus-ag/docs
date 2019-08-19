@@ -10,8 +10,8 @@
       children:
         - title: "Creating a new Linux VM"
           url: "docs/quickstarts/create-linux-vm" 
-        - title: "Creating a new Linux VM using Fleio"
-          url: "docs/quickstarts/create-linux-vm-using-Fleio" 
+        - title: "Creating a new Linux VM using Ventus"
+          url: "docs/quickstarts/create-linux-vm-using-Ventus" 
         - title: "SSH Keys"
           url: "docs/quickstarts/SSH-Keys" 
         - title: "Snapshots"

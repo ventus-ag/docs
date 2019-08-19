@@ -1,8 +1,8 @@
 ---
-title: Creating a new Linux VM using Fleio
-description: How to run Linux VM in Ventus Cloud using intarface of Fleio
+title: Creating a new Linux VM using Ventus
+description: How to run Linux VM in Ventus Cloud using intarface of Ventus
 tags: [ featured, quickstart ]
-# permalink: /new-Linux-VM-using-Fleio/
+# permalink: /new-Linux-VM-using-Ventus/
 ---
 # Create a Linux virtual machine
 {: .no_toc }
@@ -25,15 +25,15 @@ For creating new instance do following:
 
 1) On the main Navigation Panal go to **Cloud**, choose **Instances** and  click the plus (+) button from the bottom-right.
  
-![](../../assets/img/new-linux-vm-fl/instances-fleio1.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus1.png)
 
 
 2) On the following page fill in these fields:
 
 - *Instance Name*: 
-This will set the name in the Fleio and OpenStack database. The hostname inside the instance will not be set.(eg. "Test1")
+This will set the name in the Ventus and OpenStack database. The hostname inside the instance will not be set.(eg. "Test1")
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio2.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus2.png)
 
 
 
@@ -43,14 +43,14 @@ Select the region (location) of your instance.
 - *Select a Boot source*: 
 Select the image to boot from, from the list of available images. You can also boot from an instance snapshot if any is available. (eg. "ubuntu-1604-xenial")
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio3.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus3.png)
 
 
 
 - *Select a configuration*: 
 Configurations (flavors) hold information about the Instance memory, disk space and the number of virtual CPUs that will be available. (eg. "2x2")
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio4.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus4.png)
 
 
 
@@ -58,7 +58,7 @@ Configurations (flavors) hold information about the Instance memory, disk space 
 A SSH key which you previously added in SSH keys page. Also, you can add your own key or generate a new one to use - cklick the button **Add a new key**, assign a name and click the button **Generate key**. 
 This field is optional,you can leave none selected. 
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio5.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus5.png)
 
 
 
@@ -69,7 +69,7 @@ You can view your typed password by clicking on the eye icon from right. The pas
 3. Hit **Create Instance** and the new instance will be created.
 
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio6.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus6.png)
 
 
 
@@ -89,7 +89,7 @@ Instance details area:
 - *Network*: Details about network (private and public IPs)
 - *Other*: Other details like instance unique number and instance data creation.
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio7.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus7.png)
 
 
 
@@ -98,7 +98,7 @@ Instance details area:
 
 To search for an instance, type your instance name in the search box from the top of the instance page.
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio8.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus8.png)
 
 
 
@@ -109,12 +109,12 @@ There are two ways in interface for **Start / Shutdown / Restart** your instance
 
 First one is directly from instance page. In each instance box, there is one icon for **Start/Shutdown** and one icon for **Restart**. See next image for reference:
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio9.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus9.png)
 
 
 Second way is from instance details (click on the instance you want)and there you will find, in the top-right of the instance window, one icon for Start/Shutdown and one icon for Restart, as you can see below:
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio10.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus10.png)
 
 
 ## Login into console
@@ -122,8 +122,6 @@ Second way is from instance details (click on the instance you want)and there yo
 
 You can launch the console window directly from instance page or from instance details. Click on the icon *<>*  for launching the console.
 After the new window with the console will appear, you can login into your VPS with your user details and start working.
-
-![](../../assets/img/new-linux-vm-fl/instances-fleio11.png)
 
 
 ## Manage an instance
@@ -137,7 +135,7 @@ So whith this icon **More**, you can:
  - **Resize instance** (upgrade CPU, RAM, HDD)
  - **Change root password**
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio13.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus12.png)
 
 
 ## Delete instance  
@@ -145,6 +143,6 @@ So whith this icon **More**, you can:
 
 If you want to delete an instance click the icon **More** and select **Delete**
 
-![](../../assets/img/new-linux-vm-fl/instances-fleio12.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus13.png)
 
 
