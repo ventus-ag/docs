@@ -2,7 +2,7 @@
 title: SSH Keys
 description: How to add a new SSH Keys or generate a new
 tags: [ featured, quickstart ]
-# permalink: /new-Linux-VM-using-Fleio/
+# permalink: /SSH-Keys/
 ---
 # SSH Keys
 {: .no_toc }

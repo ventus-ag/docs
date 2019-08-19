@@ -14,6 +14,8 @@
           url: "docs/quickstarts/create-linux-vm-using-Fleio" 
         - title: "SSH Keys"
           url: "docs/quickstarts/SSH-Keys" 
+        - title: "Snapshots"
+          url: "docs/quickstarts/Snapshots" 
     - title: "Tutorials"
       url: "docs/tutorials"
     - title: "Contribute to Ventus Docs"
