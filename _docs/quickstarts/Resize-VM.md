@@ -25,8 +25,8 @@ One of the great benefits of Ventus VMs is the ability to change the size of you
 - check if files have been succesfully migratet to the new instance disk
 
 - choose `Cofirm resize` from the instanse menu to confirm migration was successful, otherwise choose `Revert resize` to revert back to the initial disk  
-![](../../assets/img/resize/resize5.png)  
+![](../../assets/img/resize/resize5.png)    
  
-Our instance was resized and its status becomes *running*.
+Our instance was resized and its status becomes *running*.  
 ![](../../assets/img/resize/resize6.png) 
 
