@@ -9,11 +9,11 @@
       url: "docs/coretasks"
       children:
         - title: "SSH Keys"
-          url: "docs/quickstarts/SSH-Keys" 
+          url: "docs/coretasks/SSH-Keys" 
         - title: "Snapshots"
-          url: "docs/quickstarts/Snapshots" 
+          url: "docs/coretasks/Snapshots" 
         - title: "Resize virtual machines"
-          url: "docs/quickstarts/Resize-VM"
+          url: "docs/coretasks/Resize-VM"
     - title: "Quickstarts"
       url: "docs/quickstarts"
       children:
