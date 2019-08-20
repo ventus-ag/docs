@@ -1,7 +1,7 @@
 ---
 title: SSH Keys
 description: How to add a new SSH Keys or generate a new
-tags: [ featured, quickstart ]
+tags: [ featured, coretasks ]
 # permalink: /SSH-Keys/
 ---
 # SSH Keys

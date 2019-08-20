@@ -1,7 +1,7 @@
 ---
 title: Resize virtual machines
 description: How to resize Linux VM in Ventus Cloud
-tags: [ featured, quickstart ]
+tags: [ featured, coretasks ]
 # permalink: /Resize-VM/
 ---
 # Resize virtual machines

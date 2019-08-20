@@ -1,7 +1,7 @@
 ---
 title: Snapshots
 description: What is snapshot, how it works, how to create and manage snapshot
-tags: [ featured, quickstart ]
+tags: [ featured, coretasks ]
 # permalink: /Snapshots/
 ---
 # Snapshots
