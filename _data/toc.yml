@@ -5,6 +5,13 @@
       url: "docs/overview"
     - title: "Getting Started"
       url: "docs/getting-started"
+    - title: "Quickstarts"
+      url: "docs/quickstarts"
+      children:
+        - title: "Creating a new Linux VM"
+          url: "docs/quickstarts/create-linux-vm" 
+        - title: "Creating a new Linux VM using Ventus"
+          url: "docs/quickstarts/create-linux-vm-using-Ventus" 
     - title: "Core Tasks"
       url: "docs/coretasks"
       children:
@@ -14,13 +21,6 @@
           url: "docs/coretasks/Snapshots" 
         - title: "Resize virtual machines"
           url: "docs/coretasks/Resize-VM"
-    - title: "Quickstarts"
-      url: "docs/quickstarts"
-      children:
-        - title: "Creating a new Linux VM"
-          url: "docs/quickstarts/create-linux-vm" 
-        - title: "Creating a new Linux VM using Ventus"
-          url: "docs/quickstarts/create-linux-vm-using-Ventus" 
     - title: "Tutorials"
       url: "docs/tutorials"
     - title: "Contribute to Ventus Docs"
