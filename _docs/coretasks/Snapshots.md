@@ -65,13 +65,19 @@ But if we decide that we need to rollback, we can return to the previous state o
 
 ### Return to the previous state of Instance
 For return to the previous state of our Instance:
-- click on the button `More` and choose `Rebuild`  
-![](../../assets/img/snapshots/snapshots6.png)
-- on the next page click `change` to change the boot source selected  
-![](../../assets/img/snapshots/snapshots7.png)
-- on the next page click `my images`, choose a snapshot which version of instanse you want to return and click `select`  
-![](../../assets/img/snapshots/snapshots8.png)
+- click on the button `More` and choose `Rebuild` 
+![](../../assets/img/snapshots/snapshots11.png)  
+![](../../assets/img/snapshots/snapshots6.png)  
 
- And after that action if we open a console, we can see that we again have only one file with name "File1" on our Instance. It confirmed that we can backup our instance in current state that we want.
+- on the next page click `change` to change the boot source selected   
+![](../../assets/img/snapshots/snapshots7.png)
+
+- on the next page click `my images`, choose a snapshot which version of instanse you want to return and click `select`  
+![](../../assets/img/snapshots/snapshots8.png)  
+
+- click `Rebuild Instance` and we returned to the previous state of our Instance  
+![](../../assets/img/snapshots/snapshots10.png) 
+
+And after that action if we open a console, we can see that we again have only one file with name "File1" on our Instance. It confirmed that we can backup our instance in current state that we want.
 
 ![](../../assets/img/snapshots/snapshots9.png)
