@@ -24,10 +24,11 @@ On the main Navigation Panal go to `Cloud` and choose `SSH Keys`. On this page y
 
 `Creation date`: Shows when a SSH key was created in month-day-year format.  
 
-`Fingerprint`: Shows each Public Key fingerprint which is a sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a Public Key.
+`Fingerprint`: Shows each Public Key fingerprint which is a sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a Public Key.  
+![](../../assets/img/ssh-key/ssh-key11.png)  
 
 To add a SSH key which is already created, go to the SSH keys page and  click the plus `(+)` button from the bottom right *Add SSH Key*.  
-![](../../assets/img/ssh-key/ssh-key1.png)
+![](../../assets/img/ssh-key/ssh-key1.png)  
 
 On the next page fill next fields:  
 
@@ -50,9 +51,12 @@ If you are prompted with the following message **Your form contains errors**, wh
 {% include alert.html type="info" title="Note" content="Before copying your Public Key from a text editor it is recommended to save it as a single line text without empty spaces between characters and then paste it in Ventus interface." %}
 
 ## Generate new SSH key
-In order to generate a new SSH key from the Ventus interface
+**In order to generate a new SSH key from the Ventus interface:**
+
 - click on the plus `(+)` button from the bottom right **Add SSH Key**  
+
 - create a name of a new SSH Key (only letters and numbers are accepted)   
+
 - hit **Generate Key**  
 
 ![](../../assets/img/ssh-key/ssh-key3.png)
