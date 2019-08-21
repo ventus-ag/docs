@@ -67,11 +67,12 @@ This field is optional,you can leave none selected.
 You can view your typed password by clicking on the eye icon from right. The password should be at least 8 characters long and should contain at least one digit, letter or symbol.
 
 
-3. Hit **Create Instance** and the new instance will be created.
+3) Hit **Create Instance** and the new instance will be created.
 
 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus6.png)
 
+**For example, see a quick recap**  
 ![](../../assets/img/new-linux-vm-V/Instances 003.gif)
 
 ## View instance details
