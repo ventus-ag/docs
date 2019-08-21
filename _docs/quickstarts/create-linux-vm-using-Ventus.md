@@ -73,7 +73,7 @@ You can view your typed password by clicking on the eye icon from right. The pas
 ![](../../assets/img/new-linux-vm-V/instances-Ventus6.png)
 
 **For example, see a quick recap**  
-![](../../assets/img/new-linux-vm-V/Instances 003.gif)
+![](../../assets/img/new-linux-vm-V/001.gif)
 
 ## View instance details
 ---
@@ -145,6 +145,7 @@ So whith this icon **More**, you can:
 
 If you want to delete an instance click the icon **More** and select **Delete**
 
-![](../../assets/img/new-linux-vm-V/instances-Ventus13.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus13.png)  
+![](../../assets/img/new-linux-vm-V/View instance details.gif)
 
 
