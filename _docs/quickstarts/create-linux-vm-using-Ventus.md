@@ -72,7 +72,7 @@ You can view your typed password by clicking on the eye icon from right. The pas
 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus6.png)
 
-
+![](../../assets/img/new-linux-vm-V/Instances 003.gif)
 
 ## View instance details
 ---
