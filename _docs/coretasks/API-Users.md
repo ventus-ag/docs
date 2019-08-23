@@ -27,6 +27,8 @@ For creating new API User do following:
 Once a user is created, you will be able to access OpenStack endpoints directly with your project ID, username and password.
 
 ## Delete an API User
-To delete an api user, just click on the delete button in the card or list view as shown below:
-![](../../assets/img/API-Users/API-Users3.png)   
+To delete an api user, just click on the delete button in the card or list view and on the following page confirm your action as shown below:
+![](../../assets/img/API-Users/API-Users3.png) 
+![](../../assets/img/API-Users/API-Users4.png) 
+
 
