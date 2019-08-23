@@ -103,4 +103,5 @@ To remove a SSH key you have to identify it in the dashboard and click the icon 
 
 ![](../../assets/img/ssh-key/ssh-key10.png)
 
-
+**For example, see a quick recap**  
+![](../../assets/img/ssh-key/ssh-keys.gif)
