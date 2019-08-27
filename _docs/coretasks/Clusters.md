@@ -7,10 +7,7 @@ tags: [ featured, coretasks ]
 # Clusters
 {: .no_toc }
 
-{% include alert.html type="info" title="Note" content="A **Cluster** is a group of logical objects, each of which is called a **Node**." %}
-
-*A cluster can contain zero or more nodes.* 
----
+{% include alert.html type="info" title="Note" content="A Cluster is a group of logical objects, each of which is called a Node. A cluster can contain zero or more nodes." %}  
 
 ## Table of contents
 {: .no_toc .text-delta }
