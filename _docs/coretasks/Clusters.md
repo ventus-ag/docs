@@ -28,19 +28,15 @@ For creating new Cluster do following:
 ![](../../assets/img/clusters/clusters6.png) 
 
 3) Then fill the next fields: 
-
-`Size`  
     `Master count`  
     `Node count`  
- `Misc`  
     `Node flavor`    
     `Master node flavor`  
     `Keypair`  
-`Labels` (if need some additional app)  
 
 ![](../../assets/img/clusters/clusters2.png)
 
-4) Hit `Create Cluster` and the new Cluster will be added.  
+4) Hit `Create Cluster` and the new Cluster will be added. Estimate creation time about 5 minutes.
 
 ![](../../assets/img/clusters/clusters7.png)    
 
