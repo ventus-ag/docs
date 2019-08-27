@@ -40,9 +40,10 @@ For creating new Cluster do following:
     `Master node flavor`  
     `Keypair`  
 `Labels` (if need some additional app)  
-![](../../assets/img/clusters/clusters6.png)
+![](../../assets/img/clusters/clusters2.png)
 
-4) Hit `Create Cluster` and the new Cluster will be added. 
+4) Hit `Create Cluster` and the new Cluster will be added.  
+![](../../assets/img/clusters/clusters7.png)    
 
 ## View Cluster details
 To find more details about your Cluster just click on Cluster box from Clusters page. A new page will open and here you’ll find all details about your Cluster:
@@ -70,14 +71,15 @@ To find more details about your Cluster just click on Cluster box from Clusters 
     - Health status  
 - **LABELS**
 And few icons of quick actions:
-- *Resize*
-- *Get certificate*
-- *Delete*  
+    - *Resize*
+    - *Get certificate*
+    - *Delete*  
 
 ![](../../assets/img/clusters/clusters3.png) 
 
 ## Delete a Cluster
-To delete a Cluster, just click on the delete button in the card or list view and on the following page confirm your action as shown below:
+To delete a Cluster, just click on the delete button in the card or list view and on the following page confirm your action as shown below:  
+
 ![](../../assets/img/clusters/clusters4.png) 
 ![](../../assets/img/clusters/clusters5.png) 
 
