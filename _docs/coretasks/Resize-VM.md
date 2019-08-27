@@ -30,3 +30,5 @@ One of the great benefits of Ventus VMs is the ability to change the size of you
 Our instance was resized and its status becomes *running*.  
 ![](../../assets/img/resize/resize6.png) 
 
+**For example, see a quick recap**
+![](../../assets/img/resize/resize.gif)
