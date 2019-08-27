@@ -4,14 +4,12 @@ description: How to create a new Cluster
 tags: [ featured, coretasks ]
 # permalink: /Clusters/
 ---
-# Clasters
+# Clusters
 {: .no_toc }
 
-A **Cluster** is a group of logical objects, each of which is called a **Node**. *A cluster can contain zero or more nodes.* 
-A cluster has a **profile_id** property that specifies which default Profile to use when new nodes are created/scaled as members of the cluster. 
+{% include alert.html type="info" title="Note" content="A **Cluster** is a group of logical objects, each of which is called a **Node**." %}
 
-{% include alert.html type="info" title="Note" content="It is valid for nodes in a cluster to reference different profile objects because that all nodes in a cluster having the same profile type." %}
-
+*A cluster can contain zero or more nodes.* 
 ---
 
 ## Table of contents
@@ -25,9 +23,11 @@ A cluster has a **profile_id** property that specifies which default Profile to 
 For creating new Cluster do following:
 
 1) On the main Navigation Panal go to  `Cloud`, choose `Clusters` and click the floating button `+` present in the lower right corner   
+
 ![](../../assets/img/clusters/clusters1.png)  
 
-2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`  
+2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`
+
 ![](../../assets/img/clusters/clusters6.png) 
 
 3) Then fill the next fields: 
@@ -40,9 +40,11 @@ For creating new Cluster do following:
     `Master node flavor`  
     `Keypair`  
 `Labels` (if need some additional app)  
+
 ![](../../assets/img/clusters/clusters2.png)
 
 4) Hit `Create Cluster` and the new Cluster will be added.  
+
 ![](../../assets/img/clusters/clusters7.png)    
 
 ## View Cluster details
