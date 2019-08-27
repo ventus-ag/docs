@@ -19,6 +19,8 @@
           url: "docs/coretasks/API-Users"
         - title: "SSH Keys"
           url: "docs/coretasks/SSH-Keys" 
+        - title: "Clusters"
+          url: "docs/coretasks/Clusters"           
         - title: "Snapshots"
           url: "docs/coretasks/Snapshots" 
         - title: "Resize virtual machines"
