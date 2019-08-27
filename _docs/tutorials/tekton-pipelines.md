@@ -150,6 +150,7 @@ To get access to your cluster you need **openstack** cli tool installed and conn
       - `chmod +x ./install_knative.sh`
       - `./install_knative.sh v0.6.0`
       ![](../../assets/img/tutorials/tekton-pipelines/deploy_knative_1.png)
+      - `kubectl apply -f https://github.com/knative/eventing-sources/releases/download/v0.6.0/eventing-sources.yaml`
     - Verify that necessary Knative components are running:
     `kubectl get pods --all-namespaces | grep knative`
     ![](../../assets/img/tutorials/tekton-pipelines/deploy_knative_2.png)
@@ -225,6 +226,40 @@ data:
 ![](../../assets/img/tutorials/tekton-pipelines/knative_domain_2.png)
 
 Now all requests to *.tekton-tutorial.tenst.ml will route to our istio-ingressgateway service which will route it to appropriate services in our Kubernetes cluster.
+
+One more thing needed to be configured is Knative event source - GitHubSource:
+
+1) Create file `gitHubSource.yaml` - it will create Knative GitHubSource which is pointed to GitHub repo:
+`apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: GitHubSource
+metadata:
+  name: githubsourcesample
+  namespaces: tekton-pipelines
+spec:
+  eventTypes:
+    - push
+  ownerAndRepository: TenSt/simple-app
+  accessToken:
+    secretKeyRef:
+      name: tenst-github-token
+      key: accessToken
+  secretToken:
+    secretKeyRef:
+      name: tenst-github-token
+      key: secretToken
+  sink:
+    apiVersion: serving.knative.dev/v1alpha1
+    kind: Service
+    name: webhooks-extension-sink`
+
+2) Fill in next fields:
+  - ownerAndRepository - change it to your account/reponame
+  - accessToken:secretKeyRef:name - change it to some unique name
+  - secretToken:secretKeyRef:name - should be the same as previous one
+
+3) Apply it to your cluster:
+`kubectl apply -f gitHubSource.yaml -n tekton-pipelines`
+![](../../assets/img/tutorials/tekton-pipelines/knative_github_sources_1.png)
 
 Let's move on and configure create new Tekton tasks, resources and pipeline:
 
@@ -383,6 +418,7 @@ After we applied last steps we now have:
 Last but not least part of configuration is creating secrets for GitHub and Docker registry - they will be used by Webhooks extension to clone your GitHub repo and push new image to your Docker registry.
 
 1) Login to your Tekton Dashboard and select "Secrets" from the navigational menu.
+
 2) Hit "Add Secret" button and provide all data:
   - Name: unique name (e.g. tenst-github)
   - Namespace: select "tekton-pipelines" from the drop-down list
@@ -392,7 +428,9 @@ Last but not least part of configuration is creating secrets for GitHub and Dock
   - Service Account: select "tekton-webhooks-extension"
   - Server URL: leave the first field as "tekton.dev/git-0" and put "https://github.com" in second
   ![](../../assets/img/tutorials/tekton-pipelines/tekton_secrets_1.png)
+
 3) Hit "Submit" button.
+
 4) You will see that new secret was added. Now hit "Add Secret" once more to add it for Docker registry:
   - Name: unique name (e.g. tens-docker)
   - Namespace: select "tekton-pipelines" from the drop-down list
@@ -402,10 +440,62 @@ Last but not least part of configuration is creating secrets for GitHub and Dock
   - Service Account: select "tekton-webhooks-extension"
   - Server URL: leave the first field as "tekton.dev/docker-0" and put link to your Docker registry in second (use "https://index.docker.io/v1/" if you're using Docker Hub)
   ![](../../assets/img/tutorials/tekton-pipelines/tekton_secrets_2.png)
+
 5) Hit "Submit" button.
+
 6) You will see that new secret was added.
 ![](../../assets/img/tutorials/tekton-pipelines/tekton_secrets_2.png)
 
 ## Create new webhook
 ---
 
+Now we've come to the final section of this tutorial - creating new webhook and observing how our application will be automatically builded and deployed to our Knative in Kubernetes cluster.
+
+1) Login to your Tekton Dashboard and select "Webhooks" from the navigational menu.
+
+2) On the "Create Webhook" page fill all necessary data:
+  - Name: unique name of the webhook (e.g. tenst-simple-app-webhook)
+  - Repository URL: full URL to your GitHub repo
+  - Access Token: 
+    - Hit "+" button
+    - Fill unique name for token (e.g. tenst-github-token)
+    - Paste token which we created previously
+    - Hit "Create" button
+    ![](../../assets/img/tutorials/tekton-pipelines/webhook_create_1.png)
+  - Namespace: tekton-pipelines
+  - Pipeline: build-and-deploy-pipeline
+  - Service Account: tekton-webhook-extension
+  - Docker Registry: name of your account in the Docker Registry (e.g. tens)
+  - Hit "Create" button
+
+3) Review that webhook was successfully created.
+![](../../assets/img/tutorials/tekton-pipelines/webhook_create_2.png)
+
+Now we are ready to test it!
+
+1) Do some changes to your GitHub repo and commit them. This will create new `push` event and trigger our pipeline to start:
+![](../../assets/img/tutorials/tekton-pipelines/webhook_create_3.png)
+
+2) Wait until pipeline will finish to run:
+![](../../assets/img/tutorials/tekton-pipelines/webhook_create_4.png)
+
+3) Go to your cli and run next command to see URL to your app :
+`kubectl get ksvc -n ACCOUNT`
+Change ACCOUNT to your GitHub account name. So for me it is:
+`kubectl get ksvc -n tenst`
+![](../../assets/img/tutorials/tekton-pipelines/webhook_create_5.png)
+
+4) Get URL from the output and open it in your browser:
+![](../../assets/img/tutorials/tekton-pipelines/webhook_create_6.png)
+
+Congratulations! If you see the message then you successfully finished this tutorial.
+Let's re-cap what we've done:
+  - Created new Kubernetes cluster.
+  - Deployed Tekton Pipelines.
+  - Deployed Tekton Dashboard.
+  - Deployed Tekton Webhooks extention with all pre-requisites.
+  - Created tasks for pipelines.
+  - Created pipeline.
+  - Created secrets for GitHub and Docker repos.
+  - Created new Tekton webhook.
+  - Reviewed that the app is successfully builded and deployed after new commit was pushed to GitHub repo.
