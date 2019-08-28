@@ -27,6 +27,9 @@
           url: "docs/coretasks/Resize-VM"
     - title: "Tutorials"
       url: "docs/tutorials"
+      children:
+        - title: "CI/CD using Knative and Tekton Pipelines"
+          url: "docs/tutorials/tekton-pipelines"
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         

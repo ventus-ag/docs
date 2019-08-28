@@ -8,7 +8,7 @@ tags: [ featured, quickstart ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial." %}
+{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial" %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -21,9 +21,9 @@ tags: [ featured, quickstart ]
 
 {% include alert.html type="info" title="Instances are virtual machines that run inside the cloud."%}
 
-For creating new instance do the following:
+For creating new instance do following:
 
-1) On the main Navigation Panel go to **Cloud**, choose **Instances** and  click the plus (+) button from at the bottom-right of the screen.
+1) On the main Navigation Panal go to **Cloud**, choose **Instances** and  click the plus (+) button from the bottom-right.
  
 ![](../../assets/img/new-linux-vm-V/instances-Ventus1.png)
 ![](../../assets/img/new-linux-vm-V/instances-Ventus0.png)
@@ -67,13 +67,12 @@ This field is optional,you can leave none selected.
 You can view your typed password by clicking on the eye icon from right. The password should be at least 8 characters long and should contain at least one digit, letter or symbol.
 
 
-3) Hit **Create Instance** and the new instance will be created.
+3. Hit **Create Instance** and the new instance will be created.
 
 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus6.png)
 
-**For example, see a quick recap**  
-![](../../assets/img/new-linux-vm-V/001.gif)
+
 
 ## View instance details
 ---
@@ -145,7 +144,6 @@ So whith this icon **More**, you can:
 
 If you want to delete an instance click the icon **More** and select **Delete**
 
-![](../../assets/img/new-linux-vm-V/instances-Ventus13.png)  
-![](../../assets/img/new-linux-vm-V/View instance details.gif)
+![](../../assets/img/new-linux-vm-V/instances-Ventus13.png)
 
 

@@ -31,4 +31,6 @@ To delete an api user, just click on the delete button in the card or list view 
 ![](../../assets/img/API-Users/API-Users3.png) 
 ![](../../assets/img/API-Users/API-Users4.png) 
 
+**For example, see a quick recap**
+![](../../assets/img/API-Users/API-user.gif)
 
