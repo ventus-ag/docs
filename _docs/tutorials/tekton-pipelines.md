@@ -1,6 +1,6 @@
 ---
-title: Configuring Tekton Pipelines, Dashboard and Webhooks extension
-description: How to run deploy and configure Tekton Pipelines, Dashboard and Webhooks extension
+title: CI/CD using Knative and Tekton Pipelines
+description: How to run build and deploy cloud native services
 tags: [ featured, tutorial ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---

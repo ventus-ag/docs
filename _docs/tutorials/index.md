@@ -9,10 +9,14 @@ description: End to end examples.
 
 {% include alert.html type="info" title="This is a placeholder page " content="that shows you how to use this template site." %}
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
-Tutorials are **complete worked examples** made up of **multiple tasks** that guide the user through a relatively simple but realistic scenario: building an application that uses some of your project’s features, for example. If you have already created some Examples for your project you can base Tutorials on them. This section is **optional**. However, remember that although you may not need this section at first, having tutorials can be useful to help your users engage with your example code, especially if there are aspects that need more explanation than you can easily provide in code comments.
+<div class="section-index">
+    <hr class="panel-line">
+    {% for post in site.docs  %}        
+    {% if post.tags contains "tutorial" %}
+    <div class="entry">
+    <h5><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h5>
+    <p>{{ post.description }}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
