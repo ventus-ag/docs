@@ -8,8 +8,6 @@
     - title: "Quickstarts"
       url: "docs/quickstarts"
       children:
-        - title: "Creating a new Linux VM"
-          url: "docs/quickstarts/create-linux-vm" 
         - title: "Creating a new Linux VM using Ventus"
           url: "docs/quickstarts/create-linux-vm-using-Ventus" 
     - title: "Core Tasks"
