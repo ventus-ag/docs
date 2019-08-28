@@ -23,11 +23,11 @@ description: "A secure european cloud solution for your idea. Let your solution 
 baseurl: "/docs" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing
-url: "https://ventus-ag.github.io" # the base hostname & protocol for your site
+url: "https://Viaceslav-Kodesh.github.io" # the base hostname & protocol for your site
 
 # Social (First three Required)
-repo: "https://github.com/ventus-ag/docs"
-github_user: "ventus-ag"
+repo: "https://github.com/Viaceslav-Kodesh/docs"
+github_user: "Viaceslav-Kodesh"
 github_repo: "docs"
 
 # Optional
