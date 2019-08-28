@@ -81,3 +81,7 @@ For return to the previous state of our Instance:
 And after that action if we open a console, we can see that we again have only one file with name "File1" on our Instance. It confirmed that we can backup our instance in current state that we want.
 
 ![](../../assets/img/snapshots/snapshots9.png)
+
+**For example, see a quick recap**
+
+![](../../assets/img/snapshots/snapshots.gif)
