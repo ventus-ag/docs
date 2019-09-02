@@ -27,7 +27,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 ## Create a virtual machine
 ---
 
-For creating new cluster do the following:
+For creating new virtual machine do the following:
 
 1) On the main Navigation Panel go to `Cloud`, choose `Instances` and  click the plus `+` button from at the bottom-right of the screen.  
 
@@ -47,7 +47,7 @@ For creating new cluster do the following:
 3) Hit `CREATE INSTANCE` button
 
 4) Wait untill status of your Instance will be **RUNNING**
-When the VM has been created, you can view instance details. Take note of the publicIpAddress. This address is used to access the VM in later steps.
+When the VM has been created, you can view instance details. Take note of the publicIpAddress. This address is used to access the VM in next steps.
 
 ![](../../assets/img/LAMP/LAMP2.png)  
 
