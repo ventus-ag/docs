@@ -40,9 +40,9 @@ For creating new cluster do the following:
   - Select a configuration (eg. "Small")
   - Select a SSH Key
 
-{% include alert.html type="info" title="Keypair" content="You need to provide keypair which will be used for the instance. If you didn't have one, you can create new using this Core Tasks - SSH Keys" %}
+![](../../assets/img/LAMP/LAMP1.png) 
 
-![](../../assets/img/LAMP/LAMP1.png)  
+{% include alert.html type="info" title="Keypair" content="You need to provide keypair which will be used for the instance. If you didn't have one, you can create new using this Core Tasks - SSH Keys" %} 
 
 3) Hit `CREATE INSTANCE` button
 
@@ -98,7 +98,7 @@ Check the version of PHP with the following command:
 
 If you want to test further, create a quick PHP info page to view in a browser:
 
-1. Create a basic PHP script and save it to the “web root” directory. This is necessary for Apache to find and serve the file correctly. This directory is located at */var/www/html/*.
+1) Create a basic PHP script and save it to the “web root” directory. This is necessary for Apache to find and serve the file correctly. This directory is located at */var/www/html/*.
 
 To create a file in that directory, type in the following command in the terminal:
   
@@ -106,15 +106,15 @@ To create a file in that directory, type in the following command in the termina
 
 That will open the bank file.
 
-2. Inside the file, type in the valid PHP code:
+2) Inside the file, type in the valid PHP code:
   
-`<?php`
-`phpinfo ();`
-`?>`  
+`<?php`  
+`phpinfo ();`  
+`?>`    
 
-3. Press CTRL + X to save and close the file, and press y and ENTER to confirm.
+3) Press CTRL + X to save and close the file, and press y and ENTER to confirm.
 
-4. Open a browser and type in your IP address/info.php
+4) Open a browser and type in your IP address/info.php
 The output should display the details of the LAMP stack as seen in the image below:
 
 ![](../../assets/img/LAMP/LAMP4.png) 
@@ -177,3 +177,9 @@ Configure WordPress to use MySQL and PHP.
 8) Now you can complete the WordPress setup and publish on the platform. Open a browser and go to http://yourPublicIPAddress/wordpress. Substitute the public IP address of your VM. It should look similar to this image.
 
 ![](../../assets/img/LAMP/LAMP5.png) 
+
+Let's re-cap what we've done:
+- Create an Ubuntu VM
+- Install Apache, MySQL, and PHP
+- Verify installation and configuration
+- Install WordPress on the LAMP server
