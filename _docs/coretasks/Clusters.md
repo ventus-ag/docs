@@ -78,4 +78,6 @@ To delete a Cluster, just click on the delete button in the card or list view an
 ![](../../assets/img/clusters/clusters4.png) 
 ![](../../assets/img/clusters/clusters5.png) 
 
+**For example, see a quick recap**
+![](../../assets/img/clusters/clusters.gif)
 
