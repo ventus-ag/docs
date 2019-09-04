@@ -65,7 +65,7 @@ You are prompted to install the packages and other dependencies. This process in
 Check the version of NGINX with the following command:  
 
 ```
-nginx -v`
+nginx -v
 ```
 
 With NGINX installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the NGINX welcome page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
@@ -77,7 +77,7 @@ With NGINX installed, and port 80 open to your VM, the web server can now be acc
 Check the version of MySQL with the following command (note the capital V parameter):  
 
 ```
-mysql -V`    
+mysql -V   
 ```
 
 To help secure the installation of MySQL, including setting a root password, run the *mysql_secure_installation* script.
@@ -190,7 +190,7 @@ This concludes the installation and configuration of your LEMP stack. However, i
 
 Your LEMP stack should now be completely set up. You can test it to validate that Nginx can correctly hand .php files off to the PHP processor.
 
-1) Use your text editor to create a test PHP file called info.php in your document root:
+1) Use your text editor to create a test PHP file called `info.php` in your document root:
 
 ```
 sudo nano /var/www/html/info.php
@@ -207,8 +207,8 @@ phpinfo ();
 
 3) Press `CTRL + X` to save and close the file, and press y and `ENTER` to confirm.
 
-4) Open a browser and type in your IP address/info.php
-The output should display the details of the LAMP stack as seen in the image below:
+4) Open a browser and type in your **IP address/info.php**
+The output should display the details of the LEMP stack as seen in the image below:
 
 ![](../../assets/img/LEMP/LEMP4.png) 
 
@@ -222,52 +222,69 @@ This WordPress setup is only for proof of concept. To install the latest WordPre
 ### Install the WordPress package
 
 Run the following command:
-  
-`sudo apt install wordpress`    
+
+```  
+sudo apt install wordpress
+```    
 
 ### Configure WordPress
 
 Configure WordPress to use MySQL and PHP.
 
-1) In a working directory, create a text file *wordpress.sql* to configure the MySQL database for WordPress:  
+1) In a working directory, create a text file `wordpress.sql` to configure the MySQL database for WordPress:  
 
-`sudo sensible-editor wordpress.sql`  
+```
+sudo sensible-editor wordpress.sql
+```  
 
 2) Add the following commands, substituting a database password of your choice for *yourPassword* (leave other values unchanged). If you previously set up a MySQL security policy to validate password strength, make sure the password meets the strength requirements. Save the file.
-  
-`CREATE DATABASE wordpress;`  
-`GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER`  
-`ON wordpress.*`  
-`TO wordpress@localhost`  
-`IDENTIFIED BY 'yourPassword';`  
+
+```  
+CREATE DATABASE wordpress;  
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER  
+ON wordpress.*  
+TO wordpress@localhost  
+IDENTIFIED BY 'yourPassword';
+```  
 
 3) Run the following command to create the database:  
 
-`cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf`  
+```
+cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
+```
 
 4) Because the file *wordpress.sql* contains database credentials, delete it after use:  
 
-`sudo rm wordpress.sql`  
+```
+sudo rm wordpress.sql 
+```
 
-5) To configure PHP, run the following command to open a text editor of your choice and create the *file /etc/wordpress/config-localhost.php*:  
+5) To configure PHP, run the following command to open a text editor of your choice and create the file `/etc/wordpress/config-localhost.php`:  
 
-`sudo sensible-editor /etc/wordpress/config-localhost.php`  
+```
+sudo sensible-editor /etc/wordpress/config-localhost.php  
+```
 
 6) Copy the following lines to the file, substituting your WordPress database password for *yourPassword* (leave other values unchanged). Then save the file.
-  
-`<?php`  
-`define('DB_NAME', 'wordpress');`  
-`define('DB_USER', 'wordpress');`  
-`define('DB_PASSWORD', 'yourPassword');`  
-`define('DB_HOST', 'localhost');`  
-`define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');`  
-`?>`  
+
+```  
+<?php 
+define('DB_NAME', 'wordpress');  
+define('DB_USER', 'wordpress');  
+define('DB_PASSWORD', 'yourPassword');  
+define('DB_HOST', 'localhost');  
+define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content')
+?> 
+```
 
 7) Move the WordPress installation to the web server document root:  
-`sudo ln -s /usr/share/wordpress /var/www/html/wordpress`  
-`sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php`  
 
-8) Now you can complete the WordPress setup and publish on the platform. Open a browser and go to http://yourPublicIPAddress/wordpress. Substitute the public IP address of your VM. It should look similar to this image.
+```
+sudo ln -s /usr/share/wordpress /var/www/html/wordpress  
+sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
+```  
+
+8) Now you can complete the WordPress setup and publish on the platform. Open a browser and type in your **IP address/wordpress**. Substitute the public IP address of your VM. It should look similar to this image.
 
 ![](../../assets/img/LEMP/LEMP5.png) 
 
