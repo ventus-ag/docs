@@ -105,25 +105,24 @@ By editing a new server block configuration file, rather than editing the defaul
 2) Add the following content, which was taken and slightly modified from the default server block configuration file, to your new server block configuration file:   
 
 server {
-      listen 80;  
-      root /var/www/html;  
-      index index.php index.html index.htm   index.nginx-debian.html;  
-      server_name example.com;  
+    listen 80;
+    listen [::]:80;
 
-      location / {  
-            try_files $uri $uri/ =404;  
-      }  
+    server_name example.com;
 
-      location ~ \.php$ { 
-            include snippets/fastcgi-php.conf;  
-            fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;  
-        }  
+    root   /var/www/html/example.com/public_html;
+    index  index.html index.php;
 
-      location ~ /\.ht {  
-              deny all;  
-      }  
-}  
-
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            include fastcgi_params;
+            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+            fastcgi_param SCRIPT_FILENAME /var/www/html/example.com/public_html$fastcgi_script_name;
+    }
+}
 
 Here’s what each of these directives and location blocks do:
 
