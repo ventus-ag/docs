@@ -104,7 +104,7 @@ By editing a new server block configuration file, rather than editing the defaul
 
 2) Add the following content, which was taken and slightly modified from the default server block configuration file, to your new server block configuration file:  
 
-server {
+  server {
         listen 80;
         root /var/www/html;
         index index.php index.html index.htm index.nginx-debian.html;
@@ -245,3 +245,13 @@ Let's re-cap what we've done:
 - Install NGINX, MySQL, and PHP
 - Verify installation and configuration
 - Install WordPress on the LEMP server
+
+
+
+
+
+```diff
++ this text is highlighted in green
+- this text is highlighted in red
+```
+
