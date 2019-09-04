@@ -52,7 +52,9 @@ When the VM has been created, you can view instance details. Take note of the pu
 
 Run the following command to update Ubuntu package sources and install NGINX, MySQL, and PHP.
 
-`sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm`  
+```
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
+```
 
 You are prompted to install the packages and other dependencies. This process installs the minimum required PHP extensions needed to use PHP with MySQL.
 
@@ -62,7 +64,9 @@ You are prompted to install the packages and other dependencies. This process in
 
 Check the version of NGINX with the following command:  
 
-`nginx -v`
+```
+nginx -v`
+```
 
 With NGINX installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the NGINX welcome page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
@@ -72,34 +76,44 @@ With NGINX installed, and port 80 open to your VM, the web server can now be acc
 
 Check the version of MySQL with the following command (note the capital V parameter):  
 
-`mysql -V`    
+```
+mysql -V`    
+```
 
 To help secure the installation of MySQL, including setting a root password, run the *mysql_secure_installation* script.
-  
-`sudo mysql_secure_installation`  
+
+```  
+sudo mysql_secure_installation
+```  
 
 You can optionally set up the Validate Password Plugin (recommended). Then, set a password for the MySQL root user, and configure the remaining security settings for your environment. We recommend that you answer "Y" (yes) to all questions.
 
 If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial.
-  
-`sudo mysql -u root -p`  
+
+```  
+sudo mysql -u root -p
+```
 
 When done, exit the mysql prompt by typing \q.
 
 ### Verify PHP
 
 Check the version of PHP with the following command:
-  
-`php -v`  
+
+```  
+php -v
+```  
 
 You now have all of the required LEMP stack components installed, but you still need to make a few configuration changes in order to tell Nginx to use the PHP processor for dynamic content. This is done on the server block level (server blocks are similar to Apache’s virtual hosts).
 
 ### Configuring Nginx to Use the PHP Processor
 
-1) Open a new server block configuration file within the /etc/nginx/sites-available/ directory. In this example, the new server block configuration file is named example.com, although you can name yours whatever you’d like:   
+1) Open a new server block configuration file within the `/etc/nginx/sites-available/ directory`. In this example, the new server block configuration file is named example.com, although you can name yours whatever you’d like:   
 
-`sudo nano /etc/nginx/sites-available/example.com`  
- 
+```
+sudo nano /etc/nginx/sites-available/example.com  
+```
+
 By editing a new server block configuration file, rather than editing the default one, you’ll be able to easily restore the default configuration if you ever need to.
 
 2) Add the following content, which was taken and slightly modified from the default server block configuration file, to your new server block configuration file:   
@@ -109,7 +123,7 @@ server {
         listen 80;
         root /var/www/html;
         index index.php index.html index.htm index.nginx-debian.html;
-        server_name example.com;
+        server_name _your_public_ip_;
 
         location / {
                 try_files $uri $uri/ =404;
@@ -136,29 +150,39 @@ Here’s what each of these directives and location blocks do:
 - `location ~ \.php$` — This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.2-fpm.sock file, which declares what socket is associated with php-fpm.  
 - `location ~ /\.ht` — The last location block deals with .htaccess files, which Nginx does not process. By adding the deny all directive, if any .htaccess files happen to find their way into the document root they will not be served to visitors.  
 
-3) After adding this content press CTRL + X to save and close the file, and press y and ENTER to confirm. 
+3) After adding this content press `CTRL + X` to save and close the file, and press y and `ENTER` to confirm. 
 
-4) Enable your new server block by creating a symbolic link from your new server block configuration file (in the /etc/nginx/sites-available/ directory) to the /etc/nginx/sites-enabled/ directory:
+4) Enable your new server block by creating a symbolic link from your new server block configuration file (in the `/etc/nginx/sites-available/ directory`) to the `/etc/nginx/sites-enabled/` directory:
 
-`sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/`
+```
+sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+```
 
 5) Then, unlink the default configuration file from the /sites-enabled/ directory:
 
-`sudo unlink /etc/nginx/sites-enabled/default`
+```
+sudo unlink /etc/nginx/sites-enabled/default
+```
 
 **Note**: *If you ever need to restore the default configuration, you can do so by recreating the symbolic link, like this*:
 
-`sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/`
+```
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+```
 
 6) Test your new configuration file for syntax errors by typing:
 
-`sudo nginx -t`  
+```
+sudo nginx -t
+``` 
 
 If any errors are reported, go back and recheck your file before continuing.
 
 7) When you are ready, reload Nginx to make the necessary changes:
 
-`sudo systemctl reload nginx`   
+```
+sudo systemctl reload nginx   
+```
 
 This concludes the installation and configuration of your LEMP stack. However, it’s prudent to confirm that all of the components can communicate with one another.
 
@@ -168,15 +192,20 @@ Your LEMP stack should now be completely set up. You can test it to validate tha
 
 1) Use your text editor to create a test PHP file called info.php in your document root:
 
-`sudo nano /var/www/html/info.php`  
+```
+sudo nano /var/www/html/info.php
+```
+
 
 2) Enter the following lines into the new file. This is valid PHP code that will return information about your server:  
   
-`<?php`  
-`phpinfo ();`  
-`?>`    
+```  
+<?php  
+phpinfo ();  
+?>    
+```
 
-3) Press CTRL + X to save and close the file, and press y and ENTER to confirm.
+3) Press `CTRL + X` to save and close the file, and press y and `ENTER` to confirm.
 
 4) Open a browser and type in your IP address/info.php
 The output should display the details of the LAMP stack as seen in the image below:
