@@ -12,7 +12,9 @@ The LEMP software stack is a group of software that can be used to serve dynamic
 
 A LEMP stack is a powerful platform that will allow you to set up and serve nearly any website or application from your server.
 
-This article walks you through how to deploy an NGINX web server, MySQL, and PHP (the LEMP stack) on an Ubuntu VM in Azure. The LEMP stack is an alternative to the popular LAMP stack, which you can also install in Ventus. To see the LEMP server in action, you can optionally install and configure a WordPress site.  
+This article walks you through how to deploy an NGINX web server, MySQL, and PHP (the LEMP stack) on an Ubuntu VM in Ventus. 
+
+The LEMP stack is an alternative to the popular LAMP stack, which you can also install in Ventus. To see the LEMP server in action, you can optionally install and configure a WordPress site.  
 
 ## Table of contents
 {: .no_toc .text-delta }
