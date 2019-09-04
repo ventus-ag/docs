@@ -104,6 +104,7 @@ By editing a new server block configuration file, rather than editing the defaul
 
 2) Add the following content, which was taken and slightly modified from the default server block configuration file, to your new server block configuration file:   
 
+<!---
 server {
         listen 80;
         root /var/www/html;
@@ -123,6 +124,7 @@ server {
                 deny all;
         }
 }
+-->
 
 Here’s what each of these directives and location blocks do:
 
