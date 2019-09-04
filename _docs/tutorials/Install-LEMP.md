@@ -42,8 +42,8 @@ For creating new virtual machine do the following:
 
 3) Hit `CREATE INSTANCE` button
 
-4) Wait untill status of your Instance will be **RUNNING**
-When the VM has been created, you can view instance details. Take note of the publicIpAddress. This address is used to access the VM in next steps.
+4) Wait untill status of your Instance will be *RUNNING*
+When the VM has been created, you can view instance details. Take note of the *publicIpAddress*. This address is used to access the VM in next steps.
 
 ![](../../assets/img/LEMP/LEMP2.png)  
 
@@ -80,7 +80,7 @@ Check the version of MySQL with the following command (note the capital V parame
 mysql -V   
 ```
 
-To help secure the installation of MySQL, including setting a root password, run the *mysql_secure_installation* script.
+To help secure the installation of MySQL, including setting a root password, run the `mysql_secure_installation` script.
 
 ```  
 sudo mysql_secure_installation
@@ -108,7 +108,7 @@ You now have all of the required LEMP stack components installed, but you still 
 
 ### Configuring Nginx to Use the PHP Processor
 
-1) Open a new server block configuration file within the `/etc/nginx/sites-available/ directory`. In this example, the new server block configuration file is named example.com, although you can name yours whatever you’d like:   
+1) Open a new server block configuration file within the `/etc/nginx/sites-available/ directory`. In this example, the new server block configuration file is named *example.com*, although you can name yours whatever you’d like:   
 
 ```
 sudo nano /etc/nginx/sites-available/example.com  
@@ -158,7 +158,7 @@ Here’s what each of these directives and location blocks do:
 sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
 ```
 
-5) Then, unlink the default configuration file from the /sites-enabled/ directory:
+5) Then, unlink the default configuration file from the `/sites-enabled/` directory:
 
 ```
 sudo unlink /etc/nginx/sites-enabled/default
@@ -207,7 +207,7 @@ phpinfo ();
 
 3) Press `CTRL + X` to save and close the file, and press y and `ENTER` to confirm.
 
-4) Open a browser and type in your **IP address/info.php**
+4) Open a browser and type in **your IP address/info.php**
 The output should display the details of the LEMP stack as seen in the image below:
 
 ![](../../assets/img/LEMP/LEMP4.png) 
@@ -288,7 +288,7 @@ sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 
 ![](../../assets/img/LEMP/LEMP5.png) 
 
-Let's re-cap what we've done:
+**Let's re-cap what we've done:**
 - Create an Ubuntu VM
 - Install NGINX, MySQL, and PHP
 - Verify installation and configuration
