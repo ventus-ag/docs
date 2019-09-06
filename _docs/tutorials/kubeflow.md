@@ -103,6 +103,7 @@ Specify credentials for the default user.
 
 ![](../../assets/img/tutorials/tekton-pipelines/verify_2.png)
 
+<br /><br /><br /><br /><br /><br /><br /><br />
 
 
 
