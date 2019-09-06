@@ -85,6 +85,8 @@ Follow these steps to deploy Kubeflow:
 
 {% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespaces. You need to create it yourself before you will set up and deploy kubeflow with commnad: kubectl create ns kubeflow-anonymous. Probably it will be fixed in next versions" %}
 
+{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial Tekton Webhooks extension was a part of 'experimental' repository and was under development. Be aware that some steps might change in future. Here is the link to installation instructions that we would cover next: https://github.com/tektoncd/experimental/blob/master/webhooks-extension/README.md" %}
+
 ***#Add kfctl to PATH, to make the kfctl binary easier to use.***
 <br />export KFAPP="kubeflow-tutorial"
 <br />export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"
