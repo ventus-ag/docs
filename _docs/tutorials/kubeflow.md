@@ -83,23 +83,25 @@ Follow these steps to deploy Kubeflow:
 
 4) Run the following commands to set up and deploy Kubeflow. The code below includes an optional command to add the binary `kfctl` to your path. If you don’t add the binary to your path, you must use the full path to the `kfctl` binary each time you run it.
 
-{% include alert.html type="info" title="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespaces. You need to create it yourself before you will set up and deploy kubeflow with commnad: kubectl create ns kubeflow-anonymous. Probably it will be fixed in next versions." %}
+{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespaces. You need to create it yourself before you will set up and deploy kubeflow with commnad: kubectl create ns kubeflow-anonymous. Probably it will be fixed in next versions." %}
 
-***#Add kfctl to PATH, to make the kfctl binary easier to use.***
-<br />`export KFAPP="kubeflow-tutorial"`
-<br />`export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"`
+Add `kfctl` to PATH, to make the kfctl binary easier to use.
+- `export KFAPP="kubeflow-tutorial"`
+- `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"`
 
-***#Specify credentials for the default user.***
-<br />`export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
-<br />`export KUBEFLOW_PASSWORD="12341234"`
+Specify credentials for the default user.
+- `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
+- `export KUBEFLOW_PASSWORD="12341234"`
 
 <br />`fctl init ${KFAPP} --config=${CONFIG} -V`
 <br />`cd ${KFAPP}`
 <br />`kfctl generate all -V`
 <br />`kfctl apply all -V`
 
+5) Run next command to test that you have access to the cluster and all pods are running:
+<br />`kubectl get pods --all-namespaces`
 
-
+![](../../assets/img/tutorials/tekton-pipelines/verify_2.png)
 
 
 
