@@ -77,7 +77,7 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 
 Follow these steps to deploy Kubeflow:
 
-1) Download and install **kfctl** release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a> or you can run this scripts: 
+1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a> or you can run this scripts: 
 - `wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
 - `tar -xvf kfctl_<release tag>_<platform>.tar.gz`
 - `sudo cp kfctl /usr/bin/`
@@ -86,16 +86,16 @@ Follow these steps to deploy Kubeflow:
 
 {% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespace. You need to create it yourself before you will set up and deploy kubeflow. Probably it will be fixed in next versions." %}
 
-Create kubeflow-anonymous namespace 
-- `kubectl create ns kubeflow-anonymous`
+- Create kubeflow-anonymous namespace 
+ - `kubectl create ns kubeflow-anonymous`
 
-Add `kfctl` to PATH, to make the kfctl binary easier to use.
-- `export KFAPP="kubeflow-tutorial"`
-- `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/   kfctl_existing_arrikto.0.6.2.yaml"`
+- Add `kfctl` to PATH, to make the kfctl binary easier to use.
+ - `export KFAPP="kubeflow-tutorial"`
+ - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/   kfctl_existing_arrikto.0.6.2.yaml"`
 
-Specify credentials for the default user.
-- `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
-- `export KUBEFLOW_PASSWORD="12341234"`
+- Specify credentials for the default user.
+ - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
+ - `export KUBEFLOW_PASSWORD="12341234"`
 
 <br />`fctl init ${KFAPP} --config=${CONFIG} -V`
 <br />`cd ${KFAPP}`
