@@ -113,6 +113,10 @@ Follow these steps to deploy Kubeflow:
 After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
   - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 
+Get the IP and open it in a browser: `https://<LoadBalancerIP address>/.`
+
+Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD` and access the Kubeflow dashboard!  
+
 <br /><br /><br /><br /><br /><br /><br /><br />
 
 
