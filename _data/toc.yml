@@ -29,7 +29,7 @@
         - title: "CI/CD using Knative and Tekton Pipelines"
           url: "docs/tutorials/tekton-pipelines"
         - title: "Install a LAMP web server on a Linux virtual machine"
-          url: "docs/tutorials/Install-LAMP"
+          url: "docs/tutorials/Install-LAMP+centos"
         - title: "Install a LEMP web server on a Linux virtual machine"
           url: "docs/tutorials/Install-LEMP"
     - title: "Contribute to Ventus Docs"
