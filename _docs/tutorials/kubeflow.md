@@ -76,10 +76,10 @@ Follow these steps to deploy Kubeflow:
 <br />`wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
 
 2) Unpuck it:
-<br /> - `tar -xvf kfctl_<release tag>_<platform>.tar.gz`
+<br />`tar -xvf kfctl_<release tag>_<platform>.tar.gz`
 
 3) Copy it in your folder: 
-<br /> - `sudo cp kfctl /usr/bin/`
+<br />`sudo cp kfctl /usr/bin/`
 
 4) Run the following commands to set up and deploy Kubeflow. The code below includes an optional command to add the binary `kfctl` to your path. If you don’t add the binary to your path, you must use the full path to the `kfctl` binary each time you run it.
 
@@ -99,6 +99,8 @@ Follow these steps to deploy Kubeflow:
 <br />cd ${KFAPP}
 <br />kfctl generate all -V
 <br />kfctl apply all -V
+
+{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial Tekton Webhooks extension was a part of 'experimental' repository and was under development. Be aware that some steps might change in future. Here is the link to installation instructions that we would cover next: https://github.com/tektoncd/experimental/blob/master/webhooks-extension/README.md" %}
 
 
 
