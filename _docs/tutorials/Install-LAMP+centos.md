@@ -231,25 +231,31 @@ cd /var/www/html/
 wget https://wordpress.org/wordpress-5.1.2.zip
 ```
 
-7) Unzip the wordpress files in the /var/www/html directory:
+7) Let us install unzip programm:
+
+```
+sudo yum install unzip
+```
+
+8) Unzip the wordpress files in the /var/www/html directory:
 
 ```
 unzip wordpress-5.1.2.zip
 ```
 
-8) We need to restart httpd web server one more time for it to work by typing:
+9) We need to restart httpd web server one more time for it to work by typing:
 
 ```
 systemctl restart httpd
 ```
 
-9) And then we set the appropriate permissions for the html directory and files to increase wordpress security and to avoid problems with permissions later on as we configure our wordpress.
+10) And then we set the appropriate permissions for the html directory and files to increase wordpress security and to avoid problems with permissions later on as we configure our wordpress.
 
 ```
 sudo chown -R apache:apache /var/www/html/*
 ```
 
-10) Now you can complete the WordPress setup and publish on the platform. Open a browser and type in your **IP address/wordpress**. Substitute the public IP address of your VM. It should look similar to this image.
+11) Now you can complete the WordPress setup and publish on the platform. Open a browser and type in your **IP address/wordpress**. Substitute the public IP address of your VM. It should look similar to this image.
 
 ![](../../assets/img/LAMP/centos4.png)
 
