@@ -23,25 +23,9 @@ tags: [ featured, tutorial ]
 ## Create new Kubernetes cluster
 ---
 
-For creating new cluster do the following:
+1) Create new cluster with using tutorial: **Core Tasks/Clusters**
 
-1) On the main Navigation Panel go to **Cloud**, choose **Clusters** and  click the plus (+) button at the bottom-right of the screen.
- 
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_1.png)
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_2.png)
-
-2) Fill next information:
-  - Type new name (tekton)
-  - Select appropriate cluster template (k8s_1.14.1)
-  - Change other options or leave them as defaults
-
-{% include alert.html type="info" title="Keypair" content="You need to provide keypair which will be used for the cluster. If you didn't have one, you can create new using this Core Tasks - SSH Keys" %}
-
-3) Hit **CREATE CLUSTER** button
-
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_3.png)
-
-4) Wait until status of your cluster will be **Create completed**
+2) Wait until status of your cluster will be **Create completed**
 
 ![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_4.png)
 
@@ -73,33 +57,63 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 <br />`openstack coe cluster list`
 
 6) Run next command to get kubeconfig for your cluster (tekton is the name of my cluster):
-<br />`openstack coe cluster config tekton`
+<br />`openstack coe cluster config kubeflow`
 
 7) Export path to created config for as KUBECONFIG env variable:
-<br />`export KUBECONFIG=/home/stepan/config`
+<br />`export KUBECONFIG=/home/ubuntu/config`
 
 8) Run next command to test that you have access to the cluster and all pods are running:
 <br />`kubectl get pods --all-namespaces`
 
 ![](../../assets/img/tutorials/tekton-pipelines/verify_1.png)
 
-## Deploy Tekton Pipelines, Dashboard and Webhooks extension
+## Deploy Kubeflow
 ---
-{% include alert.html type="info" title="Note:" content="All installations are done via cli using kubectl. Kubectl is a command line interface for running commands against Kubernetes clusters." %}
 
-{% include alert.html type="info" title="Tip: install kubectl" content="To install kubectl use kubernetes official docs: https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" %}
+Follow these steps to deploy Kubeflow:
 
-1) Install latest Tekton Pipelines (0.5.2 was latest at the time of writing this tutorial):
-<br />`kubectl apply --filename https://storage.googleapis.com/tekton-releases/latest/release.yaml`
+1) Download a <br />kfctl<br> release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a> or you can run this script: 
+<br />`wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
 
-![](../../assets/img/tutorials/tekton-pipelines/deploy_pipelines_1.png)
+2) Unpuck it:
+<br />`tar -xvf kfctl_<release tag>_<platform>.tar.gz`
 
-2) Verify that all Tekton Pipelines pods are running:
-<br />`kubectl get pods -n tekton-pipelines`
+3) Copy it your folder: 
+<br />`sudo cp kfctl /usr/bin/`
+
+4) Run the following commands to set up and deploy Kubeflow. The code below includes an optional command to add the binary <br />kfctl<br> to your path. If you don’t add the binary to your path, you must use the full path to the <br />kfctl<br> binary each time you run it.
+
+{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespaces. You need to create it yourself before you will set up and deploy kubeflow with commnad: <br />kubectl create ns kubeflow-anonymous<br>. Probably it will be fixed in next versions" %}
+
+*** #Add kfctl to PATH, to make the kfctl binary easier to use. ***
+<br />export KFAPP="kubeflow-tutorial"
+<br />export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"
+
+*** #Specify credentials for the default user. ***
+<br />export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"
+<br />export KUBEFLOW_PASSWORD="12341234"
+
+<br />fctl init ${KFAPP} --config=${CONFIG} -V
+<br />cd ${KFAPP}
+<br />kfctl generate all -V
+<br />kfctl apply all -V
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ![](../../assets/img/tutorials/tekton-pipelines/deploy_pipelines_2.png)
 
-## Deploy Tekton Dashboard
+## Deploy Kubeflow Dashboard
 ---
 
 1) Install Tekton Dashboard (0.1.1 was latest at the time of writing this tutorial):
