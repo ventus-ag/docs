@@ -87,15 +87,15 @@ Follow these steps to deploy Kubeflow:
 {% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespace. You need to create it yourself before you will set up and deploy kubeflow. Probably it will be fixed in next versions." %}
 
 - Create kubeflow-anonymous namespace 
- - `kubectl create ns kubeflow-anonymous`
+  - `kubectl create ns kubeflow-anonymous`
 
 - Add `kfctl` to PATH, to make the kfctl binary easier to use.
- - `export KFAPP="kubeflow-tutorial"`
- - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/   kfctl_existing_arrikto.0.6.2.yaml"`
+  - `export KFAPP="kubeflow-tutorial"`
+  - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/   kfctl_existing_arrikto.0.6.2.yaml"`
 
 - Specify credentials for the default user.
- - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
- - `export KUBEFLOW_PASSWORD="12341234"`
+  - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
+  - `export KUBEFLOW_PASSWORD="12341234"`
 
 <br />`fctl init ${KFAPP} --config=${CONFIG} -V`
 <br />`cd ${KFAPP}`
@@ -106,6 +106,12 @@ Follow these steps to deploy Kubeflow:
 <br />`kubectl get pods --all-namespaces`
 
 ![](../../assets/img/tutorials/tekton-pipelines/verify_2.png)
+
+## Accsessing Kubeflow
+---
+### Log in as a static user
+After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
+  - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 
 <br /><br /><br /><br /><br /><br /><br /><br />
 
