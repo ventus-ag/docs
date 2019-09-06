@@ -132,6 +132,12 @@ Run next commnads to config pipelines into kubeflow:
   - `pip3 install -r requirements.txt --upgrade`
   - `python3 mnist_pipeline.py`
 
+As result, you must gott file `mnist_pipeline.py` in your folder
+
+![](../../assets/img/tutorials/tekton-pipelines/Pipeline_file.png)
+
+
+
 <br /><br /><br /><br /><br /><br /><br /><br />
 
 
