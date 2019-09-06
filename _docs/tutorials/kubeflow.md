@@ -72,24 +72,24 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 
 Follow these steps to deploy Kubeflow:
 
-1) Download a <br />kfctl<br> release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a> or you can run this script: 
+1) Download a **kfctl** release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a> or you can run this script: 
 <br />`wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
 
 2) Unpuck it:
 <br />`tar -xvf kfctl_<release tag>_<platform>.tar.gz`
 
-3) Copy it your folder: 
+3) Copy it in your folder: 
 <br />`sudo cp kfctl /usr/bin/`
 
 4) Run the following commands to set up and deploy Kubeflow. The code below includes an optional command to add the binary <br />kfctl<br> to your path. If you don’t add the binary to your path, you must use the full path to the <br />kfctl<br> binary each time you run it.
 
 {% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespaces. You need to create it yourself before you will set up and deploy kubeflow with commnad: <br />kubectl create ns kubeflow-anonymous<br>. Probably it will be fixed in next versions" %}
 
-*** #Add kfctl to PATH, to make the kfctl binary easier to use. ***
+***#Add kfctl to PATH, to make the kfctl binary easier to use.***
 <br />export KFAPP="kubeflow-tutorial"
 <br />export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"
 
-*** #Specify credentials for the default user. ***
+***#Specify credentials for the default user.***
 <br />export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"
 <br />export KUBEFLOW_PASSWORD="12341234"
 
@@ -111,13 +111,8 @@ Follow these steps to deploy Kubeflow:
 
 
 
-![](../../assets/img/tutorials/tekton-pipelines/deploy_pipelines_2.png)
 
-## Deploy Kubeflow Dashboard
----
 
-1) Install Tekton Dashboard (0.1.1 was latest at the time of writing this tutorial):
-<br />`kubectl apply --filename https://github.com/tektoncd/dashboard/releases/download/v0.1.1/release.yaml`
 
 ![](../../assets/img/tutorials/tekton-pipelines/deploy_dashboard_1.png)
 
