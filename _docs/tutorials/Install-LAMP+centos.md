@@ -144,19 +144,22 @@ We need to restart Apache web server one more time for it to work with PHP by ty
 sudo systemctl restart httpd.service
 ```
 
+Also, we need to install other php modules:
+
+```
+sudo yum install php*
+```
+
+
+
 ### Test PHP
 
-Apache installs a default website on the directory ‘/var/www/html/’. So to test PHP on our CentOs 7 Server, we need to create a file there using a nano editor.
+Apache installs a default website on the directory ‘/var/www/html/’. So to test PHP on our CentOs 7 Server, we need to create a file there.
 
-First, let’s install nano by running the command below:
-
-```
-sudo yum install nano
-```
-Next, create our ‘info.php’ file by typing the command below:
+Create our ‘info.php’ file by typing the command below:
 
 ```
-sudo nano /var/www/html/info.php
+sudo vi /var/www/html/info.php
 ```
 
 A blank text file should be displayed, just copy paste the content below on the page:
@@ -166,7 +169,7 @@ A blank text file should be displayed, just copy paste the content below on the 
 phpinfo(); 
 ?>
 ```
-Then press CTRL + X, Y and Enter to save the changes
+Then press Esc, :wq, and Enter to save the changes
 
 You need to visit the following URL on your browser to check whether PHP is working: http://ip_address/info.php
 
@@ -177,6 +180,78 @@ If the installation was completed without a problem, you should see the below pa
 ![](../../assets/img/LAMP/centos3.png) 
 
 Your LAMP stack is now complete and you can run any type of dynamic website/software application provided it works on the Apache, MariaDB and PHP environment. You might also need to install or enable additional PHP extensions and Apache modules depending on your web hosting needs.
+
+### Download and Setup WordPress
+1) Login to your mysql server using the command:
+
+```
+mysql -u root -p
+```
+
+2) Then create a database by following the commands. For this tutorial we will create a database named "orders_newdatabasename" with a user "orders_dbuser" and password of "mynewpassword".
+
+You will have to write down this information since we will use it later on.
+
+```
+CREATE DATABASE wordpress_sample;
+
+CREATE USER wp_user@localhost IDENTIFIED BY 'wp_password';
+
+GRANT ALL PRIVILEGES ON wordpress_sample.* TO wp_user@localhost;
+
+FLUSH PRIVILEGES;
+
+exit
+```
+
+3) Let us install php-gd first, this module is used to resize images so we can create a thumbnail. Let us try to fetch the package from CentOS repository:
+
+```
+sudo yum install php-gd
+```
+4) After that we will need to restart our httpd server so it can recognize the newly installed module:
+
+```
+sudo service httpd restart
+```
+
+6) Let us install Wget programm:
+
+```
+sudo yum install wget
+```
+
+5) Go to your /html folder before we download the latest wordpress files. The /html folder is the public facing folder of your webserver.
+
+```
+cd /var/www/html/
+```
+
+6) Download the last version of wordpress files:
+
+```
+wget https://wordpress.org/wordpress-5.1.2.zip
+```
+
+7) Unzip the wordpress files in the /var/www/html directory:
+
+```
+unzip wordpress-5.1.2.zip
+```
+8) We need to restart httpd web server one more time for it to work by typing:
+
+```
+systemctl restart httpd
+```
+
+9) And then we set the appropriate permissions for the html directory and files to increase wordpress security and to avoid problems with permissions later on as we configure our wordpress.
+
+```
+sudo chown -R apache:apache /var/www/html/*
+```
+10) Now you can complete the WordPress setup and publish on the platform. Open a browser and type in your **IP address/wordpress**. Substitute the public IP address of your VM. It should look similar to this image.
+
+![](../../assets/img/LAMP/centos4.png)
 
 
 ## Deploy the LAMP stack on an Ubuntu VM
@@ -265,7 +340,7 @@ The output should display the details of the LAMP stack as seen in the image bel
 ![](../../assets/img/LAMP/LAMP4.png) 
 
 
-## Install WordPress
+### Install WordPress
 ---
 
 If you want to try your stack, install a sample app. As an example, the following steps install the open source [WordPress](https://wordpress.org/) platform to create websites and blogs. Other workloads to try include [Drupal](https://www.drupal.org/) and [Moodle](https://moodle.org/).
@@ -342,7 +417,7 @@ sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ![](../../assets/img/LAMP/LAMP5.png) 
 
 **Let's re-cap what we've done:**
-- Create an Ubuntu VM
+- Create an Ubuntu VM and Centos VM
 - Install Apache, MySQL, and PHP
 - Verify installation and configuration
-- Install WordPress on the LAMP server
+- Install WordPress on the LAMP server 
