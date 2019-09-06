@@ -117,6 +117,32 @@ Get the IP and open it in a browser: `https://<LoadBalancerIP address>/.`
 
 Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD` and access the Kubeflow dashboard!  
 
+## Compilation of a mnist pipelines
+---
+
+{% include alert.html type="info" title="Requirements:" content="python3, pip3, docker." %}
+
+Run next commnads to config pipelines into kubeflow:
+  - git clone https://github.com/ventus-ag/kubeflow.git
+
+![](../../assets/img/tutorials/tekton-pipelines/Git_clone.png)
+
+  - cd kubeflow/samples/mnist-pipelines/deploy-service
+  - docker build -t ACCOUNT/NAME .
+
+![](../../assets/img/tutorials/tekton-pipelines/Docker_build.png)
+
+  - docker push ACCOUNT/NAME
+
+![](../../assets/img/tutorials/tekton-pipelines/Docker_push.png)  
+
+  - cd ..
+  - pip3 install -r requirements.txt --upgrade
+
+![](../../assets/img/tutorials/tekton-pipelines/pip_install.png)  
+
+  - python3 mnist_pipeline.py
+
 <br /><br /><br /><br /><br /><br /><br /><br />
 
 
