@@ -43,9 +43,12 @@ To get access to your cluster you need **openstack** cli tool installed and conn
   - On the main Navigation Panel go to **Cloud**, choose **API users** and click the plus (+) button at the bottom-right of the screen.
   - Fill out all fields and hit **ADD API USER**
   - For new user hit **Get OpenRC file** action
+
   <br />![](../../assets/img/tutorials/tekton-pipelines/get_openrc_file_1.png)
+
   - Select region and hit **GET FILE**
   <br />![](../../assets/img/tutorials/tekton-pipelines/get_openrc_file_2.png)
+  
   - File named "openrc" will be downloaded to your machine
 
 3) Execute "openrc" file starting with dot:
