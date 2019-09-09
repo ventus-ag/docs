@@ -1,18 +1,16 @@
 ---
-title: CI/CD using Knative and Tekton Pipelines
-description: How to run build and deploy cloud native services
+title: Deploing kubeflow with kubernetes
+description: How to build and deploy kubeflow services
 tags: [ featured, tutorial ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---
-# CI/CD using Knative and Tekton Pipelines
+# Deploing kubeflow using kubernetes
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Tekton is a Kubernetes-native pipeline resource" content="The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines." %}
+{% include alert.html type="info" title="What is Kubeflow" content="The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable." %}
 
-{% include alert.html type="info" title="Knative is a Kubernetes-based platform to deploy and manage modern serverless workloads." content="Knative components build on top of Kubernetes, abstracting away the complex details and enabling developers to focus on what matters." %}
-
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes, Knative, Tekton Pipelines, Dashboard and Webhooks extension to configure CI?CD with your GitHub repository." %}
+{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes. We will create your cluster, get access to it using cli, deploy kubeflow, compile of pipelines and will upload it through the UI " %}
 
 ## Table of contents
 {: .no_toc .text-delta }
