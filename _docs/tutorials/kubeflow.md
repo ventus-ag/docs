@@ -132,11 +132,26 @@ Run next commnads to config pipelines into kubeflow:
   - `pip3 install -r requirements.txt --upgrade`
   - `python3 mnist_pipeline.py`
 
-As result, you must gott file `mnist_pipeline.py` in your folder
+As result, you must got file `mnist_pipeline.py.tar.gz` in your folder
 
 ![](../../assets/img/tutorials/tekton-pipelines/Pipeline_file.png)
 
 
+## Upload through the UI
+
+Now that you have the compiled pipelines file, you can upload it through the Kubeflow Pipelines UI. Simply select the **"Upload pipeline"** button
+
+![](../../assets/img/tutorials/tekton-pipelines/Upload_pipeline.png)
+
+Upload your file and give it a name
+
+![](../../assets/img/tutorials/tekton-pipelines/Upload_and_giving_a_name.png)
+
+**Run the Pipeline**
+
+After clicking on the newly created pipeline, you should be presented with an overview of the pipeline graph. When you're ready, select the "Create Run" button to launch the pipeline
+
+![](../../assets/img/tutorials/tekton-pipelines/Create_run.png)
 
 <br /><br /><br /><br /><br /><br /><br /><br />
 
