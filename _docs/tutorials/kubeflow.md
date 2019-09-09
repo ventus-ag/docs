@@ -95,10 +95,15 @@ Follow these steps to deploy Kubeflow:
   - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
   - `export KUBEFLOW_PASSWORD="12341234"`
 
-<br />`fctl init ${KFAPP} --config=${CONFIG} -V`
-<br />`cd ${KFAPP}`
-<br />`kfctl generate all -V`
-<br />`kfctl apply all -V`
+- Initialize and apply new kubeflow application to your cluster:
+  - Initialize new kubeflow application:
+    `kfctl init ${KFAPP} --config=${CONFIG} -V`
+  - Go to new folder which will be created
+    `cd ${KFAPP}`
+  - Generate kubernetes manifests of the kubeflow application:
+    `kfctl generate all -V`
+  - Apply new manifests to the kubernetes cluster:
+    `kfctl apply all -V`
 
 3) Run next command to test that you have access to the cluster and all pods are running:
 <br />`kubectl get pods --all-namespaces`
