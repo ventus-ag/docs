@@ -8,9 +8,9 @@ tags: [ featured, tutorial ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="What is Kubeflow" content="The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable." %}
+{% include alert.html type="info" title="Kubeflow - The Machine Learning Toolkit for Kubernetes" content="The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable." %}
 
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes. We will create your cluster, get access to it using cli, deploy kubeflow, compile of pipelines and will upload it through the UI " %}
+{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes and KKubeflow in order to compile, train and serve modul of machine learning." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
