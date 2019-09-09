@@ -153,6 +153,35 @@ After clicking on the newly created pipeline, you should be presented with an ov
 
 ![](../../assets/img/tutorials/tekton-pipelines/Create_run.png)
 
+Fill out the information required for the run, and press "Start" when you are ready.
+ - The `model-export-dir` field must be `/mnt/export`
+ - For `pvc-name` field you must create new yaml file called `pvc.yaml` with such lines:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  finalizers:
+  - kubernetes.io/pvc-protection
+  name: local-storage
+  namespace: kubeflow
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: cinder |
+``` 
+Specify name from file you created into `pvc-name` filed.
+
+![](../../assets/img/tutorials/tekton-pipelines/Run_details.png)
+
+![](../../assets/img/tutorials/tekton-pipelines/Run_type.png)
+
+
+
+
 <br /><br /><br /><br /><br /><br /><br /><br />
 
 
