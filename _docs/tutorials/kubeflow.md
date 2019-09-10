@@ -4,13 +4,13 @@ description: How to deploy Kubeflow on kubernetes and compile, train and serve M
 tags: [ featured, tutorial, kubernetes, kubeflow ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---
-# Deploing kubeflow using kubernetes
+# Runing ML pipeline using Kubeflow on Kubernetes
 {: .no_toc }
 ---
 
 {% include alert.html type="info" title="Kubeflow - The Machine Learning Toolkit for Kubernetes" content="The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable." %}
 
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes and KKubeflow in order to compile, train and serve modul of machine learning." %}
+{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes and Kubeflow in order to compile, train and serve model of machine learning." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -21,7 +21,12 @@ tags: [ featured, tutorial, kubernetes, kubeflow ]
 ## Create new Kubernetes cluster
 ---
 
-1) Create new cluster with using tutorial: **Core Tasks/Clusters**
+1) Create new cluster using this tutorial: **Core Tasks/Clusters.** Use next parameters for your cluster:
+  - `Master count`: 1
+  - `Node count`: 1
+  - `Docker volume size (GB)`: 100
+  - `Node flavor`: Huge
+  - `Master node flavor`: Small
 
 2) Wait until status of your cluster will be **Create completed**
 
@@ -59,7 +64,7 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 5) Run next command to get a list of all clusters:
 <br />`openstack coe cluster list`
 
-6) Run next command to get kubeconfig for your cluster (tekton is the name of my cluster):
+6) Run next command to get kubeconfig for your cluster:
 <br />`openstack coe cluster config kubeflow`
 
 7) Export path to created config for as KUBECONFIG env variable:
@@ -75,23 +80,24 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 
 Follow these steps to deploy Kubeflow:
 
-1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a> or you can run this scripts: 
+1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a>: 
 - `wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
-- `tar -xvf kfctl_<release tag>_<platform>.tar.gz`
+- `tar -xvf kfctl_v0.6.2_linux.tar.gz`
 - `sudo cp kfctl /usr/bin/`
 
-2) Run the following commands to set up and deploy Kubeflow. The code below includes an optional command to add the binary `kfctl` to your path. If you don’t add the binary to your path, you must use the full path to the `kfctl` binary each time you run it.
+2) Run the following commands to set up and deploy Kubeflow:
 
-{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with creations kubeflow-anonymous namespace. You need to create it yourself before you will set up and deploy kubeflow. Probably it will be fixed in next versions." %}
+{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with kubeflow-anonymous namespace. You need to create it yourself before you will set up and deploy kubeflow. Probably it will be fixed in next versions." %}
 
-- Create kubeflow-anonymous namespace 
+- Create kubeflow-anonymous namespace: 
   - `kubectl create ns kubeflow-anonymous`
 
-- Add `kfctl` to PATH, to make the kfctl binary easier to use.
+- The name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
   - `export KFAPP="kubeflow-tutorial"`
+- Specify path to kfctl config file which will be used for kubeflow installation:  
   - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/   kfctl_existing_arrikto.0.6.2.yaml"`
 
-- Specify credentials for the default user.
+- Specify credentials for the default user:
   - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
   - `export KUBEFLOW_PASSWORD="12341234"`
 
@@ -105,7 +111,7 @@ Follow these steps to deploy Kubeflow:
   - Apply new manifests to the kubernetes cluster:
 <br />    `kfctl apply all -V`
 
-3) Run next command to test that you have access to the cluster and all pods are running:
+3) Run next command to check that all pods are running:
 <br />`kubectl get pods --all-namespaces`
 
 ![](../../assets/img/tutorials/tekton-pipelines/verify_2.png)
@@ -123,9 +129,9 @@ Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD
 ## Compilation of a mnist pipelines
 ---
 
-{% include alert.html type="info" title="Requirements:" content="python3, pip3, docker." %}
+{% include alert.html type="info" title="Requirements:" content="Next packages should be installed on your client for the next steps: python3, pip3, docker." %}
 
-Run next commnads to config pipelines into kubeflow:
+Run next commnads to compile pipeline:
 
   - `git clone https://github.com/ventus-ag/kubeflow.git`
   - `cd kubeflow/samples/mnist-pipelines/deploy-servic`
@@ -142,23 +148,23 @@ As result, you must got file `mnist_pipeline.py.tar.gz` in your folder
 
 ## Upload through the UI
 
-Now that you have the compiled pipelines file, you can upload it through the Kubeflow Pipelines UI. Simply select the **"Upload pipeline"** button
+Now that you have the compiled pipeline file, you can upload it through the Kubeflow Pipelines UI. Simply select the **"Upload pipeline"** button:
 
 ![](../../assets/img/tutorials/tekton-pipelines/Upload_pipeline.png)
 
-Upload your file and give it a name
+Upload your file and give it a name:
 
 ![](../../assets/img/tutorials/tekton-pipelines/Upload_and_giving_a_name.png)
 
-**Run the Pipeline**
+## Run the Pipeline
 
-After clicking on the newly created pipeline, you should be presented with an overview of the pipeline graph. When you're ready, select the "Create Run" button to launch the pipeline
+After clicking on the newly created pipeline, you should be presented with an overview of the pipeline graph. When you're ready, select the "Create Run" button to launch the pipeline:
 
 ![](../../assets/img/tutorials/tekton-pipelines/Create_run.png)
 
 Fill out the information required for the run, and press "Start" when you are ready.
  - The `model-export-dir` field must be `/mnt/export`
- - For `pvc-name` field you must create new yaml file called `pvc.yaml` with such lines:
+ - For `pvc-name` field you must create new pvc in your cluster. You can use next `pvc.yaml` file to do that:
 
 ```yaml
 apiVersion: v1
@@ -174,21 +180,35 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: cinder |
 ``` 
-Specify name from file you created into `pvc-name` filed.
+ - Apply this file to your cluster: 
+<br /> `kubectl apply -f pvc.yaml`
+
+ - Specify name from file you created into `pvc-name` filed.
 
 ![](../../assets/img/tutorials/tekton-pipelines/Run_details.png)
 
 ![](../../assets/img/tutorials/tekton-pipelines/Run_type.png)
 
-After clicking on the newly created Run, you should see the pipeline run through the 'train', 'serve', and 'web-ui' components. Click on any component to see its logs. When the pipeline is complete, look at the logs for the web-ui component to find the IP address created for the MNIST web interface
+**Review experiment**
+
+After clicking on the newly created Run, you should see the pipeline run through the `train`, `serve`, and `web-ui` components. Click on any component to see its logs. When the pipeline is complete, look at the logs for the `web-ui` component to find the IP address created for the MNIST web interface:
 
 ![](../../assets/img/tutorials/tekton-pipelines/Experiment.png)
 
 Use IP you received in previous step and open web UI page with experiment's result:
 
 ![](../../assets/img/tutorials/tekton-pipelines/Experiment_result.png)
+
+Congratulations! You successfully finished this tutorial.
+
+Let's re-cap what we've done: 
+- Created new kubernetes cluster for Kubeflow.
+- Deployed Kubeflow.
+- Compiled mnist pipeline example.
+- Uploaded pipeline to Kubeflow.
+- Created and ran new experiment.
+- As a result trained and served mnist model using Kubeflow in kubernetes.
 
 
 
