@@ -37,14 +37,14 @@ For creating new virtual machine do the following:
 ![](../../assets/img/new-linux-vm-V/instances-Ventus0.png)
 
 2) On the following page fill next information:
-  - Instance Name (eg. "Test_LAMP" or "Test-Centos-LAMP)
-  - Select a Boot source (eg. "ubuntu-1604-xenial" or "CentOS-7")
+  - Instance Name (eg. "Test-Centos-LAMP" or "Test-Ubuntu-LAMP")
+  - Select a Boot source (eg."CentOS-7" or "ubuntu-1604-xenial")
   - Select a configuration (eg. "Small")
   - Select a SSH Key
 
-![](../../assets/img/LAMP/LAMP1.png) 
-or
 ![](../../assets/img/LAMP/centos.png)
+
+![](../../assets/img/LAMP/LAMP1.png) 
 
 {% include alert.html type="info" title="Keypair" content="You need to provide keypair which will be used for the instance. If you didn't have one, you can create new using this Core Tasks - SSH Keys" %} 
 
@@ -53,11 +53,14 @@ or
 4) Wait untill status of your Instance will be *RUNNING*
 When the VM has been created, you can view instance details. Take note of the *publicIpAddress*. This address is used to access the VM in next steps.
 
-![](../../assets/img/LAMP/LAMP2.png)
 ![](../../assets/img/LAMP/centos0.png) 
+
+![](../../assets/img/LAMP/LAMP2.png)
+
 
 ## Deploy the LAMP stack on a Centos VM
 ---
+
 ### Install Apache
 
 1) Before you install the applications, make sure your CentOs 7 server is up to date by running the command below:
@@ -65,11 +68,13 @@ When the VM has been created, you can view instance details. Take note of the *p
 ```
 sudo yum update
 ```
+
 2) We are going to use the Yum package manager to install any software applications on CentOs 7. To install Apache web server, run the command below:
 
 ```
 sudo yum install httpd
 ```
+
 When prompted to confirm the installation, press Y and Enter to proceed.
 We are installing the software using sudo command so that we can temporarily get administrative privileges.
 
@@ -78,7 +83,8 @@ We are installing the software using sudo command so that we can temporarily get
 ```
 sudo systemctl start httpd.service
 ```
-At this point, you can enter your public IP address on a browser to confirm the installation. You should get the default Apache page as shown below:
+
+You can do a spot check right away to verify that everything went as planned by visiting your server’s public IP address in your web browser (see the note under the next heading to find out what your public IP address is if you do not have this information already): **http://server_domain_name_or_IP/**
 
 ![](../../assets/img/LAMP/centos2.png) 
 
@@ -91,6 +97,7 @@ sudo systemctl enable httpd.service
 ```
 ### Install MariaDB Database
 
+Now that we have our web server up and running, it is time to install MariaDB, a MySQL drop-in replacement.
 MariaDB is a forked version of MySQL. It is an open source software application developed by a community that wants it to remain free for everyone. We will need MariaDB to store information for our dynamic websites. 
 
 1) We can install MariaDB together with additional packages that we require on our CentOs server by running the commands below:
@@ -128,6 +135,7 @@ Reload privilege tables now? [Y/n] Y
 ```
 sudo systemctl enable mariadb.service
 ```
+At this point, your database system is now set up and we can move on.
 
 ### Install PHP
 
@@ -169,7 +177,7 @@ phpinfo();
 ```
 Then press `Esc :wq`, and `Enter` to save the changes.
 
-6) You need to visit the following URL on your browser to check whether PHP is working: http://ip_address/info.php
+6) You need to visit the following URL on your browser to check whether PHP is working: **http://your_server_IP_address/info.php**
 
 Remember to replace the ‘ip_address’ part with your CentOs 7 server’s public IP address.
 
@@ -177,10 +185,11 @@ If the installation was completed without a problem, you should see the below pa
 
 ![](../../assets/img/LAMP/centos3.png) 
 
+
 ## Deploy the LAMP stack on an Ubuntu VM
 ---
+
 ### Install Apache, MySQL, and PHP
----
 
 Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command, which is part of the lamp-server^ package name.  
 
@@ -262,8 +271,20 @@ The output should display the details of the LAMP stack as seen in the image bel
 
 
 ## Conclusion
+---
+
 Your LAMP stack is now complete and you can run any type of dynamic website/software application provided it works on the Apache, MariaDB and PHP environment. You might also need to install or enable additional PHP extensions and Apache modules depending on your web hosting needs.
 
 So when you have a LAMP stack installed, you have many choices for what to do next. Basically, you’ve installed a platform that will allow you to install most kinds of websites and web software on your server.
+
+
+
+
+
+
+
+
+
+
 
 

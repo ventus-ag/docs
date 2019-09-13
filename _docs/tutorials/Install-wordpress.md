@@ -2,7 +2,7 @@
 title: Install Wordpress on a Linux virtual machine
 description: How to run a Wordpress on a Linux virtual machine using Ventus cloud
 tags: [ featured, tutorial ]
-# permalink: /Install-LAMP/
+# permalink: /Install-wordpress/
 ---
 # Install Wordpress on a Linux virtual machine
 {: .no_toc }
@@ -17,6 +17,7 @@ tags: [ featured, tutorial ]
 {:toc}
 
 ## Prerequisites
+
 You will need to perform the following tasks before you can start this guide: 
 - Create a new Ubuntu or Centos server 
 - Install a LEMP or LAMP stack: WordPress will need a web server, a database, and PHP in order to correctly function.
@@ -94,7 +95,7 @@ sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ![](../../assets/img/LAMP/LAMP5.png) 
 
 
-### Install WordPress on an Ubuntu VM
+## Install WordPress on a Centos VM
 
 1) Login to your mysql server using the command:
 
