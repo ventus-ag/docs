@@ -31,7 +31,9 @@
         - title: "Install a LAMP web server on a Linux virtual machine"
           url: "docs/tutorials/Install-LAMP+centos"
         - title: "Install a LEMP web server on a Linux virtual machine"
-          url: "docs/tutorials/Install-LEMP"
+          url: "docs/tutorials/Install-LEMP+centos"
+        - title: "Install Wordpress on a Linux virtual machine"
+          url: "docs/tutorials/Install-wordpress"
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         
