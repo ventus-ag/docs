@@ -23,7 +23,7 @@ You will need to perform the following tasks before you can start this guide:
 - Install a LEMP or LAMP stack: WordPress will need a web server, a database, and PHP in order to correctly function.
 - Setting up a LEMP or LAMP stack (Linux, Apache, MySQL, and PHP) fulfills all of requirements.
 
-To install and configure software for **LEMP stack** follow [this guide](https://vika1990z.github.io/docs/docs/tutorials/Install-LEMP) and or if you want to use **LAMP stack** follow [this guide](https://vika1990z.github.io/docs/docs/tutorials/Install-LAMP+centos)
+To install and configure software for **LEMP stack** follow the tutorial **Install a LEMP web server on a Linux virtual machine** and or if you want to use **LAMP stack** follow the tutorial **Install a LAMP web server on a Linux virtual machine**
 
 When you are finished the setup steps, log into your server as your sudo user and continue below.
 
@@ -176,4 +176,5 @@ sudo chown -R apache:apache /var/www/html/*
 
 ![](../../assets/img/LAMP/centos4.png)
 
+![](../../assets/img/LAMP/centos5.png)
 

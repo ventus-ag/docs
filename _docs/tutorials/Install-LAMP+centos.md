@@ -233,7 +233,21 @@ If you want to try MySQL features (create a MySQL database, add users, or change
 sudo mysql -u root -p
 ``` 
 
-When done, exit the mysql prompt by typing \q.
+Then create a database by following the commands. For this tutorial we will create a database named "orders_newdatabasename" with a user "orders_dbuser" and password of "mynewpassword".
+
+You will have to write down this information since we will use it later on.
+
+```
+CREATE DATABASE wordpress_sample;
+
+CREATE USER wp_user@localhost IDENTIFIED BY 'wp_password';
+
+GRANT ALL PRIVILEGES ON wordpress_sample.* TO wp_user@localhost;
+
+FLUSH PRIVILEGES;
+
+exit
+```
 
 ### Verify PHP
 
