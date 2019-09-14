@@ -1,5 +1,5 @@
 ---
-title: Runing ML pipeline using Kubeflow on Kubernetes
+title: Running ML pipeline using Kubeflow on Kubernetes
 description: How to deploy Kubeflow on kubernetes and compile, train and serve ML pipeline.
 tags: [ featured, tutorial, kubernetes, kubeflow ]
 # permalink: /new-Linux-VM-using-Ventus/
