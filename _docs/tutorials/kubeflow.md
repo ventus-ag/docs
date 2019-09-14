@@ -134,7 +134,7 @@ Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD
 Run next commands to compile pipeline:
 
   - `git clone https://github.com/ventus-ag/kubeflow.git`
-  - `cd kubeflow/samples/mnist-pipelines/deploy-servic`
+  - `cd kubeflow/samples/mnist-pipelines/deploy-service`
   - `docker build -t ACCOUNT/NAME .`
   - `docker push ACCOUNT/NAME`
   - `cd ..`
