@@ -34,7 +34,6 @@
           url: "docs/tutorials/Install-LEMP+centos"
         - title: "Install Wordpress on a Linux virtual machine"
           url: "docs/tutorials/Install-wordpress"
-          url: "docs/tutorials/kubeflow"
         - title: "Running ML pipeline using Kubeflow on Kubernetes"
           url: "docs/tutorials/kubeflow"
     - title: "Contribute to Ventus Docs"
