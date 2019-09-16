@@ -1,13 +1,11 @@
 ---
-title: Clusters
-description: How to create a new Cluster 
+title: Access to the Kubernetes Cluster using CLI
+description: How to get access to the Kubernetes Cluster using CLI 
 tags: [ featured, coretasks ]
-# permalink: /Clusters/
+# permalink: /access-by-cli/
 ---
-# Clusters
+# Access to your cluster using CLI
 {: .no_toc }
-
-{% include alert.html type="info" title="Note" content="A Cluster is a group of logical objects, each of which is called a Node. A cluster can contain zero or more nodes." %}  
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -15,69 +13,66 @@ tags: [ featured, coretasks ]
 1. TOC
 {:toc}
 
-## Create new Cluster
+## Prerequisites
 
-For creating new Cluster do following:
+For this coretask we suppose that in Ventus cloud we've already created:
+- the instance, with the next parameters:
+    * Name: TestIn
+    * Image: ubuntu-1804-bionic
+    * Flavor: Small
+    * Public IP: 
 
-1) On the main Navigation Panal go to  `Cloud`, choose `Clusters` and click the floating button `+` present in the lower right corner   
+- the kubernetes cluster, with the next parameters:
+    * Name: TestCl
+    * Master count: 1
+    * Node count: 1
+    * Docker volume size (GB): 100
+    * Node flavor: Huge
+    * Master node flavor: Small
 
-![](../../assets/img/clusters/clusters1.png)  
+- API User, which has the next detailes and just loaded "openrc" file:
+    * name: TestUser
+    * ID: 16a43e908d654d0fb7a8e05dafbcd4f2
+    * password: 12344321
+    
 
-2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`
+## Get access to your cluster using CLI
 
-![](../../assets/img/clusters/clusters6.png) 
+To get access to your cluster you need **openstack** cli tool installed and connected to your project.
 
-3) Then fill the next fields: 
-    `Master count`  
-    `Node count`  
-    `Node flavor`    
-    `Master node flavor`  
-    `Keypair`  
+1) Install openstack cli tool by running two next commands one by one. First will install openstack and second one will install magnum client which is used to operate with kubenetes clusters: 
 
-![](../../assets/img/clusters/clusters2.png)
+```
+sudo pip install python-openstackclient
+sudo pip install python-magnumclient
+```
 
-4) Hit `Create Cluster` and the new Cluster will be added. Estimate creation time about 5 minutes.
+2) Execute "openrc" file starting with dot:
 
-![](../../assets/img/clusters/clusters7.png)    
+```
+. openrc
+```
 
-## View Cluster details
-To find more details about your Cluster just click on Cluster box from Clusters page. A new page will open and here you’ll find all details about your Cluster:
+3) Provide your password and hit `enter` - this will authenticate you in the Ventus Cloud using created API user.
 
-- **Cluster name**
-- **Cluster status**
-- **INFO**: 
-    - ID
-    - Created at
-    - Updated at
-    - Cluster template
-    - Status reason  
-- **NODES**:
-    - Master count
-    - Node count
-    - API Address
-    - Master Addresses
-    - Node Addresses    
-- **MISCELLANEOUS**:
-    - Discovery URL
-    - Cluster create timeout
-    - Keypair
-    - Master flavor
-    - Node flavor
-    - Health status  
-- **LABELS**
-And few icons of quick actions:
-    - *Resize*
-    - *Get certificate*
-    - *Delete*  
+4) Run next command to get a list of all clusters:
+```
+openstack coe cluster list
+```
 
-![](../../assets/img/clusters/clusters3.png) 
+5) Run next command to get kubeconfig file for your cluster:
 
-## Delete a Cluster
-To delete a Cluster, just click on the delete button in the card or list view and on the following page confirm your action as shown below:  
+```
+openstack coe cluster config kubeflow
+```
 
-![](../../assets/img/clusters/clusters4.png) 
-![](../../assets/img/clusters/clusters5.png) 
+6) Export path to created config for as KUBECONFIG env variable:
 
-**For example, see a quick recap**
-![](../../assets/img/clusters/clusters.gif)
+```
+export KUBECONFIG=/root/config
+```
 
+8) Run next command to test that you have access to the cluster and all pods are running:
+```
+kubectl get pods --all-namespaces
+```
