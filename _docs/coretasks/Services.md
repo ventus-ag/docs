@@ -64,7 +64,7 @@ that an internal cluster IP has been assigned to your service. To see it use the
 
 ## ClusterIP
 
-**ClusterIP** - Default Service type, wich exposes the Service on a cluster-internal IP and makes it only reachable from within the cluster. We can use `kubectl describe svc kube` command to see this type in our Service's details.
+**ClusterIP** - Default Service type, wich exposes the Service on a cluster-internal IP and makes it only reachable from within the cluster. We can use command: `kubectl describe svc kube` to see this type in our Service's details.
 
 ![](../../assets/img/services/describe_svc.png)
 
