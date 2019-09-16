@@ -30,17 +30,17 @@ Once a User is created, you will be able to access OpenStack endpoints directly 
 
 To get OpenRC file of the created Api User:
 
-- click on the **Get OpenRC file** button in the card or list view 
+- click on the **Get OpenRC file** button in the card or list view   
 ![](../../assets/img/API-Users/API-Users5.png)
 
-- select region and hit **GET FILE**
+- select region and hit **GET FILE**  
 ![](../../assets/img/API-Users/API-Users6.png)
 
-- file named `openrc` will be downloaded to your machine
+- file named `openrc` will be downloaded to your machine  
 
 ## Delete an API User
 
-To delete an api user, just click on the delete button in the card or list view and on the following page confirm your action as shown below:
+To delete an api user, just click on the delete button in the card or list view and on the following page confirm your action as shown below:  
 ![](../../assets/img/API-Users/API-Users3.png) 
 ![](../../assets/img/API-Users/API-Users4.png) 
 
