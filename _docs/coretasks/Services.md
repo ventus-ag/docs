@@ -2,7 +2,7 @@
 title: Services
 description: How to create a new Service 
 tags: [ featured, coretasks ]
-# permalink: /API-Users/
+# permalink: /Services/
 ---
 # Services
 {: .no_toc }
