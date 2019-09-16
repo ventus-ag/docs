@@ -25,7 +25,7 @@ On the main Navigation Panal go to `Cloud` and choose `SSH Keys`. On this page y
 `Creation date`: Shows when a SSH key was created in month-day-year format.  
 
 `Fingerprint`: Shows each Public Key fingerprint which is a sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a Public Key.  
-![](../../assets/img/ssh-key/ssh-key11.png)  
+![](../../assets/img/ssh-key/ssh-key0.png)  
 
 To add a SSH key which is already created, go to the SSH keys page and  click the plus `(+)` button from the bottom right *Add SSH Key*.  
 ![](../../assets/img/ssh-key/ssh-key1.png)  
