@@ -25,6 +25,8 @@
           url: "docs/coretasks/Resize-VM"
         - title: "Services"
           url: "docs/coretasks/Services"
+        - title: "NodePort"
+          url: "docs/coretasks/NodePort"
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
