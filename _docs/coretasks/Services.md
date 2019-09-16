@@ -59,7 +59,7 @@ label selector.
 Now you can list all Service resources in your namespace using command `kubectl get scv` and see
 that an internal cluster IP has been assigned to your service:
 
-![](../../assets/img/services/get_svc.png) 
+![](../../assets/img/services/get_svc.png)  
 
 ## ClusterIP
 
