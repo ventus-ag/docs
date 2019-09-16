@@ -1,5 +1,5 @@
 ---
-title: NodePort Service
+title: NodePort
 description: How to create a NodePort Service 
 tags: [ featured, coretasks ]
 # permalink: /NodePort/
