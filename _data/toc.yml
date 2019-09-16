@@ -22,9 +22,9 @@
         - title: "Snapshots"
           url: "docs/coretasks/Snapshots" 
         - title: "Resize virtual machines"
-          url: "docs/coretasks/Services"
+          url: "docs/coretasks/Resize-VM"
         - title: "Services"
-          url: "docs/coretasks/API-Users"
+          url: "docs/coretasks/Services"
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
