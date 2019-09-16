@@ -17,22 +17,21 @@ tags: [ featured, coretasks ]
 
 For this coretask we suppose that in Ventus cloud we've already created:
 - the instance, with the next parameters:
-    * Name: TestIn
+    * Name: Test_Inst
     * Image: ubuntu-1804-bionic
     * Flavor: Small
     * Public IP: 
 
 - the kubernetes cluster, with the next parameters:
-    * Name: TestCl
+    * Name: Test_Cluster
     * Master count: 1
     * Node count: 1
-    * Docker volume size (GB): 100
-    * Node flavor: Huge
+    * Docker volume size (GB): 30
+    * Node flavor: Medium 
     * Master node flavor: Small
 
 - API User, which has the next detailes and just loaded "openrc" file:
-    * name: TestUser
-    * ID: 16a43e908d654d0fb7a8e05dafbcd4f2
+    * name: Test_User
     * password: 12344321
     
 
@@ -76,3 +75,14 @@ export KUBECONFIG=/root/config
 ```
 kubectl get pods --all-namespaces
 ```
+
+
+
+
+
+
+
+
+
+
+
