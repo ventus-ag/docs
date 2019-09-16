@@ -56,8 +56,9 @@ label selector.
 
 ![](../../assets/img/services/new_service_created.png) 
 
-Now you can list all Service resources in your namespace using command `kubectl get scv` and see
-that an internal cluster IP has been assigned to your service:
+Now you can list all Service resources in your namespace and see
+that an internal cluster IP has been assigned to your service with using command:
+- `kubectl get scv` 
 
 ![](../../assets/img/services/get_svc.png)  
 
