@@ -8,7 +8,8 @@ tags: [ featured, coretasks ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of how to create a NodePort Service in your Kubernetes cluster. How to create Service with default type you can find in relevant core tasks:<a href="https://ventus-ag.github.io/docs/docs/coretasks/Services">Services</a>" %} 
+{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of how to create a NodePort Service in your Kubernetes cluster. How to create Service with default type you can find in relevant core tasks:" %} 
+<a href="https://ventus-ag.github.io/docs/docs/coretasks/Services">Services</a>
 
 
 ## Table of contents
@@ -48,7 +49,6 @@ Use `kubectl create -f kube-svc.yaml` command to create NodePort Service.
 
 And apply changes with command: 
 - `kubectl apply -f kube-svc.yaml`
-
 
 
 ![](../../assets/img/services/new_service_created.png) 
