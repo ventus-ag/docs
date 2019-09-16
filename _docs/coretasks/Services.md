@@ -1,34 +1,37 @@
 ---
 title: Services
-description: How to resize Linux VM in Ventus Cloud
+description: How to create a new API User 
 tags: [ featured, coretasks ]
-# permalink: /Resize-VM/
+# permalink: /API-Users/
 ---
-# Resize virtual machines
+# API Users
+{: .no_toc }
 ---
 
-One of the great benefits of Ventus VMs is the ability to change the size of your VM based on the needs for CPU, Network, disk or memory requirements. 
+## Table of contents
+{: .no_toc .text-delta }
 
-**To resize the current instance:**  
-- go to Instances page, choose instance, which size you want to change (eg. "Test" which flavor is 1x1)   
-![](../../assets/img/resize/resize1.png)   
+1. TOC
+{:toc}
 
-- click on bottom `more` and choose action `resize`  
-![](../../assets/img/resize/resize2.png)  
+## Create new API User
 
-- choose new flavor of instance you need and click `resize instance`  
-![](../../assets/img/resize/resize3.png)  
+For creating new API User do following:
 
-- confirm the resizing - click `resize instance` again  
-![](../../assets/img/resize/resize4.png)  
+1) On the main Navigation Panal go to  `Cloud`, choose `API Users` and click the floating button `+` present in the lower right corner   
+![](../../assets/img/API-Users/API-Users1.png)  
 
-- wait until resize completed, login to your instance and confirm that the server is operational after resizing
+2) On the following page enter the user name (Eg. "User1"), password and an optional description as shown below: 
+![](../../assets/img/API-Users/API-Users2.png)   
 
-- choose `Cofirm resize` from the instanse menu to confirm migration was successful, otherwise choose `Revert resize` to revert back to the initial state.  
-![](../../assets/img/resize/resize5.png)    
- 
-Our instance was resized and its status becomes *running*.  
-![](../../assets/img/resize/resize6.png) 
+Once a user is created, you will be able to access OpenStack endpoints directly with your project ID, username and password.
+
+## Delete an API User
+To delete an api user, just click on the delete button in the card or list view and on the following page confirm your action as shown below:
+![](../../assets/img/API-Users/API-Users3.png) 
+![](../../assets/img/API-Users/API-Users4.png) 
 
 **For example, see a quick recap**
-![](../../assets/img/resize/resize.gif)
+![](../../assets/img/API-Users/API-user.gif)
+
+
