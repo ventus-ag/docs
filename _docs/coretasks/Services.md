@@ -8,9 +8,9 @@ tags: [ featured, coretasks ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of how to create a new service in your Kubernetes cluster. For service creation you will need cluster and access to cli. How to do that you can find in relevant core tasks:" %} 
+{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of how to create a new service in your Kubernetes cluster. For service creation you will need Kubernetes cluster and access to cli. How to do that you can find in relevant core tasks:" %} 
 
- - <a href="https://ventus-ag.github.io/docs/docs/coretasks/Clusters">Clusters</a>
+ - <a href="https://ventus-ag.github.io/docs/docs/coretasks/Clusters">Kubernetes</a>
  - Get access to your cli 
 
 ## Table of contents
@@ -21,16 +21,11 @@ tags: [ featured, coretasks ]
 
 ## Introducing services
 
-A Kubernetes Service is a resource you create to make a single, constant point of
-entry to a group of pods providing the same service. Each service has an IP address
-and port that never change while the service exists. Clients can open connections to
-that IP and port, and those connections are then routed to one of the pods backing
-that service. This way, clients of a service don’t need to know the location of individual pods providing the service, allowing those pods to be moved around the cluster
-at any time.
+A Kubernetes Service is a resource wich we create to make a single way of entry to a group of pods providing the same service. In Kubernetes, a Service is an abstraction which defines a logical set of Pods and a policy by which to access them. Each service has an IP address and port that never change while the service exists. We can connect to that IP and port, and those connections are then routed to one of the pods backing that service. 
 
 ## Service creating
 
-For creating new Service do following:
+To create new Service do next steps:
 
 1) Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
 
@@ -51,7 +46,7 @@ You’re defining a service called kube, which will accept connections on port 8
 route each connection to port 8080 of one of the pods matching the app=kube
 label selector. 
 
-2) Create the service by posting the file using command:
+2) Create the service by using next command:
 - `kubectl create -f kube-svc.yaml`.
 
 ![](../../assets/img/services/new_service_created.png) 
@@ -65,6 +60,8 @@ that an internal cluster IP has been assigned to your service. To see it use the
 ## ClusterIP
 
 **ClusterIP** - Default Service type, wich exposes the Service on a cluster-internal IP and makes it only reachable from within the cluster. We can use command: `kubectl describe svc kube` to see this type in our Service's details.
+
+
 
 ![](../../assets/img/services/describe_svc.png)
 
