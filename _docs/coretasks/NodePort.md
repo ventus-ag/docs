@@ -54,6 +54,7 @@ Now you can list all Service resources in your namespace and see
 that an internal cluster IP has been assigned to your service. To see it use the command:
 - `kubectl get scv` 
 
+
 Now we can use command: `kubectl describe svc kube-svc` to see NodePort type in our Service's details.
 
 ![](../../assets/img/services/describe_nodeport.png)  
