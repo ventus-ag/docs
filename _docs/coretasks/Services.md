@@ -49,7 +49,7 @@ label selector.
 2) Create the service by using next command:
 - `kubectl create -f kube-svc.yaml`.
 
-![](../../assets/img/services/new_service_created.png) 
+![](../../assets/img/services/service_created.png) 
 
 Now you can list all Service resources in your namespace and see
 that an internal cluster IP has been assigned to your service. To see it use the command:
