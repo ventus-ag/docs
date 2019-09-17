@@ -43,11 +43,10 @@ spec:
 ```   
 Use `kubectl create -f kube-svc.yaml` command to create LoadBalancer Service.
 
-2) If you already created Services from `yaml` file, you can edit this file with command:
-- `kubectl edit -f kube-svc.yaml`.
+2) If you already created Service you can edit it with command:
+- `kubectl edit svc kube-svc`.
 
-Apply changes with command: 
-- `kubectl apply -f kube-svc.yaml`
+Make nessesary changes and saved. It will be automatically applyed to your cluster.
 
 
 ![](../../assets/img/services/apply_loadbalancer.png) 
