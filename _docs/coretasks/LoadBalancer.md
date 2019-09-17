@@ -2,9 +2,9 @@
 title: LoadBalancer
 description: How to create a LoadBalancer Service 
 tags: [ featured, coretasks ]
-# permalink: /NodePort/
+# permalink: /LoadBalancer/
 ---
-# NodePort
+# LoadBalancer
 {: .no_toc }
 ---
 
@@ -18,13 +18,13 @@ tags: [ featured, coretasks ]
 1. TOC
 {:toc}
 
-## What is NodePort 
+## What is LoadBalancer 
 
-**NodePort** - Service type wich expose a static port on each Node’s IP. The Kubernetes provide port from a range 30000 - 32627 by default. Using a NodePort gives you the freedom to set up your own load balancing solution, to configure environments that are not fully supported by Kubernetes, or even to just expose one or more nodes’ IPs directly.
+**LoadBalancer** - Service type wich have its own unique, publicly accessible IP address and will redirect all connections to your service. You can thus access your service through the load balancer’s IP address.
 
-## NodePort Service creating
+## Loadbalancer Service creating
 
-We can create NodePort Service with two ways:
+We can create LoadBalancer Service with two ways:
 
 1) Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
 
@@ -34,15 +34,14 @@ kind: Service
 metadata:
   name: kube-svc
 spec:
-  type: NodePort  
+  type: LoadBalancer 
   ports:
     - port: 80
       targetPort: 8080
-      nodePort: 30123
     selector:
       app: kube
 ```   
-Use `kubectl create -f kube-svc.yaml` command to create NodePort Service.
+Use `kubectl create -f kube-svc.yaml` command to create LoadBalancer Service.
 
 2) If you already created Services from `yaml` file, you can edit this file with command:
 - `kubectl edit -f kube-svc.yaml`.
@@ -51,15 +50,15 @@ Apply changes with command:
 - `kubectl apply -f kube-svc.yaml`
 
 
-![](../../assets/img/services/new_service_created.png) 
+![](../../assets/img/services/apply_loadbalancer.png) 
 
 Now you can list all Service resources in your namespace and see
 that an internal cluster IP has been assigned to your service. To see it use the command:
 - `kubectl get scv` 
 
-Now we can use command: `kubectl describe svc kube-svc` to see NodePort type in our Service's details.
+Now we can use command: `kubectl describe svc kube-svc` to see LoadBalancer type in our Service's details.
 
-![](../../assets/img/services/describe_nodeport.png)  
+![](../../assets/img/services/describe_loadbalancer.png)  
 
 
 
