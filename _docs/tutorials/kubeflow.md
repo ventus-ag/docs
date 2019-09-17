@@ -1,10 +1,10 @@
 ---
-title: Runing ML pipeline using Kubeflow on Kubernetes
+title: Running ML pipeline using Kubeflow on Kubernetes
 description: How to deploy Kubeflow on kubernetes and compile, train and serve ML pipeline.
 tags: [ featured, tutorial, kubernetes, kubeflow ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---
-# Runing ML pipeline using Kubeflow on Kubernetes
+# Running ML pipeline using Kubeflow on Kubernetes
 {: .no_toc }
 ---
 
@@ -131,10 +131,10 @@ Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD
 
 {% include alert.html type="info" title="Requirements:" content="Next packages should be installed on your client for the next steps: python3, pip3, docker." %}
 
-Run next commnads to compile pipeline:
+Run next commands to compile pipeline:
 
   - `git clone https://github.com/ventus-ag/kubeflow.git`
-  - `cd kubeflow/samples/mnist-pipelines/deploy-servic`
+  - `cd kubeflow/samples/mnist-pipelines/deploy-service`
   - `docker build -t ACCOUNT/NAME .`
   - `docker push ACCOUNT/NAME`
   - `cd ..`
@@ -202,7 +202,7 @@ Use IP you received in previous step and open web UI page with experiment's resu
 
 Congratulations! You successfully finished this tutorial.
 
-Let's re-cap what we've done: 
+Let's re-cap what we've done:
 - Created new kubernetes cluster for Kubeflow.
 - Deployed Kubeflow.
 - Compiled mnist pipeline example.

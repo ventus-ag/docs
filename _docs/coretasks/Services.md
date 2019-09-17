@@ -11,7 +11,7 @@ tags: [ featured, coretasks ]
 {% include alert.html type="info" title="Note" content="In this page, you can find an explanation of how to create a new service in your Kubernetes cluster. For service creation you will need Kubernetes cluster and access to cli. How to do that you can find in relevant core tasks:" %} 
 
  - <a href="https://ventus-ag.github.io/docs/docs/coretasks/Clusters">Kubernetes</a>
- - Get access to your cli 
+ - <a href="https://ventus-ag.github.io/docs/docs/coretasks/Clusters">Get access to your cli</a>
 
 ## Table of contents
 {: .no_toc .text-delta }

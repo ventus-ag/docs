@@ -48,8 +48,8 @@ Use `kubectl create -f kube-svc.yaml` command to create LoadBalancer Service.
 
 Make nessesary changes and saved. It will be automatically applyed to your cluster.
 
-
 ![](../../assets/img/services/apply_loadbalancer.png) 
+
 
 Now you can list all Service resources in your namespace and see
 that an internal cluster IP has been assigned to your service. To see it use the command:
