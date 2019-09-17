@@ -27,6 +27,8 @@
           url: "docs/coretasks/Services"
         - title: "NodePort"
           url: "docs/coretasks/NodePort"
+        - title: "LoadBalancer"
+          url: "docs/coretasks/LoadBalancer"
     - title: "Tutorials"
       url: "docs/tutorials"
       children:

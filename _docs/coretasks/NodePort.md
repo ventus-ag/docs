@@ -47,7 +47,7 @@ Use `kubectl create -f kube-svc.yaml` command to create NodePort Service.
 2) If you already created Services from `yaml` file, you can edit this file with command:
 - `kubectl edit -f kube-svc.yaml`.
 
-And apply changes with command: 
+Apply changes with command: 
 - `kubectl apply -f kube-svc.yaml`
 
 
