@@ -139,11 +139,9 @@ To get the access to your Kubernetes cluster using CLI follow the next steps:
 
 1) Loggin to your Instance from which we need to get access to the Kubernetes Cluster API
 
-2) Add the CentOS 7 EPEL repository and RDO repository by using the following commands:
+2) Add the CentOS 7 RDO repository by using the following command:
 
 ```
-yum install epel-release
-
 yum install -y https://www.rdoproject.org/repos/rdo-release.rpm
 ```
 
