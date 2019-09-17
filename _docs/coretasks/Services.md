@@ -65,5 +65,4 @@ that an internal cluster IP has been assigned to your service. To see it use the
 ![](../../assets/img/services/describe_svc.png)
 
 
-ClusterIP type we are using for Services wich we don't want to expose outside and want to use it inside our Kubernetes cluster, internal data base, backend API for example. 
-
+ClusterIP type usually used for Services which no need to expose outside and should be used inside Kubernetes cluster. For example, internal data base, backend API, etc.
