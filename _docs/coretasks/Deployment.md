@@ -40,7 +40,12 @@ spec:
         - containerPort: 80
 
 ```
-Save this file wtih name like deployment.yaml and run command
+Save this file with name like deployment.yaml and run command
 ```sh 
 kubectl create -f deployment.yaml
+```
+2)Run ```sh kubectl get deployments``` to check if the Deployment was created. If the Deployment is still being created, the output is similar to the following:
+```console
+NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   3         3         3            3           9s
 ```
