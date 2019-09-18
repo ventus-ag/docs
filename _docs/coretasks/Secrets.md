@@ -40,13 +40,15 @@ Use the `kubectl create secret generic db-user-pass --from-file=./username.txt -
 
 ![](../../assets/img/secrets/secret_creation.png)
 
-Now you can check that the secret was created by using command `kubectl get secrets`
+Now you can check that the secret was created by command: `kubectl get secrets`
 
 ![](../../assets/img/secrets/check_secret.png)
 
-And `kubectl describe secrets/db-user-pass`
+And see details of it by command: `kubectl describe secrets/db-user-pass`
 
 ![](../../assets/img/secrets/describe_secret.png)
+
+{% include alert.html type="info" title="Note" content="`kubectl get` and `kubectl describe` avoid showing the contents of a secret by default. This is to protect the secret from being exposed accidentally to an onlooker, or from being stored in a terminal log." %} 
 
 1) Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
 
