@@ -44,8 +44,20 @@ Save this file with name like deployment.yaml and run command
 ```sh 
 kubectl create -f deployment.yaml
 ```
-2)Run ```sh kubectl get deployments``` to check if the Deployment was created. If the Deployment is still being created, the output is similar to the following:
+2) Run **kubectl get deployments** to check if the Deployment was created. If the Deployment is still being created, the output is similar to the following:
 ```console
 NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   3         3         3            3           9s
 ```
+
+* **NAME** lists the names of the Deployments in the cluster.
+
+* **DESIRED** displays the desired number of replicas of the application, which you define when you create the Deployment. This is the desired state.
+
+* **CURRENT** displays how many replicas are currently running.
+
+* **UP-TO-DATE** displays the number of replicas that have been updated to achieve the desired state.
+
+* **AVALIBLE** displays how many replicas of the application are available to your users.
+
+* **AGE** displays the amount of time that the application has been running.
