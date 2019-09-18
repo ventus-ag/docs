@@ -62,13 +62,14 @@ nginx-deployment   3         3         3            3           9s
 * **AGE** displays the amount of time that the application has been running.
 
 ---
-# Updating a Deployment
+## Updating a Deployment
 {: .no_toc }
 
 {% include alert.html type="info" title="Note" content="A Deployment’s rollout is triggered if and only if the Deployment’s Pod template (that is, .spec.template) is changed, for example if the labels or container images of the template are updated. Other updates, such as scaling the Deployment, do not trigger a rollout.." %}
 
-1) Let’s update the nginx Pods to use the **nginx:1.9.1** image instead of the **nginx:1.7.9 image**.
 
-```yaml
+1) Let’s update the nginx Pods to use the ```nginx:1.9.1``` image instead of the ```nginx:1.7.9``` image.
+
+```yaml 
 kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
 ```
