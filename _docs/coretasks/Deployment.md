@@ -16,9 +16,7 @@ tags: [ featured, coretasks ]
 
 1) The following is an example of a Deployment. It creates a ReplicaSet to bring up three nginx Pods
 
-```yaml
-controllers/nginx-deployment.yaml 
-
+```yaml 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -40,4 +38,9 @@ spec:
         image: nginx:1.7.9
         ports:
         - containerPort: 80
+
+```
+Save this file wtih name like deployment.yaml and run command
+```sh 
+kubectl create -f deployment.yaml
 ```
