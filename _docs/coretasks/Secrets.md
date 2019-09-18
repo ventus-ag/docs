@@ -33,7 +33,7 @@ In this part we consider two ways for creating secrets:
 - Creating a Secret Using `kubectl create`
 - Creating a Secret from `yaml` file 
 
-### Creating a Secret Using "kubectl create"
+1) Creating a Secret Using "kubectl create":
 
 Create files needed for rest of example:
  - `echo -n 'admin' > ./username.txt`
@@ -53,7 +53,7 @@ And see details of it by command: `kubectl describe secrets/db-user-pass`
 
 ![](../../assets/img/secrets/describe_secret.png)
 
-### Creating a Secret from "yaml" file 
+2) Creating a Secret from "yaml" file: 
 
 For example, to store two strings in a Secret using the data field, convert them to base64 as follows:
 
@@ -82,9 +82,46 @@ Use command: `kubectl get secrets mysecret -o yaml` to see detailed information 
 
 ![](../../assets/img/secrets/secret_details.png)
 
-  
+## Using secrets
 
+Secrets can be mounted as data volumes or be exposed as environment variables to be used by a container in a pod:
 
+1) Mount secret as data volume: 
 
+Create a `yaml` file called for example `nginx.yaml` with the following listing’s contents:
 
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: newpod
+spec:
+  containers:
+  - name: newpod
+    image: redis
+    volumeMounts:
+    - name: foo
+      mountPath: "/etc/foo"
+      readOnly: true
+  volumes:
+  - name: foo
+    secret:
+      secretName: mysecret
+```
+Use `kubectl create -f nginx.yaml` command to create Pod.
 
+`pod/newpod created`
+
+Now we have pod `newpod` with secret `mysecret` whitch is located at /etc/foo.
+We can see secret detils useing this commnads:
+
+`kubectl exec newpod -it -- /bin/sh`
+`ls -l /etc/foo`
+`cat /etc/foo/username`
+`cat /etc/foo/password`
+
+![](../../assets/img/secrets/secret_info.png)
+
+We have been get values what we used and encoded earlier:
+  `username: YWRtaW4=`
+  `password: cGFzc3dvcmQ=`
