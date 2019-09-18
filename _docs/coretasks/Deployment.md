@@ -231,9 +231,11 @@ Events:
 
 First, check the revisions of this Deployment:
 
+```sh
 kubectl rollout history deployment.v1.apps/nginx-deployment
-The output is similar to this:
+```
 
+The output is similar to this:
 ```console
 deployments "nginx-deployment"
 REVISION  CHANGE-CAUSE
@@ -244,14 +246,12 @@ REVISION  CHANGE-CAUSE
 ```
 
 
-rollback to a specific revision by specifying it with ```--to-revision```
+Rollback to a specific revision by specifying it with ```--to-revision```
 ```sh
 kubectl rollout undo deployment.v1.apps/nginx-deployment --to-revision=3
 ```
 
-or
-
-rollback to the previous revision
+Or rollback to the previous revision
 
 ```sh
 kubectl rollout undo deployment.v1.apps/nginx-deployment
