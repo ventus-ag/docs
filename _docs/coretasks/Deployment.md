@@ -70,41 +70,53 @@ nginx-deployment   3         3         3            3           9s
 
 1) Let’s update the nginx Pods to use the ```nginx:1.9.1``` image instead of the ```nginx:1.7.9``` image.
 
-```yaml 
+```console 
 kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
 ```
 The output is similar to this:
 
-  ```deployment.apps/nginx-deployment image updated```
+  ```console
+  deployment.apps/nginx-deployment image updated
+  ```
 
 2) To see the rollout status, run:
 
-  ```kubectl rollout status deployment.v1.apps/nginx-deployment```
+  ```console
+  kubectl rollout status deployment.v1.apps/nginx-deployment
+  ```
 
 The output is similar to this:
   
-  ```Waiting for rollout to finish: 2 out of 3 new replicas have been updated...```
+```console
+Waiting for rollout to finish: 2 out of 3 new replicas have been updated...
+```
   
-  or
+or
   
-  ```deployment "nginx-deployment" successfully rolled out```
+```console
+deployment "nginx-deployment" successfully rolled out
+```
 
 Get more details on your updated Deployment:
 
-```kubectl get deployments```
+```sh
+kubectl get deployments
+```
 
 The output is similar to this:
 
-```yaml
+```console
 NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   3         3         3            3           50s
 ```
 
-Run ```kubectl get rs``` to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
+Run ```sh 
+kubectl get rs
+``` to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
 
 The output is similar to this:
 
-```yaml
+```console
 NAME                          DESIRED   CURRENT   READY     AGE
 nginx-deployment-67594d6bf6   0         0         0         50s
 nginx-deployment-6fdbb596db   3         3         3         9s
