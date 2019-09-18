@@ -41,7 +41,6 @@ sudo apt update
 
 ```
 sudo apt install python-pip
-sudo pip install --upgrade pip
 ```
 
 4) Install openstack cli tool by running two next commands one by one: 
