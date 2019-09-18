@@ -38,8 +38,8 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
-    selector:
-      app: kube
+  selector:
+    app: kube
 ```   
 Use `kubectl create -f kube-svc.yaml` command to create LoadBalancer Service.
 
