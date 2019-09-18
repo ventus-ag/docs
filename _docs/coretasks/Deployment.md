@@ -15,7 +15,7 @@ tags: [ featured, coretasks ]
 ## Create new Deployment
 
 1) The following is an example of a Deployment. It creates a ReplicaSet to bring up three nginx Pods
-```yaml 
+```sh
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -68,7 +68,7 @@ nginx-deployment   3         3         3            3           9s
 
 
 1) Let’s update the nginx Pods to use the ```nginx:1.9.1``` image instead of the ```nginx:1.7.9``` image.
-```console 
+```sh 
 kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
 ```
 The output is similar to this:
@@ -77,7 +77,7 @@ deployment.apps/nginx-deployment image updated
 ```
 
 2) To see the rollout status, run:
-```console
+```sh
 kubectl rollout status deployment.v1.apps/nginx-deployment
 ```
 
