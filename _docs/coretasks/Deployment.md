@@ -186,4 +186,42 @@ Get the description of the Deployment:
 ```sh
 kubectl describe deployment
 ```
+The output is similar to this:
 
+```console
+Last login: Wed Sep 18 11:59:47 2019 from 193.178.51.135
+[fedora@slavik-4idpwl7yrszr-master-0 ~]$ kubectl describe deployment
+Name:                   nginx-deployment
+Namespace:              default
+CreationTimestamp:      Wed, 18 Sep 2019 07:22:44 +0000
+Labels:                 app=nginx
+Annotations:            deployment.kubernetes.io/revision=5
+                        kubernetes.io/change-cause=kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.91 --record=true
+Selector:               app=nginx
+Replicas:               3 desired | 1 updated | 4 total | 3 available | 1 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=nginx
+  Containers:
+   nginx:
+    Image:        nginx:1.91
+    Port:         80/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    False   ProgressDeadlineExceeded
+OldReplicaSets:  nginx-deployment-6fdbb596db (3/3 replicas created)
+NewReplicaSet:   nginx-deployment-58c7645486 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  54m   deployment-controller  Scaled up replica set nginx-deployment-58c7645486 to 1
+  ```
+  
