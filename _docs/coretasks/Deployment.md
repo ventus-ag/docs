@@ -226,3 +226,38 @@ Events:
   ----    ------             ----  ----                   -------
   Normal  ScalingReplicaSet  54m   deployment-controller  Scaled up replica set nginx-deployment-58c7645486 to 1
   ```
+
+### Rolling Back to a Previous Revision
+
+First, check the revisions of this Deployment:
+
+kubectl rollout history deployment.v1.apps/nginx-deployment
+The output is similar to this:
+
+```console
+deployments "nginx-deployment"
+REVISION  CHANGE-CAUSE
+3         kubectl deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.7.9 --record=true
+4         kubectl deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1 --record=true
+5         kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.91 --record=true
+
+```
+
+
+rollback to a specific revision by specifying it with ```--to-revision```
+```sh
+kubectl rollout undo deployment.v1.apps/nginx-deployment --to-revision=3
+```
+
+or
+
+rollback to the previous revision
+
+```sh
+kubectl rollout undo deployment.v1.apps/nginx-deployment
+```
+
+The output is similar to this:
+```console
+deployment.apps/nginx-deployment
+```
