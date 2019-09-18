@@ -267,8 +267,10 @@ Check if the rollback was successful:
 kubectl get deployment nginx-deployment
 ```
 The output is similar to this:
+```console
 NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   3         3         3            3           1m
+```
 
 Get the description of the Deployment:
 
