@@ -18,7 +18,7 @@ tags: [ featured, coretasks ]
 ## Create new Deployment
 
 1) The following is an example of a Deployment. It creates a ReplicaSet to bring up three nginx Pods
-```sh
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
