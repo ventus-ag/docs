@@ -30,16 +30,15 @@ To use a secret, a pod needs to reference the secret. A secret can be used with 
 ## Secret creation
 
 
-> #### Create files needed for rest of example.
-
-> - echo -n 'admin' > ./username.txt
-> - echo -n '1f2d1e2e67df' > ./password.txt
+Create files needed for rest of example:
+ - `echo -n 'admin' > ./username.txt`
+ - `echo -n '1f2d1e2e67df' > ./password.txt`
 
 Say that some pods need to access a database. The username and password that the pods should use is in the files `./username.txt` and `./password.txt` on your local machine
 
-The `kubectl create secret` command packages these files into a Secret and creates the object on the Apiserver
+Use the `kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt` command to packages these files into a Secret and creates the object on the Apiserver
 
-`kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt`
+![](../../assets/img/secrets/secret_creation.png)
 
 1) Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
 
