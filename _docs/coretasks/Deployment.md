@@ -12,6 +12,9 @@ tags: [ featured, coretasks ]
 ## Table of contents
 {: .no_toc .text-delta }
 
+1. TOC
+{:toc}
+
 ## Create new Deployment
 
 1) The following is an example of a Deployment. It creates a ReplicaSet to bring up three nginx Pods
@@ -224,4 +227,3 @@ Events:
   ----    ------             ----  ----                   -------
   Normal  ScalingReplicaSet  54m   deployment-controller  Scaled up replica set nginx-deployment-58c7645486 to 1
   ```
-  
