@@ -125,3 +125,43 @@ We can see secret detils useing this commnads:
 We have been get values what we used and encoded earlier:
  <br> `username: YWRtaW4=`
  <br> `password: cGFzc3dvcmQ=`
+
+ 2) Using secret as Environment Variables:
+
+ To use a secret in an environment variable in a pod: 
+  - Create a secret or use an existing one. Multiple pods can reference the same secret.
+  - Modify your Pod definition in each container that you wish to consume the value of a secret key to add an environment variable for each secret key you wish to consume. The environment variable that consumes the secret key should populate the secret’s name and key in: `env[].valueFrom.secretKeyRef`
+  - Modify your image and/or command line so that the program looks for values in the specified environment variables
+
+  This is an example of a pod that uses secrets from environment variables:
+
+```yaml
+  apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-env-pod
+spec:
+  containers:
+  - name: mycontainer
+    image: redis
+    env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: username
+      - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: password
+  restartPolicy: Never
+  ```
+Now we have pod `secret-env-pod` with secret `mysecret` usiing as environment variables.
+We can see secret detils useing this commnads:
+
+`kubectl exec secret-env-pod -it -- /bin/sh`
+<br>`echo $SECRET_USERNAME`
+<br>`echo $PASSWORD`
+
+![](../../assets/img/secrets/secret-env-pod.png)
