@@ -29,6 +29,11 @@ To use a secret, a pod needs to reference the secret. A secret can be used with 
 
 ## Secret creation
 
+In this part we consider two ways for creating secrets:
+- Creating a Secret Using `kubectl create`
+- Creating a Secret from `yaml` file 
+
+### Creating a Secret Using "kubectl create"
 
 Create files needed for rest of example:
  - `echo -n 'admin' > ./username.txt`
@@ -48,40 +53,36 @@ And see details of it by command: `kubectl describe secrets/db-user-pass`
 
 ![](../../assets/img/secrets/describe_secret.png)
 
-{% include alert.html type="info" title="Note" content="`kubectl get` and `kubectl describe` avoid showing the contents of a secret by default. This is to protect the secret from being exposed accidentally to an onlooker, or from being stored in a terminal log." %} 
+### Creating a Secret from "yaml" file 
 
-1) Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
+For example, to store two strings in a Secret using the data field, convert them to base64 as follows:
+
+- echo -n 'admin' | base64
+- echo -n 'password' | base64
+
+![](../../assets/img/secrets/base64.png)
+
+Create a `yaml` file called for example `mysecret.yaml` with the following listing’s contents: 
 
 ```yaml
 apiVersion: v1
-kind: Service
+kind: Secret
 metadata:
-  name: kube-svc
-spec:
-  type: NodePort  
-  ports:
-    - port: 80
-      targetPort: 8080
-    selector:
-      app: kube
+  name: mysecret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: cGFzc3dvcmQ=
 ```   
-Use `kubectl create -f kube-svc.yaml` command to create NodePort Service.
+Use `kubectl apply -f ./mysecret.yaml` command to create Secret.
 
-2) If you already created Service you can edit it with command:
-- `kubectl edit svc kube-svc`.
+![](../../assets/img/secrets/secret_creation_yaml.png)
 
-Make nessesary changes and saved. It will be automatically applyed to your cluster.
+Use command: `kubectl get secrets mysecret -o yaml` to see detailed information about Secret.
 
-![](../../assets/img/services/new_service_created.png) 
+![](../../assets/img/secrets/secret_details.png)
 
-Now you can list all Service resources in your namespace and see
-that an internal cluster IP has been assigned to your service. To see it use the command:
-- `kubectl get scv` 
-
-
-Now we can use command: `kubectl describe svc kube-svc` to see NodePort type in our Service's details.
-
-![](../../assets/img/services/describe_nodeport.png)  
+  
 
 
 
