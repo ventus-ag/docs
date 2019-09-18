@@ -72,7 +72,7 @@ nginx-deployment   3         3         3            3           9s
 kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
 ```
 The output is similar to this:
-```console
+```sh
 deployment.apps/nginx-deployment image updated
 ```
 
@@ -101,9 +101,10 @@ NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   3         3         3            3           50s
 ```
 
-Run ```sh 
+Run ```sh
 kubectl get rs
-```to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
+```
+to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
 
 
 The output is similar to this:
@@ -111,4 +112,15 @@ The output is similar to this:
 NAME                          DESIRED   CURRENT   READY     AGE
 nginx-deployment-67594d6bf6   0         0         0         50s
 nginx-deployment-6fdbb596db   3         3         3         9s
+```
+Running ```sh
+kubectl get pods```
+should now show only the new Pods
+
+The output is similar to this:
+```console
+NAME                                READY     STATUS    RESTARTS   AGE
+nginx-deployment-6fdbb596db-5s62f   1/1       Running   0          50s
+nginx-deployment-6fdbb596db-p568z   1/1       Running   0          50s
+nginx-deployment-6fdbb596db-xt4dl   1/1       Running   0          50s
 ```
