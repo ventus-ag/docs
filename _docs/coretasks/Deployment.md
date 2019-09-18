@@ -166,7 +166,7 @@ nginx-deployment-6fdbb596db   3         3         3         50s
 ```
 
 Pod created by new ReplicaSet is stuck in an image pull loop.
-To check that```kubectl get pods```
+To check that        ```kubectl get pods```
 
 The output is similar to this:
 
