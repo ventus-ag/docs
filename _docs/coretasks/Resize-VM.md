@@ -10,7 +10,7 @@ tags: [ featured, coretasks ]
 One of the great benefits of Ventus VMs is the ability to change the size of your VM based on the needs for CPU, Network, disk or memory requirements. 
 
 **To resize the current instance:**  
-- go to Instances page, choose instance, which size you want to change (eg. "Test" which flavor is 1x1)   
+- go to Instances page, choose instance, which size you want to change (eg. "Test" which flavor is small)   
 ![](../../assets/img/resize/resize1.png)   
 
 - click on bottom `more` and choose action `resize`  
