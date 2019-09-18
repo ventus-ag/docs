@@ -73,3 +73,18 @@ nginx-deployment   3         3         3            3           9s
 ```yaml 
 kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
 ```
+The output is similar to this:
+
+  **deployment.apps/nginx-deployment image updated**
+
+2) LookTo see the rollout status, run:
+
+  **kubectl rollout status deployment.v1.apps/nginx-deployment**
+
+  The output is similar to this:
+  
+  **Waiting for rollout to finish: 2 out of 3 new replicas have been updated...**
+  
+  ***or...***
+  
+  **deployment "nginx-deployment" successfully rolled out**
