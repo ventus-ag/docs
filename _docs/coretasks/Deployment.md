@@ -123,3 +123,14 @@ nginx-deployment-6fdbb596db-5s62f   1/1       Running   0          50s
 nginx-deployment-6fdbb596db-p568z   1/1       Running   0          50s
 nginx-deployment-6fdbb596db-xt4dl   1/1       Running   0          50s
 ```
+
+---
+## Rolling Back a Deployment
+
+{% include alert.html type="info" title="Note" content="For example, when the Deployment is not stable, such as crash looping. By default, all of the Deployment’s rollout history is kept in the system so that you can rollback anytime you want" %}
+
+Suppose that you made a typo while updating the Deployment, by putting the image name as ```nginx:1.91```instead of```nginx:1.9.1```:
+
+```sh
+kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.91 --record=true
+```
