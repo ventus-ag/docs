@@ -41,7 +41,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-Save this file with name like deployment.yaml and run command
+Save this file with name like deployment.yaml and run command:
 ```sh 
 kubectl create -f deployment.yaml
 ```
@@ -229,3 +229,17 @@ Events:
   Normal  ScalingReplicaSet   5m    deployment-controller  Scaled down replica set nginx-deployment-6fdbb596db to 0
 ```
 
+## Scaling a Deployment
+
+You can scale a Deployment:
+```sh
+kubectl scale deployment.v1.apps/nginx-deployment --replicas=5
+```
+The output is similar to this:
+```sh
+deployment.apps/nginx-deployment scaled
+```
+Horizontal Pod autoscalingr:
+```sh
+kubectl autoscale deployment.v1.apps/nginx-deployment --min=3 --max=5 --cpu-percent=80
+```
