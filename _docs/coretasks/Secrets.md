@@ -116,9 +116,9 @@ Now we have pod `newpod` with secret `mysecret` whitch is located at /etc/foo.
 We can see secret detils useing this commnads:
 
 `kubectl exec newpod -it -- /bin/sh`
-`ls -l /etc/foo`
-`cat /etc/foo/username`
-`cat /etc/foo/password`
+<br>`ls -l /etc/foo`
+<br>`cat /etc/foo/username`
+<br>`cat /etc/foo/password`
 
 ![](../../assets/img/secrets/secret_info.png)
 
