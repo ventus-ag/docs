@@ -4,7 +4,7 @@ description: How to create a Secrets
 tags: [ featured, coretasks ]
 # permalink: /Secrets/
 ---
-# NodePort
+# Secrets
 {: .no_toc }
 ---
 
@@ -29,13 +29,11 @@ To use a secret, a pod needs to reference the secret. A secret can be used with 
 
 ## Secret creation
 
-```yaml
 
-# Create files needed for rest of example.
-echo -n 'admin' > ./username.txt
-echo -n '1f2d1e2e67df' > ./password.txt
+># Create files needed for rest of example.
+>echo -n 'admin' > ./username.txt
+>echo -n '1f2d1e2e67df' > ./password.txt
 
-```
 
 1) Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
 
