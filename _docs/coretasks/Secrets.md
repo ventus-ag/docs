@@ -123,5 +123,5 @@ We can see secret detils useing this commnads:
 ![](../../assets/img/secrets/secret_info.png)
 
 We have been get values what we used and encoded earlier:
-  `username: YWRtaW4=`
-  `password: cGFzc3dvcmQ=`
+ <br> `username: YWRtaW4=`
+ <br> `password: cGFzc3dvcmQ=`
