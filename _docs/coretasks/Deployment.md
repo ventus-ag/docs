@@ -42,7 +42,8 @@ Save this file with name like deployment.yaml and run command
 ```sh 
 kubectl create -f deployment.yaml
 ```
-2) Run **kubectl get deployments** to check if the Deployment was created. If the Deployment is still being created, the output is similar to the following:
+2) Run ```kubectl get deployments```
+to check if the Deployment was created. If the Deployment is still being created, the output is similar to the following:
 ```console
 NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   3         3         3            3           9s
@@ -101,9 +102,8 @@ NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   3         3         3            3           50s
 ```
 
-Run ```sh
-kubectl get rs
-```to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
+Run ```kubectl get rs```
+to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
 
 
 The output is similar to this:
@@ -113,8 +113,7 @@ nginx-deployment-67594d6bf6   0         0         0         50s
 nginx-deployment-6fdbb596db   3         3         3         9s
 ```
 
-Running ```sh
-kubectl get pods```
+Running ```kubectl get pods```
 should now show only the new Pods
 
 The output is similar to this:
