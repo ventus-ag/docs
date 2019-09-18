@@ -19,7 +19,7 @@ tags: [ featured, coretasks ]
 
 For creating new Cluster do following:
 
-1) On the main Navigation Panal go to  `Cloud`, choose `Clusters` and click the floating button `+` present in the lower right corner   
+1) On the main Navigation Panel go to  `Cloud`, choose `Clusters` and click the floating button `+` present in the lower right corner   
 
 ![](../../assets/img/clusters/clusters1.png)  
 

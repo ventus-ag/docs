@@ -41,7 +41,6 @@ sudo apt update
 
 ```
 sudo apt install python-pip
-sudo pip install --upgrade pip
 ```
 
 4) Install openstack cli tool by running two next commands one by one: 
@@ -149,7 +148,6 @@ yum install -y https://www.rdoproject.org/repos/rdo-release.rpm
 
 ```
 yum install python-openstackclient
-
 yum install python-magnumclient
 ```
 
@@ -163,7 +161,6 @@ vi openrc
 
 ```
 export OS_ENDPOINT_TYPE=publicURL
-
 export OS_INTERFACE=publicURL
 
 # COMMON OPENSTACK ENVS
@@ -226,7 +223,6 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 ```
 kubectl get nodes
-
 kubectl get pods --all-namespaces
 ```
 

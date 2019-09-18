@@ -32,7 +32,7 @@ For creating new instance do the following:
 2) On the following page fill in these fields:
 
 - *Instance Name*: 
-This will set the name in the Ventus and OpenStack database. The hostname inside the instance will not be set.(eg. "Test1")
+This will set the name in the Ventus database. The hostname inside the instance will not be set.(eg. "Test1")
 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus2.png)
 
@@ -74,6 +74,7 @@ You can view your typed password by clicking on the eye icon from right. The pas
 
 **For example, see a quick recap**  
 ![](../../assets/img/new-linux-vm-V/001.gif)
+
 
 ## View instance details
 ---
