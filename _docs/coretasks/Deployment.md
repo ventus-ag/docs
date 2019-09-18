@@ -69,4 +69,6 @@ nginx-deployment   3         3         3            3           9s
 
 1) Let’s update the nginx Pods to use the **nginx:1.9.1** image instead of the **nginx:1.7.9 image**.
 
-```kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1```
+```yaml
+kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1
+```
