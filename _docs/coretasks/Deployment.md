@@ -141,7 +141,7 @@ deployment.apps/nginx-deployment image updated
 ```
 The rollout gets stuck. You can verify it by checking the rollout status:
 
-```console
+```sh
 kubectl rollout status deployment.v1.apps/nginx-deployment
 ```
 The output is similar to this:
@@ -149,9 +149,12 @@ The output is similar to this:
 ```console
 Waiting for rollout to finish: 1 out of 3 new replicas have been updated...
 ```
+
 Press ```Ctrl-C``` to stop the above rollout status watch.
 
+
 Type ```kubectl get rs``` and you see that the number of old replicas
+
 
 The output is similar to this:
 
@@ -160,4 +163,17 @@ NAME                          DESIRED   CURRENT   READY     AGE     REPLICAS
 nginx-deployment-58c7645486   1         1         0         5s      <--new
 nginx-deployment-67594d6bf6   0         0         0         50s     <--old
 nginx-deployment-6fdbb596db   3         3         3         50s     <--old
+```
+
+Pod created by new ReplicaSet is stuck in an image pull loop.
+Input ```kubectl get pods``` to check that.
+
+The output is similar to this:
+
+```console
+NAME                                READY     STATUS             RESTARTS   AGE
+nginx-deployment-58c7645486-j8dx4   0/1       ImagePullBackOff   0          22s
+nginx-deployment-6fdbb596db-5s62f   1/1       Running            0          2m
+nginx-deployment-6fdbb596db-p568z   1/1       Running            0          2m
+nginx-deployment-6fdbb596db-xt4dl   1/1       Running            0          2m
 ```
