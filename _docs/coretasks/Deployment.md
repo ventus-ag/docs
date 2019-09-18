@@ -159,14 +159,14 @@ Type ```kubectl get rs``` and you see that the number of old replicas
 The output is similar to this:
 
 ```console
-NAME                          DESIRED   CURRENT   READY     AGE     REPLICAS
-nginx-deployment-58c7645486   1         1         0         5s      <--new
-nginx-deployment-67594d6bf6   0         0         0         50s     <--old
-nginx-deployment-6fdbb596db   3         3         3         50s     <--old
+NAME                          DESIRED   CURRENT   READY     AGE 
+nginx-deployment-58c7645486   1         1         0         5s  
+nginx-deployment-67594d6bf6   0         0         0         50s 
+nginx-deployment-6fdbb596db   3         3         3         50s 
 ```
 
 Pod created by new ReplicaSet is stuck in an image pull loop.
-Input ```kubectl get pods``` to check that.
+To check that```kubectl get pods```
 
 The output is similar to this:
 
