@@ -233,7 +233,7 @@ Events:
 
 You can scale a Deployment:
 ```sh
-kubectl scale deployment.v1.apps/nginx-deployment --replicas=5
+kubectl scale deployment.v1.apps/nginx-deployment --replicas=8
 ```
 The output is similar to this:
 ```sh
