@@ -77,7 +77,7 @@ The output is similar to this:
 
   ```deployment.apps/nginx-deployment image updated```
 
-2) LookTo see the rollout status, run:
+2) To see the rollout status, run:
 
   ```kubectl rollout status deployment.v1.apps/nginx-deployment```
 
@@ -85,6 +85,27 @@ The output is similar to this:
   
   ```Waiting for rollout to finish: 2 out of 3 new replicas have been updated...```
   
-  ***or***
+  or
   
   ```deployment "nginx-deployment" successfully rolled out```
+
+Get more details on your updated Deployment:
+
+```kubectl get deployments```
+
+The output is similar to this:
+
+```yaml
+NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   3         3         3            3           50s
+```
+
+Run ```kubectl get rs``` to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
+
+The output is similar to this:
+
+```yaml
+NAME                          DESIRED   CURRENT   READY     AGE
+nginx-deployment-67594d6bf6   0         0         0         50s
+nginx-deployment-6fdbb596db   3         3         3         9s
+```
