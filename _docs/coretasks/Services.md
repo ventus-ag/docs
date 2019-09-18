@@ -36,10 +36,10 @@ metadata:
   name: kube
 spec:
   ports:
-    - port: 80
-      targetPort: 8080
-    selector:
-      app: kube
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: kube
 ```   
 
 You’re defining a service called kube, which will accept connections on port 80 and

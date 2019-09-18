@@ -36,10 +36,10 @@ metadata:
 spec:
   type: NodePort  
   ports:
-    - port: 80
-      targetPort: 8080
-    selector:
-      app: kube
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: kube
 ```   
 Use `kubectl create -f kube-svc.yaml` command to create NodePort Service.
 
