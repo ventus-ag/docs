@@ -75,16 +75,16 @@ kubectl --record deployment.apps/nginx-deployment set image deployment.v1.apps/n
 ```
 The output is similar to this:
 
-  **deployment.apps/nginx-deployment image updated**
+  ```deployment.apps/nginx-deployment image updated```
 
 2) LookTo see the rollout status, run:
 
-  **kubectl rollout status deployment.v1.apps/nginx-deployment**
+  ```kubectl rollout status deployment.v1.apps/nginx-deployment```
 
-  The output is similar to this:
+The output is similar to this:
   
-  **Waiting for rollout to finish: 2 out of 3 new replicas have been updated...**
+  ```Waiting for rollout to finish: 2 out of 3 new replicas have been updated...```
   
-  ***or...***
+  ***or***
   
-  **deployment "nginx-deployment" successfully rolled out**
+  ```deployment "nginx-deployment" successfully rolled out```
