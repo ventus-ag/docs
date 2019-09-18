@@ -239,7 +239,26 @@ The output is similar to this:
 ```sh
 deployment.apps/nginx-deployment scaled
 ```
-Horizontal Pod autoscalingr:
+Horizontal Pod autoscaling:
 ```sh
-kubectl autoscale deployment.v1.apps/nginx-deployment --min=3 --max=5 --cpu-percent=80
+kubectl autoscale deployment.v1.apps/nginx-deployment --min=3 --max=8 --cpu-percent=80
 ```
+Ensure that the 8 replicas in your Deployment are running.
+```sh
+kubectl get deploy
+```
+The output is similar to this:
+```console
+NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   8         10        4            6           1m
+```
+You update to a new image which happens to be unresolvable from inside the cluster.
+```sh
+kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:sometag
+```
+The output is similar to this:
+```cnsole
+deployment.apps/nginx-deployment image updated
+```
+
+### Proportional scaling
