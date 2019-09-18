@@ -127,10 +127,37 @@ nginx-deployment-6fdbb596db-xt4dl   1/1       Running   0          50s
 ---
 ## Rolling Back a Deployment
 
-{% include alert.html type="info" title="Note" content="For example, when the Deployment is not stable, such as crash looping. By default, all of the Deployment’s rollout history is kept in the system so that you can rollback anytime you want" %}
+{% include alert.html type="info" title="Note" content="For example, when the Deployment is not stable, such as crash looping. By default, all of the Deployment’s rollout history is kept in the system so that you can rollback anytime you want." %}
 
 Suppose that you made a typo while updating the Deployment, by putting the image name as ```nginx:1.91```instead of```nginx:1.9.1```:
 
 ```sh
 kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.91 --record=true
+```
+The output is similar to this:
+
+```console
+deployment.apps/nginx-deployment image updated
+```
+The rollout gets stuck. You can verify it by checking the rollout status:
+
+```console
+kubectl rollout status deployment.v1.apps/nginx-deployment
+```
+The output is similar to this:
+
+```console
+Waiting for rollout to finish: 1 out of 3 new replicas have been updated...
+```
+Press ```Ctrl-C``` to stop the above rollout status watch.
+
+Type ```kubectl get rs``` and you see that the number of old replicas
+
+The output is similar to this:
+
+```console
+NAME                          DESIRED   CURRENT   READY     AGE     REPLICAS
+nginx-deployment-58c7645486   1         1         0         5s      <--new
+nginx-deployment-67594d6bf6   0         0         0         50s     <--old
+nginx-deployment-6fdbb596db   3         3         3         50s     <--old
 ```
