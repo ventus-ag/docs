@@ -184,10 +184,6 @@ kubectl describe deployment nginx-deployment
 
 The output is similar to this:
 ```console
-NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-nginx-deployment   3         3         3            3           6h
-[fedora@user-4idpwl7yrszr-master-0 ~]$ ^C
-[fedora@user-4idpwl7yrszr-master-0 ~]$ kubectl describe deployment nginx-deployment
 Name:                   nginx-deployment
 Namespace:              default
 CreationTimestamp:      Wed, 18 Sep 2019 07:22:44 +0000
@@ -233,32 +229,28 @@ Events:
 
 You can scale a Deployment:
 ```sh
-kubectl scale deployment.v1.apps/nginx-deployment --replicas=8
+kubectl scale deployment.v1.apps/nginx-deployment --replicas=10
 ```
 The output is similar to this:
 ```sh
 deployment.apps/nginx-deployment scaled
 ```
-Horizontal Pod autoscaling:
-```sh
-kubectl autoscale deployment.v1.apps/nginx-deployment --min=3 --max=8 --cpu-percent=80
-```
-Ensure that the 8 replicas in your Deployment are running.
 ```sh
 kubectl get deploy
 ```
 The output is similar to this:
 ```console
 NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-nginx-deployment   8         10        4            6           1m
-```
-You update to a new image which happens to be unresolvable from inside the cluster.
-```sh
-kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:sometag
-```
-The output is similar to this:
-```cnsole
-deployment.apps/nginx-deployment image updated
+nginx-deployment   10        10        10           10          1m
 ```
 
-### Proportional scaling
+
+## Delete a Deployment
+
+```sh
+kubectl delete -f deployment.yaml
+```
+The output is similar to this:
+```console
+deployment.apps "nginx-deployment" deleted
+```
