@@ -103,8 +103,7 @@ nginx-deployment   3         3         3            3           50s
 
 Run ```sh
 kubectl get rs
-```
-to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
+```to see that the Deployment updated the Pods by creating a new ReplicaSet and scaling it up to 3 replicas, as well as scaling down the old ReplicaSet to 0 replicas.
 
 
 The output is similar to this:
@@ -113,6 +112,7 @@ NAME                          DESIRED   CURRENT   READY     AGE
 nginx-deployment-67594d6bf6   0         0         0         50s
 nginx-deployment-6fdbb596db   3         3         3         9s
 ```
+
 Running ```sh
 kubectl get pods```
 should now show only the new Pods
