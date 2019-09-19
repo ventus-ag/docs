@@ -79,9 +79,7 @@ And use `kubectl get configmap game-config-2 -o yaml` to inspect it:
 
 ## Using ConfigMap
 
-1) Create `yaml` file and add the ConfigMap name under the volumes section of the Pod specification. This adds the ConfigMap data to the directory specified as volumeMounts.mountPath (in this case, /etc/config). The command section references the special.level item stored in the ConfigMap.
-
-For example: 
+1) Create `yaml` file and add the ConfigMap name under the `volumes` section of the Pod specification. This adds the ConfigMap data to the directory specified as `volumeMounts.mountPath` (in this case, `/etc/config`). The `command` section references the `special.level` item stored in the ConfigMap:
 
 ```yaml
 apiVersion: v1
