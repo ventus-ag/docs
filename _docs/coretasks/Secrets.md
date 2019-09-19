@@ -157,7 +157,7 @@ spec:
   restartPolicy: Never
   ```
 Now we have pod `secret-env-pod` with secret `mysecret` usiing as environment variables.
-We can see secret detils useing this commnads:
+We can see secret details using this commnads:
 
 `kubectl exec secret-env-pod -it -- /bin/sh`
 <br>`echo $SECRET_USERNAME`
