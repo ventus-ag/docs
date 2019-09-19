@@ -112,7 +112,7 @@ Use `kubectl create -f nginx.yaml` command to create Pod.
 `pod/newpod created`
 
 Now we have pod `newpod` with secret `mysecret` whitch is located at /etc/foo.
-We can see secret detils useing this commnads:
+We can see secret details using this commnads:
 
 `kubectl exec newpod -it -- /bin/sh`
 <br>`ls -l /etc/foo`
