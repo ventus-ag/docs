@@ -27,18 +27,18 @@ tags: [ featured, coretasks ]
 
 1) Use the `kubectl create configmap` command to create configmaps from directories, files, or literal values:
 
-`kubectl create configmap <map-name> <data-source>`
+- `kubectl create configmap <map-name> <data-source>`
 
 where <map-name> is the name you want to assign to the ConfigMap and <data-source> is the directory, file, or literal value to draw the data from.
 
 For example: 
 
-`kubectl create configmap fortune-config --from-literal=sleep-interval=25`
+- `kubectl create configmap fortune-config --from-literal=sleep-interval=25`
 
 ![](../../assets/img/configmap/create_konfigmap.png)
 
  Now you can inspect your configmap with command:
-<br>`kubectl get configmap fortune-config -o yaml`
+- `kubectl get configmap fortune-config -o yaml`
 
  ![](../../assets/img/configmap/configmap_inpect.png)
 
@@ -61,7 +61,7 @@ Create the configmap:
 ![](../../assets/img/configmap/create_konfigmap2.png)
 
 Now you can inspect your configmap with command:
-<br>`kubectl get configmap game-config -o yaml`
+- `kubectl get configmap game-config -o yaml`
 
 ![](../../assets/img/configmap/configmap_inpect2.png)
 
@@ -71,7 +71,7 @@ You can use `kubectl create configmap` to create a ConfigMap from an individual 
 
 For exapmle:
 
-`kubectl create configmap game-config-2 --from-file=configure-pod-container/configmap/game.properties`
+- `kubectl create configmap game-config-2 --from-file=configure-pod-container/configmap/game.properties`
 
 And use `kubectl get configmap game-config-2 -o yaml` to inspect it: 
 
