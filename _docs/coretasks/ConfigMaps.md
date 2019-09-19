@@ -37,7 +37,8 @@ For example:
 
 ![](../../assets/img/configmap/create_konfigmap.png)
 
- Now you can inspect your configmap with command `kubectl get configmap fortune-config -o yaml`:
+ Now you can inspect your configmap with command:
+`kubectl get configmap fortune-config -o yaml`
 
  ![](../../assets/img/configmap/configmap_inpect.png)
 
@@ -59,7 +60,8 @@ Create the configmap:
 
 ![](../../assets/img/configmap/create_konfigmap2.png
 
-Now you can inspect your configmap with command `kubectl get configmap game-config -o yaml`:
+Now you can inspect your configmap with command:
+`kubectl get configmap game-config -o yaml`
 
 ![](../../assets/img/configmap/configmap_inpect2.png
 
