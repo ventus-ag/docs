@@ -4,11 +4,11 @@ description: How to create a ConfigMap
 tags: [ featured, coretasks ]
 # permalink: /ConfigMaps/
 ---
-# Secrets
+# ConfigMaps
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of what is the secret, how to create and use it." %} 
+{% include alert.html type="info" title="Note" content="In this page, you can find an explanation how to create ConfigMaps and configure Pods using data stored in ConfigMaps." %} 
  
 
 
@@ -18,29 +18,64 @@ tags: [ featured, coretasks ]
 1. TOC
 {:toc}
 
-## What is the Secret 
+## What is the ConfigMap 
 
-**Secret** - Is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in an image; putting it in a Secret object allows for more control over how it is used, and reduces the risk of accidental exposure.
-Users can create secrets, and the system also creates some secrets.
-
-To use a secret, a pod needs to reference the secret. A secret can be used with a pod in two ways: as files in a volume mounted on one or more of its containers, or used by kubelet when pulling images for the pod.
+**ConfigMap** - is configuration options for separate objects. ConfigMap contains key/value pairs with the values ranging from short literals to full config files.
 
 
-## Secret creation
+## Create a ConfigMap
 
-In this part we consider two ways for creating secrets:
-- Creating a Secret Using `kubectl create`
-- Creating a Secret from `yaml` file 
+1) Use the `kubectl create configmap` command to create configmaps from directories, files, or literal values:
 
-1) Creating a Secret Using "kubectl create":
+`kubectl create configmap <map-name> <data-source>`
 
-Create files needed for rest of example:
- - `echo -n 'admin' > ./username.txt`
- - `echo -n '1f2d1e2e67df' > ./password.txt`
+where <map-name> is the name you want to assign to the ConfigMap and <data-source> is the directory, file, or literal value to draw the data from.
 
-Say that some pods need to access a database. The username and password that the pods should use is in the files `./username.txt` and `./password.txt` on your local machine
+For example: 
 
-Use the `kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt` command to packages these files into a Secret and creates the object on the Apiserver
+`kubectl create configmap fortune-config --from-literal=sleep-interval=25`
+
+![](../../assets/img/configmap/create_konfigmap.png)
+
+ Now you can inspect your configmap with command `kubectl get configmap fortune-config -o yaml`:
+
+ ![](../../assets/img/configmap/configmap_inpect.png)
+
+2) Create ConfigMaps from directories
+
+You can use `kubectl create configmap` to create a ConfigMap from multiple files in the same directory.
+
+For exapmle:
+
+Create the local directory:
+- `mkdir -p configure-pod-container/configmap/`
+
+Download the sample files into `configure-pod-container/configmap/` directory:
+- `wget https://kubernetes.io/examples/configmap/game.properties -O configure-pod-container/configmap/game.properties`
+
+Create the configmap:
+- `kubectl create configmap game-config --from-file=configure-pod-container/configmap/`
+
+
+![](../../assets/img/configmap/create_konfigmap2.png
+
+Now you can inspect your configmap with command `kubectl get configmap game-config -o yaml`:
+
+![](../../assets/img/configmap/configmap_inpect2.png
+
+3) Create ConfigMaps from files
+
+You can use `kubectl create configmap` to create a ConfigMap from an individual file, or from multiple files.
+
+For exapmle:
+
+`kubectl create configmap game-config-2 --from-file=configure-pod-container/configmap/game.properties`
+
+And use `kubectl get configmap game-config-2 -o yaml` to inspect it: 
+
+![](../../assets/img/configmap/configmap_inpect3.png
+
+
 
 ![](../../assets/img/secrets/secret_creation.png)
 

@@ -26,7 +26,7 @@ Users can create secrets, and the system also creates some secrets.
 To use a secret, a pod needs to reference the secret. A secret can be used with a pod in two ways: as files in a volume mounted on one or more of its containers, or used by kubelet when pulling images for the pod.
 
 
-## Secret creation
+## Create a Secret
 
 In this part we consider two ways for creating secrets:
 - Creating a Secret Using `kubectl create`
