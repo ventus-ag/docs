@@ -77,9 +77,38 @@ And use `kubectl get configmap game-config-2 -o yaml` to inspect it:
 
 ![](../../assets/img/configmap/configmap_inpect3.png)
 
+## Using ConfigMap
 
+1) Create `yaml` file and add the ConfigMap name under the volumes section of the Pod specification. This adds the ConfigMap data to the directory specified as volumeMounts.mountPath (in this case, /etc/config). The command section references the special.level item stored in the ConfigMap.
 
+For example: 
 
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "ls /etc/config/" ]
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: game-config
+  restartPolicy: Never                          
+```
+2) Create a pod using `kubectl create` command:
+- `kubectl create -f pod-volume.yaml`
+
+Now use command `kubectl logs` to see result: 
+- `kubecctl logs pod pod-volume`
+
+![](../../assets/img/configmap/logs_pod.png)
 
 
 
