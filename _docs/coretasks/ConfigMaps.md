@@ -103,7 +103,7 @@ spec:
 2) Create a pod using `kubectl create` command:
 - `kubectl create -f pod-volume.yaml`
 
-Now use command `kubectl logs` to see result: 
+After pod was created, you can use `kubectl logs` to see result: 
 - `kubecctl logs pod pod-volume`
 
 ![](../../assets/img/configmap/logs_pod.png)
