@@ -131,8 +131,6 @@ nginx-deployment-6fdbb596db-xt4dl   1/1       Running   0          50s
 
 {% include alert.html type="info" title="Note" content="For example, when the Deployment is not stable, such as crash looping. By default, all of the Deployment’s rollout history is kept in the system so that you can rollback anytime you want." %}
 
-### Rolling Back to a Previous Revision
-
 First, check the revisions of this Deployment:
 
 ```sh
@@ -245,7 +243,7 @@ nginx-deployment   10        10        10           10          1m
 ```
 
 
-## Delete a Deployment
+## Cleanup
 
 ```sh
 kubectl delete -f deployment.yaml
