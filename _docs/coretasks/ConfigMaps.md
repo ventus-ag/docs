@@ -58,12 +58,12 @@ Create the configmap:
 - `kubectl create configmap game-config --from-file=configure-pod-container/configmap/`
 
 
-![](../../assets/img/configmap/create_konfigmap2.png
+![](../../assets/img/configmap/create_konfigmap2.png)
 
 Now you can inspect your configmap with command:
 `kubectl get configmap game-config -o yaml`
 
-![](../../assets/img/configmap/configmap_inpect2.png
+![](../../assets/img/configmap/configmap_inpect2.png)
 
 3) Create ConfigMaps from files
 
@@ -75,7 +75,12 @@ For exapmle:
 
 And use `kubectl get configmap game-config-2 -o yaml` to inspect it: 
 
-![](../../assets/img/configmap/configmap_inpect3.png
+![](../../assets/img/configmap/configmap_inpect3.png)
+
+
+
+
+
 
 
 
