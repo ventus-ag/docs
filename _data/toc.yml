@@ -33,6 +33,8 @@
           url: "docs/coretasks/access-by-cli"
           url: "docs/coretasks/Secrets" 
         - title: "Secrets"
+          url: "docs/coretasks/ConfigMaps" 
+        - title: "ConfigMaps"
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
