@@ -56,8 +56,8 @@ And see details of it by command: `kubectl describe secrets/db-user-pass`
 
 For example, to store two strings in a Secret using the data field, convert them to base64 as follows:
 
-- echo -n 'admin' | base64
-- echo -n 'password' | base64
+- `echo -n 'admin' | base64`
+- `echo -n 'password' | base64`
 
 ![](../../assets/img/secrets/base64.png)
 
