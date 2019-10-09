@@ -33,6 +33,8 @@
           url: "docs/coretasks/access-by-cli"
         - title: "Deployment"
           url: "docs/coretasks/Deployment"
+        - title: "Ventus Cloud Object Storage"
+          url: "docs/coretasks/object-storage"          
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
