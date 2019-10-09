@@ -148,20 +148,33 @@ So, as we can see, by using phyton code, we have just:
 
 ## Use the Object Storage by the client S3 Browser
 
-The S3 Browser is the second way, after the the Python API, how you can use  Ventus Cloud Object Storage and manage stored data in it.
+The S3 Browser is the second way, after the the Python API, how you can use  Ventus Cloud Object Storage and manage data stored in it.
 
-S3 Browser is  a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web.  It can be used to deliver your files using a global network of edge locations.
-
-To install it on your computer, go to the next page <https://s3browser.com/>
+To download and install it on your computer, go to the next page <https://s3browser.com/>
 
 After instalation you can open on your computer S3 Browser and see the next interface of this programm:  
+
 ![](../../assets/img/object-storage/1.png) 
 
 To start work with Ventus Cloud Object Storage you need to get access to your Ventus account, what need to use your credential information too. To get this access on the main Navigation Panel go to  `Accounts`, choose `Add new account` and on the following page fill in fields as shown below:  
+
 ![](../../assets/img/object-storage/2.png)
 
-So now you have access to your Ventus Cloud Object Storage through the S3 Browser. You can add a new bucket or delete a bucket just by clicking on the one of the butoons:
+So now you have access to your Ventus Cloud Object Storage through the S3 Browser. Now you can work with Ventus Cloud Object Storage and manage your data stored in it. For example, you can add a new bucket or delete a bucket just by clicking on the one of the butoons:
 ![](../../assets/img/object-storage/3.png)
+
+So, the S3 Browser is a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web.  It can be used to deliver your files using a global network of edge locations.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
