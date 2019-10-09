@@ -25,18 +25,18 @@ There is no notion of hierarchy with containers: you cannot nest a container wit
 
 ## Configure Object Storage with the Python API
 
-Python support is provided through a fork of the boto3 library with features to make the most of Ventus Cloud Object Storage. To install it 
+1) Python support is provided through a fork of the boto3 library with features to make the most of Ventus Cloud Object Storage. To install it 
 run the command bellow
 ```
 pip install boto
 ```
-To connect to COS, a client is created and configured using credential information. These values can also be automatically sourced from a credentials file or from environment variables. To get this infirmation type:
+2) To connect to COS, a client is created and configured using credential information. These values can also be automatically sourced from a credentials file or from environment variables. To get this information type:
 ```
 openstack --os-interface public ec2 credentials list
 ```
 After this command you can see your credential information, remember the access_key, secret_key, because you need this information in the following steps.
 
-Next you need to create new file (ex. s3.py ) with the next phyton code:
+3) Next you need to create new file (ex. s3.py ) with the next phyton code:
 ```
 vi s3.py
 ```
@@ -68,16 +68,29 @@ Remember to replace the ‘your_access_key’ and 'your_secret_key' part with yo
 
 Then press `Esc :wq`, and `Enter` to save the changes.
 
-To execute your created "s3.py" file type the next:
+4) To execute your created "s3.py" file type the next:
 
 ```
 python s3.py
 ```
-If the execution was completed without a problem, you should see the next output, what meens taht we have already created the new bucket, which name is my_new_bucket :
+If the execution was completed without a problem, you should see the next output, what meens that we have already created the new bucket, which name is my_new_bucket :
 ```
 my_new_bucket  2019-10-09T08:13:19.071Z
 ```
+
 So, as we can see, by using phyton code, we have just:
+
 - created a connection so that you can interact with the server
-- createed a new bucket called my_new_bucket
-- got a list of Buckets that you own  and  printed out the bucket name and creation date of each bucket.
+- created a new bucket called my_new_bucket
+- got a list of Buckets that you own and printed out the bucket name and creation date of each bucket.
+
+
+
+
+
+
+
+
+
+
+
