@@ -107,7 +107,7 @@ Then press `Esc :wq`, and `Enter` to save the changes.
 
 ### Create credentials file
 
-To connect to Object Storage, a client is created and configured using credential information. These values can also be automatically sourced from a credentials file or from environment variables. To get this information type:
+To connect to Object Storage, we need to create credentials file. To get this information type:
 
 ```
 openstack --os-interface public ec2 credentials create
@@ -122,7 +122,7 @@ After this commands you can see your credential information, remember the access
 pip install boto
 ```
 
-2) Next you need to create new file (ex. s3.py ) with the next phyton code:
+2) Next you need to create new file (eg. s3.py ) with the next python code:
 ```
 vi s3.py
 ```
@@ -164,9 +164,9 @@ If the execution was completed without a problem, you should see the next output
 my_new_bucket  2019-10-09T08:13:19.071Z
 ```
 
-So, as we can see, by using phyton code, we have just:
+So, as we can see, by using python code, we have just:
 
-- created a connection so that you can interact with the server
+- created a connection so that you can interact with storage api endpoint
 - created a new bucket called my_new_bucket
 - got a list of Buckets that you own and printed out the bucket name and creation date of each bucket.
 
