@@ -1,7 +1,7 @@
 ---
 title: Ventus Cloud Object Storage
 description: What is Ventus Cloud Object Storage, how we can use it
-tags: [ featured, coretasks ]
+tags: [ featured, tutorial ]
 # permalink: /Object-Storage/
 ---
 # Object Storage
@@ -23,31 +23,52 @@ An Object Storage API differs from a conventional filesystem: instead of directo
 
 There is no notion of hierarchy with containers: you cannot nest a container within another, however you can emulate a nested folder structure with a naming convention for your objects. 
 
-## Use the Object Storage by the Python API
+In this tutorial you can find how to use the Ventus Cloud Object Storage with the Python API or with the client S3 Browser.
 
-Before we start to configure Object Storage with the Python API we need to do next:
-- Create new API User (how to do this you can find in coretask API Users)
+## Previous steps
+
+Before we start to configure Object Storage we need to do next:
+- Create new API User 
 - Get access to Ventus Cloud CLI  
+- Create credentials file
+
+### Create new API User
+
+For creating new API User do following:
+
+1) On the main Navigation Panel go to  `Cloud`, choose `API Users` and click the floating button `+` present in the lower right corner   
+![](../../assets/img/API-Users/API-Users1.png)  
+
+2) On the following page enter the user name (Eg. "User1"), password and an optional description as shown below: 
+![](../../assets/img/API-Users/API-Users2.png)  
+
+Once a User is created, you will be able to access Ventus Cloud endpoints directly with your project ID, username and password.
+
+Also, after this you can get OpenRC file of the created Api User:
+
+- click on the **Get OpenRC file** button in the card or list view   
+![](../../assets/img/API-Users/API-Users5.png)
+
+- select region and hit **GET FILE**  
+![](../../assets/img/API-Users/API-Users6.png)
+
+- file named `openrc` will be downloaded to your machine  
 
 ### Get access to Ventus Cloud CLI
 
 To get access to Ventus Cloud CLI you need do following:
-
 1) Install Python Client by running the next command:
-
 ```
 sudo apt install python-pip
 ```
 
 2) Install openstack cli tool by running two next commands one by one: 
-
 ```
 sudo pip install python-openstackclient
 sudo pip install python-magnumclient
 ```
 
-3) Create "openrc" file to your server Test_Inst 
-
+3) Configure "openrc" file to your server  
 ```
 vi openrc
 ```
@@ -84,21 +105,24 @@ Then press `Esc :wq`, and `Enter` to save the changes.
 
 5) Provide password of created API user and hit `enter` - this password will be used to authenticate you in the Ventus Cloud.
 
+### Create credentials file
 
-### Configure Object Storage with the Python API
+To connect to Object Storage, a client is created and configured using credential information. These values can also be automatically sourced from a credentials file or from environment variables. To get this information type:
 
-1) Python support is provided through a fork of the boto3 library with features to make the most of Ventus Cloud Object Storage. To install it 
-run the command bellow
+```
+openstack --os-interface public ec2 credentials create
+openstack --os-interface public ec2 credentials list
+```
+After this commands you can see your credential information, remember the access_key, secret_key, because you need this information in the following steps.
+
+## Use the Object Storage with the Python API
+
+1) Python support is provided through a fork of the boto3 library with features to make the most of Ventus Cloud Object Storage. To install it run the command bellow:
 ```
 pip install boto
 ```
-2) To connect to COS, a client is created and configured using credential information. These values can also be automatically sourced from a credentials file or from environment variables. To get this information type:
-```
-openstack --os-interface public ec2 credentials list
-```
-After this command you can see your credential information, remember the access_key, secret_key, because you need this information in the following steps.
 
-3) Next you need to create new file (ex. s3.py ) with the next phyton code:
+2) Next you need to create new file (ex. s3.py ) with the next phyton code:
 ```
 vi s3.py
 ```
@@ -130,7 +154,7 @@ Remember to replace the ‘your_access_key’ and 'your_secret_key' part with yo
 
 Then press `Esc :wq`, and `Enter` to save the changes.
 
-4) To execute your created "s3.py" file type the next:
+3) To execute your created "s3.py" file type the next:
 
 ```
 python s3.py
@@ -146,9 +170,9 @@ So, as we can see, by using phyton code, we have just:
 - created a new bucket called my_new_bucket
 - got a list of Buckets that you own and printed out the bucket name and creation date of each bucket.
 
-## Use the Object Storage by the client S3 Browser
+## Use the Object Storage with the client S3 Browser
 
-The S3 Browser is the second way, after the the Python API, how you can use  Ventus Cloud Object Storage and manage data stored in it.
+The S3 Browser is the second way, after the Python API, how you can use  Ventus Cloud Object Storage and manage data stored in it.
 
 To download and install it on your computer, go to the next page <https://s3browser.com/>
 
