@@ -187,7 +187,7 @@ To start work with Ventus Cloud Object Storage you need to get access to your Ve
 So now you have access to your Ventus Cloud Object Storage through the S3 Browser. Now you can work with Ventus Cloud Object Storage and manage your data stored in it. For example, you can add a new bucket or delete a bucket just by clicking on the one of the butoons:
 ![](../../assets/img/object-storage/3.png)
 
-So, the S3 Browser is a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web.  It can be used to deliver your files using a global network of edge locations.
+So, the S3 Browser is a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web.  
 
 
 
