@@ -32,7 +32,7 @@
         - title: "Access to the Kubernetes Cluster using CLI"
           url: "docs/coretasks/access-by-cli"
         - title: "Deployment"
-          url: "docs/coretasks/Deployment"
+          url: "docs/coretasks/Deployment"    
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
@@ -46,6 +46,8 @@
           url: "docs/tutorials/Install-wordpress"
         - title: "Running ML pipeline using Kubeflow on Kubernetes"
           url: "docs/tutorials/kubeflow"
+        - title: "Ventus Cloud Object Storage"
+          url: "docs/tutorials/object-storage"           
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         
