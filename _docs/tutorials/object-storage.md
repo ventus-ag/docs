@@ -180,7 +180,7 @@ After instalation you can open on your computer S3 Browser and see the next inte
 
 ![](../../assets/img/object-storage/1.png) 
 
-To start work with Ventus Cloud Object Storage you need to get access to your Ventus account, what need to use your credential information too. To get this access on the main Navigation Panel go to  `Accounts`, choose `Add new account` and on the following page fill in fields as shown below:  
+To start work with Ventus Cloud Object Storage you need to get access to your Ventus account, what need to use your credential information too. To get this access on the main Navigation Panel go to  `Accounts`, choose `Add new account` and on the following page fill in fields as shown below and press **Add new account**.
 
 ![](../../assets/img/object-storage/2.png)
 
