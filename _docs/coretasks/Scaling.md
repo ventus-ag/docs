@@ -85,4 +85,4 @@ spec:
 
 - Used comand `kubectl geet pods` and make sure that all pods in running state: 
 
-![](../../assets/img/scaling/get_pods.png2)
+![](../../assets/img/scaling/get_pods2.png)
