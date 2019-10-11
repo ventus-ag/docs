@@ -35,6 +35,8 @@
           url: "docs/coretasks/Secrets" 
         - title: "ConfigMaps"
           url: "docs/coretasks/ConfigMaps" 
+        - title: "Scaling"
+          url: "docs/coretasks/Scaling"
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
