@@ -1,28 +1,40 @@
 ---
 title: Scaling
-description: How to resize Linux VM in Ventus Cloud
+description: How to scale kubernetes cluster memory 
 tags: [ featured, coretasks ]
 # permalink: /Scaling/
 ---
-# Resize virtual machines
+# Scaling cluster memory
 ---
 
-One of the great benefits of Ventus VMs is the ability to change the size of your VM based on the needs for CPU, Network, disk or memory requirements. 
+In this task we will see how to scale cluster memory.
 
-**To resize the current instance:**  
-- go to Instances page, choose instance, which size you want to change (eg. "Test" which flavor is 1x1)   
-![](../../assets/img/resize/resize1.png)   
 
-- click on bottom `more` and choose action `resize`  
-![](../../assets/img/resize/resize2.png)  
 
-- choose new flavor of instance you need and click `resize instance`  
-![](../../assets/img/resize/resize3.png)  
+**To scale cluster memory:**  
+- go to Cloud page, choose Kubernetes and open your cluster:
+![](../../assets/img/scaling/choose_cluster.png)   
 
-- confirm the resizing - click `resize instance` again  
-![](../../assets/img/resize/resize4.png)  
+- In opening cluster choose `resize`  
+![](../../assets/img/scaling/resize_node1.png) 
 
-- wait until resize completed, login to your instance and confirm that the server is operational after resizing
+- Choose how much nodes you need and use action `resize cluster`  
+![](../../assets/img/scaling/resize_node.png)  
+
+- Wait untill update progress will end:  
+![](../../assets/img/scaling/cluster_update.png)  
+
+ **Let's see how it works on server side:** 
+
+- Create Kubernetes cluster with existing parametrs (How to create Kubrnetes cluster you can see in this core task: <a href="http://docs.ventuscloud.eu/docs/coretasks/Kubernetes">Kubernetes cluster</a>):
+
+```
+Master count: 1
+Node count: 1
+Docker volume size (Gb): 30
+Node flavor: Small
+Master node flavor: Small
+```
 
 - choose `Cofirm resize` from the instanse menu to confirm migration was successful, otherwise choose `Revert resize` to revert back to the initial state.  
 ![](../../assets/img/resize/resize5.png)    
