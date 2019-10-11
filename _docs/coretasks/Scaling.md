@@ -12,6 +12,7 @@ In this task we will see how to scale cluster memory.
 
 
 **To scale cluster memory:**  
+
 - go to Cloud page, choose Kubernetes and open your cluster:
 
 ![](../../assets/img/scaling/choose_cluster.png)   
@@ -30,7 +31,7 @@ In this task we will see how to scale cluster memory.
 
  **Let's see how it works on server side:** 
 
-- Create Kubernetes cluster with existing parametrs (How to create Kubrnetes cluster you can see in this core task: <a href="http://docs.ventuscloud.eu/docs/coretasks/Kubernetes">Kubernetes cluster</a>):
+- Create Kubernetes cluster with existing parametrs (How to create Kubrnetes cluster you can see in this core task <a href="http://docs.ventuscloud.eu/docs/coretasks/Kubernetes">Kubernetes cluster</a>):
 
 ```
 Master count: 1
@@ -40,11 +41,48 @@ Node flavor: Small
 Master node flavor: Small
 ```
 
-- choose `Cofirm resize` from the instanse menu to confirm migration was successful, otherwise choose `Revert resize` to revert back to the initial state.  
-![](../../assets/img/resize/resize5.png)    
- 
-Our instance was resized and its status becomes *running*.  
-![](../../assets/img/resize/resize6.png) 
+- Get access to this cluster (How to getting access to cluster you can see in this core task <a href="http://docs.ventuscloud.eu/docs/coretasks/access-by-cli">Access to Kubernetes Cluster using CLI</a>) 
 
-**For example, see a quick recap**
-![](../../assets/img/resize/resize.gif)
+- Create `deployment-test.yaml` file with existing lines: 
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+  labels:
+    app: nginx
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        resources:
+          requests:
+            memory: "400Mi"
+        ports:
+        - containerPort: 80
+```
+- Create deployment using `kubectl apply -f deployment-test.yaml` to crate deployment.
+
+- Used comand `kubectl geet pods` we will see that one of pods can't move in running state:
+
+![](../../assets/img/scaling/get_pods.png)
+
+- Used command `kubectl describe pod "podname"` we will see that this pod have problem: `Insufficient memory` 
+
+![](../../assets/img/scaling/Insufficient_memory.png)
+
+- Now resize cluster and add one more node like we saw on steps earlier.
+
+- Used comand `kubectl geet pods` and make sure that all pods in running state: 
+
+![](../../assets/img/scaling/get_pods.png2)
