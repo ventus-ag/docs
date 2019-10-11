@@ -73,7 +73,7 @@ spec:
 ```
 - Create deployment using `kubectl apply -f deployment-test.yaml` to crate deployment.
 
-- Used comand `kubectl geet pods` we will see that one of pods can't move in running state:
+- Used comand `kubectl get pods` we will see that one of pods can't move in running state:
 
 ![](../../assets/img/scaling/get_pods.png)
 
