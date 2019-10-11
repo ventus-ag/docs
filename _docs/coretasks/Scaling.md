@@ -45,7 +45,7 @@ Master node flavor: Small
 
 - Create `deployment-test.yaml` file with existing lines: 
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
