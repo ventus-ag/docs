@@ -13,15 +13,19 @@ In this task we will see how to scale cluster memory.
 
 **To scale cluster memory:**  
 - go to Cloud page, choose Kubernetes and open your cluster:
+
 ![](../../assets/img/scaling/choose_cluster.png)   
 
-- In opening cluster choose `resize`  
+- In opening cluster choose `Resize`  
+
 ![](../../assets/img/scaling/resize_node1.png) 
 
 - Choose how much nodes you need and use action `resize cluster`  
+
 ![](../../assets/img/scaling/resize_node.png)  
 
 - Wait untill update progress will end:  
+
 ![](../../assets/img/scaling/cluster_update.png)  
 
  **Let's see how it works on server side:** 
