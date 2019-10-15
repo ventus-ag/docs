@@ -11,7 +11,7 @@ In this task we will see how to scale cluster memory.
 
 
 
-**To scale cluster memory:**  
+**Scaling up:**  
 
 - go to Cloud page, choose Kubernetes and open your cluster:
 
@@ -83,6 +83,14 @@ spec:
 
 - Now resize cluster and add one more node like we saw on steps earlier.
 
-- Used comand `kubectl geet pods` and make sure that all pods in running state: 
+- Used comand `kubectl get nods` to sure that one more node was added: 
+
+![](../../assets/img/scaling/get_nodes.png)
+
+- Used comand `kubectl get pods` and make sure that all pods in running state: 
 
 ![](../../assets/img/scaling/get_pods2.png)
+
+**Scaling down:** 
+
+If yoou no longer need in additionlanls nodes, you can resize your Node count as we done on upper steps by way `Cloud/Kubernetes/"Your Cluster Name/Resize"`
