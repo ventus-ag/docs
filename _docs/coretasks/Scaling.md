@@ -93,4 +93,4 @@ spec:
 
 **Scaling down:** 
 
-If yoou no longer need in additionlanls nodes, you can resize your Node count as we done on upper steps by way `Cloud/Kubernetes/"Your Cluster Name"/Resize`
+If you no longer need in additionlanls nodes, you can resize your Node count as we done on upper steps by way `Cloud/Kubernetes/"Your Cluster Name"/Resize`
