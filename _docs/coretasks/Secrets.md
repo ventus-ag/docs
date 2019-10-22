@@ -159,8 +159,16 @@ spec:
 Now we have pod `secret-env-pod` with secret `mysecret` usiing as environment variables.
 We can see secret details using this commnads:
 
-`kubectl exec secret-env-pod -it -- /bin/sh`
-<br>`echo $SECRET_USERNAME`
-<br>`echo $PASSWORD`
+Connect to your pod:
+
+- `kubectl exec secret-env-pod -it -- /bin/sh` 
+
+Display enviroment variable of Username: 
+
+- `echo $SECRET_USERNAME` 
+
+Display enviroment variable of Password: 
+
+- `echo $PASSWORD`
 
 ![](../../assets/img/secrets/secret-env-pod.png)
