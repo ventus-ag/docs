@@ -36,8 +36,8 @@ metadata:
 spec:
   type: LoadBalancer 
   ports:
-  - port: 80
-    targetPort: 8080
+    - port: 80
+      targetPort: 8080
   selector:
     app: kube
 ```   
