@@ -92,4 +92,4 @@ spec:
 ![](../../assets/img/scaling/get_pods2.png)
 
 
-#Tect github actins for usssing Spellcheker 
+Tect github actins for usssing Spellcheker 
