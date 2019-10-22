@@ -4,14 +4,12 @@ description: How to scale kubernetes cluster memory
 tags: [ featured, coretasks ]
 # permalink: /Scaling/
 ---
-# Scaling cluster memory
+# Scale-out and scale-in of Kubernneetes cluster
 ---
 
-In this task we will see how to scale cluster memory.
+In this task we will see how to scale-out and scale-in of Kubernneetes cluster.
 
-
-
-**Scaling up:**  
+ 
 
 - go to Cloud page, choose Kubernetes and open your cluster:
 
@@ -28,6 +26,8 @@ In this task we will see how to scale cluster memory.
 - Wait untill update progress will end:  
 
 ![](../../assets/img/scaling/cluster_update.png)  
+
+{% include alert.html type="info" title="Note" content="In the same way you can resize you cluster scling-in nodes." %} 
 
  **Let's see how it works on server side:** 
 
@@ -73,7 +73,7 @@ spec:
 ```
 - Create deployment using `kubectl apply -f deployment-test.yaml` to crate deployment.
 
-- Used comand `kubectl get pods` we will see that one of pods can't move in running state:
+- Used command `kubectl get pods` we will see that one of pods can't move in running state:
 
 ![](../../assets/img/scaling/get_pods.png)
 
@@ -91,6 +91,4 @@ spec:
 
 ![](../../assets/img/scaling/get_pods2.png)
 
-**Scaling down:** 
 
-If you no longer need in additionlanls nodes, you can resize your Node count as we done on upper steps by way `Cloud/Kubernetes/"Your Cluster Name"/Resize`
