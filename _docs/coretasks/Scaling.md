@@ -7,7 +7,7 @@ tags: [ featured, coretasks ]
 # Scale-out and scale-in of Kubernneetes cluster
 ---
 
-In this task we will see how to scale-out and scale-in of Kubernneetes cluster.
+In this task we will see how to scale-out and scale-in of Kubernetes cluster.
 
  
 
@@ -19,11 +19,11 @@ In this task we will see how to scale-out and scale-in of Kubernneetes cluster.
 
 ![](../../assets/img/scaling/resize_node1.png) 
 
-- Choose how much nodes you need and use action `resize cluster`  
-
+- Choose how many nodes you need and use action `resize cluster`  
+go to Cloud page, choose Kubernetes and open your cluster:
 ![](../../assets/img/scaling/resize_node.png)  
 
-- Wait untill update progress will end:  
+- Wait until update progress will end:
 
 ![](../../assets/img/scaling/cluster_update.png)  
 
@@ -31,7 +31,7 @@ In this task we will see how to scale-out and scale-in of Kubernneetes cluster.
 
  **Let's see how it works on server side:** 
 
-- Create Kubernetes cluster with existing parametrs (How to create Kubrnetes cluster you can see in this core task <a href="http://docs.ventuscloud.eu/docs/coretasks/Kubernetes">Kubernetes cluster</a>):
+- Create Kubernetes cluster with existing parametrs (How to create Kubernetes cluster you can see in this core task <a href="http://docs.ventuscloud.eu/docs/coretasks/Kubernetes">Kubernetes cluster</a>):
 
 ```
 Master count: 1
@@ -71,23 +71,23 @@ spec:
         ports:
         - containerPort: 80
 ```
-- Create deployment using `kubectl apply -f deployment-test.yaml` to crate deployment.
+- Create deployment using `kubectl apply -f deployment-test.yaml` to create deployment.
 
-- Used command `kubectl get pods` we will see that one of pods can't move in running state:
+- Using command `kubectl get pods` we will see that one of pods can't move in running state:
 
 ![](../../assets/img/scaling/get_pods.png)
 
-- Used command `kubectl describe pod "podname"` we will see that this pod have problem: `Insufficient memory` 
+- Using command `kubectl describe pod "pod name"` we will see that this pod have problem: `Insufficient memory` 
 
 ![](../../assets/img/scaling/Insufficient_memory.png)
 
 - Now resize cluster and add one more node like we saw on steps earlier.
 
-- Used comand `kubectl get nods` to sure that one more node was added: 
+- Use the command `kubectl get nods` to make sure that one more node was added: 
 
 ![](../../assets/img/scaling/get_nodes.png)
 
-- Used comand `kubectl get pods` and make sure that all pods in running state: 
+- Use comand `kubectl get pods` and make sure that all pods in running state: 
 
 ![](../../assets/img/scaling/get_pods2.png)
 

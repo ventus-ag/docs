@@ -8,7 +8,7 @@ tags: [ featured, coretasks ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Note" content="In this page, you can find an explanation how to create ConfigMaps and configure Pods using data stored in ConfigMaps." %} 
+{% include alert.html type="info" title="Note" content="In this page, you can find an explanation how to create ConfigMaps and configure Pods using data, stored in ConfigMaps." %} 
  
 
 
@@ -29,7 +29,7 @@ tags: [ featured, coretasks ]
 
 - `kubectl create configmap <map-name> <data-source>`
 
-where <map-name> is the name you want to assign to the ConfigMap and <data-source> is the directory, file, or literal value to draw the data from.
+where `map-name` is the name you want to assign to the ConfigMap and `data-source` is the directory, file, or literal value to draw the data from.
 
 For example: 
 
@@ -60,7 +60,7 @@ Create the configmap:
 
 ![](../../assets/img/configmap/create_konfigmap2.png)
 
-Now you can inspect your configmap with command:
+Now you can inspect your ConfigMap with command:
 - `kubectl get configmap game-config -o yaml`
 
 ![](../../assets/img/configmap/configmap_inpect2.png)
