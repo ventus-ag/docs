@@ -8,7 +8,7 @@ tags: [ featured, coretasks ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of what is the "secret", how to create and use it." %} 
+{% include alert.html type="info" title="Note" content="In this page, you can find an explanation of what is the Secret, how to create and use it." %} 
  
 
 
