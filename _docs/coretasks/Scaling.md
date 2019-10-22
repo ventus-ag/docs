@@ -20,7 +20,7 @@ In this task we will see how to scale-out and scale-in of Kubernetes cluster.
 ![](../../assets/img/scaling/resize_node1.png) 
 
 - Choose how many nodes you need and use action `resize cluster`  
-go to Cloud page, choose Kubernetes and open your cluster:
+
 ![](../../assets/img/scaling/resize_node.png)  
 
 - Wait until update progress will end:
