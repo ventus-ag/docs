@@ -31,17 +31,14 @@
           url: "docs/coretasks/LoadBalancer"
         - title: "Access to the Kubernetes Cluster using CLI"
           url: "docs/coretasks/access-by-cli"
-<<<<<<< HEAD
         - title: "Secrets"
           url: "docs/coretasks/Secrets" 
         - title: "ConfigMaps"
           url: "docs/coretasks/ConfigMaps" 
         - title: "Scaling"
           url: "docs/coretasks/Scaling"
-=======
         - title: "Deployment"
           url: "docs/coretasks/Deployment"    
->>>>>>> 24d3f16de3c9ac54a393672ca9ebc17fc213c620
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
