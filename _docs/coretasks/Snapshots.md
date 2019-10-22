@@ -7,7 +7,7 @@ tags: [ featured, coretasks ]
 # Snapshots
 {: .no_toc }
 ---
-In this page, you can find an explanation of what is snapshot, how it works, how to create snapshot and other information about managing snapshots.
+In this page, you can find an explanation of what is snapshot, how it works,how to create snapshot and other information about managing snapshots.
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -29,7 +29,7 @@ Snapshot takes no time to create, and initially uses no disk space, because it s
 ## How snapshot works
 
 This section will show us the snapshot in action.
-On the main Navigation Panal go to `Cloud` and choose `Instances`. On this page choose one of available intances or create a new for testing a snapshot and then launch the console window of the selected intance.
+On the main Navigation Panel go to `Cloud` and choose `Instances`. On this page choose one of available instances or create a new for testing a snapshot and then launch the console window of the selected instance.
 
 ![](../../assets/img/snapshots/snapshots1.png)
 
@@ -45,7 +45,7 @@ If we decided that we need to backup our instance in this current state because 
 To create snapshot of your current instance:
 - select your instance and click on **Snapshots tab**  
 - click on the button `Create Snapshot`
-- on the next page ензу the name of your new snapshot (eg. "test snapshot")
+- on the next page type the name of your new snapshot (eg. "test snapshot")
 - click on the button `Create Snapshot` again  
 
 ![](../../assets/img/snapshots/snapshots3.png)
@@ -59,9 +59,9 @@ Now we can continue to work in our Instance "for snapshots testing" through the 
 
 ![](../../assets/img/snapshots/snapshots5.png)
 
-So, we checked that we still can work with our Instance and now we have two our files  file1.txt” and “file2.txt”.
+So, we checked that we still can work with our Instance and now we have two our files  "file1.txt” and “file2.txt”.
 
-But if we decide that we need to rollback, we can return to the previous state of our Instance. 
+But, if we decide that we need to rollback, we can return to the previous state of our Instance. 
 
 ### Return to the previous state of Instance
 For return to the previous state of our Instance:

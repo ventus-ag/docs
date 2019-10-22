@@ -17,8 +17,8 @@
           url: "docs/coretasks/API-Users"
         - title: "SSH Keys"
           url: "docs/coretasks/SSH-Keys" 
-        - title: "Clusters"
-          url: "docs/coretasks/Clusters"           
+        - title: "Kubernetes"
+          url: "docs/coretasks/Kubernetes"           
         - title: "Snapshots"
           url: "docs/coretasks/Snapshots" 
         - title: "Resize virtual machines"
@@ -31,12 +31,17 @@
           url: "docs/coretasks/LoadBalancer"
         - title: "Access to the Kubernetes Cluster using CLI"
           url: "docs/coretasks/access-by-cli"
+<<<<<<< HEAD
         - title: "Secrets"
           url: "docs/coretasks/Secrets" 
         - title: "ConfigMaps"
           url: "docs/coretasks/ConfigMaps" 
         - title: "Scaling"
           url: "docs/coretasks/Scaling"
+=======
+        - title: "Deployment"
+          url: "docs/coretasks/Deployment"    
+>>>>>>> 24d3f16de3c9ac54a393672ca9ebc17fc213c620
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
@@ -50,6 +55,8 @@
           url: "docs/tutorials/Install-wordpress"
         - title: "Running ML pipeline using Kubeflow on Kubernetes"
           url: "docs/tutorials/kubeflow"
+        - title: "Ventus Cloud Object Storage"
+          url: "docs/tutorials/object-storage"           
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         

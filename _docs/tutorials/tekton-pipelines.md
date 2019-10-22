@@ -28,7 +28,6 @@ For creating new cluster do the following:
 1) On the main Navigation Panel go to **Cloud**, choose **Clusters** and  click the plus (+) button at the bottom-right of the screen.
  
 ![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_1.png)
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_2.png)
 
 2) Fill next information:
   - Type new name (tekton)

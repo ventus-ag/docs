@@ -16,14 +16,13 @@ In this page, you can find an explanation of how to add or generate a new SSH ke
 {:toc}
 
 ## Add new SSH key
-On the main Navigation Panal go to `Cloud` and choose `SSH Keys`. On this page you find all added SSH Keys whith their details area.
+On the main Navigation Panel go to `Cloud` and choose `SSH Keys`. On this page you find all added SSH Keys whith their details area.
 
 **SSH key details area includes:** 
 
 `SSH key name`: Shows the name for the key so that you can more easily identify it.  
 
 `Creation date`: Shows when a SSH key was created in month-day-year format.  
-
 `Fingerprint`: Shows each Public Key fingerprint which is a sequence of bytes used to identify a longer public key. Fingerprints are created by applying a cryptographic hash function to a Public Key.  
 ![](../../assets/img/ssh-key/ssh-key0.png)  
 

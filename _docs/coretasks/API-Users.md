@@ -18,13 +18,13 @@ tags: [ featured, coretasks ]
 
 For creating new API User do following:
 
-1) On the main Navigation Panal go to  `Cloud`, choose `API Users` and click the floating button `+` present in the lower right corner   
+1) On the main Navigation Panel go to  `Cloud`, choose `API Users` and click the floating button `+` present in the lower right corner   
 ![](../../assets/img/API-Users/API-Users1.png)  
 
 2) On the following page enter the user name (Eg. "User1"), password and an optional description as shown below: 
 ![](../../assets/img/API-Users/API-Users2.png)  
 
-Once a User is created, you will be able to access OpenStack endpoints directly with your project ID, username and password.
+Once a User is created, you will be able to access Ventus Cloud endpoints directly with your project ID, username and password.
 
 ## Get OpenRC file 
 

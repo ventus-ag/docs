@@ -23,12 +23,11 @@ In this task we will see how to scale-out and scale-in of Kubernneetes cluster.
 
 ![](../../assets/img/scaling/resize_node.png)  
 
-{% include alert.html type="info" title="Note" content="In the same way you can resize you cluster scling-in nodes." %} 
-
 - Wait untill update progress will end:  
 
 ![](../../assets/img/scaling/cluster_update.png)  
 
+{% include alert.html type="info" title="Note" content="In the same way you can resize you cluster scling-in nodes." %} 
 
  **Let's see how it works on server side:** 
 
