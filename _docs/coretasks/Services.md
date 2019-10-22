@@ -36,13 +36,8 @@ metadata:
   name: kube
 spec:
   ports:
-<<<<<<< HEAD
   - port: 80
     targetPort: 8080
-=======
-    - port: 80
-      targetPort: 8080
->>>>>>> 24d3f16de3c9ac54a393672ca9ebc17fc213c620
   selector:
     app: kube
 ```   
