@@ -95,7 +95,7 @@ Follow these steps to deploy Kubeflow:
 - The name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
   - `export KFAPP="kubeflow-tutorial"`
 - Specify path to kfctl config file which will be used for kubeflow installation:  
-  - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/   kfctl_existing_arrikto.0.6.2.yaml"`
+  - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"`
 
 - Specify credentials for the default user:
   - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
