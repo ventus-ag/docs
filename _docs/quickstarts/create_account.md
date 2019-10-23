@@ -12,7 +12,7 @@ The Ventus portal is a browser-based user interface to create VMs and their asso
 To start work in VentusCloud portal firstly you need to create a new user account. So, let's start.
 Following the home page of VentusCloud  - <https://portal.ventuscloud.eu/login>, you can see the next interface:  
 
-![](../../assets/img/create_account/1ac.PNG)
+![](../../assets/img/create_account/1ac.png)
 
 As you are not registered yet on VentusCloud portal you need to do this:
 
@@ -20,7 +20,7 @@ As you are not registered yet on VentusCloud portal you need to do this:
 
 * on the next page fill in the following form as shown below:  
 
-![](../../assets/img/create_account/2ac.PNG)  
+![](../../assets/img/create_account/2ac.png)  
 
 * check that you don't forget to indicate that you agree to the terms and conditions of VentusCloud portal and click the **SIGNED UP**
 
