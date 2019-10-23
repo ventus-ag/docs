@@ -5,19 +5,10 @@ tags: [ featured, quickstart ]
 # permalink: /create_account/
 ---
 # Create a new VentusCloud account
-{: .no_toc }
 ---
 
 The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to start work in Ventus portal, how to create a new user account and then sign in.
 
-## Table of contents
-{: .no_toc .text-delta }
-
-* TOC
-{:toc}
-
-## Create a new VentusCloud account
----
 To start work in VentusCloud portal firstly you need to create a new user account. So, let's start.
 Following the home page of VentusCloud  - <https://portal.ventuscloud.eu/login>, you can see the next interface:  
 
@@ -45,7 +36,7 @@ As you are not registered yet on VentusCloud portal you need to do this:
         - City
         - Zip Code
         - Phone
-        
+
 All fields that must be filled on this page are marked with an asterisk. Review the information you entered for this Account. If it is correct, select **ADD CLIENT BILLING INFORMATION**. 
 
 After that, your new account is considered as registered. So, when you will visit home page of VentusCloud for the second time, you will need to indicate only **User name** (it is equal to your email address specified during registration) and **Password**. 
