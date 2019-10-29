@@ -31,6 +31,7 @@ For creating new Kubernetes Cluster do following:
     `Master count`  
     `Node count`  
     `Node flavor`    
+    `Docker volume size (GB)`
     `Master node flavor`  
     `Keypair`  
 
