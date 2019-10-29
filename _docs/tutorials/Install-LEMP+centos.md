@@ -36,7 +36,7 @@ For creating new virtual machine do the following:
 2) On the following page fill next information:
  - Instance Name (eg. "Test-Centos-LEMP" or "Test-Ubuntu-LEMP")
  - Select a Boot source (eg.  "CentOS-7" or "ubuntu-1604-xenial")
-  - Select a configuration (eg. "Small")
+  - Select a configuration (eg. "VC-2")
   - Select a SSH Key
 
 ![](../../assets/img/LEMP/centos.png) 

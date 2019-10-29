@@ -49,7 +49,7 @@ Select the image to boot from, from the list of available images. You can also b
 
 
 - *Select a configuration*: 
-Configurations (flavors) hold information about the Instance memory, disk space and the number of virtual CPUs that will be available. (eg. "2x2")
+Configurations (flavors) hold information about the Instance memory, disk space and the number of virtual CPUs that will be available. (eg. "VC-2")
 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus4.png)
 
