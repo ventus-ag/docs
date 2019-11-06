@@ -4,7 +4,7 @@ description: How install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based syste
 tags: [ featured, tutorial RabbitMQ]
 # permalink: /Install-/
 ---
-# Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems 
+# Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems
 {: .no_toc }
 ---
 ## Table of contents
@@ -27,24 +27,22 @@ Using this technology allows you to cover many areas, including, but not limited
 * Greatly increase reliability and uptime of your application
 * and much more
 
-**Advanced Message Queuing Protocol (AMQP)** is a widely accepted open-source standard for distributing and transferring messages from a source to a destination. As a protocol and standard, it sets a common ground for various applications and message broker middlewares to interoperate without encountering issues caused by individually set design decisions.
+**Advanced Message Queuing Protocol (AMQP)**  is a widely accepted open-source standard for distributing and transferring messages from a source to a destination. As a protocol and standard, it sets a common ground for various applications and message broker middlewares to interoperate without encountering issues caused by individually set design decisions.
 
 **RabbitMQ** is an open-source message-broker application stack which implements the Advanced Message Queuing Protocol (AMQP). It is a lightweight application available for most of the popular operating systems. RabbitMQ supports multiple messaging protocols. It can be easily deployed in a distributed and federated configurations to meet high-scale, high-availability requirements.
 
-RabbitMQ works by offering an interface, connecting message senders (Publishers) with receivers (Consumers) through an exchange (Broker)which distributes the data to relevant lists (Message Queues).
+RabbitMQ works by offering an interface, connecting message senders (Publishers) with receivers (Consumers) through an exchange (Broker) which distributes the data to relevant lists (Message Queues).
 
 This tutorial will help you to install RabbitMQ on Ubuntu / Debian Based Systems
 
 ## Prerequisites
 
-Before you can start this guide you will need to create a new Ubuntu or Centos server. To do this follow the instructions from the next quickstarts **Creating a new Linux VM using Ventus** (<https://docs.ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus>).
-After creating you need to connect to your remote Ubuntu or Centos server using the ssh protocol and IP of this server.
-
-When you are finished the setup steps, log into your server as your sudo user and continue below.
+Before you can start this guide you will need to create a new Ubuntu or Centos server. To do this follow the instructions from the next quickstarts [Creating a new Linux VM using Ventus](<https://docs.ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus>).
+After creating you need to connect to your remote Ubuntu or Centos server using the ssh protocol and IP of this server and continue below.
 
 ## Installing RabbitMQ
 
-RabbitMQ packages are distributed both with CentOS / RHEL & Ubuntu / Debian based systems. However, they are - like with most applications - outdated. The recommended way to get RabbitMQ on your system is therefore to download the package online and install manually.
+RabbitMQ packages are distributed both for CentOS / RHEL & Ubuntu / Debian based systems. However, they are - like with most applications - outdated. The recommended way to get RabbitMQ on your system is therefore to download the package online and install manually.
 
 ### Installing on CentOS / RHEL Based Systems
 
@@ -87,11 +85,11 @@ yum install rabbitmq-server-3.2.2-1.noarch.rpm
 
 ### Installing on Ubuntu / Debian Based Systems
 
-The process for downloading and installing RabbitMQ on Ubuntu and Debian will be similar to CentOS due to our desire of having a more recent version. 
+The process for downloading and installing RabbitMQ on Ubuntu and Debian will be similar to CentOS due to our desire of having a more recent version.
 
 Let’s begin with updating our system’s default application toolset:
 ```
-apt-get    update 
+apt-get    update
 apt-get -y upgrade
 ```
 
@@ -107,7 +105,7 @@ curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add 
 
 Update the sources with our new addition from above:
 ```
-apt-get 
+apt-get
 ```
 
 And finally, download and install RabbitMQ:
@@ -153,7 +151,7 @@ sudo rabbitmqctl add_user admin StrongPassword
 sudo rabbitmqctl set_user_tags admin administrator
 ```
 
-Use the created user to login to the RabbitMQ management interface. 
+Use the created user to login to the RabbitMQ management interface.
 
 ![](../../assets/img/rabbit/2.png)
 
@@ -209,11 +207,214 @@ And that’s it! You now have your own message queue working on your virtual ser
 
 RabbitMQ by default runs with its standard configuration. In general, it does not require much tempering with for most needs as long as everything runs smoothly.
 
-To learn about configuring it for custom needs, check out its documentation for <https://www.rabbitmq.com/configure.html>
+To learn about configuring it for custom needs, check out its documentation for [Configuration](https://www.rabbitmq.com/configure.html)
 
 
+## How to Setup RabbitMQ Cluster on Ubuntu / Debian Based Systems
 
+By setting a RabbitMQ cluster on Ubuntu / Debian Based Systems, you avoid a single point of failure and achieve higher throughput when compared to single instance RabbitMQ setup.
 
+**Setup Requirements**
 
+This setup has the following requirements:
+* Installed Ubuntu 18.04 LTS servers
+* At least two RabbitMQ servers
+* A user with sudo privileges
+* The servers should have internet access
 
+This setup of RabbitMQ Cluster on Ubuntu 18.04 is based on two servers with the following IP addresses and hostnames:
 
+|  Server  | Hostname  | IP Address    |
+| -------- | ----------| ------------- |
+|  Server1 |  rabbit2  | 188.40.161.24 |
+|  Server2 |  rabbit4  | 188.40.161.59 |
+
+**Step 1: Setup Hostnames and DNS**
+The first step in the installation of the RabbitMQ cluster on Ubuntu 18.04 is to configure correct hostnames and DNS.
+
+Server1:
+```
+sudo hostnamectl set-hostname rabbit2 --static
+```
+
+Server2:
+```
+sudo hostnamectl set-hostname rabbit4 --static
+```
+
+If you don’t have a DNS server, you can add the records to the /etc/hosts file
+```
+echo "188.40.161.24 rabbit2" >> /etc/hosts
+echo "188.40.161.59 rabbit4" >> /etc/hosts
+```
+
+Then update your systems:
+```
+sudo apt update
+sudo apt -y upgrade
+```
+
+**Step 2: Install RabbitMQ Server on both nodes**
+Login to your servers and install RabbitMQ server on all nodes using the instructions described in the second chapter of this tutorial.
+
+The status of your RabbitMQ servers should be running:
+
+```
+sudo systemctl status rabbitmq-server.service
+```
+```console
+● rabbitmq-server.service - RabbitMQ Messaging Server
+   Loaded: loaded (/lib/systemd/system/rabbitmq-server.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2019-11-04 15:20:13 UTC; 17h ago
+  Process: 19086 ExecStop=/usr/sbin/rabbitmqctl stop (code=exited, status=0/SUCCESS)
+  Process: 19395 ExecStartPost=/usr/lib/rabbitmq/bin/rabbitmq-server-wait (code=exited, status=0/SUCCESS)
+ Main PID: 19394 (rabbitmq-server)
+    Tasks: 88 (limit: 2361)
+   CGroup: /system.slice/rabbitmq-server.service
+           ├─19394 /bin/sh /usr/sbin/rabbitmq-server
+           ├─19412 /bin/sh /usr/lib/rabbitmq/bin/rabbitmq-server
+           ├─19584 /usr/lib/erlang/erts-9.2/bin/epmd -daemon
+           ├─19719 /usr/lib/erlang/erts-9.2/bin/beam.smp -W w -A 64 -P 1048576 -t 5000000 -stbt db -zdbbl 32000 -K true
+           ├─19831 erl_child_setup 65536
+           ├─19895 inet_gethost 4
+           └─19896 inet_gethost 4
+
+Nov 04 15:20:10 rabbit4 systemd[1]: Starting RabbitMQ Messaging Server...
+Nov 04 15:20:11 rabbit4 rabbitmq[19395]: Waiting for rabbit@rabbit4
+Nov 04 15:20:11 rabbit4 rabbitmq[19395]: pid is 19412
+Nov 04 15:20:13 rabbit4 systemd[1]: Started RabbitMQ Messaging Server.
+lines 1-20/20 (END)
+```
+**Step 3: Copy RabbitMQ Server 1 Cookie RabbitMQ Server2**
+For RabbitMQ cluster to work, all the nodes participating in the cluster should have the same Cookie. Copy Cookie on your first node to all other nodes in the cluster.
+
+1) Сopy the information from the following file:
+
+Server1:
+```
+vi /var/lib/rabbitmq/.erlang.cookie
+```
+2) Replace the current information with the copied
+
+Server2:
+```
+vi /var/lib/rabbitmq/.erlang.cookie
+```
+
+**Step 4: Reset RabbitMQ on Node2**
+Reconfigure RabbitMQ on Node 2 and join it to the cluster.
+
+* Restart RabbitMQ service on Server2
+```
+sudo systemctl restart rabbitmq-server
+```
+* Stop application
+```
+sudo rabbitmqctl stop_app
+```
+```console
+Stopping rabbit application on node rabbit@rabbit4
+```
+
+* Reset rabbitmq
+```
+sudo rabbitmqctl reset
+```
+```console
+Resetting node rabbit@rabbit4
+```
+
+* Join the node to cluster
+```
+sudo rabbitmqctl join_cluster rabbit@rabbit2
+```
+```console
+Clustering node rabbit@rabbit4 with rabbit@rabbit2
+```
+
+* Start the application process
+```
+sudo rabbitmqctl start_app
+```
+```console
+Starting node rabbit@rabbit4
+```
+
+* Check Cluster Status:
+```
+rabbitmqctl cluster_status
+```
+```console
+Cluster status of node rabbit@rabbit4
+[{nodes,[{disc,[rabbit@rabbit2,rabbit@rabbit4]}]},
+ {running_nodes,[rabbit@rabbit2,rabbit@rabbit4]},
+ {cluster_name,<<"rabbit@rabbit4">>},
+ {partitions,[]},
+ {alarms,[{rabbit@rabbit2,[]},{rabbit@rabbit4,[]}]}]
+```
+
+**Step 5: Configure RabbitMQ HA Policy**
+Create a policy that allows for queues mirroring to all nodes in the cluster.
+```
+sudo rabbitmqctl set_policy ha-all "." '{"ha-mode":"all"}'
+```
+```console
+Setting policy "ha-all" for pattern "." to "{\"ha-mode\":\"all\"}" with priority "0"
+```
+
+You can list configured policies using:
+```
+sudo rabbitmqctl list_policies
+```
+```console
+Listing policies
+/       ha-all  all     .       {"ha-mode":"all"}       0
+```
+To drop a policy, use:
+```
+sudo rabbitmqctl clear_policy <policyname>
+```
+
+**Step 5: Testing**
+Finally, test your RabbitMQ cluster setup on Ubuntu 18.04.  Enable the RabbitMQ Management Web dashboard for easy management.
+```
+sudo rabbitmq-plugins enable rabbitmq_management
+```
+
+If you have an active UFW firewall, allow TCP ports 5672 and 15672
+```
+sudo ufw allow proto tcp from any to any port 5672,15672
+```
+
+Access it by opening the URL  `http://[server IP|Hostname]:15672`
+
+![](../../assets/img/rabbit/1.png)
+
+By default, the `guest` user exists and can connect only from localhost. You can login with this user locally with the password `guest`
+
+To be able to login on the network, create an admin user like below:
+
+```
+sudo rabbitmqctl add_user admin StrongPassword
+sudo rabbitmqctl set_user_tags admin administrator
+```
+
+Use the created user to login to the RabbitMQ management interface. You should get status of all Cluster nodes.
+
+![](../../assets/img/rabbit/3.png)
+
+More details about a node can also be viewed from the web console.
+
+![](../../assets/img/rabbit/4.png)
+
+If you login to RabbitMQ node2 and check for created RabbitMQ users, you should see output similar to below.
+```
+rabbitmqctl list_users
+```
+```console
+Listing users
+admin   [administrator]
+guest   [administrator]
+```
+
+You have successfully installed RabbitMQ cluster on Ubuntu 18.04. Enjoy and stay connected for more informative content.
