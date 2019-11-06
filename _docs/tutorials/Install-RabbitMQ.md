@@ -137,10 +137,8 @@ To enable RabbitMQ Management Console, run the following:
 ```
 sudo rabbitmq-plugins enable rabbitmq_management
 ```
-Once you’ve enabled the console, it can be accessed using your favourite web browser by visiting:
-```
-http://[your server's IP]:15672/
-```
+Once you’ve enabled the console, it can be accessed using your favourite web browser by visiting `http://[server IP|Hostname]:15672`
+
 ![](../../assets/img/rabbit/1.png)
 
 By default, the guest user exists and can connect only from localhost. You can login with this user locally with the password “guest”
@@ -375,7 +373,7 @@ To drop a policy, use:
 sudo rabbitmqctl clear_policy <policyname>
 ```
 
-**Step 5: Testing**
+**Step 6: Testing**
 Finally, test your RabbitMQ cluster setup on Ubuntu 18.04.  Enable the RabbitMQ Management Web dashboard for easy management.
 ```
 sudo rabbitmq-plugins enable rabbitmq_management
