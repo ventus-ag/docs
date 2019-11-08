@@ -208,7 +208,7 @@ RabbitMQ by default runs with its standard configuration. In general, it does no
 To learn about configuring it for custom needs, check out its documentation for [Configuration](https://www.rabbitmq.com/configure.html)
 
 
-## How to Setup RabbitMQ Cluster on Ubuntu / Debian Based Systems
+## Setup RabbitMQ Cluster on Ubuntu / Debian Based Systems
 
 By setting a RabbitMQ cluster on Ubuntu / Debian Based Systems, you avoid a single point of failure and achieve higher throughput when compared to single instance RabbitMQ setup.
 
@@ -416,3 +416,155 @@ guest   [administrator]
 ```
 
 You have successfully installed RabbitMQ cluster on Ubuntu 18.04. Enjoy and stay connected for more informative content.
+
+
+## Deploy RabbitMq on Kubernetes cluster in Ventus Cloud
+
+There are a lot of possible approaches to setting up clustered RabbitMQ on Kubernetes. There are many possible approaches to setting up a clustered RabbitMQ in Kubernetes. In this article we will propose the option to setup RabbitMQ on in Ventus Cloud using Helm.
+
+Helm is the first application package manager running atop Kubernetes. It allows describing the application structure through convenient helm-charts and managing it with simple commands.
+
+**Setup Requirements**
+
+This setup has the following requirements:
+* Created Kubernetes Cluster in Ventus Cloud (you can see how to do it [here](https://docs.ventuscloud.eu/docs/coretasks/Kubernetes))
+* Access this Kubernetes cluster using CLI or ssh protocol (you can see how to do it [here](https://docs.ventuscloud.eu/docs/coretasks/access-by-cli))
+
+This setup of RabbitMQ is based on created Kubernetes Cluster with following parametres: 
+Name: Rabbit
+Cluster template: kube.1.14.1_autoscaler
+Master count: 1
+Node count: 1
+Master node flavor: VC-1
+Node flavor: VC-2
+Docker volume size (GB): 60
+IP of master node: 188.40.161.86
+
+Method of connection to the Cluster Rabbit - using the ssh protocol and connecting directly to the master node.
+
+**Step 1. Install Helm in the Kubernetes Cluster**
+
+Helm is a tool for managing Kubernetes charts. Charts are packages of pre-configured Kubernetes resources. Once deployed in the cluster, it deploys a Tiller management server within the cluster.
+
+To install it in your cluster , you need to execute the following commands:
+```
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+That will install helm client. Now we need to run the command:
+```
+helm init
+```
+This command will install tiller inside kubernetes. Tiller is a mechanism to interact with k8s. 
+
+After that, the Helm Tiller management server has been deployed in your Kubernetes Cluster, but it needs some settings, so execute the following commands:
+```
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+helm init --service-account default
+```
+**Step 2. Deploy StorageClass**
+Before we use helm, we need to deploy StorageClass:
+```
+vi sc.yml
+```
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: cinder
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: kubernetes.io/cinder
+parameters:
+  availability: nova
+```
+```
+kubectl apply -f sc.yml
+```
+**Step 3. Install RabbitMQ**
+To install RabbitMQ using Helm, execute the following command:
+```
+helm install stable/rabbitmq
+```
+```console
+NAME:   wayfaring-jaguar
+LAST DEPLOYED: Fri Nov  8 11:07:36 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/ConfigMap
+NAME                                    AGE
+wayfaring-jaguar-rabbitmq-config        2s
+wayfaring-jaguar-rabbitmq-healthchecks  2s
+
+==> v1/Pod(related)
+NAME                         AGE
+wayfaring-jaguar-rabbitmq-0  1s
+
+==> v1/Role
+NAME                                       AGE
+wayfaring-jaguar-rabbitmq-endpoint-reader  2s
+
+==> v1/RoleBinding
+NAME                                       AGE
+wayfaring-jaguar-rabbitmq-endpoint-reader  2s
+
+==> v1/Secret
+NAME                       AGE
+wayfaring-jaguar-rabbitmq  2s
+
+==> v1/Service
+NAME                                AGE
+wayfaring-jaguar-rabbitmq           2s
+wayfaring-jaguar-rabbitmq-headless  2s
+
+==> v1/ServiceAccount
+NAME                       AGE
+wayfaring-jaguar-rabbitmq  2s
+
+==> v1/StatefulSet
+NAME                       AGE
+wayfaring-jaguar-rabbitmq  2s
+
+
+NOTES:
+
+** Please be patient while the chart is being deployed **
+
+Credentials:
+
+    Username      : user
+    echo "Password      : $(kubectl get secret --namespace default wayfaring-jaguar-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 --decode)"
+    echo "ErLang Cookie : $(kubectl get secret --namespace default wayfaring-jaguar-rabbitmq -o jsonpath="{.data.rabbitmq-erlang-cookie}" | base64 --decode)"
+
+RabbitMQ can be accessed within the cluster on port  at wayfaring-jaguar-rabbitmq.default.svc.cluster.local
+
+To access for outside the cluster, perform the following steps:
+
+To Access the RabbitMQ AMQP port:
+
+    kubectl port-forward --namespace default svc/wayfaring-jaguar-rabbitmq 5672:5672
+    echo "URL : amqp://127.0.0.1:5672/"
+
+To Access the RabbitMQ Management interface:
+
+    kubectl port-forward --namespace default svc/wayfaring-jaguar-rabbitmq 15672:15672
+    echo "URL : http://127.0.0.1:15672/"
+
+```
+Once it is installed, you get info on how to get the user credentials to access RabbitMQ’s management service. Username is user, while for password you need the following command:
+```
+echo "Password      : $(kubectl get secret --namespace default wayfaring-jaguar-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 --decode)"
+```
+and for the Erlang cookie:
+```
+echo "ErLang Cookie : $(kubectl get secret --namespace default wayfaring-jaguar-rabbitmq -o jsonpath="{.data.rabbitmq-erlang-cookie}" | base64 --decode)"
+```
+**Step 4. Access RabbitMQ’s management service**
+
+
+
