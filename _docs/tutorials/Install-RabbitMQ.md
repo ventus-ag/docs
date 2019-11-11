@@ -4,7 +4,7 @@ description: How install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based syste
 tags: [ featured, tutorial RabbitMQ]
 # permalink: /Install-/
 ---
-# Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems
+# Install RabbitMQ sevice using Ventus Cloud
 {: .no_toc }
 ---
 ## Table of contents
@@ -445,12 +445,12 @@ This setup of RabbitMQ is based on created Kubernetes Cluster with following par
 `Master node flavor`: VC-1  
 `Node flavor`: VC-2  
 `Docker volume size (GB)`: 60  
-`IP of master node`: 188.40.161.107  
+`IP of master node`: 188.40.161.89  
 `User name`: fedora  
 
 Method of connection to the Cluster Rabbit - using the ssh protocol and connecting directly to the master node:
 ```
-ssh fedora@188.40.161.107
+ssh fedora@188.40.161.89
 ```
 
 
@@ -601,12 +601,12 @@ You can access RabbitMQ’s management service on `http://127.0.0.1:15672/`
 **Method 2**  
 The second way to connect to the RabbitMQ’s management service is to use ``ssh`` protocol - execute the following command on your local host:
 ```
-ssh -L 8080:10.254.5.177:15672 fedora@188.40.161.86
+ssh -L 8080:10.254.5.177:15672 fedora@188.40.161.89
 ```
 here:    
 - `10.254.5.177` - CLUSTER-IP of service   
 - `fedora` - cluster user name  
-- `188.40.161.107` - IP of master node  
+- `188.40.161.89` - IP of master node  
 
 After this you can access RabbitMQ’s management service on `http://127.0.0.1:8080/`  
 
