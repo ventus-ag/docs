@@ -430,19 +430,24 @@ This setup has the following requirements:
 * Created Kubernetes Cluster in Ventus Cloud (you can see how to do it [here](https://docs.ventuscloud.eu/docs/coretasks/Kubernetes))
 * Access this Kubernetes cluster using CLI or ssh protocol (you can see how to do it [here](https://docs.ventuscloud.eu/docs/coretasks/access-by-cli))
 
-This setup of RabbitMQ is based on created Kubernetes Cluster with following parametres: 
-Name: Rabbit
-Cluster template: kube.1.14.1_autoscaler
-Master count: 1
-Node count: 1
-Master node flavor: VC-1
-Node flavor: VC-2
-Docker volume size (GB): 60
-IP of master node: 188.40.161.86
+This setup of RabbitMQ is based on created Kubernetes Cluster with following parametres:   
+`Name`: Rabbit  
+`Cluster template`: kube.1.14.1_autoscaler  
+`Master count`: 1  
+`Node count`: 1  
+`Master node flavor`: VC-1  
+`Node flavor`: VC-2  
+`Docker volume size (GB)`: 60  
+`IP of master node`: 188.40.161.86  
+`User name`: fedora  
 
-Method of connection to the Cluster Rabbit - using the ssh protocol and connecting directly to the master node.
+Method of connection to the Cluster Rabbit - using the ssh protocol and connecting directly to the master node:
+```
+ssh fedora@188.40.161.86
+```
 
-**Step 1. Install Helm in the Kubernetes Cluster**
+
+**Step 1. Install Helm in the Kubernetes Cluster**  
 
 Helm is a tool for managing Kubernetes charts. Charts are packages of pre-configured Kubernetes resources. Once deployed in the cluster, it deploys a Tiller management server within the cluster.
 
@@ -452,11 +457,13 @@ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```
+
 That will install helm client. Now we need to run the command:
 ```
 helm init
 ```
 This command will install tiller inside kubernetes. Tiller is a mechanism to interact with k8s. 
+
 
 After that, the Helm Tiller management server has been deployed in your Kubernetes Cluster, but it needs some settings, so execute the following commands:
 ```
@@ -465,7 +472,9 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 helm init --service-account default
 ```
-**Step 2. Deploy StorageClass**
+
+**Step 2. Deploy StorageClass**    
+
 Before we use helm, we need to deploy StorageClass:
 ```
 vi sc.yml
@@ -484,7 +493,9 @@ parameters:
 ```
 kubectl apply -f sc.yml
 ```
-**Step 3. Install RabbitMQ**
+
+**Step 3. Install RabbitMQ**  
+
 To install RabbitMQ using Helm, execute the following command:
 ```
 helm install stable/rabbitmq
@@ -556,15 +567,76 @@ To Access the RabbitMQ Management interface:
     echo "URL : http://127.0.0.1:15672/"
 
 ```
+
 Once it is installed, you get info on how to get the user credentials to access RabbitMQ’s management service. Username is user, while for password you need the following command:
 ```
 echo "Password      : $(kubectl get secret --namespace default wayfaring-jaguar-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 --decode)"
 ```
+
 and for the Erlang cookie:
 ```
 echo "ErLang Cookie : $(kubectl get secret --namespace default wayfaring-jaguar-rabbitmq -o jsonpath="{.data.rabbitmq-erlang-cookie}" | base64 --decode)"
 ```
-**Step 4. Access RabbitMQ’s management service**
+
+**Step 4. Access RabbitMQ’s management service**  
+
+You have several ways to connect to the RabbitMQ’s management service.
+
+**The first one** is to configure the command `kubectl` on your local host and execute the following commands:
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "app=wayfaring-jaguar-rabbitmq" -o jsonpath="{.items[0].metadata.name}")
+echo "URL : http://127.0.0.1:15672/"
+kubectl port-forward $POD_NAME 15672:15672
+```
+
+You can access RabbitMQ’s management service on `http://127.0.0.1:15672/`  
+
+**The second way** is to use ssh protocol and IP of the master node of your cluster - execute the following command on your local host:
+```
+ssh -L 8080:10.254.5.177:15672 fedora@188.40.161.86
+```
+
+After this you can access RabbitMQ’s management service on `http://127.0.0.1:8080/`  
+
+
+And **the third way** is to change the type of service to a LoadBalancer.
+
+As we can see, now, type of service is Node Port:
+```
+kubectl get svc
+```
+```console
+NAME                                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                                 AGE
+kubernetes                           ClusterIP   10.254.0.1     <none>        443/TCP                                 158m
+wayfaring-jaguar-rabbitmq            ClusterIP   10.254.5.177   <none>        4369/TCP,5672/TCP,25672/TCP,15672/TCP   20m
+wayfaring-jaguar-rabbitmq-headless   ClusterIP   None           <none>        4369/TCP,5672/TCP,25672/TCP,15672/TCP   20m
+```
+
+Let's change it - open configuration of this service and change it type from NodePort to LoadBalancer:
+```
+kubectl edit svc wayfaring-jaguar-rabbitmq
+service/wayfaring-jaguar-rabbitmq edited
+```
+
+Confirm our changes:
+```
+kubectl get svc
+```
+```console
+NAME                                 TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                                                         AGE
+kubernetes                           ClusterIP      10.254.0.1     <none>          443/TCP                                                         161m
+wayfaring-jaguar-rabbitmq            LoadBalancer   10.254.5.177   188.40.161.34   4369:32644/TCP,5672:30409/TCP,25672:32371/TCP,15672:30085/TCP   23m
+wayfaring-jaguar-rabbitmq-headless   ClusterIP      None           <none>          4369/TCP,5672/TCP,25672/TCP,15672/TCP                           23m
+```
+
+After this you can access RabbitMQ’s management service using EXTERNAL-IP of service - on `http://188.40.161.34:15672/`
+
+You can choose one from the listed methods that is the easiest for you. And when you open 
+
+
+
+
+
 
 
 
