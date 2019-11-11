@@ -1,5 +1,5 @@
 ---
-title: Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud
+title: Install RabbitMQ sevice using Ventus Cloud
 description: How install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud
 tags: [ featured, tutorial RabbitMQ]
 # permalink: /Install-/
@@ -458,7 +458,7 @@ ssh fedora@188.40.161.107
 
 Helm is a tool for managing Kubernetes charts. Charts are packages of pre-configured Kubernetes resources. Once deployed in the cluster, it deploys a Tiller management server within the cluster.
 
-To install it in your cluster , you need to execute the following commands:
+To install it in your cluster, you need to execute the following commands:
 ```
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 chmod 700 get_helm.sh
@@ -599,18 +599,18 @@ echo "URL : http://127.0.0.1:15672/"
 You can access RabbitMQ’s management service on `http://127.0.0.1:15672/`  
 
 **Method 2**  
-The second way to connect to the RabbitMQ’s management service is to use ssh protocol - execute the following command on your local host:
+The second way to connect to the RabbitMQ’s management service is to use ``ssh`` protocol - execute the following command on your local host:
 ```
 ssh -L 8080:10.254.5.177:15672 fedora@188.40.161.86
 ```
-here:  
-- 10.254.5.177 - CLUSTER-IP of service 
-- fedora - cluster user name
-- 188.40.161.107 - IP of master node
+here:    
+- `10.254.5.177` - CLUSTER-IP of service   
+- `fedora` - cluster user name  
+- `188.40.161.107` - IP of master node  
 
 After this you can access RabbitMQ’s management service on `http://127.0.0.1:8080/`  
 
-**Method 3**
+**Method 3**   
 And the third way to connect to the RabbitMQ’s management service is to change the type of service to a LoadBalancer.
 
 As we can see, now, type of service is ClusterIP:
@@ -624,7 +624,7 @@ joking-panda-rabbitmq            ClusterIP   10.254.5.177   <none>        4369/T
 joking-panda-rabbitmq-headless   ClusterIP   None           <none>        4369/TCP,5672/TCP,25672/TCP,15672/TCP   20m
 ```
 
-Let's change it - open configuration of this service and change it type from ClusterIP to LoadBalancer:
+Let's change it - open configuration of this service and change it `type` from ClusterIP to LoadBalancer:
 ```
 kubectl edit svc joking-panda-rabbitmq
 ```
@@ -695,6 +695,20 @@ joking-panda-rabbitmq-2   1/1     Running   0          7m13s
 Ok, now we have three running RabbitMQ pods, which we can find on our web interface too:
 
 ![](../../assets/img/rabbit/last.png)
+
+You have successfully installed RabbitMq on Kubernetes cluster in Ventus Cloud. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
