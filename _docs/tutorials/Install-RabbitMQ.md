@@ -424,7 +424,7 @@ guest   [administrator]
 You have successfully installed RabbitMQ cluster on Ubuntu 18.04. Enjoy and stay connected for more informative content.
 
 
-## Deploy RabbitMq on Kubernetes cluster in Ventus Cloud
+## Deploy RabbitMQ service on Kubernetes cluster in Ventus Cloud
 
 There are a lot of possible approaches to setting up clustered RabbitMQ on Kubernetes. There are many possible approaches to setting up a clustered RabbitMQ in Kubernetes. In this article we will propose the option to setup RabbitMQ on in Ventus Cloud using Helm.
 
