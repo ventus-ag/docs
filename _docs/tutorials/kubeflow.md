@@ -108,7 +108,10 @@ Follow these steps to deploy Kubeflow:
 <br />    `wget -O kfctl_existing_arrikto.yaml $CONFIG_URI`
 <br />    `export CONFIG_FILE=${KF_DIR}/kfctl_existing_arrikto.yaml`
 
+Now, you have `kfctl_existing_arrikto.yaml` file with default user credentials: `admin@kubeflow.org:12341234`.
+You can chage credentials using `vi kfctl_existing_arrikto.yaml` command and overwrite it.
 
+- Use command `kfctl apply -V -f ${CONFIG_FILE}` to deploy Kubeflow.
 
 3) Run next command to check that all pods are running:
 <br />`kubectl get pods --all-namespaces`
@@ -118,6 +121,7 @@ Follow these steps to deploy Kubeflow:
 ## Accsessing Kubeflow
 ---
 **Log in as a static user**
+
 After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
   - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 
