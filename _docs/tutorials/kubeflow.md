@@ -81,35 +81,34 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 Follow these steps to deploy Kubeflow:
 
 1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a>: 
-- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
-- `tar -xvf kfctl_v0.6.2_linux.tar.gz`
+- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.7.0_linux.tar.gz`
+- `tar -xvf kfctl_v0.7.0_linux.tar.gz`
 - `sudo cp kfctl /usr/bin/`
 
 2) Run the following commands to set up and deploy Kubeflow:
 
-{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with kubeflow-anonymous namespace. You need to create it yourself before you will set up and deploy kubeflow. Probably it will be fixed in next versions." %}
-
-- Create kubeflow-anonymous namespace: 
-  - `kubectl create ns kubeflow-anonymous`
 
 - The name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
-  - `export KFAPP="kubeflow-tutorial"`
+  - `export PATH=$PATH:"<path-to-kfctl>"`
 - Specify path to kfctl config file which will be used for kubeflow installation:  
-  - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"`
+  - `export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"`
+ - Set KF_NAME to the name of your Kubeflow deployment (For example, your deployment name can be 'my-kubeflow'):
+  - `export KF_NAME=<your choice of name for the Kubeflow deployment>`
+ - Set the path to the base directory where you want to store one or more Kubeflow deployments (For example, /usr/bin/):
+  - `export BASE_DIR=<path to a base directory>`
+ - Set the Kubeflow application directory for this deployment:  
+  - `export KF_DIR=${BASE_DIR}/${KF_NAME}`
 
-- Specify credentials for the default user:
-  - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
-  - `export KUBEFLOW_PASSWORD="12341234"`
-
-- Initialize and apply new kubeflow application to your cluster:
-  - Initialize new kubeflow application:
-<br />    `kfctl init ${KFAPP} --config=${CONFIG} -V`
+- Make direction and download the config file with default login credentials:
+  - Make direction:
+<br />    `mkdir -p ${KF_DIR}`
   - Go to new folder which will be created
-<br />    `cd ${KFAPP}`
-  - Generate kubernetes manifests of the kubeflow application:
-<br />    `kfctl generate all -V`
-  - Apply new manifests to the kubernetes cluster:
-<br />    `kfctl apply all -V`
+<br />    `cd ${KF_DIR}`
+  - Download the config file:
+<br />    `wget -O kfctl_existing_arrikto.yaml $CONFIG_URI`
+<br />    `export CONFIG_FILE=${KF_DIR}/kfctl_existing_arrikto.yaml`
+
+
 
 3) Run next command to check that all pods are running:
 <br />`kubectl get pods --all-namespaces`
