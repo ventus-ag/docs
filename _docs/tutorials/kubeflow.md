@@ -88,7 +88,7 @@ Follow these steps to deploy Kubeflow:
 2) Run the following commands to set up and deploy Kubeflow:
 
 
-- The name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
+- Set the name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
   - `export PATH=$PATH:"<path-to-kfctl>"`
 - Specify path to kfctl config file which will be used for kubeflow installation:  
   - `export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"`
