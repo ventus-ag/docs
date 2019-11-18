@@ -55,7 +55,9 @@
         - title: "Running ML pipeline using Kubeflow on Kubernetes"
           url: "docs/tutorials/kubeflow"
         - title: "Ventus Cloud Object Storage"
-          url: "docs/tutorials/object-storage"           
+          url: "docs/tutorials/object-storage"  
+        - title: "Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud"
+          url: "docs/tutorials/Install-RabbitMQ"                   
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         
