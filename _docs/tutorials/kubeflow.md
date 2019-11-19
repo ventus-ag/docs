@@ -81,7 +81,7 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 Follow these steps to deploy Kubeflow:
 
 1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a>: 
-- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.7.0_linux.tar.gz`
+- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.7.0/kfctl_v0.7.0_linux.tar.gz`
 - `tar -xvf kfctl_v0.7.0_linux.tar.gz`
 - `sudo cp kfctl /usr/bin/`
 
@@ -95,13 +95,13 @@ Follow these steps to deploy Kubeflow:
 `/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"`
 - Set KF_NAME to the name of your Kubeflow deployment (For example, your deployment name can be `'my-kubeflow'`):
   - `export KF_NAME=<your choice of name for the Kubeflow deployment>`
-- Set the path to the base directory where you want to store one or more Kubeflow deployments (For example, `/usr/bin/`):
+- Set the path to the base directory where you want to store one or more Kubeflow deployments (The path should be absolute):
   - `export BASE_DIR=<path to a base directory>`
 - Set the Kubeflow application directory for this deployment:  
   - `export KF_DIR=${BASE_DIR}/${KF_NAME}`
 
-- Make direction and download the config file with default login credentials:
-  - Make direction:
+- Create directory and download the config file with default login credentials:
+  - Create directory:
 <br />    `mkdir -p ${KF_DIR}`
 <br />    `cd ${KF_DIR}`
   - Download the config file:
@@ -140,7 +140,6 @@ After that, get the LoadBalancer’s IP or Hostname from its status and create t
 - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0]}'`
 
 Create the Certificate with cert-manager:
-
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
