@@ -97,7 +97,7 @@ Follow these steps to deploy Kubeflow:
 <br /> `export KF_NAME=<your choice of name for the Kubeflow deployment>`
 
 - Set the path to the base directory where you want to store one or more Kubeflow deployments (The path should be absolute):
-<br /> export BASE_DIR=<path to a base directory>`
+<br /> `export BASE_DIR=<path to a base directory>`
 
 - Set the Kubeflow application directory for this deployment:  
 <br /> `export KF_DIR=${BASE_DIR}/${KF_NAME}`
