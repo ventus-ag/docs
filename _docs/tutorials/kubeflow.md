@@ -129,6 +129,42 @@ Get the IP and open it in a browser: `https://<LoadBalancerIP address>/.`
 
 Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD` and access the Kubeflow dashboard!  
 
+**Expose with a LoadBalancer**
+
+To expose Kubeflow with a LoadBalancer Service, just change the type of the `istio-ingressgateway` Service to `LoadBalancer`.
+
+- `kubectl patch service -n istio-system istio-ingressgateway -p '{"spec": {"type": "LoadBalancer"}}'`
+
+After that, get the LoadBalancer’s IP or Hostname from its status and create the necessary certificate.
+
+- `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0]}'`
+
+Create the Certificate with cert-manager:
+
+```yaml
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: istio-ingressgateway-certs
+  namespace: istio-system
+spec:
+  commonName: istio-ingressgateway.istio-system.svc
+  # Use ipAddresses if your LoadBalancer issues an IP
+  ipAddresses:
+  - <LoadBalancer IP>
+  # Use dnsNames if your LoadBalancer issues a hostname (eg on AWS)
+  dnsNames:
+  - <LoadBalancer HostName>
+  isCA: true
+  issuerRef:
+    kind: ClusterIssuer
+    name: kubeflow-self-signing-issuer
+  secretName: istio-ingressgateway-certs
+```
+After applying the above Certificate, cert-manager will generate the TLS certificate inside the istio-ingressgateway-certs secrets. The istio-ingressgateway-certs secret is mounted on the istio-ingressgateway deployment and used to serve HTTPS.
+
+Navigate to `https://<LoadBalancer Address>/` and start using Kubeflow.
+
 ## Compilation of a mnist pipelines
 ---
 
