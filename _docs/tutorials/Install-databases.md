@@ -598,7 +598,7 @@ sudo apt install apt-transport-https
 
 The next step is to add the Apache Cassandra repository.
 
-**Step 2 -  - Installing Apache Cassandra**  
+**Step 2 -  Installing Apache Cassandra**  
 
 After that, we need to add the Cassandra repository to our repository file. 
 Import the repository’s GPG using the following wget command:
