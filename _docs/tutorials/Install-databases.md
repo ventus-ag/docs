@@ -39,6 +39,7 @@ Few features of this tool are:
 This tutorial describes a basic installation of a MySQL database server on Ubuntu Linux. You might need to install other packages to let applications use MySQL, like extensions for PHP. We also explain how to perform some basic operations with MySQL using the mysql client. It is a good choice if you know that you need a database but don’t know much about all the available options.
 
 **Step 1 - Installing MySQL**  
+
 Install the MySQL server by using the Ubuntu package manager:
 ```
 sudo apt-get update
@@ -53,6 +54,7 @@ sudo mysql_secure_installation utility
 This utility prompts you to define the mysql root password and other security-related options, including removing remote access to the root user and setting the root password.
 
 **Step 2 - Allowing remote access**  
+
 If you have iptables enabled and want to connect to the MySQL database from another machine, you must open a port in your server’s firewall (the default port is 3306). You don’t need to do this if the application that uses MySQL is running on the same server.
 
 Run the following command to allow remote access to the mysql server:
@@ -72,7 +74,8 @@ sudo systemctl enable mysql
 ```
 
 **Step 3 - Configuring interfaces**  
-MySQL, by default is no longer bound to ( listening on ) any remotely accessible interfaces. Edit the “bind-address” directive in /etc/mysql/mysql.conf.d/mysqld.cnf:
+
+MySQL, by default is no longer bound to ( listening on ) any remotely accessible interfaces. Edit the “bind-address” directive in /etc/mysql/mysql.conf.d/mysqld.cnf:  
 ```
 bind-address		= 127.0.0.1 ( The default. )
 bind-address		= XXX.XXX.XXX.XXX ( The ip address of your Public Net interface. )
@@ -89,12 +92,12 @@ sudo systemctl restart mysql
 
 There is more than one way to work with a MySQL server, but this article focuses on the most basic and compatible approach, the `mysql shell`.
 
-1. At the command prompt, run the following command to launch the mysql shell and enter it as the root user:
+1) At the command prompt, run the following command to launch the mysql shell and enter it as the root user:
 ```
 /usr/bin/mysql -u root -p
 ```
 
-2. When you’re prompted for a password, enter the one that you set at installation time, or if you haven’t set one, press `Enter` to submit no password.
+2) When you’re prompted for a password, enter the one that you set at installation time, or if you haven’t set one, press `Enter` to submit no password.
 
 The following `mysql shell` prompt should appear:
 ```
@@ -104,7 +107,7 @@ mysql>
 **Step 5 - Setting the root password**  
 If you logged in by entering a blank password, or if you want to change the root password that you set, you can create or change the password.
 
-1. For versions earlier than MySQL 5.7, enter the following command in the `mysql shell`, replace `password` with your new password:
+1) For versions earlier than MySQL 5.7, enter the following command in the `mysql shell`, replace `password` with your new password:
 ```
 UPDATE mysql.user SET Password = PASSWORD('password') WHERE User = 'root';
 ```
@@ -114,12 +117,13 @@ For version MySQL 5.7 and later, enter the following command in the `mysql shell
 UPDATE mysql.user SET authentication_string = PASSWORD('password') WHERE User = 'root';
 ```
 
-2. To make the change take effect, reload the stored user information with the following command:
+2) To make the change take effect, reload the stored user information with the following command:
 ```
 FLUSH PRIVILEGES;
 ```
 
 **Step 6 - Viewing users**  
+
 MySQL stores the user information in its own database. The name of the database is mysql. Inside that database the user information is in a table, a dataset, named user. If you want to see what users are set up in the MySQL user table, run the following command:
 ```
 SELECT User, Host, authentication_string FROM mysql.user;
@@ -135,6 +139,7 @@ The following list describes the parts of that command:
 {% include alert.html type="info" title="Note:" content="All SQL queries end in a semicolon. MySQL does not process a query until you type a semicolon." %}
 
 **User hosts**  
+
 The following example is the output for the preceding query:
 ```console
 SELECT User, Host, authentication_string FROM mysql.user;
@@ -155,6 +160,7 @@ If you’re running your application on the same computer as the MySQL server, t
 If your application connects remotely, the host entry that MySQL looks for is the IP address or DNS hostname of the remote computer (the one from which the client is coming).
 
 **Anonymous users**  
+
 In the example output, one entry has a host value but no username or password. That’s an anonymous user. When a client connects with no username specified, it’s trying to connect as an *anonymous user*.
 
 You usually don’t want any anonymous users, but some MySQL installations include one by default. If you see one, you should either delete the user (refer to the username with empty quotes, like ‘ ‘) or set a password for it.
@@ -169,6 +175,7 @@ To create a database, log in to the `mysql shell` and run the following command,
 ```
 CREATE DATABASE demodb;
 ```
+
 After the database is created, you can verify its creation by running a query to list all databases. The following example shows the query and example output:
 ```console
 SHOW DATABASES;
@@ -186,21 +193,23 @@ SHOW DATABASES;
 
 When applications connect to the database using the root user, they usually have more privileges than they need. You can add users that applications can use to connect to the new database. In the following example, a user named demouser is created.
 
-1. To create a new user, run the following command in the `mysql shell`:
+1) To create a new user, run the following command in the `mysql shell`:
+
 ```
 INSERT INTO mysql.user (User,Host,authentication_string,ssl_cipher,x509_issuer,x509_subject)
 VALUES('demouser','localhost',PASSWORD('demopassword'),'','','');
 ```
 
-2. When you make changes to the user table in the mysql database, tell MySQL to read the changes by flushing the privileges, as follows:
+2) When you make changes to the user table in the mysql database, tell MySQL to read the changes by flushing the privileges, as follows:
+
 ```
 FLUSH PRIVILEGES;
 ```
 
-3. Verify that the user was created by running a SELECT query again:
+3) Verify that the user was created by running a SELECT query again:
+
 ```console
 SELECT User, Host, authentication_string FROM mysql.user;
-
 +------------------+-----------+-------------------------------------------+
 | User             | Host      | Password                                  |
 +------------------+-----------+-------------------------------------------+
@@ -216,24 +225,25 @@ SELECT User, Host, authentication_string FROM mysql.user;
 
 Right after you create a new user, it has no privileges. The user can log in, but can’t be used to make any database changes.
 
-1. Give the user full permissions for your new database by running the following command:
+1) Give the user full permissions for your new database by running the following command:
 ```
 GRANT ALL PRIVILEGES ON demodb.* to demouser@localhost;
 ```
 
-2. Flush the privileges to make the change official by running the following command:
+2) Flush the privileges to make the change official by running the following command:
 ```
 FLUSH PRIVILEGES;
 ```
-3. To verify that those privileges are set, run the following command:
+3) To verify that those privileges are set, run the following command:
 ```
 SHOW GRANTS FOR 'demouser'@'localhost';
 2 rows in set (0.00 sec)
 ```
 
 MySQL returns the commands needed to reproduce that user’s permissions if you were to rebuild the server. `USAGE on \*.\*` means the users gets no privileges on anything by default. That command is overridden by the second command, which is the grant you ran for the new database.
+
 ```console
-+-----------------------------------------------------------------------------------------------------------------+
+-----------------------------------------------------------------------------------------------------------------+
 | Grants for demouser@localhost                                                                                   |
 +-----------------------------------------------------------------------------------------------------------------+
 | GRANT USAGE ON *.* TO 'demouser'@'localhost' IDENTIFIED BY PASSWORD '*0756A562377EDF6ED3AC45A00B356AAE6D3C6BB6' |
@@ -263,6 +273,7 @@ Few features of this DBMS are:
 This guide demonstrates how to install Postgres on an Ubuntu and also provides instructions for basic database administration.
 
 **Step 1 — Installing PostgreSQL** 
+
 Ubuntu’s default repositories contain Postgres packages, so you can install these using the apt packaging system.
 
 Since this is your first time using `apt` in this session, refresh your local package index. Then, install the Postgres package along with a `-contrib` package that adds some additional utilities and functionality:  
@@ -273,6 +284,7 @@ sudo apt install postgresql postgresql-contrib
 Now that the software is installed, we can go over how it works and how it may be different from similar database management systems you may have used.
 
 **Step 2 — Using PostgreSQL Roles and Databases**  
+
 By default, Postgres uses a concept called “roles” to handle in authentication and authorization. These are, in some ways, similar to regular Unix-style accounts, but Postgres does not distinguish between users and groups and instead prefers the more flexible term “role”.
 
 Upon installation, Postgres is set up to use ident authentication, meaning that it associates Postgres roles with a matching Unix/Linux system account. If a role exists within Postgres, a Unix/Linux username with the same name is able to sign in as that role.
@@ -281,7 +293,7 @@ The installation procedure created a user account called postgres that is associ
 
 There are a few ways to utilize this account to access Postgres:
 
-1. Switching Over to the postgres Account
+1) Switching Over to the postgres Account
 Switch over to the postgres account on your server by typing:
 ```
 sudo -i -u postgres
@@ -296,7 +308,7 @@ This will log you into the PostgreSQL prompt, and from here you are free to inte
 Exit out of the PostgreSQL prompt by typing: `\q`
 This will bring you back to the `postgres` Linux command prompt.
 
-2. Accessing a Postgres Prompt Without Switching Accounts
+2) Accessing a Postgres Prompt Without Switching Accounts
 You can also run the command you’d like with the postgres account directly with `sudo`.
 
 For instance, in the last example, you were instructed to get to the Postgres prompt by first switching to the postgres user and then running `psql` to open the Postgres prompt. You could do this in one step by running the single command `psql` as the postgres user with `sudo`, like this:
@@ -310,6 +322,7 @@ Again, you can exit the interactive Postgres session by typing: `\q`
 Many use cases require more than one Postgres role. Read on to learn how to configure these.
 
 **Step 3 — Creating a New Role**  
+
 Currently, you just have the postgres role configured within the database. You can create new roles from the command line with the `createrole` command. The `--interactive` flag will prompt you for the name of the new role and also ask whether it should have superuser permissions.
 
 If you are logged in as the postgres account, you can create a new user by typing:
@@ -389,6 +402,7 @@ You are connected to database "sammy" as user "sammy" via socket in "/var/run/po
 This is useful if you are connecting to non-default databases or with non-default users.
 
 **Step 6 — Creating and Deleting Tables**
+
 Now that you know how to connect to the PostgreSQL database system, you can learn some basic Postgres management tasks.
 
 First, create a table to store some data. As an example, a table that describes some playground equipment.
@@ -448,6 +462,7 @@ Output
 ```
 
 **Step 7 — Adding, Querying, and Deleting Data in a Table**
+
 Now that you have a table, you can insert some data into it.
 
 As an example, add a slide and a swing by calling the table you want to add to, naming the columns and then providing data for each column, like this:
@@ -605,6 +620,7 @@ sudo apt install cassandra
 ```
 
 **Step 3 - Enabling and Starting Cassandra**  
+
 At the end of the installation, we have to enable the Cassandra service to start automatically when the system boots. In addition, we should start it manually. We can do it with the following commands:
 ```
 sudo systemctl enable cassandra
@@ -616,6 +632,7 @@ sudo update-rc.d cassandra defaults
 ```
 
 **Step 4 - Verifying The Installation**
+
 To check if the installation has been successful, we can check the status of the service. To do this, run the following command:
 ```
 sudo systemctl status cassandra
@@ -671,7 +688,7 @@ For now, just type `exit` and then press `ENTER` to quit the cqlsh shell.
 
 By default, the Cassandra cluster is named “Test Cluster”. If you want to change it follow the steps bellow:
 
-1. Login to the Cassandra CQL terminal with `cqlsh`:
+1) Login to the Cassandra CQL terminal with `cqlsh`:
 ```
 cqlsh
 ```
@@ -682,7 +699,7 @@ UPDATE system.local SET cluster_name = 'Linuxize Cluster' WHERE KEY = 'local';
 ```
 Change “Linuxize Cluster” with your desired name. Once done type exit to exit the console.
 
-2. Edit the `cassandra.yaml` configuration file and enter your new cluster name.
+2) Edit the `cassandra.yaml` configuration file and enter your new cluster name.
 ```
 vi /etc/cassandra/cassandra.yaml
 ```
@@ -690,12 +707,12 @@ vi /etc/cassandra/cassandra.yaml
 cluster_name: 'Linuxize Cluster'
 ```
 
-3. Run the following command to clear the system cache:
+3) Run the following command to clear the system cache:
 ```
 nodetool flush system
 ```
 
-4. Finally restart the Cassandra service:
+4) Finally restart the Cassandra service:
 ```
 sudo systemctl restart cassandra
 ```
