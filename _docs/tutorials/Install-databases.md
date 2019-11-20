@@ -15,9 +15,9 @@ tags: [ featured, tutorial ]
 
 ## Intoduction
 
-Databases store information and its contents can be everything from product catalogs to repositories of customer information. For information to be easy to access, use and understand, database management systems are required. Database management systems can help sort information as well as link databases to each other and provide reports about changes and trends in the information in databases.
+Databases store information and its contents can be everything from product catalogs to repositories of customer information.
 
-Although database management systems all perform the same basic task, which is to enable users to create, edit and access information in databases, how they accomplish this can vary. Additionally, the features, functionality, and support associated with each management system can differ significantly.
+Although databases all perform the same basic task, which is to enable users to create, edit and access information in databases, how they accomplish this can vary. Additionally, the features, functionality, and support associated with each management system can differ significantly.
 
 In this tutorial, we’ll go over some of the most popular databases currently used such as MySQL, PostgreSQL and Apache Cassandra NoSQL DB on Linux VM in Ventus Cloud.
 
