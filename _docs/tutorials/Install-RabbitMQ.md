@@ -1,10 +1,10 @@
 ---
 title: Install RabbitMQ sevice using Ventus Cloud
 description: How install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud
-tags: [ featured, tutorial RabbitMQ]
-# permalink: /Install-/
+tags: [ featured, tutorial ]
+# permalink: /Install-RabbitMQ/
 ---
-# Install RabbitMQ sevice using Ventus Cloud
+# How install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud
 {: .no_toc }
 ---
 ## Table of contents
