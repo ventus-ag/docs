@@ -17,7 +17,7 @@ tags: [ featured, tutorial ]
 
 Databases store information and its contents can be everything from product catalogs to repositories of customer information.
 
-Although databases all perform the same basic task, which is to enable users to create, edit and access information in databases, how they accomplish this can vary. Additionally, the features, functionality, and support associated with each management system can differ significantly.
+Although databases all perform the same basic task, which is to enable users to create, edit and access information in databases, how they accomplish this can vary. 
 
 In this tutorial, we’ll go over some of the most popular databases currently used such as MySQL, PostgreSQL and Apache Cassandra NoSQL DB on Linux VM in Ventus Cloud.
 
@@ -47,11 +47,34 @@ sudo apt-get install mysql-server
 ```
 The installer installs MySQL and all dependencies.
 
+Check the version of MySQL with the following command (note the capital V parameter):  
+
+```
+mysql -V
+```    
+
 If the secure installation utility does not launch automatically after the installation completes, enter the following command:
 ```
 sudo mysql_secure_installation utility
 ```
-This utility prompts you to define the mysql root password and other security-related options, including removing remote access to the root user and setting the root password.
+This utility prompts you to define the mysql root password and other security-related options, including removing remote access to the root user and setting the root password. You will be asked a series of questions. We have provided the answers below for simplicity:
+
+```
+Set root password? [Y/n] Y
+New password: Enter your password here
+Re-enter new password: repeat your password
+Remove anonymous users? [Y/n] Y
+Disallow root login remotely? [Y/n] Y
+Remove test database and access to it? [Y/n] Y
+Reload privilege tables now? [Y/n] Y
+```
+Your MySQL database is now secure. Type the command below to enable it during boot:
+
+```
+sudo systemctl enable mariadb.service
+```
+
+At this point, your database system is now set up and we can move on.
 
 **Step 2 - Allowing remote access**  
 
@@ -94,7 +117,7 @@ There is more than one way to work with a MySQL server, but this article focuses
 
 1) At the command prompt, run the following command to launch the mysql shell and enter it as the root user:
 ```
-/usr/bin/mysql -u root -p
+sudo mysql -u root -p
 ```
 
 2) When you’re prompted for a password, enter the one that you set at installation time, or if you haven’t set one, press `Enter` to submit no password.
@@ -142,15 +165,16 @@ The following list describes the parts of that command:
 
 The following example is the output for the preceding query:
 ```console
-SELECT User, Host, authentication_string FROM mysql.user;
+mysql> SELECT User, Host, authentication_string FROM mysql.user;
 +------------------+-----------+-------------------------------------------+
 | User             | Host      | authentication_string                     |
 +------------------+-----------+-------------------------------------------+
-| root             | localhost | *756FEC25AC0E1823C9838EE1A9A6730A20ACDA21 |
+| root             | localhost |                                           |
 | mysql.session    | localhost | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE |
 | mysql.sys        | localhost | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE |
-| debian-sys-maint | localhost | *27E7CA2445405AB10C656AFD0F86AF76CCC57692 |
+| debian-sys-maint | localhost | *D5B38354276160B90596B4C4CC1777EBF7E7D535 |
 +------------------+-----------+-------------------------------------------+
+4 rows in set (0.00 sec)
 ```
 
 Users are associated with a host, specifically, the host from which they connect. The root user in this example is defined for localhost, for the IP address of localhost, and the hostname of the server. You usually need to set a user for only one host, the one from which you typically connect.
@@ -209,16 +233,17 @@ FLUSH PRIVILEGES;
 3) Verify that the user was created by running a SELECT query again:
 
 ```console
-SELECT User, Host, authentication_string FROM mysql.user;
+mysql> SELECT User, Host, authentication_string FROM mysql.user;
 +------------------+-----------+-------------------------------------------+
-| User             | Host      | Password                                  |
+| User             | Host      | authentication_string                     |
 +------------------+-----------+-------------------------------------------+
-| root             | localhost | *756FEC25AC0E1823C9838EE1A9A6730A20ACDA21 |
+| root             | localhost |                                           |
 | mysql.session    | localhost | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE |
 | mysql.sys        | localhost | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE |
-| debian-sys-maint | localhost | *27E7CA2445405AB10C656AFD0F86AF76CCC57692 |
+| debian-sys-maint | localhost | *D5B38354276160B90596B4C4CC1777EBF7E7D535 |
 | demouser         | localhost | *0756A562377EDF6ED3AC45A00B356AAE6D3C6BB6 |
 +------------------+-----------+-------------------------------------------+
+5 rows in set (0.00 sec)
 ```
 
 **Step 8 - Granting database user permissions**  
@@ -237,18 +262,18 @@ FLUSH PRIVILEGES;
 3) To verify that those privileges are set, run the following command:
 ```
 SHOW GRANTS FOR 'demouser'@'localhost';
-2 rows in set (0.00 sec)
 ```
 
 MySQL returns the commands needed to reproduce that user’s permissions if you were to rebuild the server. `USAGE on \*.\*` means the users gets no privileges on anything by default. That command is overridden by the second command, which is the grant you ran for the new database.
 
 ```console
------------------------------------------------------------------------------------------------------------------+
-| Grants for demouser@localhost                                                                                   |
-+-----------------------------------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO 'demouser'@'localhost' IDENTIFIED BY PASSWORD '*0756A562377EDF6ED3AC45A00B356AAE6D3C6BB6' |
-| GRANT ALL PRIVILEGES ON `demodb`.* TO 'demouser'@'localhost'                                                    |
-+-----------------------------------------------------------------------------------------------------------------+
+mysql> SHOW GRANTS FOR 'demouser'@'localhost';
++--------------------------------------------------------------+
+| Grants for demouser@localhost                                |
++--------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'demouser'@'localhost'                 |
+| GRANT ALL PRIVILEGES ON `demodb`.* TO 'demouser'@'localhost' |
++--------------------------------------------------------------+
 2 rows in set (0.00 sec)
 ```
 
@@ -394,7 +419,7 @@ psql -d postgres
 
 Once logged in, you can get check your current connection information by typing:
 ```
-\conninfo
+sammy=# \conninfo
 ```
 ```console
 You are connected to database "sammy" as user "sammy" via socket in "/var/run/postgresql" at port "5432".
@@ -410,7 +435,7 @@ First, create a table to store some data. As an example, a table that describes 
 The basic syntax for this command is as follows:
 ```
 CREATE TABLE table_name (
-    column_name1 col_type (field_length) column_constraints,
+    column_name1 col_type (field_length), column_constraints
     column_name2 col_type (field_length),
     column_name3 col_type (field_length)
 );
