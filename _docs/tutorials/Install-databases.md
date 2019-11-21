@@ -17,8 +17,6 @@ tags: [ featured, tutorial ]
 
 Databases store information and its contents can be everything from product catalogs to repositories of customer information.
 
-Although databases all perform the same basic task, which is to enable users to create, edit and access information in databases, how they accomplish this can vary. 
-
 In this tutorial, we’ll go over some of the most popular databases currently used such as MySQL, PostgreSQL and Apache Cassandra NoSQL DB on Linux VM in Ventus Cloud.
 
 ## Prerequisites
