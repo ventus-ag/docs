@@ -577,7 +577,7 @@ As you can see, your slide is now registered as being red.
 
 NoSQL database managers are ideal for clusters of data and scalable applications. Among them is Cassandra from the Apache Foundation.
 
-Apache Cassandra is a free and open-source, distributed, wide column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters,[2] with asynchronous masterless replication allowing low latency operations for all clients.
+Apache Cassandra is a free and open-source, distributed, wide column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
 
 Few features of this tool are:
 * supports replication and multi data center replication,  
