@@ -5,6 +5,7 @@ tags: [ featured, quickstart ]
 # permalink: /create_account/
 ---
 # How to create a new Ventus Cloud account
+{: .no_toc }
 ---
 
 {% include alert.html type="info" title="Note:
@@ -44,7 +45,7 @@ On the next opened page you need:
         - Zip Code  
         - Phone  
 
-{% include alert.html type="info" title="Note" content="It should be noted that Ventus Cloud involves a business system that supports B2B (business-to-business) and B2C (business-to-consumer) commercial communications, transactions and sales administration. These two forms of commercial transactions have certain differences in the tax system of different countries. However, the registration process in Ventus Cloud differs only in the provision of additional information such as: Name of Company and VAT ID." %}   
+{% include alert.html type="info" title="Note: " content="It should be noted that Ventus Cloud involves a business system that supports B2B (business-to-business) and B2C (business-to-consumer) commercial communications, transactions and sales administration. These two forms of commercial transactions have certain differences in the tax system of different countries. However, the registration process in Ventus Cloud differs only in the provision of additional information such as: Name of Company and VAT ID." %}   
 
 All fields that must be filled on this page are marked with an asterisk (as shown below) and if you represet **B2C** form of commercial communications this infornation will be sufficient.  
 ![](../../assets/img/create_account/3ac.png) 
@@ -57,9 +58,6 @@ But if you represet **B2B** form of commercial communications you need to fill i
 After filling in all required fields, review the information you entered for this Account. If it is correct, select **ADD CLIENT BILLING INFORMATION**. 
 
 After that, your new account is considered as registered. So, when you will visit home page of VentusCloud for the second time, you will need to indicate only **User name** (it is equal to your email address specified during registration) and **Password**. 
-
-![](../../assets/img/create_account/5ac.png)
- 
 
 # Providing billing information
 ----
@@ -100,7 +98,7 @@ If you want to pay by **credit card**, select the appropriate payment method, cl
 
 If the payment is successful, after a few minutes the status of your account should change to `paid`.
 
-## Edit account 
+# Edit account 
 ----
 To find your personal account information you need to click on the icon in the upper right corner of your home page and choose `My profile`:  
 ![](../../assets/img/create_account/14ac.png)
