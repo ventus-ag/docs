@@ -81,35 +81,40 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 Follow these steps to deploy Kubeflow:
 
 1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a>: 
-- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.6.2/kfctl_v0.6.2_linux.tar.gz`
-- `tar -xvf kfctl_v0.6.2_linux.tar.gz`
+- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.7.0/kfctl_v0.7.0_linux.tar.gz`
+- `tar -xvf kfctl_v0.7.0_linux.tar.gz`
 - `sudo cp kfctl /usr/bin/`
 
 2) Run the following commands to set up and deploy Kubeflow:
+- Set the name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
+<br /> `export PATH=$PATH:"<path-to-kfctl>"`
 
-{% include alert.html type="info" title="Important Note:" content="At the time of writing this tutorial there is an issue with kubeflow-anonymous namespace. You need to create it yourself before you will set up and deploy kubeflow. Probably it will be fixed in next versions." %}
+- Specify path to kfctl config file which will be used for kubeflow installation: 
+<br /> `export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests`
+`/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"`
 
-- Create kubeflow-anonymous namespace: 
-  - `kubectl create ns kubeflow-anonymous`
+- Set KF_NAME to the name of your Kubeflow deployment (For example, your deployment name can be `'my-kubeflow'`):
+<br /> `export KF_NAME=<your choice of name for the Kubeflow deployment>`
 
-- The name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
-  - `export KFAPP="kubeflow-tutorial"`
-- Specify path to kfctl config file which will be used for kubeflow installation:  
-  - `export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_existing_arrikto.0.6.2.yaml"`
+- Set the path to the base directory where you want to store one or more Kubeflow deployments (The path should be absolute):
+<br /> `export BASE_DIR=<path to a base directory>`
 
-- Specify credentials for the default user:
-  - `export KUBEFLOW_USER_EMAIL="admin@kubeflow.org"`
-  - `export KUBEFLOW_PASSWORD="12341234"`
+- Set the Kubeflow application directory for this deployment:
+<br /> `export KF_DIR=${BASE_DIR}/${KF_NAME}`
 
-- Initialize and apply new kubeflow application to your cluster:
-  - Initialize new kubeflow application:
-<br />    `kfctl init ${KFAPP} --config=${CONFIG} -V`
-  - Go to new folder which will be created
-<br />    `cd ${KFAPP}`
-  - Generate kubernetes manifests of the kubeflow application:
-<br />    `kfctl generate all -V`
-  - Apply new manifests to the kubernetes cluster:
-<br />    `kfctl apply all -V`
+- Create directory and download the config file with default login credentials:
+  - Create directory:
+<br />    `mkdir -p ${KF_DIR}`
+<br />    `cd ${KF_DIR}`
+
+  - Download the config file:
+<br />    `wget -O kfctl_existing_arrikto.yaml $CONFIG_URI`
+<br />    `export CONFIG_FILE=${KF_DIR}/kfctl_existing_arrikto.yaml`
+
+Now, you have `kfctl_existing_arrikto.yaml` file with default user credentials: `admin@kubeflow.org:12341234`.
+You can chage credentials using `vi kfctl_existing_arrikto.yaml` command and overwrite it.
+
+- Use command `kfctl apply -V -f ${CONFIG_FILE}` to deploy Kubeflow.
 
 3) Run next command to check that all pods are running:
 <br />`kubectl get pods --all-namespaces`
@@ -119,12 +124,48 @@ Follow these steps to deploy Kubeflow:
 ## Accsessing Kubeflow
 ---
 **Log in as a static user**
+
 After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
   - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 
 Get the IP and open it in a browser: `https://<LoadBalancerIP address>/.`
 
 Enter the credentials you specified in `KUBEFLOW_USER_EMAIL`, `KUBEFLOW_PASSWORD` and access the Kubeflow dashboard!  
+
+**Expose with a LoadBalancer**
+
+To expose Kubeflow with a LoadBalancer Service, just change the type of the `istio-ingressgateway` Service to `LoadBalancer`.
+
+- `kubectl patch service -n istio-system istio-ingressgateway -p '{"spec": {"type": "LoadBalancer"}}'`
+
+After that, get the LoadBalancer’s IP or Hostname from its status and create the necessary certificate.
+
+- `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0]}'`
+
+Create the Certificate with cert-manager:
+```yaml
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: istio-ingressgateway-certs
+  namespace: istio-system
+spec:
+  commonName: istio-ingressgateway.istio-system.svc
+  # Use ipAddresses if your LoadBalancer issues an IP
+  ipAddresses:
+  - <LoadBalancer IP>
+  # Use dnsNames if your LoadBalancer issues a hostname (eg on AWS)
+  dnsNames:
+  - <LoadBalancer HostName>
+  isCA: true
+  issuerRef:
+    kind: ClusterIssuer
+    name: kubeflow-self-signing-issuer
+  secretName: istio-ingressgateway-certs
+```
+After applying the above Certificate, cert-manager will generate the TLS certificate inside the istio-ingressgateway-certs secrets. The istio-ingressgateway-certs secret is mounted on the istio-ingressgateway deployment and used to serve HTTPS.
+
+Navigate to `https://<LoadBalancer Address>/` and start using Kubeflow.
 
 ## Compilation of a mnist pipelines
 ---
