@@ -81,14 +81,14 @@ To view invoice details, select the one you need and click on its icon. On the n
 * Invoice amount  
 * Tax calculation in accordance with the tax rules of your country of registration  
 
-Also, here you can choose a **payment method**. You have two options: 
-1) if you have a credit balance in your account, you can pay the bill with  these credit
+Also, here you can choose a **payment method**. You have two options:  
+1) if you have a credit balance in your account, you can pay the bill with  these credit  
 2) or you can pay the bill with your credit card
 
 ![](../../assets/img/create_account/10ac.png)
 
 If you want to pay with your **credit balance** just choose this payment method and click `pay now`:    
- 
+
 ![](../../assets/img/create_account/11ac.png)
 
 If you want to pay by **credit card**, select the appropriate payment method, click `pay now` and on the following page you need to provide information of your credit card:  
