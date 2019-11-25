@@ -61,6 +61,8 @@ After filling in all required fields, review the information you entered for thi
 
 After that, your new account is considered as registered. So, when you will visit home page of VentusCloud for the second time, you will need to indicate only **User name** (it is equal to your email address specified during registration) and **Password**. 
 
+
+
 # Providing billing information
 ----
 
@@ -100,6 +102,8 @@ If you want to pay by **credit card**, select the appropriate payment method, cl
 ![](../../assets/img/create_account/13ac.png)
 
 If the payment is successful, after a few minutes the status of your account should change to `paid`.
+
+
 
 # Edit account 
 ----
