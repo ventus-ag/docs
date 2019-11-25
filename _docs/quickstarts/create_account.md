@@ -55,7 +55,7 @@ But if you represet **B2B** form of commercial communications you need to fill i
 
 ![](../../assets/img/create_account/4ac.png)
 
-{% include alert.html type="info" title="Note" content="Due to differences in tax policies of different countries, it is necessary to correctly indicate the country of registration for both B2B systems and B2C systems." %}  
+{% include alert.html type="info" title="Note:" content="Due to differences in tax policies of different countries, it is necessary to correctly indicate the country of registration for both B2B systems and B2C systems." %}  
 
 After filling in all required fields, review the information you entered for this Account. If it is correct, select **ADD CLIENT BILLING INFORMATION**. 
 
