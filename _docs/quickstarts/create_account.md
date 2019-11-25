@@ -7,7 +7,8 @@ tags: [ featured, quickstart ]
 # How to create a new Ventus Cloud account
 ---
 
-{% include alert.html type="info" title="Note" content="After the first registration, you will receive a start credit of € 100 as a gift for testing the services offered by Ventus Cloud." %}  
+{% include alert.html type="info" title="Note:
+ After the first registration, you will receive a start credit of € 100 as a gift for testing the services offered by Ventus Cloud." %}  
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -15,7 +16,7 @@ tags: [ featured, quickstart ]
 1. TOC
 {:toc}
 
-## Create a new VentusCloud account
+# Create a new VentusCloud account
 ---
 The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to start work in Ventus portal, how to create a new user account and then sign in.
 
@@ -60,7 +61,7 @@ After that, your new account is considered as registered. So, when you will visi
 ![](../../assets/img/create_account/5ac.png)
  
 
-## Providing billing information
+# Providing billing information
 ----
 
 It will be necessary to provide billing information when you pay the first invoice issued to you for using the services of Ventus Cloud.
