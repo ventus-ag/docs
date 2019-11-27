@@ -87,12 +87,12 @@ This setup is using 3 containers, which are all available on Docker Hub.
 
 ### General Preparation  
 
-* Define an environment variable $env:_HUB_CS and set it to your iothubowner connection string of the IoTHub you are using  
-* If you are using docker to run the setup, create a docker bridge network with name iot_edge with docker network create iot_edge. Verify with docker network ls  
+* Define an environment variable `$env:_HUB_CS` and set it to your iothubowner connection string of the IoTHub you are using  
+* If you are using docker to run the setup, create a docker bridge network with name *iot_edge* with `docker network create iot_edge`. Verify with `docker network ls`   
 * The samples are using Windows as the host OS, they are using Linux containers (means that LCOW is used) and they use PowerShell as the shell  
 * If you are using native executables, ensure you have installed Visual Studio, git and the required .NET SDKs  
-* If you are using configurations with Docker containers. Install Docker and ensure that you have shared the drive where <reporoot> is located via the Docker Settings dialog  
-* Define an environment variable $env:_REPO_ROOT and set it to the full qualified directory name of the root of this repository
+* If you are using configurations with Docker containers. Install Docker and ensure that you have shared the drive where `<reporoot>` is located via the Docker Settings dialog  
+* Define an environment variable `$env:_REPO_ROOT` and set it to the full qualified directory name of the root of this repository
 
 ### OPC Publisher  
 
