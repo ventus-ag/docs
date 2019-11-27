@@ -10,7 +10,7 @@ tags: [ featured, tutorial ]
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+* TOC
 {:toc}
 
 ## What is OPC UA
@@ -21,7 +21,7 @@ The **O**pen **P**latform **C**onfigurations **U**nified **A**rchitecture (**OPC
 
 This multi-layered approach accomplishes the original design specification goals of:
 
-* **Functional equivalence**: all COM OPC Classic specifications are mapped to UA  
+**1) Functional equivalence**: all COM OPC Classic specifications are mapped to UA  
 
 Building on the success of OPC Classic, OPC UA was designed to enhance and surpass the capabilities of the OPC Classic specifications. OPC UA is functionally equivalent to OPC Classic, yet capable of much more:
    * *Discovery*: find the availability of OPC Servers on local PCs and/or networks  
@@ -33,7 +33,7 @@ Building on the success of OPC Classic, OPC UA was designed to enhance and surpa
 
 Integration between OPC UA products and OPC Classic products is easily accomplished with COM/Proxy wrappers that are available in the download section.
 
-* **Platform independence**: from an embedded micro-controller to cloud-based infrastructure 
+**2) Platform independence**: from an embedded micro-controller to cloud-based infrastructure 
 
 Given the wide array of available hardware platforms and operating systems, platform independence is essential. OPC UA functions on any of the following and more:
    * *Hardware platforms*: traditional PC hardware, cloud-based servers, * PLCs, micro-controllers (ARM etc.)  
@@ -41,7 +41,7 @@ Given the wide array of available hardware platforms and operating systems, plat
 
 OPC UA provides the necessary infrastructure for interoperability across the enterprise, from machine-to-machine, machine-to-enterprise and everything in-between. 
 
-* **Secure**: encryption, authentication, and auditing  
+**3) Secure**: encryption, authentication, and auditing  
 
 One of the most important considerations in choosing a technology is security. OPC UA is firewall-friendly while addressing security concerns by providing a suite of controls:
    * *Transport*: numerous protocols are defined providing options such as the ultra-fast OPC-binary transport or the more universally compatible JSON over Websockets, for example  
@@ -52,11 +52,11 @@ One of the most important considerations in choosing a technology is security. O
    * *User Control*: applications can require users to authenticate (login credentials, certificate, web token etc.) and can further restrict and enhance their capabilities with access rights and address-space “views”  
    * *Auditing*: activities by user and/or system are logged providing an access audit trail  
 
-* **Extensible**: ability to add new features without affecting existing applications  
+**4) Extensible**: ability to add new features without affecting existing applications  
 
 The multi-layered architecture of OPC UA provides a “future proof” framework. Innovative technologies and methodologies such as new transport protocols, security algorithms, encoding standards, or application-services can be incorporated into OPC UA while maintaining backwards compatibility for existing products. UA products built today will work with the products of tomorrow.
 
-* **Comprehensive** information modeling: for defining complex information  
+**5) Comprehensive** information modeling: for defining complex information  
 
 The OPC UA information modeling framework turns data into information. With complete object-oriented capabilities, even the most complex multi-level structures can be modeled and extended.
 
@@ -75,17 +75,17 @@ Publish-Subscribe (PubSub), provides an alternative mechanism for data and event
 
 With PubSub, OPC UA applications do not directly exchange requests and responses. Instead, Publishers send messages to a Message Oriented Middleware, without knowledge of what, if any, Subscribers there may be. Similarly, Subscribers express interest in specific types of data, and process messages that contain this data, without a need to know where it originated from.
 
-By using the OPC UA controller, factories and enterprises can:
+*By using the OPC UA controller, factories and enterprises can:*
 
 1. Create the web-based vertical integration of both the upstream and the downstream system.
 2. Integrate onsite data in the back-end system for further analysis.
 3. Horizontally connect each subsystem.
 
-## How to use OPC Components
+## How to use OPC Components  
 
 This setup is using 3 containers, which are all available on Docker Hub.
 
-### General Preparation
+### General Preparation  
 
 * Define an environment variable $env:_HUB_CS and set it to your iothubowner connection string of the IoTHub you are using  
 * If you are using docker to run the setup, create a docker bridge network with name iot_edge with docker network create iot_edge. Verify with docker network ls  
@@ -94,7 +94,7 @@ This setup is using 3 containers, which are all available on Docker Hub.
 * If you are using configurations with Docker containers. Install Docker and ensure that you have shared the drive where <reporoot> is located via the Docker Settings dialog  
 * Define an environment variable $env:_REPO_ROOT and set it to the full qualified directory name of the root of this repository
 
-### OPC Publisher
+### OPC Publisher  
 
 **OPC Publisher** allows to send telemetry from OPC UA server systems to IoTHub. 
 A docker container of the component is hosted [here](https://hub.docker.com/_/microsoft-iotedge-opc-publisher) and can be pulled by:
@@ -118,7 +118,7 @@ cd ./iot-edge-opc-publisher
 docker build -t opc-publisher .
 docker run -h publisher --name publisher --network iot_edge -v "$($env:_REPO_ROOT):/appdata" -e "_HUB_CS=$env:_HUB_CS" opc-publisher publisher --aa --pf /appdata/publishednodes_opcplc.json
 ```
-*Verification*:
+*Verification*:  
 Verify that opc-publisher is connected to opc-plc and that 7 items are monitored. You should see something like this in the log output of opc-publisher:
 ```console
 [18:52:08 INF] Connect and monitor session and nodes on endpoint 'opc.tcp://opcplc:50000/'.
@@ -137,7 +137,7 @@ Verify that opc-publisher is connected to opc-plc and that 7 items are monitored
 [18:52:10 INF] Done processing unmonitored items on endpoint 'opc.tcp://opcplc:50000/' took 96 msec. Now monitoring 7 items in subscription with id '1'.
 ```
 
-**Configurations with prebuilt docker containers**
+**Configurations with prebuilt docker containers**  
 
 Run the following PowerShell commands in the root of the repository:
 ```
@@ -149,7 +149,7 @@ In a second PowerShell command window run the following commands in the root of 
 docker run -h publisher --name publisher --network iot_edge -v "$($env:_REPO_ROOT):/appdata" -e "_HUB_CS=$env:_HUB_CS" mcr.microsoft.com/iotedge/opc-publisher publisher --aa --pf /appdata/publishednodes_opcplc.json
 ```
 
-*Verification*:
+*Verification*:  
 Verify that opc-publisher is connected to opc-plc and that 7 items are monitored. You should see something like this in the log output of opc-publisher:
 ```console
 [19:10:51 INF] Connect and monitor session and nodes on endpoint 'opc.tcp://opcplc:50000/'.
@@ -168,15 +168,14 @@ Verify that opc-publisher is connected to opc-plc and that 7 items are monitored
 [19:10:53 INF] Done processing unmonitored items on endpoint 'opc.tcp://opcplc:50000/' took 93 msec. Now monitoring 7 items in subscription with id '1'.> ```
 ```
 
-**Configurations using docker-compose**
+**Configurations using docker-compose**  
 
 Run the following PowerShell commands in the root of the repository:
 ```
 docker-compose -f simple.yml up
 ```
 
-*Verification*:
-
+*Verification*:  
 Verify that opc-publisher is connected to opc-plc and that 7 items are monitored. You should see something like this in the log output of opc-publisher:
 ```console
 publisher    | [19:30:59 INF] Connect and monitor session and nodes on endpoint 'opc.tcp://opcplc:50000/'.
@@ -195,7 +194,8 @@ publisher    | [19:31:01 INF] Start monitoring items on endpoint 'opc.tcp://opcp
 publisher    | [19:31:01 INF] Done processing unmonitored items on endpoint 'opc.tcp://opcplc:50000/' took 94 msec. Now monitoring 7 items in subscription with id '1'.
 ```
 
-#### OPC PLC server
+### OPC PLC server  
+
 An OPC UA server using the [OPC UA .NET Standard Console Reference stack](https://github.com/OPCFoundation/UA-.NETStandard), with some nodes generating random data and data with anomalies. The source could be found here. The nodeset of this server contains various nodes which can be used to generate random data or anomalies.
 
 A docker container of the component is hosted [here](https://hub.docker.com/_/microsoft-iotedge-opc-plc) and can be pulled by:
@@ -203,7 +203,7 @@ A docker container of the component is hosted [here](https://hub.docker.com/_/mi
 docker pull mcr.microsoft.com/iotedge/opc-plc
 ```
 
-**Features**
+**Features**  
 The following nodes are part of the PLC simulation:
 * with alternating boolean  
 * random signed 32-bit integer  
@@ -215,7 +215,7 @@ The following nodes are part of the PLC simulation:
 
 By default everything is enabled, please use command line options to disable certain anomaly or data generation features. Additionally to simulation mode, a JSON configuration file, which defines nodes to be populated.
 
-**Node population from JSON configuration file**  
+**Node population from JSON configuration file**    
 
 If the module (application) is started with argument --nodesfile then specified JSON configuration file is loaded. Nodes defined in JSON file will be published by the server. This enables another OPCUA-client application to set the state/value of the node. Please note that nodes specified in JSON file are NOT a part of simulation. They remain visible in unchanged state as long some OPCUA-client application changes their status. Following command shows how to start the module (application):
 
@@ -258,7 +258,7 @@ Configuration file looks as described below:
 *ValueRank*: As defined by type ValueRanks.   
 *AccessLevel*: Specifies one of access levels defined by type AccessLevels.  *Description*: Description of the node.
 
-**Notes**
+**Notes**  
 
 X.509 certificates releated:
 
@@ -266,7 +266,7 @@ X.509 certificates releated:
 * Running as Linux docker container, you can map the certificate stores to the host file system by using the docker run option `-v <hostdirectory>:/appdata`. This will make the certificate persistent over starts.  
 * Running as Linux docker container and want to use an X509Store for the application certificate, you need to use the docker run option `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` and the application option `--at X509Store`.
 
-### OPC Client
+### OPC Client  
 
 OPC UA client able to run OPC operations on an OPC UA server.
 The client allows run single or recurring operations targeting an OPC UA server to:
@@ -282,7 +282,8 @@ A docker container of the component is hosted [here](https://hub.docker.com/_/mi
 docker pull mcr.microsoft.com/iotedge/opc-client
 ```
 
-### OPC Testserver
+### OPC Testserver  
+
 An OPC UA server, based on the OPC UA .NET Standard Console Reference server. The nodeset of this server contains various nodes used by OPC Testclient to test OPC Publisher functionality.
 
 This OPC UA server is based on the source code of the Console reference server in the [OPC UA .NET Standard github repository of the OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard). The original Console reference server source can be found in the subdirectory `./SampleApplications/Workshop/Reference` of the above mentioned repository.
@@ -293,14 +294,15 @@ The server can be reached via its endpoint at `opc.tcp://<localhostname>:62541/Q
 
 By specifying the commandline option `-a` it accepts automatically all incoming requests from clients (Note: Please be aware of the implied security risk when using this option).
 
-#### OPC Testclient
+### OPC Testclient  
+
 An OPC UA client, based on the [OPC UA .NET Standard Console client], which is calling OPC UA methods of OPC Publisher to publish/unpublish nodes in the testserver. The source could be found here. The client does access OPC Publisher to publish/unpublish nodes of OPC Testserver.
 
 This OPC UA client is based on the source of the Console client source in the [OPC UA .NET Standard github repository of the OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard). The original Console client could be found in the subdirectory `./SampleApplications/Samples/NetCoreConsoleClient` of the repository.
 
 A docker container of the component is hosted [here](https://hub.docker.com/r/hansgschossmann/iot-edge-opc-publisher-testclient/) on Docker Hub.
 
-Command line is:
+Command line is:  
 ```
 Usage: iot-edge-opc-publisher-testclient.exe [<options>]
      OPC Publisher test client. Requires iot-edge-opc-publisher-testclient and OPC Publisher.
@@ -334,6 +336,6 @@ Usage: iot-edge-opc-publisher-testclient.exe [<options>]
                                     Default: info
 ```
 
-The test include:
+*The test include:*  
 * Run publish/unpublish sequences using NodeId and ExpandedNodeId syntax  
 * Run longhaul test with random publish/unpublish calls of nodes                                    
