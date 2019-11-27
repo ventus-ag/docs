@@ -59,7 +59,9 @@
         - title: "Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud"
           url: "docs/tutorials/Install-RabbitMQ"  
         - title: "Install and set up most popular databases in Ventus Cloud"
-          url: "docs/tutorials/Install-databases"                  
+          url: "docs/tutorials/Install-databases" 
+        - title: "OPC UA in Ventus Cloud"
+          url: "docs/tutorials/opc-ua"                           
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         
