@@ -57,7 +57,9 @@
         - title: "Ventus Cloud Object Storage"
           url: "docs/tutorials/object-storage"  
         - title: "Install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud"
-          url: "docs/tutorials/Install-RabbitMQ"                   
+          url: "docs/tutorials/Install-RabbitMQ"  
+        - title: "Install and set up most popular databases in Ventus Cloud"
+          url: "docs/tutorials/Install-databases"                  
     - title: "Contribute to Ventus Docs"
       url: "docs/contribute"
         
