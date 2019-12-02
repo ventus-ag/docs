@@ -181,6 +181,7 @@ Run next commands to compile pipeline:
   - `docker push ACCOUNT/NAME`
   - `cd ..`
   -  Open file `mnist_pipeline.py` and change the docker build data that you specified earlier in line `image='tens/deploy-service:latest'` 
+  
 ![](../../assets/img/tutorials/tekton-pipelines/docker_build_update.png)
 
   - `pip3 install -r requirements.txt --upgrade`
