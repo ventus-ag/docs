@@ -91,8 +91,7 @@ Follow these steps to deploy Kubeflow:
 
 - Specify path to kfctl config file which will be used for kubeflow installation:
 ``` 
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests
-/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"
 ```
 
 - Set KF_NAME to the name of your Kubeflow deployment (For example, your deployment name can be `'my-kubeflow'`):
