@@ -21,21 +21,21 @@ For creating new Kubernetes Cluster do following:
 
 1) On the main Navigation Panel go to  `Cloud`, choose `Clusters` and click the floating button `+` present in the lower right corner   
 
-![](../../assets/img/clusters/clusters1.png)  
+![](../../assets/img/coretasks/Kubernetes/cluster_create_1.png)  
 
 2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`: **k8s_1.14.1_at27_stable**
 
 ![](../../assets/img/coretasks/Kubernetes/cluster_create_2.png) 
 
 3) Then fill the next fields: 
-    `Master count`  
-    `Node count`  
-    `Node flavor`    
-    `Docker volume size (GB)`
-    `Master node flavor`  
-    `Keypair`  
+- `Master count`  
+- `Node count`  
+- `Node flavor`    
+- `Docker volume size (GB)`
+- `Master node flavor`  
+- `Keypair`  
 
-![](../../assets/img/clusters/clusters2.png)
+![](../../assets/img/coretasks/Kubernetes/cluster_create_3.png)
 
 4) Hit `Create Cluster` and the new Kubernetes Cluster will be added. Estimate creation time about 5 minutes.
 
