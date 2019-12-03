@@ -23,9 +23,9 @@ For creating new Kubernetes Cluster do following:
 
 ![](../../assets/img/clusters/clusters1.png)  
 
-2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`
+2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`: **k8s_1.14.1_at27_stable**
 
-![](../../assets/img/clusters/clusters6.png) 
+![](../../assets/img/coretasks/Kubernetes/cluster_create_2.png) 
 
 3) Then fill the next fields: 
     `Master count`  
