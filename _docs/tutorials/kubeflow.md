@@ -25,8 +25,8 @@ tags: [ featured, tutorial, kubernetes, kubeflow ]
   - `Master count`: 1
   - `Node count`: 1
   - `Docker volume size (GB)`: 100
-  - `Node flavor`: Huge
-  - `Master node flavor`: Small
+  - `Node flavor`: VC-16
+  - `Master node flavor`: VC-4
 
 2) Wait until status of your cluster will be **Create completed**
 
@@ -89,9 +89,10 @@ Follow these steps to deploy Kubeflow:
 - Set the name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
 <br /> `export PATH=$PATH:"<path-to-kfctl>"`
 
-- Specify path to kfctl config file which will be used for kubeflow installation: 
-<br /> `export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests`
-`/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"`
+- Specify path to kfctl config file which will be used for kubeflow installation:
+``` 
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"
+```
 
 - Set KF_NAME to the name of your Kubeflow deployment (For example, your deployment name can be `'my-kubeflow'`):
 <br /> `export KF_NAME=<your choice of name for the Kubeflow deployment>`
@@ -179,6 +180,11 @@ Run next commands to compile pipeline:
   - `docker build -t ACCOUNT/NAME .`
   - `docker push ACCOUNT/NAME`
   - `cd ..`
+  -  Open file `mnist_pipeline.py` and change the docker image name that you specified earlier in line: 
+<br /> `image='tens/deploy-service:latest'` 
+
+     ![](../../assets/img/tutorials/tekton-pipelines/docker_build_update.png)
+
   - `pip3 install -r requirements.txt --upgrade`
   - `python3 mnist_pipeline.py`
 
