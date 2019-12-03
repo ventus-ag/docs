@@ -182,7 +182,7 @@ EOF
 ![](../../assets/img/tutorials/Istio/yaml_configuration_Kiali.png)
 
 Now you can open Kiali in your browser opening this link: `https://<LoadBalancer's IP>:15029`
-
+Use default credentions `admin:admin` to log in.
 
 Let's re-cap what we've done:
 - Install Istio.
