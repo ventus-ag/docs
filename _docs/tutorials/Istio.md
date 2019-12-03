@@ -134,6 +134,35 @@ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metada
 
 {% include alert.html type="info" title="Note" content="For this stap we will use <a href ="https://github.com/istio/istio/releases/">Istio Gateway</a>." %}
 
+1) Define the ingress gateway for the application:
+- `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
+
+2) Confirm the gateway has been created:
+- `kubectl get gateway` 
+
+![](../../assets/img/tutorials/Istio/gateway.png)
+
+3) Set the `INGRESS_HOST` and `INGRESS_PORT` variables for accessing the gateway:
+```
+export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
+```
+4) Set `GATEWAY_URL`:
+- `export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`
+
+5) Confirm that the Bookinfo application is accessible from outside the cluster, run the following `curl` command:
+- `curl -s http://${GATEWAY_URL}/productpage | grep -o "<title>.*</title>"`
+
+![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
+
+**Now we can view the Bookinfo web page following this staps:**
+- Get the LoadBalancer’s IP:
+ - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0]}'`
+
+![](../../assets/img/tutorials/Istio/loadbalancer_ip.png)
+
+- Navigate to `https://<LoadBalancer's IP>/productpage`
 
 
 Let's re-cap what we've done:
