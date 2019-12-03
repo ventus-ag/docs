@@ -102,8 +102,33 @@ Follow these steps to install Istio:
 
 ![](../../assets/img/tutorials/Istio/verify_pods.png)
 
-## Accsessing Kubeflow
+## Deploying Bookinfo application 
 ---
+
+{% include alert.html type="info" title="Bookinfo application" content="The application wich composed of four separate microservices used to demonstrate various Istio features. The application displays information about a book, similar to a single catalog entry of an online book store. Displayed on the page is a description of the book, book details (ISBN, number of pages, and so on), and a few book reviews." %}
+
+1) Label the namespace that will host the application:
+- `kubectl label namespace default istio-injection=enabled`
+
+2) Deploy your application using the `kubectl` command:
+- `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
+
+3) Verify that all services are deployed and pods are in running state:
+- `kubectl get svc` 
+
+![](../../assets/img/tutorials/Istio/verify_svc_2.png)
+
+- `kubectl get pods` 
+
+![](../../assets/img/tutorials/Istio/verify_pods_2.png)
+
+4) Verify that the Bookinfo application is running:
+- ```
+kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}') -c ratings -- curl productpage:9080/productpage | grep -o "<title>.*</title>"
+
+<title>Simple Bookstore App</title>
+```
+
 **Log in as a static user**
 
 After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
