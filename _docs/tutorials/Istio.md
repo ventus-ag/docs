@@ -21,59 +21,18 @@ tags: [ featured, tutorial, kubernetes, istio ]
 ## Create new Kubernetes cluster
 ---
 
-1) Create new cluster using this tutorial: **Core Tasks/Clusters.** Use next parameters for your cluster:
+Create new cluster using this tutorial: <a href ="https://masterhorn.github.io/docs/docs/coretasks/Kubernetes">Kubernetes</a> Use next parameters for your cluster:
   - `Master count`: 1
   - `Node count`: 3
   - `Docker volume size (GB)`: 30
   - `Node flavor`: VC-4
   - `Master node flavor`: VC-2
 
-2) Wait until status of your cluster will be **Create completed**
-
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_4.png)
 
 ## Get access to your cluster using cli
 ---
 
-To get access to your cluster you need **openstack** cli tool installed and connected to your project.
-
-1) Install openstack cli tool by running two next commands one by one. First will install openstack and second one will install magnum client which is used to operate with kubenetes clusters:
-
-`sudo pip install python-openstackclient`<br />
-`sudo pip install python-magnumclient`
-
-2) Get OpenRC file to connect to Ventus Cloud using cli:
-  - On the main Navigation Panel go to **Cloud**, choose **API users** and click the plus (+) button at the bottom-right of the screen.
-  - Fill out all fields and hit **ADD API USER**
-  - For new user hit **Get OpenRC file** action
-
-  <br />![](../../assets/img/tutorials/tekton-pipelines/get_openrc_file_1.png)
-
-  - Select region and hit **GET FILE**
-
-  <br />![](../../assets/img/tutorials/tekton-pipelines/get_openrc_file_2.png)
-  
-
-  - File named "openrc" will be downloaded to your machine
-
-3) Execute "openrc" file starting with dot:
-<br />`. openrc`
-
-4) Provide your password and hit enter - this will authenticate you in the Ventus Cloud using created API user.
-
-5) Run next command to get a list of all clusters:
-<br />`openstack coe cluster list`
-
-6) Run next command to get kubeconfig for your cluster:
-<br />`openstack coe cluster config kubeflow`
-
-7) Export path to created config for as KUBECONFIG env variable:
-<br />`export KUBECONFIG=/home/ubuntu/config`
-
-8) Run next command to test that you have access to the cluster and all pods are running:
-<br />`kubectl get pods --all-namespaces`
-
-![](../../assets/img/tutorials/tekton-pipelines/verify_1.png)
+Getting access to your cluster using this tutorial <a href ="https://masterhorn.github.io/docs/docs/coretasks/access-by-cli">Access to Kubernetes Cluster using CLI</a>
 
 ## Install Istio
 ---
@@ -161,6 +120,16 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
    ![](../../assets/img/tutorials/Istio/loadbalancer_ip.png)
 
 2) Navigate to `https://<LoadBalancer's IP>/productpage`
+
+## Getting access to Kiali
+--- 
+
+{% include alert.html type="info" title="What is Kiali" content="Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh." %
+
+
+
+
+
 
 
 Let's re-cap what we've done:
