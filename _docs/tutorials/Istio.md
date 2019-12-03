@@ -185,9 +185,7 @@ Now you can open Kiali in your browser opening this link: `https://<LoadBalancer
 
 
 Let's re-cap what we've done:
-- Created new kubernetes cluster for Kubeflow.
-- Deployed Kubeflow.
-- Compiled mnist pipeline example.
-- Uploaded pipeline to Kubeflow.
-- Created and ran new experiment.
-- As a result trained and served mnist model using Kubeflow in kubernetes.
+- Install Istio.
+- Deploy Bookinfo application.
+- Getting access to observabiliti console for Istio - Kiali.
+
