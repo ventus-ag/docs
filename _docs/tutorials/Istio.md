@@ -132,8 +132,6 @@ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metada
 ## Geting access to Bookinfo application 
 ---
 
-{% include alert.html type="info" title="Note" content="For this stap we will use <a href ="https://github.com/istio/istio/releases/">Istio Gateway</a>." %}
-
 1) Define the ingress gateway for the application:
 - `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
 
