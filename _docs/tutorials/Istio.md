@@ -123,11 +123,13 @@ Follow these steps to install Istio:
 ![](../../assets/img/tutorials/Istio/verify_pods_2.png)
 
 4) Verify that the Bookinfo application is running:
-- ```
+- 
+```
 kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}') -c ratings -- curl productpage:9080/productpage | grep -o "<title>.*</title>"
 
 <title>Simple Bookstore App</title>
 ```
+
 
 **Log in as a static user**
 
