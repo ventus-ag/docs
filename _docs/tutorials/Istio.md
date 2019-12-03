@@ -124,7 +124,7 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 ## Getting access to Kiali
 --- 
 
-{% include alert.html type="info" title="What is Kiali" content="Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh." %
+{% include alert.html type="info" title="What is Kiali" content="Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh." %}
 
 
 
