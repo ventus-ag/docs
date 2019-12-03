@@ -114,6 +114,7 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
    ![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
 
 **Now we can view the Bookinfo web page following this staps:**
+
 1) Get the LoadBalancer’s IP:
 - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0]}'`
 
@@ -126,10 +127,61 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 
 {% include alert.html type="info" title="What is Kiali" content="Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh." %}
 
+For gettin acces to Kiali we need apply next yaml configuration to expose the tracing service: 
+```yaml
+ cat <<EOF | kubectl apply -f -
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tracing-gateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 15032
+      name: http-tracing
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tracing-vs
+  namespace: istio-system
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - tracing-gateway
+  http:
+  - match:
+    - port: 15032
+    route:
+    - destination:
+        host: tracing
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: tracing
+  namespace: istio-system
+spec:
+  host: tracing
+  trafficPolicy:
+    tls:
+      mode: DISABLE
+---
+EOF
+```
 
+![](../../assets/img/tutorials/Istio/yaml_configuration_Kiali.png)
 
-
-
+Now you can open Kiali in your browser opening this link: `https://<LoadBalancer's IP>:15029`
 
 
 Let's re-cap what we've done:
