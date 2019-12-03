@@ -1,16 +1,16 @@
 ---
-title: Install and and run Istio in Kubernetes
+title: Install and and use Istio in Kubernetes
 description: How to install and use istio in Kubernetes.
 tags: [ featured, tutorial, kubernetes, istio ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---
-# Running ML pipeline using Kubeflow on Kubernetes
+# Install and and use Istio in Kubernetes
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Kubeflow - The Machine Learning Toolkit for Kubernetes" content="The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable." %}
+{% include alert.html type="info" title="What is Istio?" content="Istio - It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservice architecture, and provides a uniform way to secure, connect, and monitor microservices." %}
 
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes and Kubeflow in order to compile, train and serve model of machine learning." %}
+{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo application used to demonstrate various Istio features and getting access to observabiliti console for Istio - Kiali." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -23,10 +23,10 @@ tags: [ featured, tutorial, kubernetes, istio ]
 
 1) Create new cluster using this tutorial: **Core Tasks/Clusters.** Use next parameters for your cluster:
   - `Master count`: 1
-  - `Node count`: 1
-  - `Docker volume size (GB)`: 100
-  - `Node flavor`: VC-16
-  - `Master node flavor`: VC-4
+  - `Node count`: 3
+  - `Docker volume size (GB)`: 30
+  - `Node flavor`: VC-4
+  - `Master node flavor`: VC-2
 
 2) Wait until status of your cluster will be **Create completed**
 
@@ -75,52 +75,24 @@ To get access to your cluster you need **openstack** cli tool installed and conn
 
 ![](../../assets/img/tutorials/tekton-pipelines/verify_1.png)
 
-## Deploy Kubeflow
+## Install Istio
 ---
 
-Follow these steps to deploy Kubeflow:
+Follow these steps to install Istio:
 
-1) Download and install `kfctl` release from the <a href ="https://github.com/kubeflow/kubeflow/releases/">Kubeflow releases page</a>: 
-- `wget https://github.com/kubeflow/kubeflow/releases/download/v0.7.0/kfctl_v0.7.0_linux.tar.gz`
-- `tar -xvf kfctl_v0.7.0_linux.tar.gz`
-- `sudo cp kfctl /usr/bin/`
+1) Download the release from the <a href ="https://github.com/istio/istio/releases/">Istio releases page</a>: 
+- `wget https://github.com/istio/istio/releases/download/1.4.0/istio-1.4.0-linux.tar.gz`
+- `tar -xvf istio-1.4.0-linux.tar.gz`
 
-2) Run the following commands to set up and deploy Kubeflow:
-- Set the name of a directory where you want Kubeflow configurations to be stored. This directory is created when you run kfctl init:
-<br /> `export PATH=$PATH:"<path-to-kfctl>"`
+2) Move tto the Istio package direction:  
+- `cd istio-1.4.0`
 
-- Specify path to kfctl config file which will be used for kubeflow installation:
-``` 
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/dc04ff600cee722d93cf80d413aa73ddd8387f1f/kfdef/kfctl_existing_arrikto.0.7.0.yaml"
-```
+3) Add the istioctl client to your path:
+- `export PATH=$PWD/bin:$PATH`
 
-- Set KF_NAME to the name of your Kubeflow deployment (For example, your deployment name can be `'my-kubeflow'`):
-<br /> `export KF_NAME=<your choice of name for the Kubeflow deployment>`
+4) Install Istio:
+- ` istioctl manifest apply --set profile=demo`
 
-- Set the path to the base directory where you want to store one or more Kubeflow deployments (The path should be absolute):
-<br /> `export BASE_DIR=<path to a base directory>`
-
-- Set the Kubeflow application directory for this deployment:
-<br /> `export KF_DIR=${BASE_DIR}/${KF_NAME}`
-
-- Create directory and download the config file with default login credentials:
-  - Create directory:
-<br />    `mkdir -p ${KF_DIR}`
-<br />    `cd ${KF_DIR}`
-
-  - Download the config file:
-<br />    `wget -O kfctl_existing_arrikto.yaml $CONFIG_URI`
-<br />    `export CONFIG_FILE=${KF_DIR}/kfctl_existing_arrikto.yaml`
-
-Now, you have `kfctl_existing_arrikto.yaml` file with default user credentials: `admin@kubeflow.org:12341234`.
-You can chage credentials using `vi kfctl_existing_arrikto.yaml` command and overwrite it.
-
-- Use command `kfctl apply -V -f ${CONFIG_FILE}` to deploy Kubeflow.
-
-3) Run next command to check that all pods are running:
-<br />`kubectl get pods --all-namespaces`
-
-![](../../assets/img/tutorials/tekton-pipelines/verify_2.png)
 
 ## Accsessing Kubeflow
 ---
