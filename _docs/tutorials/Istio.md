@@ -128,6 +128,7 @@ Follow these steps to install Istio:
 kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}') -c ratings -- curl productpage:9080/productpage | grep -o "<title>.*</title>"
 ```
 ![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
+
 **Log in as a static user**
 
 After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
