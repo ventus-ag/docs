@@ -129,7 +129,10 @@ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metada
 ```
 ![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
 
-**Log in as a static user**
+## Geting access to Bookinfo application 
+---
+
+{% include alert.html type="info" title="Note" content="For this stap we will use <a href ="https://github.com/istio/istio/releases/">Istio Gateway</a>." %}
 
 After deploying Kubeflow, the Kubeflow dashboard is available at the Istio Gateway IP. To get the Istio Gateway IP, run:
   - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
