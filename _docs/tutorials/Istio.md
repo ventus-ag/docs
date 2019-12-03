@@ -4,7 +4,7 @@ description: How to install and use istio in Kubernetes.
 tags: [ featured, tutorial, kubernetes, istio ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---
-# Install and and use Istio in Kubernetes
+# Install and use Istio in Kubernetes
 {: .no_toc }
 ---
 
@@ -93,6 +93,14 @@ Follow these steps to install Istio:
 4) Install Istio:
 - ` istioctl manifest apply --set profile=demo`
 
+5) Verify that all Istio services are deployed and pods are in running state:
+- `kubectl get svc -n istio-system`
+
+![](../../assets/img/tutorials/Istio/verify_svc.png)
+
+- `kubectl get pods -n istio-system` 
+
+![](../../assets/img/tutorials/Istio/verify_pods.png)
 
 ## Accsessing Kubeflow
 ---
