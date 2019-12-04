@@ -71,13 +71,13 @@ And few icons of quick actions:
     - *Get certificate*
     - *Delete*  
 
-![](../../assets/img/clusters/clusters3.png) 
+![](../../assets/img/coretasks/Kubernetes/cluster_create_4.png) 
 
 ## Delete a Kubernetes Cluster
 To delete a Kubernetes Cluster, just click on the delete button in the card or list view and on the following page confirm your action as shown below:  
 
-![](../../assets/img/clusters/clusters4.png) 
-![](../../assets/img/clusters/clusters5.png) 
+![](../../assets/img/coretasks/Kubernetes/cluster_delete_3.png) 
+![](../../assets/img/coretasks/Kubernetes/cluster_delete_2.png) 
 
 **For example, see a quick recap**
 ![](../../assets/img/clusters/clusters.gif)
