@@ -79,6 +79,5 @@ To delete a Kubernetes Cluster, just click on the delete button in the card or l
 ![](../../assets/img/coretasks/Kubernetes/cluster_delete_3.png) 
 ![](../../assets/img/coretasks/Kubernetes/cluster_delete_2.png) 
 
-**For example, see a quick recap**
-![](../../assets/img/clusters/clusters.gif)
+
 
