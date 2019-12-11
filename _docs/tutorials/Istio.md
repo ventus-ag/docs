@@ -8,9 +8,9 @@ tags: [ featured, tutorial, kubernetes, istio ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="What is Istio?" content="Istio - It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservice architecture, and provides a uniform way to secure, connect, and monitor microservices." %}
+{% include alert.html type="info" title="What is Istio?" content="It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservice architecture, and provides a uniform way to secure, connect, and monitor microservices." %}
 
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo application used to demonstrate various Istio features and getting access to observabiliti console for Istio - Kiali." %}
+{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo application used to demonstrate various Istio features and getting access to observability console for Istio - Kiali." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -21,7 +21,8 @@ tags: [ featured, tutorial, kubernetes, istio ]
 ## Create new Kubernetes cluster
 ---
 
-Create new cluster using this tutorial: <a href ="https://masterhorn.github.io/docs/docs/coretasks/Kubernetes">Kubernetes</a> Use next parameters for your cluster:
+Now you can create new cluster using this tutorial: <a href ="https://masterhorn.github.io/docs/docs/coretasks/Kubernetes">Kubernetes</a> 
+Use next parameters for your cluster:
   - `Master count`: 1
   - `Node count`: 3
   - `Docker volume size (GB)`: 30
@@ -32,7 +33,7 @@ Create new cluster using this tutorial: <a href ="https://masterhorn.github.io/d
 ## Get access to your cluster using cli
 ---
 
-Getting access to your cluster using this tutorial <a href ="https://masterhorn.github.io/docs/docs/coretasks/access-by-cli">Access to Kubernetes Cluster using CLI</a>
+Now you can getting access to your cluster using this tutorial <a href ="https://masterhorn.github.io/docs/docs/coretasks/access-by-cli">Access to Kubernetes Cluster using CLI</a>
 
 ## Install Istio
 ---
@@ -64,7 +65,7 @@ Follow these steps to install Istio:
 ## Deploying Bookinfo application 
 ---
 
-{% include alert.html type="info" title="Bookinfo application" content="The application wich composed of four separate microservices used to demonstrate various Istio features. The application displays information about a book, similar to a single catalog entry of an online book store. Displayed on the page is a description of the book, book details (ISBN, number of pages, and so on), and a few book reviews." %}
+{% include alert.html type="info" title="Bookinfo application" content="The application which composed of four separate microservices used to demonstrate various Istio features. The application displays information about a book, similar to a single catalog entry of an online book store. Displayed on the page is a description of the book, book details (ISBN, number of pages, and so on), and a few book reviews." %}
 
 1) Label the namespace that will host the application:
 - `kubectl label namespace default istio-injection=enabled`
@@ -116,7 +117,7 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 **Now we can view the Bookinfo web page following this staps:**
 
 1) Get the LoadBalancer’s IP:
-- `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0]}'`
+- `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 
    ![](../../assets/img/tutorials/Istio/loadbalancer_ip.png)
 
