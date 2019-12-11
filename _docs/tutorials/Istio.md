@@ -22,7 +22,7 @@ tags: [ featured, tutorial, kubernetes, istio ]
 ---
 
 Now you can create new cluster using this tutorial: <a href ="https://masterhorn.github.io/docs/docs/coretasks/Kubernetes">Kubernetes</a> 
-Use next parameters for your cluster:
+<br />Use next parameters for your cluster:
   - `Master count`: 1
   - `Node count`: 3
   - `Docker volume size (GB)`: 30
