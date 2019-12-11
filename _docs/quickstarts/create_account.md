@@ -1,10 +1,10 @@
 ---
-title: Creating a new Ventus Cloud account
-description: How to create a new Ventus Cloud account
+title: Creating a new account in Ventus Cloud
+description: How to create a new account in Ventus Cloud and manage it
 tags: [ featured, quickstart ]
 # permalink: /create_account/
 ---
-# How to create a new Ventus Cloud account
+# How to create and manage a new Ventus Cloud account
 {: .no_toc }
 ---
 
@@ -17,7 +17,7 @@ tags: [ featured, quickstart ]
 1. TOC
 {:toc}
 
-# Create a new VentusCloud account
+# Create a new Ventus Cloud account
 ---
 The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to start work in Ventus portal, how to create a new user account and then sign in.
 
@@ -105,7 +105,7 @@ If the payment is successful, after a few minutes the status of your account sho
 
 
 
-# Edit account 
+# Manage account 
 ----
 To find your personal account information you need to click on the icon in the upper right corner of your home page and choose `My profile`:  
 ![](../../assets/img/create_account/14ac.png)
