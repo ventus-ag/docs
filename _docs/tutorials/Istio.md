@@ -191,7 +191,7 @@ Go to the `Graph` page, select `default` namespace and `Versioned app graph` in 
 
 ![](../../assets/img/tutorials/Istio/Kiali_graph_1.png)
 
-After that go to your Bookinfo application page and hit `refresh` button 5-10 times. Comeback on Kiali page and refresh it.
+After that go to your Bookinfo application page and refresh it 5-10 times. Comeback on Kiali page and refresh it.
 
 Now you can monitor traffic of your application in Kiali: 
 
