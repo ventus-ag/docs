@@ -187,7 +187,7 @@ Now you can open Kiali in your browser opening this link: `http://<LoadBalancer'
 
 ![](../../assets/img/tutorials/Istio/Kiali_login.png)
 
-Now you can monitoring traffic of your application in Kiali: 
+You can monitoring traffic of your application in Kiali: 
 
 ![](../../assets/img/tutorials/Istio/Kiali_graph.png)
 
