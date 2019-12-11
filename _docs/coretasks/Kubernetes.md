@@ -23,7 +23,7 @@ For creating new Kubernetes Cluster do following:
 
 ![](../../assets/img/coretasks/Kubernetes/cluster_create_1.png)  
 
-2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`: **k8s_1.14.1_at27_stable**
+2) On the following page enter the `Cluster name` (Eg. "demo1"), and select `Cluster template`: **k8s_1.15.6_at29_stable**
 
 ![](../../assets/img/coretasks/Kubernetes/cluster_create_2.png) 
 
