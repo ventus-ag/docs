@@ -8,7 +8,7 @@ tags: [ featured, tutorial, kubernetes, istio ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="What is Istio?" content="It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservice architecture, and provides a uniform way to secure, connect, and monitor microservices." %}
+{% include alert.html type="info" title="What is Istio?" content="It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservices architecture, and provides a uniform way to secure, connect, and monitor microservices." %}
 
 {% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo application used to demonstrate various Istio features and getting access to observability console for Istio - Kiali." %}
 
@@ -44,7 +44,7 @@ Follow these steps to install Istio:
 - `wget https://github.com/istio/istio/releases/download/1.4.0/istio-1.4.0-linux.tar.gz`
 - `tar -xvf istio-1.4.0-linux.tar.gz`
 
-2) Move tto the Istio package direction:  
+2) Move to the Istio package direction:  
 - `cd istio-1.4.0`
 
 3) Add the istioctl client to your path:
@@ -121,14 +121,14 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 
    ![](../../assets/img/tutorials/Istio/loadbalancer_ip.png)
 
-2) Navigate to `https://<LoadBalancer's IP>/productpage`
+2) Navigate to `http://<LoadBalancer's IP>/productpage`
 
 ## Getting access to Kiali
 --- 
 
 {% include alert.html type="info" title="What is Kiali" content="Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh." %}
 
-For gettin acces to Kiali we need apply next yaml configuration to expose the tracing service: 
+For getting access to Kiali we need apply next yaml configuration to expose the tracing service: 
 ```yaml
  cat <<EOF | kubectl apply -f -
 apiVersion: networking.istio.io/v1alpha3
@@ -182,8 +182,14 @@ EOF
 
 ![](../../assets/img/tutorials/Istio/yaml_configuration_Kiali.png)
 
-Now you can open Kiali in your browser opening this link: `https://<LoadBalancer's IP>:15029`
+Now you can open Kiali in your browser opening this link: `http://<LoadBalancer's IP>:15029`
 <br />Use default credentions `admin:admin` to log in.
+
+![](../../assets/img/tutorials/Istio/Kiali_login.png)
+
+Now you can monitoring traffic of your application in Kiali: 
+
+![](../../assets/img/tutorials/Istio/Kiali_graph.png)
 
 Let's re-cap what we've done:
 - Install Istio.
