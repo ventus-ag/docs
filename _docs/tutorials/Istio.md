@@ -114,7 +114,7 @@ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressga
 
    ![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
 
-**Now we can view the Bookinfo web page following this staps:**
+Now we can view the Bookinfo web page following this staps:
 
 1) Get the LoadBalancer’s IP:
 - `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
@@ -187,7 +187,13 @@ Now you can open Kiali in your browser opening this link: `http://<LoadBalancer'
 
 ![](../../assets/img/tutorials/Istio/Kiali_login.png)
 
-You can monitoring traffic of your application in Kiali: 
+Go to the `Graph` page, select `default` namespace and `Versioned app graph` in Graph line:
+
+![](../../assets/img/tutorials/Istio/Kiali_graph_1.png)
+
+After that go to your Bookinfo application page and hit `refresh` button 5-10 times. Comeback on Kiali page and refresh it.
+
+Now you can monitor traffic of your application in Kiali: 
 
 ![](../../assets/img/tutorials/Istio/Kiali_graph.png)
 
