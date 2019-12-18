@@ -41,6 +41,8 @@
           url: "docs/coretasks/Scaling"
         - title: "Deployment"
           url: "docs/coretasks/Deployment"    
+        - title: "Source IP for Services with Type=LoadBalancer"
+          url: "docs/coretasks/Source IP for Services with Type=LoadBalancer" 
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
