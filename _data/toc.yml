@@ -31,11 +31,7 @@
       url: "docs/Kubernetes"
       children:   
         - title: "Services"
-          url: "docs/Kubernetes/Services"
-        - title: "Source IP for Services with Type LoadBalancer"
-          url: "docs/Kubernetes/Source IP for Services with Type LoadBalancer"   
-        - title: "Services"
-          url: "docs/Kubernetes/Services"
+          url: "docs/Kubernetes/Services"  
         - title: "NodePort"
           url: "docs/Kubernetes/NodePort"
         - title: "LoadBalancer"
@@ -48,6 +44,8 @@
           url: "docs/Kubernetes/Scaling"
         - title: "Deployment"
           url: "docs/Kubernetes/Deployment"    
+        - title: "Source IP for Services with Type LoadBalancer"
+          url: "docs/Kubernetes/Source IP for Services with Type LoadBalancer" 
     - title: "Tutorials"
       url: "docs/tutorials"
       children:
