@@ -1,5 +1,5 @@
 ---
-title: Source IP for Services with Type=LoadBalancer
+title: Source IP for Services with Type LoadBalancer
 description: How to create a new Cluster 
 tags: [ featured, coretasks ]
 # permalink: /Clusters/
