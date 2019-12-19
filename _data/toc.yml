@@ -44,10 +44,10 @@
     - title: "Kubernetes"
       url: "docs/Kubernetes"
       children:   
-        - title: "Kubernetes"
+        - title: "Services"
           url: "docs/Kubernetes/Services"
         - title: "Source IP for Services with Type LoadBalancer"
-          url: "docs/coretasks/Source IP for Services with Type LoadBalancer"   
+          url: "docs/Kubernetes/Source IP for Services with Type LoadBalancer"   
     - title: "Tutorials"
       url: "docs/tutorials"
       children:

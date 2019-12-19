@@ -1,5 +1,5 @@
 ---
-title: Clusters
+title: Clusters creation
 description: How to create a new Cluster 
 tags: [ featured, coretasks ]
 # permalink: /Clusters/
