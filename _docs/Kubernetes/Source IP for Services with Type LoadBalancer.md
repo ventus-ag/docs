@@ -27,7 +27,7 @@ deployment.apps/source-ip-app created
 
 ## Creation service with Type LoadBalancer
 
-1) Create <a href ="https://docs.ventuscloud.eu/docs/Kubernetes/Services">Service</a> with Type `LoadBalancer` and annotation ` loadbalancer.openstack.org/x-forwarded-for: "true"` using this `loadbalancer.yaml` file: 
+1) Create Service with Type `LoadBalancer` and annotation `loadbalancer.openstack.org/x-forwarded-for: "true"` using this `loadbalancer.yaml` file: 
 
 ```yaml
 apiVersion: v1
