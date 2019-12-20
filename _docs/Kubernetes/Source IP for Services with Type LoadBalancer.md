@@ -7,7 +7,6 @@ tags: [ featured, Kubernetes ]
 # Source IP 
 {: .no_toc }
 
-{% include alert.html type="info" title="Note" content="Source IP is the IP  address of the device sending the IP packet." %}  
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -35,30 +34,17 @@ kind: Service
 metadata:
   annotations:
     loadbalancer.openstack.org/x-forwarded-for: "true"
-  creationTimestamp: "2019-12-18T13:35:06Z"
   labels:
     run: source-ip-app
   name: loadbalancer
-  namespace: default
-  resourceVersion: "1284161"
-  selfLink: /api/v1/namespaces/default/services/loadbalancer
-  uid: b5b714ca-7373-41ef-a969-221a9bf2f2ef
 spec:
-  clusterIP: 10.254.182.88
-  externalTrafficPolicy: Cluster
   ports:
-  - nodePort: 30951
-    port: 80
+  - port: 80
     protocol: TCP
     targetPort: 8080
   selector:
     run: source-ip-app
-  sessionAffinity: None
   type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - ip: 46.4.240.47
 ```
 Use command `kubectl apply -f loadbalancer.yaml` to create it. 
 
@@ -96,9 +82,9 @@ host=46.4.240.46
 user-agent=curl/7.58.0
 x-forwarded-for=188.40.161.103
 ```
-{% include alert.html type="info" title="Goal of this tutorial" content="With a proxy that terminates the client connection and opens a new connection to your nodes/endpoints. In such cases the source IP will always be that of the cloud LB, not that of the client." %}
+{% include alert.html type="info" title="Note" content="With a proxy that terminates the client connection and opens a new connection to your nodes/endpoints. In such cases the source IP will always be that of the cloud LB, not that of the client." %}
 
-In our case it's an IP from line `x-forwarded-for=188.40.161.103`
+In our case it's an IP from line: `x-forwarded-for=188.40.161.103`
 
 
 
