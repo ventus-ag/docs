@@ -1,5 +1,5 @@
 ---
-title: Cluster creation
+title: Kubernetes Cluster
 description: How to create a new Cluster 
 tags: [ featured, coretasks ]
 # permalink: /Clusters/
