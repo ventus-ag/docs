@@ -14,6 +14,8 @@ tags: [ featured, Kubernetes ]
 1. TOC
 {:toc}
 
+## Deploy web application
+
 In this case as example we took webserver that echoes back the source IP of requests. Use command`kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4` to deploy it.
 
 The output is:
