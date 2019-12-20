@@ -16,7 +16,8 @@ tags: [ featured, Kubernetes ]
 
 ## Deploy web application
 
-In this case as example we took webserver that echoes back the source IP of requests. Use command`kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4` to deploy it.
+To show you how we could get the source IP as example we took small nginx webserver that echoes back the source IP of requests.  
+To deploy it use command `kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4`
 
 The output is:
 
