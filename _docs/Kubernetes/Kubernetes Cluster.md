@@ -1,10 +1,10 @@
 ---
-title: Clusters
+title: Kubernetes Cluster
 description: How to create a new Cluster 
 tags: [ featured, coretasks ]
 # permalink: /Clusters/
 ---
-# Clusters
+# Kubernetes Cluster
 {: .no_toc }
 
 {% include alert.html type="info" title="Note" content="A Kubernetes Cluster is a group of logical objects, each of which is called a Node. A Kubernetes cluster can contain zero or more nodes." %}  
