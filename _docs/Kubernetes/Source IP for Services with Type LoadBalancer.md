@@ -46,12 +46,12 @@ spec:
     run: source-ip-app
   type: LoadBalancer
 ```
-Use command `kubectl apply -f loadbalancer.yaml` to create it. 
+Use command `kubectl apply -f app-svc.yaml` to create it. 
 
 The output is: 
 
 ```
-service/loadbalancer created
+service/source-ip-app-svc created
 ```
 Now get external ip of your service using command `kubectl get svc`:
 
