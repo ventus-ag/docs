@@ -61,7 +61,7 @@ Now get external ip of your service using command `kubectl get svc`:
 
 To get Source IP you need use command `curl` with external IP that you has been received in previous step.
 
-In our case it's: `curl 46.4.240.43`
+In our case it's: `curl 46.4.240.46`
 
 The output is:
 ```
