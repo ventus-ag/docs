@@ -16,7 +16,7 @@ tags: [ featured, Kubernetes ]
 
 ## Deploy web application
 
-To show you how we could get the source IP we took small nginx webserver that echoes back the source IP of requests. To deploy it use command `kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4`
+To show you how we could get the source IP we took small app that echoes back the source IP of requests. To deploy it use command `kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4`
 
 The output is:
 
@@ -26,7 +26,7 @@ deployment.apps/source-ip-app created
 
 ## Creation service with Type LoadBalancer
 
-1) Create Service with Type `LoadBalancer` and annotation `loadbalancer.openstack.org/x-forwarded-for: "true"` using this `loadbalancer.yaml` file: 
+1) Create Service with Type `LoadBalancer` and annotation `loadbalancer.openstack.org/x-forwarded-for: "true"` using this `app-svc.yaml` file: 
 
 ```yaml
 apiVersion: v1
@@ -36,7 +36,7 @@ metadata:
     loadbalancer.openstack.org/x-forwarded-for: "true"
   labels:
     run: source-ip-app
-  name: loadbalancer
+  name: source-ip-app-svc
 spec:
   ports:
   - port: 80
@@ -61,7 +61,7 @@ Now get external ip of your service using command `kubectl get svc`:
 
 To get Source IP you need use command `curl` with external IP that you has been received in previous step.
 
-In our case it's: `curl 46.4.240.46`
+In our case it's: `curl 46.4.240.43`
 
 The output is:
 ```
