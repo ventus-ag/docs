@@ -22,7 +22,7 @@
         - title: "Snapshots"
           url: "docs/coretasks/Snapshots" 
         - title: "Resize virtual machines"
-          url: "docs/Kubernetes/Resize-VM"
+          url: "docs/coretasks/Resize-VM"
     - title: "Kubernetes"
       url: "docs/Kubernetes"
       children:   
