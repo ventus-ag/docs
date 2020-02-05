@@ -345,6 +345,130 @@ exception: connect failed
 - BleepingComputer: [MongoDB Databases Held for Ransom by Mysterious Attacker](<https://www.bleepingcomputer.com/news/security/mongodb-databases-held-for-ransom-by-mysterious-attacker/>)
 
 
+
+## Openly accessible MySQL/MariaDB servers
+---
+**MySQL/MariaDB** is the world’s most popular open-source database.
+
+### Problem
+Access to a MySQL/MariaDB server should be restricted to trusted systems. If a MySQL/MariaDB server is openly accessible from the Internet, an attacker can take advantage of this to access the server and modify or delete data, or even obtain sensitive information like customer data from an online shop.
+
+### Verification
+In this section, we show how to check a host for an openly accessible service. All tests are performed using tools commonly included with standard Linux/Unix distributions. To verify the service is openly accessible from the Internet, the test should not be run on the host itself or the local network but instead from a different node on the Internet, for example a host on a cable/DSL line. In all examples, replace 000.000.00.00 with the IP address of the host to check.
+
+To check if a MySQL/MariaDB server is openly accessible from the Internet, the MySQL/MariaDB client tool 'mysql' can be used as follows:
+```
+$ mysql --host 000.000.00.00
+```
+
+If a connection to the MySQL/MariaDB server was successfully established, the output looks like:
+```console
+Your Mysql connection id is 000
+Server version: 5.5.5-10.1.34-MariaDB0Ubuntu.18.04.1 Ubuntu 18.04
+>
+```
+
+Otherwise the connection will run into a timeout:
+```console
+Fri Feb  5 10:25:42 Error: couldn't connect to server 000.000.00.00:3306 shell/mysql.js:86
+exception: connect failed
+```
+
+### Solution   
+* Do not expose your MySQL/MariaDB server to the Internet!   
+* Restrict access to the MySQL/MariaDB server to trusted systems (e. g., the web application server) in the server's configuration and/or by blocking incoming connections from the Internet to port **3306/tcp** on the firewall.   
+* Check the security best practices provided by the MySQL/MariaDB developers.   
+* Keep your MySQL/MariaDB installation up-to-date. Install available security updates asap.   
+
+**Further Information**      
+- Wikipedia: [wiki/MySQ](<https://en.wikipedia.org/wiki/MySQL>)
+
+
+## Openly accessible PostgreSQL servers
+---
+**PostgreSQL** is one of several free popular databases, and it is frequently used for web databases. It was one of the first database management systems to be developed, and it allows users to manage both structured and unstructured data.
+
+### Problem
+Access to a PostgreSQL server should be restricted to trusted systems. If a PostgreSQL server is openly accessible from the Internet, an attacker can take advantage of this to access the server and modify or delete data, or even obtain sensitive information like customer data from an online shop.
+
+### Verification
+In this section, we show how to check a host for an openly accessible service. All tests are performed using tools commonly included with standard Linux/Unix distributions. To verify the service is openly accessible from the Internet, the test should not be run on the host itself or the local network but instead from a different node on the Internet, for example a host on a cable/DSL line. In all examples, replace 000.000.00.00 with the IP address of the host to check.
+
+To check if a PostgreSQL server is openly accessible from the Internet, the PostgreSQL client tool 'psql' can be used as follows:
+```
+$ psql --host 000.000.00.00
+```
+
+If a connection to the PostgreSQL server was successfully established, the output looks like:
+```console
+Your PostgreSQL connection id is 000
+Server version: -----
+>
+```
+
+Otherwise the connection will run into a timeout:
+```console
+Fri Feb  5 10:25:42 Error: couldn't connect to server 000.000.00.00:5432 shell/psql.js:86
+exception: connect failed
+```
+
+### Solution   
+* Do not expose your PostgreSQL server to the Internet!   
+* Restrict access to the PostgreSQL server to trusted systems (e. g., the web application server) in the server's configuration and/or by blocking incoming connections from the Internet to port **5432/tcp** on the firewall.   
+* Check the security best practices provided by the PostgreSQL developers.   
+* Keep your PostgreSQL installation up-to-date. Install available security updates asap.   
+
+**Further Information**      
+- Wikipedia: [wiki/PostgreSQL](<https://en.wikipedia.org/wiki/PostgreSQL>)
+
+
+
+## Openly accessible Apache Cassandra NoSQL servers
+---
+**Apache Cassandra** is a free and open-source, distributed, wide column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
+
+### Problem
+Access to a Apache Cassandra NoSQL server should be restricted to trusted systems. Malicious users able to access internode communication and JMX ports can still:
+* Craft internode messages to insert users into authentication schema
+* Craft internode messages to truncate or drop schema
+* Use tools such as sstableloader to overwrite system_auth tables
+* Attach to the cluster directly to capture write traffic
+
+### Verification
+In this section, we show how to check a host for an openly accessible service. All tests are performed using tools commonly included with standard Linux/Unix distributions. To verify the service is openly accessible from the Internet, the test should not be run on the host itself or the local network but instead from a different node on the Internet, for example a host on a cable/DSL line. In all examples, replace 000.000.00.00 with the IP address of the host to check.
+
+To check if a Apache Cassandra NoSQL server is openly accessible from the Internet, the Apache Cassandra NoSQL client tool 'cqlsh' can be used as follows:
+```
+$ cqlsh --host 000.000.00.00
+```
+
+If a connection to the Apache Cassandra NoSQL server was successfully established, the output looks like:
+```console
+OUTPUT
+Connected to Linuxize Cluster at 000.000.00.00:9042.
+[cqlsh 5.0.1 | Cassandra 3.9 | CQL spec 3.4.2 | Native protocol v4]
+Use HELP for help.
+cqlsh>
+```
+
+Otherwise the connection will run into a timeout:
+```console
+Fri Feb  5 10:25:42 Error: couldn't connect to server 000.000.00.00:9042 shell/cqlsh.js:86
+exception: connect failed
+```
+
+### Solution   
+* Do not expose your Apache Cassandra NoSQL server to the Internet!   
+* Restrict access to the Apache Cassandra NoSQL server to trusted systems (e. g., the web application server) in the server's configuration and/or by blocking incoming connections from the Internet to next ports: **9042/tcp, 9160/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8888/tcp, 61620/tcp, 61621/tcp** on the firewall.   
+* Check the security best practices provided by the Apache Cassandra NoSQL developers.   
+* Keep your Apache Cassandra NoSQL installation up-to-date. Install available security updates asap.   
+
+**Further Information**      
+- Wikipedia: [wiki/Apache_Cassandra](<https://en.wikipedia.org/wiki/Apache_Cassandra>)
+- Security [cassandra.apache.org](<http://cassandra.apache.org/doc/latest/operating/security.html>)
+
+
+
 ## Openly accessible NetBIOS name services
 ---
 **NetBIOS** defines a software interface and a naming convention. NetBIOS-over-TCP/IP provides the NetBIOS programming interface over the TCP/IP protocol. NetBIOS includes a name service, often called WINS on Microsoft Windows operating systems. The NetBIOS name service uses port **137/udp**.
