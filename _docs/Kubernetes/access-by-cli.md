@@ -68,7 +68,7 @@ export OS_PROJECT_ID=b38e8ed15b4f49cbad07171122334455
 echo "Please enter your OpenStack password as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
-export OS_AUTH_URL=http://172.29.236.10:5000/v3
+export OS_AUTH_URL=https://cloud.vstack.ga:5000/v3
 export OS_NO_CACHE=1
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
@@ -169,7 +169,7 @@ export OS_PROJECT_ID=b38e8ed15b4f49cbad07171122334455
 echo "Please enter your OpenStack password as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
-export OS_AUTH_URL=http://172.29.236.10:5000/v3
+export OS_AUTH_URL=https://cloud.vstack.ga:5000/v3
 export OS_NO_CACHE=1
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
