@@ -117,5 +117,28 @@ If you want to make any changes to your profile information or change Password c
 
 
 
+# Secure your account
+----
+If you want to make your account more secure go to `SECURE YOUR ACCOUNT`.
+![](../../assets/img/create_account/16ac.png)
 
+Use option `Google Authenticator`.
+![](../../assets/img/create_account/17ac.png)
 
+Install one your device `Google Authenticator` from Playmarket or App Store.
+![](../../assets/img/create_account/18ac.png)
+ 
+Run your application and scan **QR** or enter **Secret key**.
+![](../../assets/img/create_account/19ac.png)
+
+You will get **authentication code.** which will changes every 30 seconds.
+![](../../assets/img/create_account/20ac.png)
+
+Enter your **account password.**
+![](../../assets/img/create_account/21ac.png)
+
+Enter your **authentication code.**
+![](../../assets/img/create_account/22ac.png)
+
+Now you have dual account protection!
+![](../../assets/img/create_account/23ac.png)
