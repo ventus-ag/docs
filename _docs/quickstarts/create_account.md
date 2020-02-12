@@ -123,22 +123,19 @@ If you want to make your account more secure go to `SECURE YOUR ACCOUNT`.
 ![](../../assets/img/create_account/16ac.png)
 
 Use option `Google Authenticator`.
-![](../../assets/img/create_account/17ac.png)
+![](../../assets/img/create_account/17ac.PNG)
 
 Install one your device `Google Authenticator` from Playmarket or App Store.
-![](../../assets/img/create_account/18ac.png)
+![](../../assets/img/create_account/18ac.PNG)
  
-Run your application and scan **QR** or enter **Secret key**.
+Run your application and scan **QR** or enter **Secret key** you will get **authentication code** which will changes every 30 seconds.
 ![](../../assets/img/create_account/19ac.png)
 
-You will get **authentication code.** which will changes every 30 seconds.
+Enter your **account password.**
 ![](../../assets/img/create_account/20ac.png)
 
-Enter your **account password.**
+Enter your **authentication code** 
 ![](../../assets/img/create_account/21ac.png)
 
-Enter your **authentication code.**
-![](../../assets/img/create_account/22ac.png)
-
 Now you have dual account protection!
-![](../../assets/img/create_account/23ac.png)
+![](../../assets/img/create_account/22ac.PNG)
