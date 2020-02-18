@@ -20,10 +20,10 @@ author: ventus
 description: "A secure european cloud solution for your idea. Let your solution run on our infrastructure with the best performance and customer satisfaction."
 
 
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "/docs" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing
-url: "https://docs.ventuscloud.eu" # the base hostname & protocol for your site
+url: "https://ventuscloud.eu/docs" # the base hostname & protocol for your site
 
 # Social (First three Required)
 repo: "https://github.com/ventus-ag/docs"
