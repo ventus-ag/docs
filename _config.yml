@@ -23,7 +23,7 @@ description: "A secure european cloud solution for your idea. Let your solution 
 baseurl: "/" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing
-url: "https://docs.ventuscloud.eu" # the base hostname & protocol for your site
+url: "https://ventuscloud.eu/docs" # the base hostname & protocol for your site
 
 # Social (First three Required)
 repo: "https://github.com/ventus-ag/docs"
@@ -31,7 +31,7 @@ github_user: "ventus-ag"
 github_repo: "docs"
 
 # Optional
-twitter: ventus_ag
+twitter: ventuscloud
 linkedin: ventus
 dockerhub: ventus
 

@@ -44,6 +44,9 @@ Select the region (location) of your instance.
 - *Select a Boot source*: 
 Select the image to boot from, from the list of available images. You can also boot from an instance snapshot if any is available. (eg. "ubuntu-1604-xenial")
 
+- *Select storage type*: 
+Select storage type "RBD" and provide preferred disc size
+
 ![](../../assets/img/new-linux-vm-V/instances-Ventus3.png)
 
 
