@@ -19,11 +19,12 @@ tags: [ featured, coretasks ]
 
 For creating new Kubernetes Cluster do following:
 
-1) On the main Navigation Panel go to  `Cloud`, choose `Clusters` and click the floating button `+` present in the lower right corner   
+1) On the main Navigation Panel go to  **Cloud**, choose **Clusters** and click the floating button **+** present in the lower right corner   
 
-![](../../assets/img/coretasks/Kubernetes/cluster_create_1.png)  
+![](../../assets/img/coretasks/Kubernetes/cluster_create_1.png)
+![](../../assets/img/new-linux-vm-V/instances-Ventus0.png)  
 
-2) On the following page enter the `Cluster name`, and select `Cluster template`: k8s_1.15.6_at29_stable
+2) On the following page enter the `Cluster name`, and select `Cluster template` 
 
 ![](../../assets/img/coretasks/Kubernetes/cluster_create_2.png) 
 
@@ -72,6 +73,8 @@ And few icons of quick actions:
     - *Delete*  
 
 ![](../../assets/img/coretasks/Kubernetes/cluster_create_4.png) 
+
+![](../../assets/img/coretasks/Kubernetes/cluster_create_5.png) 
 
 ## Delete a Kubernetes Cluster
 To delete a Kubernetes Cluster, just click on the delete button in the card or list view and on the following page confirm your action as shown below:  
