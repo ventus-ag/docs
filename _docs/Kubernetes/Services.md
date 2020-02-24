@@ -37,7 +37,7 @@ Here we will consider three main types of services:
 
 To create new Service which type is ClusterIP do next steps:
 
-* Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
+Create a `yaml` file called for example `kube-svc.yaml` with the following listing’s contents: 
 ```
 vi kube-svc.yaml
 ```
@@ -58,7 +58,7 @@ spec:
 
 You’re defining a service called *kube*, which will accept connections on port *80* and route each connection to port *8080* of one of the pods matching the app=kube; label - *selector*. 
 
-* Create the service by using next command:
+Create the service by using next command:
 ```
 kubectl create -f kube-svc.yaml
 ```
@@ -82,7 +82,7 @@ kubernetes   ClusterIP   10.254.0.1     <none>        443/TCP   13d
 ```
 
 
-* See the type in our Service's details by using next command: 
+See the type in our Service's details by using next command: 
 ```
 kubectl describe svc kube
 ```
