@@ -15,7 +15,7 @@ In this page, you can find an explanation of what is the Secret, how to create a
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+* TOC
 {:toc}
 
 ## What is the Secret 

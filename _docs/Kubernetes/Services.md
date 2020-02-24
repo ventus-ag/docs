@@ -41,8 +41,6 @@ Create a `yaml` file called for example `kube-svc.yaml` with the following listi
 ```
 vi kube-svc.yaml
 ```
-
-
 ```yaml
 apiVersion: v1
 kind: Service
@@ -62,8 +60,6 @@ Create the service by using next command:
 ```
 kubectl create -f kube-svc.yaml
 ```
-
-The output will be next:
 ```console
 service/kube created
 ```
@@ -73,8 +69,6 @@ that an internal cluster IP has been assigned to your service. To see it use the
 ```
 kubectl get services
 ```
-
-The output will be next:
 ```console
 NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
 kube         ClusterIP   10.254.46.31   <none>        80/TCP    2m15s
@@ -86,8 +80,6 @@ See the type in our Service's details by using next command:
 ```
 kubectl describe svc kube
 ```
-
-The output will be next:
 ```console
 Name:              kube
 Namespace:         default
@@ -132,8 +124,6 @@ Create the NodePort service by using next command:
 ```
 kubectl create -f kube2-svc.yaml
 ```
-
-The output will be next:
 ```console
 service/kube2-svc created
 ```
@@ -142,7 +132,6 @@ service/kube2-svc created
 ```
 kubectl edit svc kube2-svc
 ```
-
 Make nessesary changes and saved. It will be automatically applyed to your cluster.
 
 
@@ -151,8 +140,6 @@ that an internal cluster IP has been assigned to your service. To see it use the
 ```
 kubectl get services
 ```
-
-The output will be next:
 ```console
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
 kube         ClusterIP   10.254.46.31     <none>        80/TCP         27m
@@ -164,8 +151,6 @@ To see the type in our Service's details we can use next command:
 ```
 kubectl describe svc kube2-svc
 ```
-
-The output will be next:
 ```console
 Name:                     kube2-svc
 Namespace:                default
@@ -212,8 +197,6 @@ Create the NodePort service by using next command:
 ```
 kubectl create -f kube3-svc.yaml
 ```
-
-The output will be next:
 ```console
 service/kube3-svc created
 ```
@@ -222,7 +205,6 @@ service/kube3-svc created
 ```
 kubectl edit svc kube3-svc
 ```
-
 Make nessesary changes and saved. It will be automatically applyed to your cluster.
 
 
@@ -231,9 +213,6 @@ that an internal cluster IP has been assigned to your service. To see it use the
 ```
 kubectl get services
 ```
-
-The output will be next:
-```console
 ```console
 NAME         TYPE           CLUSTER-IP        EXTERNAL-IP     PORT(S)        AGE
 kube         ClusterIP      10.254.46.31      <none>          80/TCP         27m
@@ -246,8 +225,6 @@ To see the type in our Service's details we can use next command:
 ```
 kubectl describe svc kube3-svc
 ```
-
-The output will be next:
 ```console
 Name:                     kube3-svc
 Namespace:                default
