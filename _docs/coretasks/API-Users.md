@@ -11,7 +11,7 @@ tags: [ featured, coretasks ]
 In this page, you can find an explanation of how to create new API User, how to get OpenRC file other API User management actions.
 
 ## Table of contents
-{: .no_toc .text-delta }s
+{: .no_toc .text-delta }
 
 1. TOC
 {:toc}
