@@ -7,21 +7,21 @@ tags: [ featured, tutorial ]
 # How install and set up such databases as the MySQL, PostgreSQL and Apache Cassandra NoSQL DB on Ubuntu system using Ventus Cloud
 {: .no_toc }
 ---
+
+Databases store information and its contents can be everything from product catalogs to repositories of customer information.
+
+In this tutorial, we’ll go over some of the most popular databases currently used such as MySQL, PostgreSQL and Apache Cassandra NoSQL DB on Linux VM in Ventus Cloud.
+
+
 ## Table of contents
 {: .no_toc .text-delta }
 
 * TOC
 {:toc}
 
-## Intoduction
-
-Databases store information and its contents can be everything from product catalogs to repositories of customer information.
-
-In this tutorial, we’ll go over some of the most popular databases currently used such as MySQL, PostgreSQL and Apache Cassandra NoSQL DB on Linux VM in Ventus Cloud.
-
 ## Prerequisites
 
-Before you can start this guide you will need to create a new Ubuntu server. To do this follow the instructions from the next quickstarts [Creating a new Linux VM using Ventus](<https://docs.ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus>).
+Before you can start this guide you will need to create a new Ubuntu server. To do this follow the instructions from the next quickstarts [Create a Linux virtual machine](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus).
 After creating you need to connect to your remote Ubuntu server using the ssh protocol and IP of this server and continue below.
 
 ## Install MySQL Server on Ubuntu
