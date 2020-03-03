@@ -6,7 +6,7 @@ tags: [ featured, Kubernetes ]
 ---
 # Source IP 
 {: .no_toc }
-
+In this page, you can find an explanation of how to get the source IP of your app in your Kubernetes cluster. 
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -16,11 +16,11 @@ tags: [ featured, Kubernetes ]
 
 ## Deploy web application
 
-To show you how we could get the source IP we took small app that echoes back the source IP of requests. To deploy it use command `kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4`
-
-The output is:
-
+To show you how we could get the source IP we took small app that echoes back the source IP of requests. To deploy it use command:
 ```
+kubectl run source-ip-app --image=k8s.gcr.io/echoserver:1.4
+```
+```console
 deployment.apps/source-ip-app created
 ```
 
@@ -28,6 +28,9 @@ deployment.apps/source-ip-app created
 
 1) Create Service with Type `LoadBalancer` and annotation `loadbalancer.openstack.org/x-forwarded-for: "true"` using this `app-svc.yaml` file: 
 
+```
+vi app-svc.yaml
+```
 ```yaml
 apiVersion: v1
 kind: Service
@@ -46,14 +49,20 @@ spec:
     run: source-ip-app
   type: LoadBalancer
 ```
-Use command `kubectl apply -f app-svc.yaml` to create it. 
 
-The output is: 
-
+Use next command to create it:
 ```
+kubectl apply -f app-svc.yaml
+```
+```console
 service/source-ip-app-svc created
 ```
-Now get external ip of your service using command `kubectl get svc`:
+
+Now get external ip of your service using command:
+```
+kubectl get svc
+```
+
 
 ![](../../assets/img/Source IP with Type LoadBalancer/external_ip.png) 
 
@@ -61,10 +70,13 @@ Now get external ip of your service using command `kubectl get svc`:
 
 To get Source IP you need use command `curl` with external IP that you has been received in previous step.
 
-In our case it's: `curl 46.4.240.46`
+In our case it's: 
+```
+curl 46.4.240.46
+```
 
 The output is:
-```
+```console
 CLIENT VALUES:
 client_address=10.100.1.1
 command=GET
@@ -85,6 +97,21 @@ x-forwarded-for=188.40.161.103
 {% include alert.html type="info" title="Note" content="With a proxy that terminates the client connection and opens a new connection to your nodes/endpoints. In such cases the source IP will always be that of the cloud LB, not that of the client." %}
 
 In our case it's an IP from line: `x-forwarded-for=188.40.161.103`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -7,14 +7,6 @@ tags: [ featured, tutorial ]
 # Object Storage
 {: .no_toc }
 
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
-## Introduction to Object Storage
-
 The Ventus Cloud Object Storage makes it possible to store practically limitless amounts of data, simply and cost effectively. It provides a fully distributed, API-accessible storage platform that can be integrated directly into applications or used for backup, archiving, and data retention.
 
 It's built for scale and optimized for durability, availability, and concurrency across the entire data set. Swift is ideal for storing unstructured data that can grow without bound.
@@ -25,31 +17,38 @@ There is no notion of hierarchy with containers: you cannot nest a container wit
 
 In this tutorial you can find how to use the Ventus Cloud Object Storage with the Python API or with the client S3 Browser.
 
+## Table of contents
+{: .no_toc .text-delta }
+
+* TOC
+{:toc}
+
+
 ## Previous steps
 
 Before we start to configure Object Storage we need to do next:
-- Create new API User 
-- Get access to Ventus Cloud CLI  
+- Create new API User - more information you can find in next coretask [API Users](https://ventuscloud.eu/docs/coretasks/API-Users)    
+- Get access to Ventus Cloud CLI - more information you can find in next article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)
 - Create credentials file
 
 ### Create new API User
 
 For creating new API User do following:
 
-1) On the main Navigation Panel go to  `Cloud`, choose `API Users` and click the floating button `+` present in the lower right corner   
+1) On the main Navigation Panel go to  `Cloud`, choose `API Users` and click the floating button `+` present in the lower right corner      
 ![](../../assets/img/API-Users/API-Users1.png)  
 
-2) On the following page enter the user name (Eg. "User1"), password and an optional description as shown below: 
+2) On the following page enter the user name (Eg. "User1"), password and an optional description as shown below:    
 ![](../../assets/img/API-Users/API-Users2.png)  
 
 Once a User is created, you will be able to access Ventus Cloud endpoints directly with your project ID, username and password.
 
 Also, after this you can get OpenRC file of the created Api User:
 
-- click on the **Get OpenRC file** button in the card or list view   
+- click on the **Get OpenRC file** button in the card or list view      
 ![](../../assets/img/API-Users/API-Users5.png)
 
-- select region and hit **GET FILE**  
+- select region and hit **GET FILE**     
 ![](../../assets/img/API-Users/API-Users6.png)
 
 - file named `openrc` will be downloaded to your machine  
@@ -85,11 +84,11 @@ export OS_PROJECT_ID=b38e8ed15b4f49cbad07171122334455
 echo "Please enter your OpenStack password as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
-export OS_AUTH_URL=http://cloud.vstack.ga:5000/v3
+export OS_AUTH_URL=https://vienna-1.ventuscloud.eu:5000/v3
 export OS_NO_CACHE=1
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
-export OS_REGION_NAME=RegionOne
+export OS_REGION_NAME=vienna-1
 
 # For openstackclient
 export OS_IDENTITY_API_VERSION=3
@@ -166,9 +165,9 @@ my_new_bucket  2019-10-09T08:13:19.071Z
 
 So, as we can see, by using python code, we have just:
 
-- created a connection so that you can interact with storage api endpoint
-- created a new bucket called my_new_bucket
-- got a list of Buckets that you own and printed out the bucket name and creation date of each bucket.
+- created a connection so that you can interact with storage api endpoint   
+- created a new bucket called my_new_bucket   
+- got a list of Buckets that you own and printed out the bucket name and creation date of each bucket.   
 
 ## Use the Object Storage with the client S3 Browser
 

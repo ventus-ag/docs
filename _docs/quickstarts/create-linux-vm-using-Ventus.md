@@ -8,7 +8,7 @@ tags: [ featured, quickstart ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-1604-xenial." %}
+{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Linux virtual machine (VM) running ubuntu-server-18.04." %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -37,12 +37,8 @@ This will set the name in the Ventus database. The hostname inside the instance 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus2.png)
 
 
-
-- *Select a Region*: 
-Select the region (location) of your instance.
-
 - *Select a Boot source*: 
-Select the image to boot from, from the list of available images. You can also boot from an instance snapshot if any is available. (eg. "ubuntu-1604-xenial")
+Select the image to boot from, from the list of available images. You can also boot from an instance snapshot if any is available. (eg. "ubuntu-server-18.04-LTS-20200131.1")
 
 - *Select storage type*: 
 Select storage type "RBD" and provide preferred disc size
@@ -56,7 +52,8 @@ Configurations (flavors) hold information about the Instance memory, disk space 
 
 ![](../../assets/img/new-linux-vm-V/instances-Ventus4.png)
 
-
+- *Network selection*: 
+Select network (public or private)
 
 - *Select a SSH Key*: 
 A SSH key which you previously added in SSH keys page. Also, you can add your own key or generate a new one to use - cklick the button **Add a new key**, assign a name and click the button **Generate key**. 
@@ -68,6 +65,9 @@ This field is optional,you can leave none selected.
 
 - *Root Password*: 
 You can view your typed password by clicking on the eye icon from right. The password should be at least 8 characters long and should contain at least one digit, letter or symbol.
+
+![](../../assets/img/new-linux-vm-V/instances-Ventus55.png)
+
 
 
 3) Hit **Create Instance** and the new instance will be created.

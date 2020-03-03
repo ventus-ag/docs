@@ -12,12 +12,12 @@ In this page, you can find an explanation of what is snapshot, how it works,how 
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+* TOC
 {:toc}
 
 ## What is snapshot
 
-{% include alert.html type="info" title="Snapshot is the state of a instance at a particular point in time."%}
+**Snapshot** is the state of a instance at a particular point in time.
 Snapshots are useful any time you need to rollback instance to it's previous state at specific point in time. For example, before performing a risky operation on instance (software installation, OS upgrade, etc) you can create a snapshot to be able to rollback to previously working state if something goes wrong. 
 
 So you can use them to backup your instance and restore it later. Also, you can duplicate an instance by making a snapshot of an instance and boot new instance using previously created snapshot.

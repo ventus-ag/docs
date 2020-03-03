@@ -8,9 +8,10 @@ tags: [ featured, tutorial, kubernetes, istio ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="What is Istio?" content="It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservices architecture, and provides a uniform way to secure, connect, and monitor microservices." %}
+**What is Istio?** 
+It is a service mesh that placed into existing distributed applications. Istio includes APIs that let it integrate into any logging platform, or telemetry or policy system and lets you successfully, and efficiently, run a distributed microservices architecture, and provides a uniform way to secure, connect, and monitor microservices.
 
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo application used to demonstrate various Istio features and getting access to observability console for Istio - Kiali." %}
+In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo application used to demonstrate various Istio features and getting access to observability console for Istio - Kiali.
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -21,19 +22,20 @@ tags: [ featured, tutorial, kubernetes, istio ]
 ## Create new Kubernetes cluster
 ---
 
-Now you can create new cluster using this tutorial: <a href ="https://masterhorn.github.io/docs/docs/coretasks/Kubernetes">Kubernetes</a> 
-<br />Use next parameters for your cluster:
-  - `Master count`: 1
-  - `Node count`: 3
-  - `Docker volume size (GB)`: 30
-  - `Node flavor`: VC-4
-  - `Master node flavor`: VC-2
+Now you can create new cluster using this article: [Kubernetes Cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster)   
+
+Use next parameters for your cluster:  
+  - `Master count`: 1  
+  - `Node count`: 3  
+  - `Docker volume size (GB)`: 30  
+  - `Node flavor`: VC-4  
+  - `Master node flavor`: VC-2  
 
 
 ## Get access to your cluster using cli
 ---
 
-Now you can getting access to your cluster using this tutorial <a href ="https://masterhorn.github.io/docs/docs/coretasks/access-by-cli">Access to Kubernetes Cluster using CLI</a>
+Now you can getting access to your cluster using this article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)   
 
 ## Install Istio
 ---
@@ -41,44 +43,68 @@ Now you can getting access to your cluster using this tutorial <a href ="https:/
 Follow these steps to install Istio:
 
 1) Download the release from the <a href ="https://github.com/istio/istio/releases/">Istio releases page</a>: 
-- `wget https://github.com/istio/istio/releases/download/1.4.0/istio-1.4.0-linux.tar.gz`
-- `tar -xvf istio-1.4.0-linux.tar.gz`
+```
+wget https://github.com/istio/istio/releases/download/1.4.0/istio-1.4.0-linux.tar.gz
+```
+```
+tar -xvf istio-1.4.0-linux.tar.gz
+```
 
 2) Move to the Istio package direction:  
-- `cd istio-1.4.0`
+```
+cd istio-1.4.0
+```
 
 3) Add the istioctl client to your path:
-- `export PATH=$PWD/bin:$PATH`
+```
+export PATH=$PWD/bin:$PATH
+```
 
 4) Install Istio:
-- ` istioctl manifest apply --set profile=demo`
+```
+istioctl manifest apply --set profile=demo
+```
 
 5) Verify that all Istio services are deployed and pods are in running state:
-- `kubectl get svc -n istio-system`
+```
+kubectl get svc -n istio-system
+```
 
 ![](../../assets/img/tutorials/Istio/verify_svc.png)
 
-- `kubectl get pods -n istio-system` 
+```
+kubectl get pods -n istio-system
+```
+
 
 ![](../../assets/img/tutorials/Istio/verify_pods.png)
 
 ## Deploying Bookinfo application 
 ---
 
-{% include alert.html type="info" title="Bookinfo application" content="The application which composed of four separate microservices used to demonstrate various Istio features. The application displays information about a book, similar to a single catalog entry of an online book store. Displayed on the page is a description of the book, book details (ISBN, number of pages, and so on), and a few book reviews." %}
+**Bookinfo application**  
+The application which composed of four separate microservices used to demonstrate various Istio features. The application displays information about a book, similar to a single catalog entry of an online book store. Displayed on the page is a description of the book, book details (ISBN, number of pages, and so on), and a few book reviews.
 
 1) Label the namespace that will host the application:
-- `kubectl label namespace default istio-injection=enabled`
+```
+kubectl label namespace default istio-injection=enabled
+```
 
 2) Deploy your application using the `kubectl` command:
-- `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
+```
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+```
 
 3) Verify that all services are deployed and pods are in running state:
-- `kubectl get svc` 
+```
+kubectl get svc
+``` 
 
 ![](../../assets/img/tutorials/Istio/verify_svc_2.png)
 
-- `kubectl get pods` 
+```
+kubectl get pods
+```
 
 ![](../../assets/img/tutorials/Istio/verify_pods_2.png)
 
@@ -93,12 +119,16 @@ kubectl exec -it $(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metada
 ---
 
 1) Define the ingress gateway for the application:
-- `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
+```
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+```
 
 2) Confirm the gateway has been created:
-- `kubectl get gateway` 
+```
+kubectl get gateway
+```
 
-   ![](../../assets/img/tutorials/Istio/gateway.png)
+![](../../assets/img/tutorials/Istio/gateway.png)
 
 3) Set the `INGRESS_HOST` and `INGRESS_PORT` variables for accessing the gateway:
 ```
@@ -107,26 +137,33 @@ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
 ```
 4) Set `GATEWAY_URL`:
-- `export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT`
+```
+export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
+```
 
 5) Confirm that the Bookinfo application is accessible from outside the cluster, run the following `curl` command:
-- `curl -s http://${GATEWAY_URL}/productpage | grep -o "<title>.*</title>"`
+```
+curl -s http://${GATEWAY_URL}/productpage | grep -o "<title>.*</title>"
+```
 
-   ![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
+![](../../assets/img/tutorials/Istio/verify_bookinfo.png)
 
-Now we can view the Bookinfo web page following this staps:
+
+**Now we can view the Bookinfo web page following this staps:**
 
 1) Get the LoadBalancer’s IP:
-- `kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
+```
+kubectl get svc -n istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+```
 
-   ![](../../assets/img/tutorials/Istio/loadbalancer_ip.png)
+![](../../assets/img/tutorials/Istio/loadbalancer_ip.png)
 
 2) Navigate to `http://<LoadBalancer's IP>/productpage`
 
 ## Getting access to Kiali
 --- 
 
-{% include alert.html type="info" title="What is Kiali" content="Kiali is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh." %}
+**Kiali** is an observability console for Istio with service mesh configuration capabilities. It helps you to understand the structure of your service mesh by inferring the topology, and also provides the health of your mesh.
 
 For getting access to Kiali we need apply next yaml configuration to expose the tracing service: 
 ```yaml
@@ -197,8 +234,12 @@ Now you can monitor traffic of your application in Kiali:
 
 ![](../../assets/img/tutorials/Istio/Kiali_graph.png)
 
-Let's re-cap what we've done:
-- Install Istio.
-- Deploy Bookinfo application.
-- Getting access to observabiliti console for Istio - Kiali.
+Let's re-cap what we've done:   
+- Install Istio.   
+- Deploy Bookinfo application.   
+- Getting access to observabiliti console for Istio - Kiali.   
+
+
+
+
 

@@ -7,7 +7,8 @@ tags: [ featured, coretasks ]
 # Deployment
 {: .no_toc }
 
-{% include alert.html type="info" title="Note" content="A Deployment controller provides declarative updates for Pods and ReplicaSets." %}
+In this page, you can find an explanation of what is the Secret, how to create and use it.
+
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -16,6 +17,8 @@ tags: [ featured, coretasks ]
 {:toc}
 
 ## Create new Deployment
+
+**Deployment** controller provides declarative updates for Pods and ReplicaSets.
 
 1) The following is an example of a Deployment. It creates a ReplicaSet to bring up three nginx Pods
 ```yaml
