@@ -18,7 +18,7 @@ Currently,  incidents on the following openly accessible services are taken into
 1. TOC
 {:toc}
 
-## NTP servers with 'monlist' enabled  
+## NTP servers with 'monlist' enabled - port 123  
 ---
 **Defenition:**      
 **The Network Time Protocol (NTP)** is a networking protocol for clock synchronization between IT systems. NTP supports a monitoring service that allows administrators to query the server for traffic counts of connected clients via the 'monlist' command.
@@ -68,7 +68,7 @@ Update to ntpd version 4.2.7p26 or later. If an update is not possible, disable 
 - NTP.org: [DRDoS / Amplification Attack using ntpdc monlist command](<http://support.ntp.org/bin/view/Main/SecurityNotice#April_2010_DRDoS_Amplification_A>)  
 
 
-## DNS Open-resolver  
+## DNS Open-resolver - port 53    
 ---
 **Defenition:**      
 **DNS Open-resolvers** are DNS servers responding to recursive queries for arbitrary domain names from anywhere on the Internet.
@@ -112,7 +112,7 @@ For instructions how to disable/limit recursion with other DNS servers, please c
 - US-CERT: [DNS Amplification Attacks (TA13-088A)](<https://www.us-cert.gov/ncas/alerts/TA13-088A>)  
 
 
-## Openly accessible Multicast DNS (mDNS) services
+## Openly accessible Multicast DNS (mDNS) services - port 5353  
 ---
 **Defenition:**      
 **Multicast DNS (mDNS)** is used for resolving host names to IP addresses within small networks that do not include a local DNS server. It is implemented e. g. by the Apple 'Bonjour' and Linux/BSD 'Avahi' (nss-mdns) services. mDNS uses port **5353/udp**.
@@ -152,7 +152,7 @@ On Debian/Ubuntu based Linux systems, the mDNS service can be removed using the 
 - CERT.org: [Multicast DNS (mDNS) implementations may respond to unicast queries originating outside the local link (VU#550620)](<https://www.kb.cert.org/vuls/id/550620/>)
 
 
-## Openly accessible SSDP servers
+## Openly accessible SSDP servers - port 1900  
 ---
 **Defenition:**      
 **The Simple Service Discovery Protocol (SSDP)** is a network protocol for advertisement and discovery of network services and presence information. SSDP is the basis of the discovery protocol of Universal Plug and Play (UPnP). SSDP uses port **1900/udp**.
@@ -195,7 +195,7 @@ If the SSDP server is not required, disable or deinstall it. Otherwise, restrict
 - Sucuri: [Quick Analysis of a DDoS Attack Using SSDP](<https://blog.sucuri.net/2014/09/quick-analysis-of-a-ddos-attack-using-ssdp.html>)   
 
 
-## Openly accessible SNMP servers
+## Openly accessible SNMP servers - port 161  
 ---
 **Defenition:**      
 **The Simple Network Management Protocol (SNMP)** is a networking protocol for device management and monitoring.
@@ -229,7 +229,7 @@ Configure a 'private' community with mandatory authentication instead of using t
 - Wikipedia: [Simple Network Management Protocol](<https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol>)
 
 
-## Openly accessible Telnet servers
+## Openly accessible Telnet servers - port 23  
 ---
 **Defenition:**      
 **Telnet** is an outdated network protocol for text-oriented command-line access to remote hosts.
@@ -248,7 +248,7 @@ We recommends using (Open)SSH with key-based authentication for secure access to
 - Wikipedia: [Telnet](<https://en.wikipedia.org/wiki/Telnet>)
 
 
-## Openly accessible LDAP servers
+## Openly accessible LDAP servers - port 389  
 ---
 **Defenition:**      
 **The Lightweight Directory Access Protocol (LDAP)** is a networking protocol for accessing and maintaining distributed directory information services.
@@ -291,7 +291,7 @@ Otherwise, ldapsearch will run into a timeout.
 - 360.com: [CLDAP is Now the No.3 Reflection Amplified DDoS Attack Vector, Surpassing SSDP and CharGen](<https://blog.netlab.360.com/cldap-is-now-the-3rd-reflection-amplified-ddos-attack-vector-surpassing-ssdp-and-chargen-en/>)
 
 
-## Openly accessible Elasticsearch servers  
+## Openly accessible Elasticsearch servers - port 9200  
 ---
 **Defenition:**      
 **Elasticsearch** is a popular search engine based on Apache Lucene, often used with web applications.
@@ -344,7 +344,7 @@ netcat: connect to 000.000.00.00 port 9200 (tcp) failed: Connection timed out
 - BleepingComputer: [MongoDB Hijackers Move on to ElasticSearch Servers](<https://www.bleepingcomputer.com/news/security/mongodb-hijackers-move-on-to-elasticsearch-servers/>)  
 
 
-## Openly accessible Memcached servers
+## Openly accessible Memcached servers - port 11211  
 ---
 **Defenition:**      
 **Memcached** is an open-source distributed memory object caching system which is generic in nature but often used for speeding up dynamic web applications. In the default configuration, memcached listens on port **11211/tcp** and (up to including version 1.5.5) also on port **11211/udp**.
@@ -408,7 +408,7 @@ An openly accessible Memcached server will return information like shown above.
 - Cisco Talos Blog: [Remotely Exploitable Bugs in Memcached Identified and Patched](<https://blog.talosintelligence.com/2016/10/memcached-vulnerabilities.html>)   
 
 
-## Openly accessible Redis servers
+## Openly accessible Redis servers - port 6379  
 ---
 **Defenition:**      
 **Redis** is an open-source in-memory database server with a simple key-value data structure often used with dynamic web applications.
@@ -466,7 +466,7 @@ netcat: connect to 000.000.00.00 port 6379 (tcp) failed: Connection timed out
 - Duo Labs: [Over 18,000 Redis Instances Targeted by Fake Ransomware](<https://duo.com/decipher/over-18000-redis-instances-targeted-by-fake-ransomware>)
 
 
-## Openly accessible MongoDB servers
+## Openly accessible MongoDB servers - port 27017  
 ---
 **Defenition:**      
 **MongoDB** is a popular NoSQL database system commonly used as a backend for web applications.
@@ -506,7 +506,7 @@ exception: connect failed
 - BleepingComputer: [MongoDB Databases Held for Ransom by Mysterious Attacker](<https://www.bleepingcomputer.com/news/security/mongodb-databases-held-for-ransom-by-mysterious-attacker/>)
 
 
-## Openly accessible MySQL/MariaDB servers
+## Openly accessible MySQL/MariaDB servers - port 3306  
 ---
 **Defenition:**      
 **MySQL/MariaDB** is the world’s most popular open-source database.
@@ -545,7 +545,7 @@ exception: connect failed
 - Wikipedia: [wiki/MySQ](<https://en.wikipedia.org/wiki/MySQL>)
 
 
-## Openly accessible PostgreSQL servers
+## Openly accessible PostgreSQL servers - port 5432  
 ---
 **Defenition:**      
 **PostgreSQL** is one of several free popular databases, and it is frequently used for web databases. It was one of the first database management systems to be developed, and it allows users to manage both structured and unstructured data.
@@ -584,7 +584,7 @@ exception: connect failed
 - Wikipedia: [wiki/PostgreSQL](<https://en.wikipedia.org/wiki/PostgreSQL>)
 
 
-## Openly accessible Apache Cassandra NoSQL servers
+## Openly accessible Apache Cassandra NoSQL servers - ports 9042, 9160, 7000, 7001, 7199, 8888, 61620, 61621  
 ---
 **Defenition:**      
 **Apache Cassandra** is a free and open-source, distributed, wide column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
@@ -630,7 +630,7 @@ exception: connect failed
 - Security [cassandra.apache.org](<http://cassandra.apache.org/doc/latest/operating/security.html>)
 
 
-## Openly accessible Microsoft SQL-Server (MSSQL) browser services
+## Openly accessible Microsoft SQL-Server (MSSQL) browser services - ports 1433, 1434  
 ---
 **Defenition:**      
 **Microsoft SQL-Server (MSSQL)** includes a 'browser service' which lets users connect to instances of the database engine that are not listening on the default port, without knowing the port number.
@@ -667,7 +667,7 @@ Microsoft recommends:
 - Microsoft: [SQL Server-Browserdienst](<https://docs.microsoft.com/de-de/sql/tools/configuration-manager/sql-server-browser-service?redirectedfrom=MSDN&view=sql-server-ver15>)
 
 
-## Openly accessible Portmapper services
+## Openly accessible Portmapper services - port 111   
 ---
 **Defenition:**      
 **The Portmapper (portmap, rpcbind)** is required for mapping RPC requests (remote procedure calls) to a network service. It is needed e. g. for mounting network shares using the Network File System (NFS).
@@ -714,7 +714,7 @@ On Debian/Ubuntu based Linux systems, the portmapper service can be removed usin
 - Securing Debian Manual: [Securing RPC services](<https://www.debian.org/doc/manuals/securing-debian-howto/ch-sec-services.en.html#s-rpc>)   
 
 
-## Openly accessible Sphinx servers
+## Openly accessible Sphinx servers - ports 9306, 9312  
 ---
 **Defenition:**      
 **Sphinx** is an open-source search server commonly used as a backend for web applications.
@@ -754,7 +754,7 @@ listen       = localhost:9306:mysql41
 - Wikipedia: [wiki/Sphinx](<https://en.wikipedia.org/wiki/Sphinx_(search_engine)>)
 
 
-## Openly accessible Ubiquiti Device Discovery services
+## Openly accessible Ubiquiti Device Discovery services - port 10001  
 ---
 **Defenition:**      
 **Ubiquiti network devices** come with a 'Device Discovery' service which is enabled by default and listening on port **10001/udp**.
@@ -789,7 +789,7 @@ Otherwise, restrict access to trusted clients, for example by blocking incoming 
 - Ubiquiti: [EdgeRouter - Ubiquiti Device Discovery](<https://help.ubnt.com/hc/en-us/articles/204976244-EdgeRouter-UBNT-Device-Discovery>)
 
 
-## Openly accessible NetBIOS name services
+## Openly accessible NetBIOS name services - ports 135, 137, 138, 139, 445  
 ---
 **Defenition:**      
 **NetBIOS** defines a software interface and a naming convention. NetBIOS-over-TCP/IP provides the NetBIOS programming interface over the TCP/IP protocol. NetBIOS includes a name service, often called WINS on Microsoft Windows operating systems. The NetBIOS name service uses port **137/udp**.
