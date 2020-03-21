@@ -134,7 +134,7 @@ secret_key = 'your_secret_key'
 conn = boto.connect_s3(
         aws_access_key_id = access_key,
         aws_secret_access_key = secret_key,
-        host = 'cloud.vstack.ga',
+        host = 'vienna-1.ventuscloud.eu',
         port = 8080,
         
         calling_format = boto.s3.connection.OrdinaryCallingFormat(),
@@ -143,10 +143,10 @@ conn = boto.connect_s3(
 bucket = conn.create_bucket('my_new_bucket')
 
 for bucket in conn.get_all_buckets():
-        print "{name}\t{created}".format(
+        print ("{name}\t{created}".format(
                 name = bucket.name,
                 created = bucket.creation_date,
-        )
+        ))
 
 ```
 Remember to replace the ‘your_access_key’ and 'your_secret_key' part with your credential information.
