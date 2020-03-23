@@ -126,9 +126,7 @@ deployment-test-55996c54bf-gxcsr   1/1     Running   0          19m
 deployment-test-55996c54bf-n87m7   1/1     Running   0          19m
 deployment-test-55996c54bf-xkbqp   1/1     Running   0          19m
 deployment-test-55996c54bf-zrd6f   1/1     Running   0          19m
-
 ```
-
 - Use the command `kubectl get nods` to make sure that one more node was added: 
 ```
 kubectl get nodes
