@@ -4,15 +4,15 @@ description: "How to use autoscaler: min and max count of nodes"
 tags: [ featured, coretasks ]
 # permalink: /Autoscaling/
 ---
-# Autoscaler: min and max count of nodes in Kubernetes cluster
+# Autoscaling: min and max count of nodes in Kubernetes cluster
 ---
 
-In this task we will see how controll count of nodes in Kubernetes cluster.
+In this task we will see how control count of nodes in Kubernetes cluster. When we indicate min node count, autoscaler will not scale in count of nodes less then number of min node count. And when we indicate max node count, autoscaler will not scale out count of nodes more then number of max node count.
 
 
 ## Min node count
 
-- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parametrs and add tag `min_node_count=3`:
+- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parameters and add tag `min_node_count=3`:
 
 ```
 Master count: 1
@@ -35,11 +35,11 @@ test-ptdzc7aqfngp-node-0     Ready    <none>   14m     v1.17.3
 test-ptdzc7aqfngp-node-1     Ready    <none>   7m30s   v1.17.3
 test-ptdzc7aqfngp-node-2     Ready    <none>   82s     v1.17.3
 ```
-Now we have 3 nodes on our cluster and autoscaler don't scale out it lower then 3 nodes, as we indicated in min_node_count. 
+Now we have 3 nodes on our cluster and autoscaler don't scale in it lower then 3 nodes, as we indicated in min_node_count. 
 
 ## Max node count
 
-- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parametrs and add tag `max_node_count=1`:
+- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parameters and add tag `max_node_count=1`:
 
 ```
 Master count: 1
@@ -89,7 +89,7 @@ kubectl apply -f deployment-test.yaml
 deployment.apps/deployment-test created
 ```
 
-- Use comand `kubectl get pods` and look how many pod in running status: 
+- Use command `kubectl get pods` and look how many pod in running status: 
 
 ```
 kubectl get pods
