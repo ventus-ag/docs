@@ -4,45 +4,26 @@ description: "How to use autoscaler: min and max count of nodes"
 tags: [ featured, coretasks ]
 # permalink: /Autoscaling/
 ---
-# Scale-out and scale-in of Kubernetes cluster
+# Autoscaler: min and max count of nodes in Kubernetes cluster.
 ---
 
-In this task we will see how to scale-out and scale-in of Kubernetes cluster.
+In this task we will see how use autoscaling in Kubernetes cluster.
 
  
 
-- go to Cloud page, choose Kubernetes and open your cluster:
-
-![](../../assets/img/scaling/choose_cluster.png)   
-
-- In opening cluster choose `Resize`  
-
-![](../../assets/img/scaling/resize_node1.png) 
-
-- Choose how many nodes you need and use action `resize cluster`  
-
-![](../../assets/img/scaling/resize_node.png)  
-
-- Wait until update progress will end:
-
-![](../../assets/img/scaling/cluster_update.png)    
-![](../../assets/img/scaling/cluster_update2.png)   
-
-{% include alert.html type="info" title="Note" content="In the same way you can resize you cluster scling-in nodes." %} 
-
- **Let's see how it works on server side:** 
-
-- Create Kubernetes cluster with existing parametrs (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster):
+- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parametrs and add tag `min_node_count=1`:
 
 ```
 Master count: 1
 Node count: 1
-Docker volume size (Gb): 30
+Docker volume size (Gb): 50
 Node flavor: VC-2
 Master node flavor: VC-2
 ```
 
-- Get access to this cluster (How to getting access to cluster you can see in this core task [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli) 
+![](../../assets/img/autoscaling/min_node_count.png)   
+
+- Now connect to your cluster using [CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)  
 
 - Create `deployment-test.yaml` file with existing lines:    
 
@@ -79,7 +60,6 @@ kubectl apply -f deployment-test.yaml
 ```console
 deployment.apps/deployment-test created
 ```
-
 - Using command `kubectl get pods` we will see that one of pods can't move in running state:   
 ```
 kubectl get pods
@@ -128,6 +108,24 @@ Events:
   ----     ------            ----                ----               -------
   Warning  FailedScheduling  74s (x4 over 4m5s)  default-scheduler  0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
 ```
+
+
+
+
+
+
+ **Let's see how it works on server side:** 
+
+- Create Kubernetes cluster with existing parametrs (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster):
+
+```
+Master count: 1
+Node count: 1
+Docker volume size (Gb): 30
+Node flavor: VC-2
+Master node flavor: VC-2
+```
+
 
 - Now resize cluster and add one more node like we saw on steps earlier.
 
