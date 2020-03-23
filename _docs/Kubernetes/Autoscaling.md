@@ -114,30 +114,29 @@ Events:
 ![](../../assets/img/autoscaling/max_node_count.png) 
 
 - Connect to your cluster and create same deployment. 
-
-- Use the command `kubectl get nods` to make sure that one more node was added: 
-```
-kubectl get nods
-```
-```concole
-NAME                                 STATUS   ROLES    AGE     VERSION
-cluster-test-yin3p44gdbom-master-0   Ready    master   93m     v1.17.3
-cluster-test-yin3p44gdbom-node-0     Ready    <none>   91m     v1.17.3
-cluster-test-yin3p44gdbom-node-1     Ready    <none>   4m14s   v1.17.3
-```
-
+- Wait 1 - 2 minutes while the cluster updated.
 - Use comand `kubectl get pods` and make sure that all pods in running state: 
 ```
 kubectl get pods
 ```
 ```console
-NAME                               READY   STATUS      RESTARTS   AGE
-deployment-test-8676b58c7f-6hfl6   1/1     Running     0          61s
-deployment-test-8676b58c7f-bk72m   1/1     Running     0          61s
-deployment-test-8676b58c7f-pnwk4   1/1     Running     0          61s
-deployment-test-8676b58c7f-vnkwc   1/1     Running     0          61s
-deployment-test-8676b58c7f-xlkhv   1/1     Running     0          61s
+NAME                               READY   STATUS    RESTARTS   AGE
+deployment-test-55996c54bf-6lfpz   1/1     Running   0          19m
+deployment-test-55996c54bf-gxcsr   1/1     Running   0          19m
+deployment-test-55996c54bf-n87m7   1/1     Running   0          19m
+deployment-test-55996c54bf-xkbqp   1/1     Running   0          19m
+deployment-test-55996c54bf-zrd6f   1/1     Running   0          19m
+
 ```
 
-
+- Use the command `kubectl get nods` to make sure that one more node was added: 
+```
+kubectl get nodes
+```
+```concole
+NAME                         STATUS   ROLES    AGE   VERSION
+test-qk7umk4e67yh-master-0   Ready    master   26m   v1.17.3
+test-qk7umk4e67yh-node-0     Ready    <none>   24m   v1.17.3
+test-qk7umk4e67yh-node-1     Ready    <none>   18m   v1.17.3
+```
 

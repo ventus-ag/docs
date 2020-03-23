@@ -133,7 +133,7 @@ Events:
 
 - Use the command `kubectl get nods` to make sure that one more node was added: 
 ```
-kubectl get nods
+kubectl get nodes
 ```
 ```concole
 NAME                                 STATUS   ROLES    AGE     VERSION
