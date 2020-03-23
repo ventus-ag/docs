@@ -4,18 +4,19 @@ description: "How to use autoscaler: min and max count of nodes"
 tags: [ featured, coretasks ]
 # permalink: /Autoscaling/
 ---
-# Autoscaler: min and max count of nodes in Kubernetes cluster.
+# Autoscaler: min and max count of nodes in Kubernetes cluster
 ---
 
-In this task we will see how use autoscaling in Kubernetes cluster.
+In this task we will see how controll count of nodes in Kubernetes cluster.
 
- 
 
-- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parametrs and add tag `min_node_count=1`:
+## Min node count
+
+- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parametrs and add tag `min_node_count=3`:
 
 ```
 Master count: 1
-Node count: 1
+Node count: 3
 Docker volume size (Gb): 50
 Node flavor: VC-2
 Master node flavor: VC-2
@@ -25,7 +26,34 @@ Master node flavor: VC-2
 
 - Now connect to your cluster using [CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)  
 
-- Create `deployment-test.yaml` file with existing lines:    
+- Use command `kubectl get nodes` to make sure that we have minimum 3 nodes on our cluster:
+
+```console
+NAME                         STATUS   ROLES    AGE     VERSION
+test-ptdzc7aqfngp-master-0   Ready    master   16m     v1.17.3
+test-ptdzc7aqfngp-node-0     Ready    <none>   14m     v1.17.3
+test-ptdzc7aqfngp-node-1     Ready    <none>   7m30s   v1.17.3
+test-ptdzc7aqfngp-node-2     Ready    <none>   82s     v1.17.3
+```
+Now we have 3 nodes on our cluster and autoscaler don't scale out it lower then 3 nodes, as we indicated in min_node_count. 
+
+## Max node count
+
+- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parametrs and add tag `max_node_count=1`:
+
+```
+Master count: 1
+Node count: 1
+Docker volume size (Gb): 50
+Node flavor: VC-2
+Master node flavor: VC-2
+```
+
+![](../../assets/img/autoscaling/max_node_count.png) 
+
+- Connect to your cluster using [CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)
+
+- Now to check how autoscaler will scale your nodes create `deployment-test.yaml` file with existing lines:    
 
 ```yaml
 apiVersion: apps/v1
@@ -49,7 +77,7 @@ spec:
         image: nginx:1.7.9
         resources:
           requests:
-            memory: "400Mi"
+            memory: "800Mi"
         ports:
         - containerPort: 80
 ```
@@ -60,81 +88,68 @@ kubectl apply -f deployment-test.yaml
 ```console
 deployment.apps/deployment-test created
 ```
-- Using command `kubectl get pods` we will see that one of pods can't move in running state:   
+
+- Use comand `kubectl get pods` and look how many pod in running state: 
+
 ```
 kubectl get pods
 ```
 ```console
 NAME                               READY   STATUS    RESTARTS   AGE
-deployment-test-55996c54bf-5dqwh   1/1     Running   0          4s
-deployment-test-55996c54bf-gvcbn   1/1     Running   0          4s
-deployment-test-55996c54bf-kvqf7   1/1     Running   0          4s
-deployment-test-55996c54bf-qrzbv   0/1     Pending   0          4s
-deployment-test-55996c54bf-xwngn   1/1     Running   0          4s
+deployment-test-675c865767-7t6fm   1/1     Running   0          42s
+deployment-test-675c865767-bl268   0/1     Pending   0          42s
+deployment-test-675c865767-hqb7h   1/1     Running   0          42s
+deployment-test-675c865767-rwnf9   0/1     Pending   0          42s
+deployment-test-675c865767-v5c4p   0/1     Pending   0          42s
 ```
+As you can see, only 2 of 5 pods with running status and 3 in pending. 
 
-- Using command `kubectl describe pod "pod name"` we will see that this pod have problem: `Insufficient memory`    
-```
-kubectl describe pod deployment-test-55996c54bf-qrzbv
-```
-```console
+- Use command  `kubectl describe pod "pod name"` on one of the pods with pending status: 
+
+`kubectl describe pod deployment-test-675c865767-v5c4p`
+
+```concole
+Name:           deployment-test-675c865767-v5c4p
+Namespace:      default
+Node:           <none>
+Labels:         app=nginx
+                pod-template-hash=675c865767
+Annotations:    <none>
 Status:         Pending
 IP:
-Controlled By:  ReplicaSet/deployment-test-8676b58c7f
+IPs:            <none>
+Controlled By:  ReplicaSet/deployment-test-675c865767
 Containers:
   nginx:
     Image:      nginx:1.7.9
     Port:       80/TCP
     Host Port:  0/TCP
     Requests:
-      memory:     400Mi
+      memory:     800Mi
     Environment:  <none>
     Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vzppl (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-vxqs2 (ro)
 Conditions:
   Type           Status
   PodScheduled   False
 Volumes:
-  default-token-vzppl:
+  default-token-vxqs2:
     Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-vzppl
+    SecretName:  default-token-vxqs2
     Optional:    false
 QoS Class:       Burstable
 Node-Selectors:  <none>
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
 Events:
-  Type     Reason            Age                 From               Message
-  ----     ------            ----                ----               -------
-  Warning  FailedScheduling  74s (x4 over 4m5s)  default-scheduler  0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
+  Type     Reason             Age        From                Message
+  ----     ------             ----       ----                -------
+  Warning  FailedScheduling   <unknown>  default-scheduler   0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
+  Warning  FailedScheduling   <unknown>  default-scheduler   0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
+  Normal   NotTriggerScaleUp  4m30s      cluster-autoscaler  pod didn't trigger scale-up (it wouldn't fit if a new node is added): 1 max node group size reached
 ```
+In output we can see massega from autoscaler cluster:
 
-- Now create cluster and add tag `max_node_count=5` like we saw on steps earlier.
-
-![](../../assets/img/autoscaling/max_node_count.png) 
-
-- Connect to your cluster and create same deployment. 
-- Wait 1 - 2 minutes while the cluster updated.
-- Use comand `kubectl get pods` and make sure that all pods in running state: 
-```
-kubectl get pods
-```
 ```console
-NAME                               READY   STATUS    RESTARTS   AGE
-deployment-test-55996c54bf-6lfpz   1/1     Running   0          19m
-deployment-test-55996c54bf-gxcsr   1/1     Running   0          19m
-deployment-test-55996c54bf-n87m7   1/1     Running   0          19m
-deployment-test-55996c54bf-xkbqp   1/1     Running   0          19m
-deployment-test-55996c54bf-zrd6f   1/1     Running   0          19m
+pod didn't trigger scale-up (it wouldn't fit if a new node is added): 1 max node group size reached
 ```
-- Use the command `kubectl get nods` to make sure that one more node was added: 
-```
-kubectl get nodes
-```
-```concole
-NAME                         STATUS   ROLES    AGE   VERSION
-test-qk7umk4e67yh-master-0   Ready    master   26m   v1.17.3
-test-qk7umk4e67yh-node-0     Ready    <none>   24m   v1.17.3
-test-qk7umk4e67yh-node-1     Ready    <none>   18m   v1.17.3
-```
-

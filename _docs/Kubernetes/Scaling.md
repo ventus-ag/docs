@@ -72,7 +72,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-- Create deployment using next command to create deployment.   
+- Create deployment using next command:   
 ```
 kubectl apply -f deployment-test.yaml
 ```
