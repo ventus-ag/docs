@@ -102,7 +102,7 @@ deployment-test-675c865767-hqb7h   1/1     Running   0          42s
 deployment-test-675c865767-rwnf9   0/1     Pending   0          42s
 deployment-test-675c865767-v5c4p   0/1     Pending   0          42s
 ```
-As you can see, only 2 of 5 pods in running status and 3 in pending. 
+As you can see, only 2 of 5 pods are in running status and 3 in pending. 
 
 - Use command  `kubectl describe pod "pod name"` on one of the pods with pending status: 
 
