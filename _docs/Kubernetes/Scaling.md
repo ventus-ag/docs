@@ -32,7 +32,7 @@ In this task we will see how to scale-out and scale-in of Kubernetes cluster.
 
  **Let's see how it works on server side:** 
 
-- Create Kubernetes cluster with existing parametrs (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster):
+- Create Kubernetes cluster with existing parameters (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster):
 
 ```
 Master count: 1
