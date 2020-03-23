@@ -1,6 +1,6 @@
 ---
 title: Autoscaling
-description: How to scale kubernetes cluster memory 
+description: "How to use autoscaler: min and max count of nodes" 
 tags: [ featured, coretasks ]
 # permalink: /Autoscaling/
 ---
