@@ -148,7 +148,7 @@ Events:
   Warning  FailedScheduling   <unknown>  default-scheduler   0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
   Normal   NotTriggerScaleUp  4m30s      cluster-autoscaler  pod didn't trigger scale-up (it wouldn't fit if a new node is added): 1 max node group size reached
 ```
-In output we can see massage from autoscaler cluster:
+In output we can see message from autoscaler cluster:
 
 ```
 pod didn't trigger scale-up (it wouldn't fit if a new node is added): 1 max node group size reached
