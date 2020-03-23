@@ -28,7 +28,7 @@ Master node flavor: VC-2
 
 - Use command `kubectl get nodes` to make sure that we have minimum 3 nodes on our cluster:
 
-```console
+```
 NAME                         STATUS   ROLES    AGE     VERSION
 test-ptdzc7aqfngp-master-0   Ready    master   16m     v1.17.3
 test-ptdzc7aqfngp-node-0     Ready    <none>   14m     v1.17.3
@@ -85,16 +85,16 @@ spec:
 ```
 kubectl apply -f deployment-test.yaml
 ```
-```console
+```
 deployment.apps/deployment-test created
 ```
 
-- Use comand `kubectl get pods` and look how many pod in running state: 
+- Use comand `kubectl get pods` and look how many pod in running status: 
 
 ```
 kubectl get pods
 ```
-```console
+```
 NAME                               READY   STATUS    RESTARTS   AGE
 deployment-test-675c865767-7t6fm   1/1     Running   0          42s
 deployment-test-675c865767-bl268   0/1     Pending   0          42s
@@ -102,7 +102,7 @@ deployment-test-675c865767-hqb7h   1/1     Running   0          42s
 deployment-test-675c865767-rwnf9   0/1     Pending   0          42s
 deployment-test-675c865767-v5c4p   0/1     Pending   0          42s
 ```
-As you can see, only 2 of 5 pods with running status and 3 in pending. 
+As you can see, only 2 of 5 pods in running status and 3 in pending. 
 
 - Use command  `kubectl describe pod "pod name"` on one of the pods with pending status: 
 
@@ -148,8 +148,8 @@ Events:
   Warning  FailedScheduling   <unknown>  default-scheduler   0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
   Normal   NotTriggerScaleUp  4m30s      cluster-autoscaler  pod didn't trigger scale-up (it wouldn't fit if a new node is added): 1 max node group size reached
 ```
-In output we can see massega from autoscaler cluster:
+In output we can see massage from autoscaler cluster:
 
-```console
+```
 pod didn't trigger scale-up (it wouldn't fit if a new node is added): 1 max node group size reached
 ```
