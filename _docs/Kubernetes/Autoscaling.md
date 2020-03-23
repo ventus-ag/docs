@@ -7,7 +7,7 @@ tags: [ featured, coretasks ]
 # Autoscaling: min and max count of nodes in Kubernetes cluster
 ---
 
-In this task we will see how control count of nodes in Kubernetes cluster. When we indicate min node count, autoscaler will not scale-in count of nodes less then number of min node count. And when we indicate max node count, autoscaler will not scale-out count of nodes more then number of max node count.
+In this task we will see how to control count of nodes in Kubernetes cluster. When we indicate min node count, autoscaler will not scale-in count of nodes less then number of min node count. And when we indicate max node count, autoscaler will not scale-out count of nodes more then number of max node count.
 
 
 ## Min node count
@@ -53,7 +53,7 @@ Master node flavor: VC-2
 
 - Connect to your cluster using [CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)
 
-- Now to check how autoscaler will scale your nodes create `deployment-test.yaml` file with existing lines:    
+- Now, to check how autoscaler will scale your nodes, create `deployment-test.yaml` file with existing lines:    
 
 ```yaml
 apiVersion: apps/v1
@@ -89,7 +89,7 @@ kubectl apply -f deployment-test.yaml
 deployment.apps/deployment-test created
 ```
 
-- Use command `kubectl get pods` and look how many pod in running status: 
+- Use command `kubectl get pods` and look how many pod are in running status: 
 
 ```
 kubectl get pods
