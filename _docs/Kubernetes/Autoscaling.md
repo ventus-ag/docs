@@ -53,7 +53,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-- Create deployment using next command to create deployment.   
+- Create deployment using next command:   
 ```
 kubectl apply -f deployment-test.yaml
 ```
@@ -65,17 +65,17 @@ deployment.apps/deployment-test created
 kubectl get pods
 ```
 ```console
-NAME                               READY   STATUS      RESTARTS   AGE
-deployment-test-8676b58c7f-6hfl6   1/1     Running     0          61s
-deployment-test-8676b58c7f-bk72m   1/1     Running     0          61s
-deployment-test-8676b58c7f-pnwk4   0/1     Pending     0          61s
-deployment-test-8676b58c7f-vnkwc   1/1     Running     0          61s
-deployment-test-8676b58c7f-xlkhv   1/1     Running     0          61s
+NAME                               READY   STATUS    RESTARTS   AGE
+deployment-test-55996c54bf-5dqwh   1/1     Running   0          4s
+deployment-test-55996c54bf-gvcbn   1/1     Running   0          4s
+deployment-test-55996c54bf-kvqf7   1/1     Running   0          4s
+deployment-test-55996c54bf-qrzbv   0/1     Pending   0          4s
+deployment-test-55996c54bf-xwngn   1/1     Running   0          4s
 ```
 
 - Using command `kubectl describe pod "pod name"` we will see that this pod have problem: `Insufficient memory`    
 ```
-kubectl describe pod deployment-test-8676b58c7f-pnwk4
+kubectl describe pod deployment-test-55996c54bf-qrzbv
 ```
 ```console
 Status:         Pending
@@ -109,25 +109,11 @@ Events:
   Warning  FailedScheduling  74s (x4 over 4m5s)  default-scheduler  0/2 nodes are available: 1 Insufficient memory, 1 node(s) had taints that the pod didn't tolerate.
 ```
 
+- Now create cluster and add tag `max_node_count=5` like we saw on steps earlier.
 
+![](../../assets/img/autoscaling/max_node_count.png) 
 
-
-
-
- **Let's see how it works on server side:** 
-
-- Create Kubernetes cluster with existing parametrs (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster):
-
-```
-Master count: 1
-Node count: 1
-Docker volume size (Gb): 30
-Node flavor: VC-2
-Master node flavor: VC-2
-```
-
-
-- Now resize cluster and add one more node like we saw on steps earlier.
+- Connect to your cluster and create same deployment. 
 
 - Use the command `kubectl get nods` to make sure that one more node was added: 
 ```
