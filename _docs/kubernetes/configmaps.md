@@ -1,7 +1,7 @@
 ---
 title: ConfigMaps
 description: How to create a ConfigMap 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /ConfigMaps/
 ---
 # ConfigMaps

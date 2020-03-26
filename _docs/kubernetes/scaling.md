@@ -1,7 +1,7 @@
 ---
 title: Scaling
 description: How to scale kubernetes cluster memory 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /Scaling/
 ---
 # Scale-out and scale-in of Kubernetes cluster

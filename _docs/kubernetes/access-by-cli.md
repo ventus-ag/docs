@@ -1,7 +1,7 @@
 ---
 title: Access to the Kubernetes Cluster using CLI
 description: How to get access to the Kubernetes Cluster using CLI 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /access-by-cli/
 ---
 # Access to Kubernetes Cluster using CLI

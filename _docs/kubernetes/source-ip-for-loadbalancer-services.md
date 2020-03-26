@@ -1,7 +1,7 @@
 ---
 title: Source IP for Services with Type LoadBalancer
 description: How to get Source IP  with Type LoadBalancer
-tags: [ featured, Kubernetes ]
+tags: [ featured, kubernetes ]
 # permalink: /Source IP for Services with Type LoadBalancer/
 ---
 # Source IP 

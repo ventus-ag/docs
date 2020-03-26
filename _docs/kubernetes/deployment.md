@@ -1,7 +1,7 @@
 ---
 title: Deployment
 description: How to create a new Deployment
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 
 ---
 # Deployment

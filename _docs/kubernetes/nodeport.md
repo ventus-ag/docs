@@ -1,7 +1,7 @@
 ---
 title: NodePort
 description: How to create a NodePort Service 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /NodePort/
 ---
 # NodePort

@@ -1,7 +1,7 @@
 ---
 title: Services
 description: How to create a new Service 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /Services/
 ---
 # Services

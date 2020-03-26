@@ -1,7 +1,7 @@
 ---
 title: LoadBalancer
 description: How to create a LoadBalancer Service 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /LoadBalancer/
 ---
 # LoadBalancer
