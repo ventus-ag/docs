@@ -63,7 +63,7 @@
           url: "docs/tutorials/install-rabbitMQ"  
         - title: "Install and set up most popular databases in Ventus Cloud"
           url: "docs/tutorials/install-databases"       
-        - title: "Install and and use Istio in Kubernetes"
+        - title: "Install and use Istio in Kubernetes"
           url: "docs/tutorials/istio"
        # - title: "OPC UA in Ventus Cloud"
         #  url: "docs/tutorials/opc-ua"                           
