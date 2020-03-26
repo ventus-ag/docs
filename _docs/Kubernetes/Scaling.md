@@ -1,7 +1,7 @@
 ---
 title: Scaling
 description: How to scale kubernetes cluster memory 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /Scaling/
 ---
 # Scale-out and scale-in of Kubernetes cluster
@@ -32,7 +32,7 @@ In this task we will see how to scale-out and scale-in of Kubernetes cluster.
 
  **Let's see how it works on server side:** 
 
-- Create Kubernetes cluster with existing parameters (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster):
+- Create Kubernetes cluster with existing parametrs (How to create Kubernetes cluster you can see in this core task [Kubernetes cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster):
 
 ```
 Master count: 1
@@ -42,7 +42,7 @@ Node flavor: VC-2
 Master node flavor: VC-2
 ```
 
-- Get access to this cluster (How to getting access to cluster you can see in this core task [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli) 
+- Get access to this cluster (How to getting access to cluster you can see in this core task [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli) 
 
 - Create `deployment-test.yaml` file with existing lines:    
 
@@ -72,7 +72,7 @@ spec:
         ports:
         - containerPort: 80
 ```
-- Create deployment using next command:   
+- Create deployment using next command to create deployment.   
 ```
 kubectl apply -f deployment-test.yaml
 ```
@@ -133,7 +133,7 @@ Events:
 
 - Use the command `kubectl get nods` to make sure that one more node was added: 
 ```
-kubectl get nodes
+kubectl get nods
 ```
 ```concole
 NAME                                 STATUS   ROLES    AGE     VERSION
