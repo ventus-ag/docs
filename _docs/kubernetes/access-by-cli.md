@@ -19,6 +19,7 @@ For this coretask we suppose that in Ventus cloud we've already created:
 - the instance, from which we need to get access to the Kubernetes Cluster API, with the next parameters:
     * Name: Test_Inst
     * Image: ubuntu-server-18.04-LTS-20200131.1
+    * IP: 185.91.83.16
    
 - the Kubernetes Cluster, with the next parameters:
     * Name: Test_Cluster
@@ -30,6 +31,10 @@ For this coretask we suppose that in Ventus cloud we've already created:
 To get the access to your Kubernetes cluster using CLI follow the next steps:
 
 1) Loggin to your Instance from which we need to get access to the Kubernetes Cluster API
+
+```
+ssh 185.91.83.16
+```
 
 2) Update Ubuntu package sources by running the following command:
 
@@ -125,7 +130,8 @@ kubectl get pods --all-namespaces
 For this coretask we suppose that in Ventus cloud we've already created:
 - the instance, from which we need to get access to the Kubernetes Cluster API, with the next parameters:
     * Name: Test_Inst
-    * Image: CentOS-7
+    * Image: centos-7.6-1810
+    * IP: 185.91.83.11
    
 - the Kubernetes Cluster, with the next parameters:
     * Name: Test_Cluster
@@ -137,6 +143,10 @@ For this coretask we suppose that in Ventus cloud we've already created:
 To get the access to your Kubernetes cluster using CLI follow the next steps:
 
 1) Login to your Instance from which we need to get access to the Kubernetes Cluster API
+
+```
+ssh 185.91.83.11
+```
 
 2) Add the CentOS 7 RDO repository by using the following command:
 

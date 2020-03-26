@@ -1,10 +1,10 @@
 ---
 title: Creating a new Linux VM using Ventus
-description: How to run Linux VM in Ventus Cloud using intarface of Ventus
+description: How to create Linux VM in Ventus Cloud 
 tags: [ featured, quickstart ]
 # permalink: /new-Linux-VM-using-Ventus/
 ---
-# Create a Linux virtual machine
+# How to create Linux VM in Ventus Cloud 
 {: .no_toc }
 ---
 
