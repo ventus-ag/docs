@@ -21,14 +21,14 @@ tags: [ featured, quickstart ]
 ---
 The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to start work in Ventus portal, how to create a new user account and then sign in.
 
-To start work in VentusCloud portal firstly you need to create a new user account. So, let's start.
-Following the home page of VentusCloud  - <https://portal.ventuscloud.eu/login>, you can see the next interface:  
+To start work in Ventus Cloud portal firstly you need to create a new user account. So, let's start.
+Following the home page of Ventus Cloud  - <https://portal.ventuscloud.eu/login>, you can see the next interface:  
 
 ![](../../assets/img/create_account/1ac.png)
 
-As you are not registered yet on VentusCloud portal you need to click to **CREATE NEW ACCOUNT**.
+As you are not registered yet on Ventus Cloud portal you need to click to **CREATE NEW ACCOUNT**.
 
-On the next page fill in the following form as shown below and check that you don't forget to indicate that you agree to the terms and conditions of VentusCloud portal and click the **SIGNED UP**:  
+On the next page fill in the following form as shown below and check that you don't forget to indicate that you agree to the terms and conditions of Ventus Cloud portal and click the **SIGNED UP**:  
 
 ![](../../assets/img/create_account/2ac.png)  
 
@@ -59,7 +59,7 @@ But if you represet **B2B** form of commercial communications you need to fill i
 
 After filling in all required fields, review the information you entered for this Account. If it is correct, select **ADD CLIENT BILLING INFORMATION**. 
 
-After that, your new account is considered as registered. So, when you will visit home page of VentusCloud for the second time, you will need to indicate only **User name** (it is equal to your email address specified during registration) and **Password**. 
+After that, your new account is considered as registered. So, when you will visit home page of Ventus Cloud for the second time, you will need to indicate only **User name** (it is equal to your email address specified during registration) and **Password**. 
 
 
 
