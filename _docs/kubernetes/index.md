@@ -6,7 +6,7 @@ description: Ventus Cloud Platform Kubernetes
 # Kubernetes
 {: .no_toc }
 
-{% include alert.html type="info" title="Welcome to Kubernetes!" content="Here you can quickly jump to Kubernetes which could be useful for implementing basic actions" %}
+{% include alert.html type="info" title="Welcome to Kubernetes!" content="Here you can quickly jump to Kubernetes services provided by Ventus cloud." %}
 
 
 <div class="section-index">
