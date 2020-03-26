@@ -28,7 +28,7 @@ Following the home page of Ventus Cloud  - <https://portal.ventuscloud.eu/login>
 
 As you are not registered yet on Ventus Cloud portal you need to click to **CREATE NEW ACCOUNT**.
 
-On the next page fill in the following form as shown below and check that you don't forget to indicate that you agree to the terms and conditions of Ventus Cloud portal and click the **SIGNED UP**:  
+On the next page fill in the following form as shown below and check that you don't forget to indicate that you agree to the terms and conditions of Ventus Cloud portal and click the **SIGN UP**:  
 
 ![](../../assets/img/create_account/2ac.png)  
 
