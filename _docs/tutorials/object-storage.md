@@ -27,8 +27,8 @@ In this tutorial you can find how to use the Ventus Cloud Object Storage with th
 ## Previous steps
 
 Before we start to configure Object Storage we need to do next:
-- Create new API User - more information you can find in next coretask [API Users](https://ventuscloud.eu/docs/coretasks/API-Users)    
-- Get access to Ventus Cloud CLI - more information you can find in next article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)
+- Create new API User - more information you can find in next coretask [API Users](https://ventuscloud.eu/docs/coretasks/api-users)    
+- Get access to Ventus Cloud CLI - more information you can find in next article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli)
 - Create credentials file
 
 ### Create new API User

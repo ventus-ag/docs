@@ -21,7 +21,7 @@ In this tutorial we will use Kubernetes and Kubeflow in order to compile, train 
 ## Create new Kubernetes cluster
 ---
 
-Create new cluster using this article: [Kubernetes Cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster)   
+Create new cluster using this article: [Kubernetes Cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster)   
 
 Use next parameters for your cluster:  
   - `Master count`: 1  
@@ -35,7 +35,7 @@ Use next parameters for your cluster:
 ## Get access to your cluster using cli
 ---
 
-Now you can getting access to your cluster using this article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)   
+Now you can getting access to your cluster using this article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli)   
 
 
 
