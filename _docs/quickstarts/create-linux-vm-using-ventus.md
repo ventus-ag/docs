@@ -126,9 +126,12 @@ Second way is from instance details (click on the instance you want)and there yo
 ## Login into console
 ---
 
-You can launch the console window directly from instance page or from instance details. Click on the icon *<>*  for launching the console.
-After the new window with the console will appear, you can login into your VPS with your user details and start working.
-
+You can launch the web-console window directly from instance page or from instance details. Click on the icon *<>*  for launching the web-console.
+After the new window with the web-console will appear, you can login into your VPS with your user details and start working.
+You can also connect to your instance through another Terminal using the SSH protocol and instance-IP:
+```
+ssh <IP of instance>
+```
 
 ## Manage an instance
 ---
