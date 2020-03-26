@@ -21,7 +21,7 @@ In this tutorial, we’ll go over some of the most popular databases currently u
 
 ## Prerequisites
 
-Before you can start this guide you will need to create a new Ubuntu server. To do this follow the instructions from the next quickstarts [Create a Linux virtual machine](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus).
+Before you can start this guide you will need to create a new Ubuntu server. To do this follow the instructions from the next quickstarts [Create a Linux virtual machine](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-ventus).
 After creating you need to connect to your remote Ubuntu server using the ssh protocol and IP of this server and continue below.
 
 ## Install MySQL Server on Ubuntu
