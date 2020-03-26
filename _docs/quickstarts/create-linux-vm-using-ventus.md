@@ -1,5 +1,5 @@
 ---
-title: Creating a new Linux VM using Ventus
+title: Creating a new Linux VM 
 description: How to create Linux VM in Ventus Cloud 
 tags: [ featured, quickstart ]
 # permalink: /new-Linux-VM-using-Ventus/

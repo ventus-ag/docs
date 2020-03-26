@@ -1,5 +1,5 @@
 ---
-title: Creating a new account in Ventus Cloud
+title: Creating a new account
 description: How to create a new account in Ventus Cloud and manage it
 tags: [ featured, quickstart ]
 # permalink: /create_account/
