@@ -8,7 +8,7 @@
     - title: "Quickstarts"
       url: "docs/quickstarts"
       children:
-        - title: "Creating a new account in Ventus Cloud"
+        - title: "Creating a new account"
           url: "docs/quickstarts/create-account"         
         - title: "Creating a new Linux VM"
           url: "docs/quickstarts/create-linux-vm-using-ventus" 
