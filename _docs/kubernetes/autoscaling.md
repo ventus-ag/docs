@@ -12,7 +12,7 @@ In this task we will see how to control count of nodes in Kubernetes cluster. Wh
 
 ## Min node count
 
-- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster) with existing parameters and add tag `min_node_count=3`:
+- Go to Cloud page, choose Kubernetes and create your [Kubernetes cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster) with existing parameters and add tag `min_node_count=3`:
 
 ```
 Master count: 1
