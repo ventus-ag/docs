@@ -1,7 +1,7 @@
 ---
 title: Secrets
 description: How to create a Secrets 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /Secrets/
 ---
 # Secrets

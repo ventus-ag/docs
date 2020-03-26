@@ -1,7 +1,7 @@
 ---
 title: NodePort
 description: How to create a NodePort Service 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /NodePort/
 ---
 # NodePort
@@ -9,7 +9,7 @@ tags: [ featured, coretasks ]
 ---
 
 {% include alert.html type="info" title="Note" content="In this page, you can find an explanation of how to create a NodePort Service in your Kubernetes cluster. How to create Service with default type you can find in relevant core task:" %} 
- - <a href="https://ventus-ag.github.io/docs/docs/coretasks/Services">Services</a>
+ - <a href="https://ventuscloud.eu/docs/kubernetes/services">Services</a>
 
 
 ## Table of contents

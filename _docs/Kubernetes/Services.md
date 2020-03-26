@@ -1,7 +1,7 @@
 ---
 title: Services
 description: How to create a new Service 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /Services/
 ---
 # Services
@@ -11,8 +11,8 @@ tags: [ featured, coretasks ]
 In this page, you can find an explanation of how to create a new service in your Kubernetes cluster and understand the difference between types of services.
 For service creation you will need Kubernetes cluster and access to cli. How to do that you can find in relevant core tasks:
 
- - [Kubernetes Cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster)
- - [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)
+ - [Kubernetes Cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster)
+ - [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli)
 
 ## Table of contents
 {: .no_toc .text-delta }

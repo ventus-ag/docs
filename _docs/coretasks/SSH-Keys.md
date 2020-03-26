@@ -2,7 +2,7 @@
 title: SSH Keys
 description: How to add a new SSH Keys or generate a new
 tags: [ featured, coretasks ]
-# permalink: /SSH-Keys/
+# permalink: /ssh-keys/
 ---
 # SSH Keys
 {: .no_toc }

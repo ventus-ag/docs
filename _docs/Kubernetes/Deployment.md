@@ -1,13 +1,13 @@
 ---
 title: Deployment
 description: How to create a new Deployment
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 
 ---
 # Deployment
 {: .no_toc }
 
-In this page, you can find an explanation of what is the Secret, how to create and use it.
+In this page, you can find an explanation of what is the Deployment, how to create and use it.
 
 
 ## Table of contents
