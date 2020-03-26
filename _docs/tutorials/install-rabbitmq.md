@@ -38,7 +38,7 @@ This tutorial will help you to install RabbitMQ on Ubuntu / Debian Based Systems
 
 ## Prerequisites
 
-Before you can start this guide you will need to create a new Ubuntu or Centos server. To do this follow the instructions from the next quickstarts [Create a Linux virtual machine](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus).
+Before you can start this guide you will need to create a new Ubuntu or Centos server. To do this follow the instructions from the next quickstarts [Create a Linux virtual machine](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-ventus).
 After creating you need to connect to your remote Ubuntu or Centos server using the ssh protocol and IP of this server and continue below.
 
 ## Installing RabbitMQ
@@ -434,8 +434,8 @@ Helm is the first application package manager running atop Kubernetes. It allows
 **Setup Requirements**
 
 This setup has the following requirements:
-* Created Kubernetes Cluster in Ventus Cloud (you can see how to do it here [Kubernetes Cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster))    
-* Access this Kubernetes cluster using CLI or ssh protocol (you can see how to do it here [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli))     
+* Created Kubernetes Cluster in Ventus Cloud (you can see how to do it here [Kubernetes Cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster))    
+* Access this Kubernetes cluster using CLI or ssh protocol (you can see how to do it here [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli))     
 * A user with sudo privileges    
 
 This setup of RabbitMQ is based on created Kubernetes Cluster with following parametres:   

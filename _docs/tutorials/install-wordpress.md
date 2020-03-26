@@ -23,7 +23,7 @@ You will need to perform the following tasks before you can start this guide:
 - Install a LEMP or LAMP stack: WordPress will need a web server, a database, and PHP in order to correctly function.
 - Setting up a LEMP or LAMP stack (Linux, Apache, MySQL, and PHP) fulfills all of requirements.
 
-To install and configure software for **LEMP stack** follow the tutorial [Install a LEMP web server on a Linux virtual machine](https://ventuscloud.eu/docs/tutorials/Install-LEMP+centos) and or if you want to use **LAMP stack** follow the tutorial [Install a LAMP web server on a Linux virtual machine](https://ventuscloud.eu/docs/tutorials/Install-LAMP+centos)
+To install and configure software for **LEMP stack** follow the tutorial [Install a LEMP web server on a Linux virtual machine](https://ventuscloud.eu/docs/tutorials/install-LEMP) and or if you want to use **LAMP stack** follow the tutorial [Install a LAMP web server on a Linux virtual machine](https://ventuscloud.eu/docs/tutorials/install-LAMP)
 
 When you are finished the setup steps, log into your server as your sudo user and continue below.
 

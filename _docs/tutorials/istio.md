@@ -22,7 +22,7 @@ In this tutorial we will install Istio in Kubernetes, deploy the Bookinfo applic
 ## Create new Kubernetes cluster
 ---
 
-Now you can create new cluster using this article: [Kubernetes Cluster](https://ventuscloud.eu/docs/Kubernetes/Kubernetes%20Cluster)   
+Now you can create new cluster using this article: [Kubernetes Cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster)   
 
 Use next parameters for your cluster:  
   - `Master count`: 1  
@@ -35,7 +35,7 @@ Use next parameters for your cluster:
 ## Get access to your cluster using cli
 ---
 
-Now you can getting access to your cluster using this article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/Kubernetes/access-by-cli)   
+Now you can getting access to your cluster using this article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli)   
 
 ## Install Istio
 ---
