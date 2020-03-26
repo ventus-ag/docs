@@ -40,6 +40,8 @@
           url: "docs/kubernetes/deployment"  
         - title: "Scaling"
           url: "docs/kubernetes/scaling"  
+        - title: "Autoscaling"
+          url: "docs/kubernetes/autoscaling"
         - title: "Source IP for Services with Type LoadBalancer"
           url: "docs/kubernetes/source-ip-for-loadbalancer-services" 
     - title: "Tutorials"
