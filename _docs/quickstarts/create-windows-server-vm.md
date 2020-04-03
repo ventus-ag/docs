@@ -97,7 +97,7 @@ At last, input **Administrator** and your **password**
 
 ![](../../assets/img/win_server/login.png)
 
-After credentials
+After **credentials** you will see result!
 
 ![](../../assets/img/win_server/WinVM008.png)
 
