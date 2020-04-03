@@ -1,7 +1,7 @@
 ---
 title: Access to the Kubernetes Cluster using CLI
 description: How to get access to the Kubernetes Cluster using CLI 
-tags: [ featured, coretasks ]
+tags: [ featured, kubernetes ]
 # permalink: /access-by-cli/
 ---
 # Access to Kubernetes Cluster using CLI
@@ -18,7 +18,8 @@ tags: [ featured, coretasks ]
 For this coretask we suppose that in Ventus cloud we've already created:
 - the instance, from which we need to get access to the Kubernetes Cluster API, with the next parameters:
     * Name: Test_Inst
-    * Image: ubuntu-1804-bionic
+    * Image: ubuntu-server-18.04-LTS-20200131.1
+    * IP: 185.91.83.16
    
 - the Kubernetes Cluster, with the next parameters:
     * Name: Test_Cluster
@@ -30,6 +31,10 @@ For this coretask we suppose that in Ventus cloud we've already created:
 To get the access to your Kubernetes cluster using CLI follow the next steps:
 
 1) Loggin to your Instance from which we need to get access to the Kubernetes Cluster API
+
+```
+ssh 185.91.83.16
+```
 
 2) Update Ubuntu package sources by running the following command:
 
@@ -68,11 +73,11 @@ export OS_PROJECT_ID=b38e8ed15b4f49cbad07171122334455
 echo "Please enter your OpenStack password as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
-export OS_AUTH_URL=https://cloud.vstack.ga:5000/v3
+export OS_AUTH_URL=https://vienna-1.ventuscloud.eu:5000/v3
 export OS_NO_CACHE=1
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
-export OS_REGION_NAME=RegionOne
+export OS_REGION_NAME=vienna-1
 
 # For openstackclient
 export OS_IDENTITY_API_VERSION=3
@@ -104,7 +109,7 @@ openstack coe cluster config --dir ~/Test_Cluster Test_Cluster
 10) Export path to created config for as KUBECONFIG env variable:
 
 ```
-export KUBECONFIG=~/Test_Cluster/config
+export KUBECONFIG="~/Test_Cluster/config"
 ```
 
 11) Install kubectl by running the next command:
@@ -125,7 +130,8 @@ kubectl get pods --all-namespaces
 For this coretask we suppose that in Ventus cloud we've already created:
 - the instance, from which we need to get access to the Kubernetes Cluster API, with the next parameters:
     * Name: Test_Inst
-    * Image: CentOS-7
+    * Image: centos-7.6-1810
+    * IP: 185.91.83.11
    
 - the Kubernetes Cluster, with the next parameters:
     * Name: Test_Cluster
@@ -137,6 +143,10 @@ For this coretask we suppose that in Ventus cloud we've already created:
 To get the access to your Kubernetes cluster using CLI follow the next steps:
 
 1) Login to your Instance from which we need to get access to the Kubernetes Cluster API
+
+```
+ssh 185.91.83.11
+```
 
 2) Add the CentOS 7 RDO repository by using the following command:
 
@@ -169,11 +179,11 @@ export OS_PROJECT_ID=b38e8ed15b4f49cbad07171122334455
 echo "Please enter your OpenStack password as user $OS_USERNAME: "
 read -sr OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT
-export OS_AUTH_URL=https://cloud.vstack.ga:5000/v3
+export OS_AUTH_URL=https://vienna-1.ventuscloud.eu:5000/v3
 export OS_NO_CACHE=1
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
-export OS_REGION_NAME=RegionOne
+export OS_REGION_NAME=vienna-1
 
 # For openstackclient
 export OS_IDENTITY_API_VERSION=3
@@ -206,7 +216,7 @@ openstack coe cluster config --dir ~/Test_Cluster Test_Cluster
 9) Export path to created config for as KUBECONFIG env variable:
 
 ```
-export KUBECONFIG=~/Test_Cluster/config
+export KUBECONFIG="~/Test_Cluster/config"
 ```
 
 10) Install the latest release of  kubectl, make the kubectl binary executable and move the binary in to your PATH by running the next commands:

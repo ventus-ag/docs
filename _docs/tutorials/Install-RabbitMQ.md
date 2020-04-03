@@ -7,13 +7,6 @@ tags: [ featured, tutorial ]
 # How install RabbitMQ on CentOS / RHEL & Ubuntu / Debian based systems using Ventus Cloud
 {: .no_toc }
 ---
-## Table of contents
-{: .no_toc .text-delta }
-
-* TOC
-{:toc}
-
-## Intoduction
 
 **Message Brokers** are usually application stacks with dedicated pieces covering the each stage of the exchange setup. From accepting a message to queuing it and delivering it to the requesting party, brokers handle the duty which would normally be much more cumbersome with non-dedicated solutions or simple hacks such as using a database, cron jobs, etc. They simply work by dealing with queues which technically constitute infinite buffers, to put messages and pop-and-deliver them later on to be processed either automatically or by polling.
 
@@ -35,9 +28,17 @@ RabbitMQ works by offering an interface, connecting message senders (Publishers)
 
 This tutorial will help you to install RabbitMQ on Ubuntu / Debian Based Systems
 
+
+## Table of contents
+{: .no_toc .text-delta }
+
+* TOC
+{:toc}
+
+
 ## Prerequisites
 
-Before you can start this guide you will need to create a new Ubuntu or Centos server. To do this follow the instructions from the next quickstarts [Creating a new Linux VM using Ventus](<https://docs.ventuscloud.eu/docs/quickstarts/create-linux-vm-using-Ventus>).
+Before you can start this guide you will need to create a new Ubuntu or Centos server. To do this follow the instructions from the next quickstarts [Create a Linux virtual machine](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-ventus).
 After creating you need to connect to your remote Ubuntu or Centos server using the ssh protocol and IP of this server and continue below.
 
 ## Installing RabbitMQ
@@ -66,19 +67,19 @@ yum install -y erlang
 ```
 
 Once we have Erlang, we can continue with installing RabbitMQ:
-* Download the latest RabbitMQ package using wget:
+* Download the latest RabbitMQ package using wget:    
 ```
 wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.2.2/rabbitmq-server-3.2.2-1.noarch.rpm
 ```
-* Add the necessary keys for verification:
+* Add the necessary keys for verification:     
 ```
 rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 ```
-* Install the .RPM package using YUM:
+* Install the .RPM package using YUM:    
 ```
 yum install rabbitmq-server-3.2.2-1.noarch.rpm
 ```
-* Restart the service:
+* Restart the service:    
 ```
 /sbin/service rabbitmq-server restart
 ```
@@ -127,11 +128,11 @@ RabbitMQ Management Console is one of the available plugins that lets you monito
 
 Using this console you can:
 
-* Manage exchanges, queues, bindings, users
-* Monitor queues, message rates, connections
-* Send and receive messages
-* Monitor Erlang processes, memory usage
-* And much more
+* Manage exchanges, queues, bindings, users  
+* Monitor queues, message rates, connections  
+* Send and receive messages  
+* Monitor Erlang processes, memory usage  
+* And much more  
 
 To enable RabbitMQ Management Console, run the following:
 ```
@@ -162,19 +163,19 @@ chkconfig rabbitmq-server on
 ```
 
 To start, stop, restart and check the application status, use the following:
-* To start the service:
+* To start the service:    
 ```
 /sbin/service rabbitmq-server start
-```
-* To stop the service:
+```   
+* To stop the service:    
 ```
 /sbin/service rabbitmq-server stop
-```
-* To restart the service:
+```    
+* To restart the service:       
 ```
 /sbin/service rabbitmq-server restart
 ```
-* To check the status:
+* To check the status:    
 ```
 /sbin/service rabbitmq-server status
 ```
@@ -182,19 +183,19 @@ To start, stop, restart and check the application status, use the following:
 ### Managing on Ubuntu / Debian Based Systems
 
 For managing RabbitMQ on Ubuntu / Debian based systems use the following commands:
-* To start the service:
+* To start the service:    
 ```
 service rabbitmq-server start
 ```
-* To stop the service:
+* To stop the service:    
 ```
 service rabbitmq-server stop
 ```
-* To restart the service:
+* To restart the service:    
 ```
 service rabbitmq-server restart
 ```
-* To check the status:
+* To check the status:    
 ```
 service rabbitmq-server status
 ```
@@ -215,10 +216,10 @@ By setting a RabbitMQ cluster on Ubuntu / Debian Based Systems, you avoid a sing
 **Setup Requirements**
 
 This setup has the following requirements:
-* Installed Ubuntu 18.04 LTS servers
-* At least two RabbitMQ servers
-* A user with sudo privileges
-* The servers should have internet access
+* Installed Ubuntu 18.04 LTS servers   
+* At least two RabbitMQ servers   
+* A user with sudo privileges   
+* The servers should have internet access   
 
 This setup of RabbitMQ Cluster on Ubuntu 18.04 is based on two servers with the following IP addresses and hostnames:
 
@@ -306,11 +307,11 @@ vi /var/lib/rabbitmq/.erlang.cookie
 
 Reconfigure RabbitMQ on Node 2 and join it to the cluster.
 
-* Restart RabbitMQ service on Server2
+* Restart RabbitMQ service on Server2    
 ```
 sudo systemctl restart rabbitmq-server
 ```
-* Stop application
+* Stop application    
 ```
 sudo rabbitmqctl stop_app
 ```
@@ -318,7 +319,7 @@ sudo rabbitmqctl stop_app
 Stopping rabbit application on node rabbit@rabbit4
 ```
 
-* Reset rabbitmq
+* Reset rabbitmq    
 ```
 sudo rabbitmqctl reset
 ```
@@ -326,7 +327,7 @@ sudo rabbitmqctl reset
 Resetting node rabbit@rabbit4
 ```
 
-* Join the node to cluster
+* Join the node to cluster    
 ```
 sudo rabbitmqctl join_cluster rabbit@rabbit2
 ```
@@ -334,7 +335,7 @@ sudo rabbitmqctl join_cluster rabbit@rabbit2
 Clustering node rabbit@rabbit4 with rabbit@rabbit2
 ```
 
-* Start the application process
+* Start the application process    
 ```
 sudo rabbitmqctl start_app
 ```
@@ -342,7 +343,7 @@ sudo rabbitmqctl start_app
 Starting node rabbit@rabbit4
 ```
 
-* Check Cluster Status:
+* Check Cluster Status:    
 ```
 rabbitmqctl cluster_status
 ```
@@ -433,9 +434,9 @@ Helm is the first application package manager running atop Kubernetes. It allows
 **Setup Requirements**
 
 This setup has the following requirements:
-* Created Kubernetes Cluster in Ventus Cloud (you can see how to do it [here](https://docs.ventuscloud.eu/docs/coretasks/Kubernetes))
-* Access this Kubernetes cluster using CLI or ssh protocol (you can see how to do it [here](https://docs.ventuscloud.eu/docs/coretasks/access-by-cli))
-* A user with sudo privileges
+* Created Kubernetes Cluster in Ventus Cloud (you can see how to do it here [Kubernetes Cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster))    
+* Access this Kubernetes cluster using CLI or ssh protocol (you can see how to do it here [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli))     
+* A user with sudo privileges    
 
 This setup of RabbitMQ is based on created Kubernetes Cluster with following parametres:   
 `Name`: Rabbit  
@@ -585,11 +586,11 @@ and for the Erlang cookie:
 echo "ErLang Cookie : $(kubectl get secret --namespace default joking-panda-rabbitmq -o jsonpath="{.data.rabbitmq-erlang-cookie}" | base64 --decode)"
 ```
 
-**Step 4. Access RabbitMQ’s management service**  
+**Step 4. Access RabbitMQ’s management service**    
 
 You have several ways to connect to the RabbitMQ’s management service.
 
-**Method 1**  
+**Method 1**    
 The first way to connect to the RabbitMQ’s management service is to configure the command `kubectl` on your local host and execute the following commands:
 ```
 kubectl port-forward --namespace default svc/joking-panda-rabbitmq 15672:15672

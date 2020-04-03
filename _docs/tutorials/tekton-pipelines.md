@@ -8,11 +8,11 @@ tags: [ featured, tutorial ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Tekton is a Kubernetes-native pipeline resource" content="The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines." %}
+**Tekton** is a Kubernetes-native pipeline resource" content="The Tekton Pipelines project provides Kubernetes-style resources for declaring CI/CD-style pipelines.
 
-{% include alert.html type="info" title="Knative is a Kubernetes-based platform to deploy and manage modern serverless workloads." content="Knative components build on top of Kubernetes, abstracting away the complex details and enabling developers to focus on what matters." %}
+**Knative** is a Kubernetes-based platform to deploy and manage modern serverless workloads. Knative components build on top of Kubernetes, abstracting away the complex details and enabling developers to focus on what matters.
 
-{% include alert.html type="info" title="Goal of this tutorial" content="In this tutorial we will use Kubernetes, Knative, Tekton Pipelines, Dashboard and Webhooks extension to configure CI?CD with your GitHub repository." %}
+In this tutorial we will use Kubernetes, Knative, Tekton Pipelines, Dashboard and Webhooks extension to configure CI?CD with your GitHub repository.
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -23,64 +23,20 @@ tags: [ featured, tutorial ]
 ## Create new Kubernetes cluster
 ---
 
-For creating new cluster do the following:
+Create new cluster using this article: [Kubernetes Cluster](https://ventuscloud.eu/docs/kubernetes/kubernetes-cluster)   
 
-1) On the main Navigation Panel go to **Cloud**, choose **Clusters** and  click the plus (+) button at the bottom-right of the screen.
- 
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_1.png)
-
-2) Fill next information:
-  - Type new name (tekton)
-  - Select appropriate cluster template (k8s_1.14.1)
-  - Change other options or leave them as defaults
-
-{% include alert.html type="info" title="Keypair" content="You need to provide keypair which will be used for the cluster. If you didn't have one, you can create new using this Core Tasks - SSH Keys" %}
-
-3) Hit **CREATE CLUSTER** button
-
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_3.png)
-
-4) Wait until status of your cluster will be **Create completed**
-
-![](../../assets/img/tutorials/tekton-pipelines/create_cluster_screenshot_4.png)
+Use next parameters for your cluster:
+  - `Master count`: 1  
+  - `Node count`: 1  
+  - `Docker volume size (GB)`: 100  
+  - `Node flavor`: VC-4  
+  - `Master node flavor`: VC-2  
 
 ## Get access to your cluster using cli
 ---
 
-To get access to your cluster you need **openstack** cli tool installed and connected to your project.
+Now you can getting access to your cluster using this article [Access to Kubernetes Cluster using CLI](https://ventuscloud.eu/docs/kubernetes/access-by-cli)   
 
-1) Install openstack cli tool by running two next commands one by one. First will install openstack and second one will install magnum client which is used to operate with kubenetes clusters:
-
-`sudo pip install python-openstackclient`<br />
-`sudo pip install python-magnumclient`
-
-2) Get OpenRC file to connect to Ventus Cloud using cli:
-  - On the main Navigation Panel go to **Cloud**, choose **API users** and click the plus (+) button at the bottom-right of the screen.
-  - Fill out all fields and hit **ADD API USER**
-  - For new user hit **Get OpenRC file** action
-  <br />![](../../assets/img/tutorials/tekton-pipelines/get_openrc_file_1.png)
-  - Select region and hit **GET FILE**
-  <br />![](../../assets/img/tutorials/tekton-pipelines/get_openrc_file_2.png)
-  - File named "openrc" will be downloaded to your machine
-
-3) Execute "openrc" file starting with dot:
-<br />`. openrc`
-
-4) Provide your password and hit enter - this will authenticate you in the Ventus Cloud using created API user.
-
-5) Run next command to get a list of all clusters:
-<br />`openstack coe cluster list`
-
-6) Run next command to get kubeconfig for your cluster (tekton is the name of my cluster):
-<br />`openstack coe cluster config tekton`
-
-7) Export path to created config for as KUBECONFIG env variable:
-<br />`export KUBECONFIG=/home/stepan/config`
-
-8) Run next command to test that you have access to the cluster and all pods are running:
-<br />`kubectl get pods --all-namespaces`
-
-![](../../assets/img/tutorials/tekton-pipelines/verify_1.png)
 
 ## Deploy Tekton Pipelines, Dashboard and Webhooks extension
 ---

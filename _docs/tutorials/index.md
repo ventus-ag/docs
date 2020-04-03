@@ -7,7 +7,7 @@ description: End to end examples.
 # Tutorials
 {: .no_toc }
 
-{% include alert.html type="info" title="This is a placeholder page " content="that shows you how to use this template site." %}
+{% include alert.html type="info" title="Collection of end to end tutorials " content="which will guide you from having nothing to deployment of fully functional applications." %}
 
 <div class="section-index">
     <hr class="panel-line">
