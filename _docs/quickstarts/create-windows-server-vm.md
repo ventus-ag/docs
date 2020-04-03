@@ -93,6 +93,9 @@ You will see **RDP window**, than paste **your ip addres**
 
 ![](../../assets/img/win_server/ip.png)
 
+**Example:**
+![](../../assets/img/win_server/connection.png)
+
 At last, input **Administrator** and your **password**
 
 ![](../../assets/img/win_server/login.png)
