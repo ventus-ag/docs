@@ -77,7 +77,7 @@ To search for an instance, type your instance name in the search box from the to
 ---
 
 You can launch the web-console window directly from instance page or from instance details. Click on the icon *<>*  for launching the web-console.    
-After the new window with the web-console will appear massage about first login, you should create password.
+After the new window with the web-console will appear message about first login, you should create password.
 
 ![](../../assets/img/win_server/WinVM003.png)
 
