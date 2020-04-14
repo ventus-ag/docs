@@ -37,7 +37,7 @@ Set instance name. For example win-test
 
 
 - *Select a Boot source*: 
-Select apropriate image. For example "windows_server_2019_datacenter"
+Select appropriate image. For example "windows_server_2019_datacenter"
 
 - *Select storage type*: 
 Select storage type "RBD" and provide preferred disc size
@@ -46,7 +46,7 @@ Select storage type "RBD" and provide preferred disc size
 
 
 - *Select a configuration*: 
- Select apropriate flavor. **NOTE:** Minimal flavor size VC-2 for Windows VMs
+ Select appropriate flavor. **NOTE:** Minimal flavor size VC-2 for Windows VMs
 
 ![](../../assets/img/win_server/WinVM002.png)
 
