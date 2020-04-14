@@ -35,7 +35,6 @@ Set instance name. For example win-test
 
 ![](../../assets/img/win_server/WinVM000.png)
 
-
 - *Select a Boot source*: 
 Select appropriate image. For example "windows_server_2019_datacenter"
 
