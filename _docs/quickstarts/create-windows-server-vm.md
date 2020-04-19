@@ -8,7 +8,7 @@ tags: [ featured, quickstart ]
 {: .no_toc }
 ---
 
-{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Windows Server virtual machine (VM) running Windows-server-2019" %}
+{% include alert.html type="info" title="Ventus virtual machines (VMs) can be created through the Ventus portal" content="The Ventus portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Ventus portal to deploy a Windows Server virtual machine (VM)" %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -31,13 +31,12 @@ On the main Navigation Panel go to **Cloud**, choose **Instances** and  click th
 On the following page fill in these fields:
 
 - *Instance Name*: 
-This will set the name in the Ventus database. The hostname inside the instance will not be set.(eg. "win-test")
+Set instance name. For example win-test
 
 ![](../../assets/img/win_server/WinVM000.png)
 
-
 - *Select a Boot source*: 
-Select the image to boot from, from the list of available images. You can also boot from an instance snapshot if any is available. (eg. "Windows-server-2019")
+Select appropriate image. For example "windows_server_2019_datacenter"
 
 - *Select storage type*: 
 Select storage type "RBD" and provide preferred disc size
@@ -46,10 +45,12 @@ Select storage type "RBD" and provide preferred disc size
 
 
 - *Select a configuration*: 
-Configurations (flavors) hold information about the Instance memory, disk space and the number of virtual CPUs that will be available. (eg. "VC-2")
+ Select appropriate flavor. **NOTE:** Minimal flavor size VC-2 for Windows VMs
 
 ![](../../assets/img/win_server/WinVM002.png)
 
+- *Network selection*:
+Select network it can be public or private
 
 Hit **Create Instance** and the new instance will be created.
 
@@ -77,30 +78,22 @@ To search for an instance, type your instance name in the search box from the to
 ---
 
 You can launch the web-console window directly from instance page or from instance details. Click on the icon *<>*  for launching the web-console.    
-After the new window with the web-console will appear message about first login, you should create password.
 
-![](../../assets/img/win_server/WinVM003.png)
-
-
-## How to open windows server using RDP
+## RDP connection to Windows server
 ---
 
-You should press **WIN + R** input **mstsc** and run
+To begin, search for “Remote Desktop Connection“ in the Start Menu or open RUN and type “mstsc” and press “Enter key”. 
 
 ![](../../assets/img/win_server/mstsc.png)
 
-You will see **RDP window**, than paste **your ip addres**
+In **RDP window**, input **your VM IP**
 
 ![](../../assets/img/win_server/ip.png)
 
-**Example:**
-
 ![](../../assets/img/win_server/connection.png)
 
-At last, input **Administrator** and your **password**
+Type the username, enter password you created for the virtual machine, and then click **OK**.
 
 ![](../../assets/img/win_server/login.png)
 
-After **credentials** you will see result!
-
-![](../../assets/img/win_server/WinVM008.png)
+Click **Connect**
