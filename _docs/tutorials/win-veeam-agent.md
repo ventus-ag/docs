@@ -56,7 +56,7 @@ You can start the upgrade process from the Veeam Agent for Windows Control Panel
 During the upgrade process, configuration and backup files that were created with the previous version of Veeam Agent for Windows are not impacted in any way.
 
 ## To upgrade Veeam Agent for Windows
-Open the Veeam Agent for Windows icon in the system tray, or right-click the Veeam Agent for Windows icon in the system tray and select control Panel and open the About tab.
+Open the Veeam Agent for Windows icon in the system tray, or right-click the Veeam Agent for Windows icon in the system tray and select Control Panel and open the About tab.
 If the new version of Veeam Agent for Windows is available, **click Download**.
 When the download is complete, **click Install**.
 To upgrade Veeam Agent for Windows, you must accept the license agreement. Read the license agreement, select the I agree to the Veeam End User License Agreement check box and click Update.
