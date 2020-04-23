@@ -19,7 +19,7 @@ In this page, you can find an explanation of how to Install and use Veeam Agent 
 # Before You Begin
 
 ## Prerequisites:
-The computer on which you plan to install Veeam Agent for Microsoft Windows must satisfy [system requirements](https://helpcenter.veeam.com/docs/agentforwindows/userguide/installation_before.html?ver=40).
+The computer on which you plan to install Veeam Agent for Microsoft Windows must satisfy [system requirements](https://helpcenter.veeam.com/docs/agentforwindows/userguide/system_requirements.html?ver=40).
 You must run the Veeam Agent for Windows setup file under user account that has Administrator privileges on the computer to install this product.
 Veeam Agent for Windows requires the following components:
 
