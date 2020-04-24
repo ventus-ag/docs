@@ -1,7 +1,7 @@
 ---
 title: Install Veeam Agent for Microsoft Windows
 description: How to install Veeam Agent for Microsoft Windows
-tags: [ featured, coretasks ]
+tags: [ featured, tutorial ]
 # permalink: /install-Veeam-Agent-for-Microsoft-Windows/
 ---
 # Install Veeam Agent for Microsoft Windows
