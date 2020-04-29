@@ -27,9 +27,9 @@ Veeam Agent for Linux software packages have the following dependencies:
 
 > dkms — required by the veeamsnap package for building the kernel module for Veeam Agent for Linux Driver.
 
-This dependency does not apply to CentOS, RHEL and SLES distributions. For these distributions, there is no need to build the veeamsnap kernel module with DKMS. Instead, you can install it from a pre-built binary package provided by Veeam. To learn more, see [Installing Veeam Agent for Linux](https://helpcenter.veeam.com/docs/agentforlinux/userguide/installation_process.html?ver=40).
+These dependencies do not apply to CentOS, RHEL and SLES distributions. For these distributions, there is no need to build the veeamsnap kernel module with DKMS. Instead, you can install it from a pre-built binary package provided by Veeam. To learn more, see [Installing Veeam Agent for Linux](https://helpcenter.veeam.com/docs/agentforlinux/userguide/installation_process.html?ver=40).
 
-## To installing Veeam Agent for Linux
+## To install Veeam Agent for Linux, you need:
 
 > Download the Veeam software repository installation package **(veeam-release)** from the Veeam Download page, and save the downloaded package on the computer where you plan to install the product.
 
@@ -157,7 +157,7 @@ Make sure that you have allowed unsupported modules. To learn more, see [this SU
 
 # Upgrading Veeam Agent for Linux
 
-For Veeam Agent for Linux, upgrade to newer versions is supported. You can start the upgrade process when the new version becomes available.
+For Veeam Agent for Linux, upgrade to newer supported versions. You can start the upgrade process when the new version becomes available.
 
 During the upgrade process, configuration and backup files that were created with the previous version of Veeam Agent are not impacted in any way.
 
@@ -300,7 +300,7 @@ apt-get install veeam
 
 When you install Veeam Agent for Linux, the product program files are placed to the folders on the system volume. For full access to Veeam Agent files, super user **(root)** privileges are required. Rights to execute product files and run commands are also granted to users that belong to the **veeam** group.
 
-The **veeam** group is automatically created by Veeam Agent at the process of the product installation. To let regular users work with Veeam Agent without the need to gain root privileges, you can add the necessary users to this group. Users in the veeam group will be able to execute Veeam Agent commands and perform backup and restore tasks under regular user account.
+The **veeam** group is automatically created by Veeam Agent at the process of the product installation. So that regular users can work with Veeam Agent without having to obtain the root privileges, you can add the necessary users to this group. Users in the veeam group will be able to execute Veeam Agent commands, perform backup and restore tasks under regular user account.
 
 To add a user to the **veeam** group, in most of Linux distributions you can use the following command:
 
@@ -339,7 +339,7 @@ user@srv01:~$ groups
 user adm cdrom sudo dip plugdev lpadmin sambashare veeam
 ```
 
-# Install Product License
+# Installing Product License
 
 At the **License** step of the initial setup wizard, install the license. You can choose to install the license immediately or postpone this operation.
 
@@ -404,7 +404,7 @@ To specify settings for an HTTP proxy, uncomment and edit the following lines in
 
 > <URL> — URL of a proxy used for CRL checks.
 
-If the proxy does not require authentication, you do not need to specify the account name и password. Keep in mind that only the basic authentication method is supported for connection to a proxy.
+If the proxy does not require authentication, you do not need to specify the account name and password. Keep in mind that only the basic authentication method is supported for connection to a proxy.
 
 **For example:**
 
@@ -426,7 +426,7 @@ httpproxyurl= http://proxy.company.lan:3128
 
 To uninstall Veeam Agent for Linux, you need to remove the veeam and veeamsnap packages. For this operation, you can use any package manager that works with software packages in your Linux distribution.
 
-The following examples show commands to uninstall Veeam Agent:
+The following examples show commands for uninstalling Veeam Agent:
 
 **For CentOS / RHEL / Oracle Linux / Fedora**
 
