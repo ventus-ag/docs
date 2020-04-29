@@ -11,7 +11,9 @@
         - title: "Creating a new account"
           url: "docs/quickstarts/create-account"         
         - title: "Creating a new Linux VM"
-          url: "docs/quickstarts/create-linux-vm-using-ventus" 
+          url: "docs/quickstarts/create-linux-vm-using-ventus"
+        - title: "Creating a new Windows VM"
+          url: "docs/quickstarts/create-windows-server-vm"
     - title: "Core Tasks"
       url: "docs/coretasks"
       children:
