@@ -1,5 +1,5 @@
 ---
-title: How to create and delete custom images in Ventus Cloud
+title: Creating custom images in Ventus Cloud
 description: How to create and delete custom images in Ventus Cloud
 tags: [ featured, tutorial ]
 # permalink: /creating-custom-images/
@@ -41,7 +41,8 @@ If you don't, follow the instructions on the next page - [API Users](https://ven
 In our case, we use just one of the Ubuntu images, but you can upload your own unique image that should be located locally:
 ```
 wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
-```
+```    
+
 ## Create/upload an image
 
 1) **To get a list of all available images** for your project use next command:
