@@ -30,14 +30,14 @@ If you want to create incremental backups of your persistent disk data, use snap
 ## Prerequisites:
 
 For this tutorial you need:
-* *Have a created API User in Ventus Portal.*
+* *Have a created API User in Ventus Portal.*    
 If you don't, follow the instructions on the next page - [API Users](https://ventuscloud.eu/docs/coretasks/api-users)  
 
 * *Execute OpenRC file of that Api User:*  
 ```
 . openrc
 ```
-* *Prepare your own image that you want to upload to the Ventus portal.*   
+* *Prepare your own image that you want to upload to the Ventus portal.*     
 In our case, we use just one of the Ubuntu images, but you can upload your own unique image that should be located locally:
 ```
 wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
@@ -65,6 +65,7 @@ openstack image list
 ```
 
 Also all this images you can find in Ventus portal on the step of *creating instances* when you need to **Select boot source**:    
+
 ![](../../assets/img/creating-custom-images/1.png)    
 ![](../../assets/img/creating-custom-images/2.png)  
 
@@ -146,12 +147,14 @@ openstack image list
 +--------------------------------------+-----------------------------------------+--------+
 ```
 
-Also you can find this new image in Ventus portal on the step of *creating instances* when you need to **Select boot source**:  
+Also you can find this new image in Ventus portal on the step of *creating instances* when you need to **Select boot source**:   
+
 ![](../../assets/img/creating-custom-images/1.png)  
 ![](../../assets/img/creating-custom-images/3.png)      
 
-On the page with your own images, this new image will appear too. 
-To find this page on the main Navigation Panel go to  **Cloud** and choose **Images**. Here you can see that our new `ubuntu-server-Ventus-Test` image is labeled `protected` what means that any destructive operation on this image will get rejected by Ventus Portal web and CLI interfaces:  
+On the page with your own images, this new image will appear too.   
+To find this page on the main Navigation Panel go to  **Cloud** and choose **Images**. Here you can see that our new `ubuntu-server-Ventus-Test` image is labeled `protected` what means that any destructive operation on this image will get rejected by Ventus Portal web and CLI interfaces:
+
 ![](../../assets/img/creating-custom-images/4.png)  
 
 
@@ -170,6 +173,7 @@ openstack image delete <IMAGE-ID>
 ```
 
 Or through the Ventus portal on the **Image** page by clicking the icon for **Delete**:
+
 ![](../../assets/img/creating-custom-images/5.png) 
 
 
