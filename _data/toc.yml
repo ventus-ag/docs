@@ -73,6 +73,8 @@
           url: "docs/tutorials/win-veeam-agent"
         - title: "Install Veeam Agent for Linux 4.0"
           url: "docs/tutorials/lin-veeam-agent"
+        - title: "Creating custom images"
+          url: "docs/tutorials/creating-custom-images"          
        # - title: "OPC UA in Ventus Cloud"
         #  url: "docs/tutorials/opc-ua"                           
     - title: "Contribute to Ventus Docs"
