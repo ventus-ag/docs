@@ -1,14 +1,14 @@
 ---
-title: Creating custom images on a Linux instance
-description: How to create and delete custom images on a Linux instance
+title: How to create and delete custom images in Ventus Cloud
+description: How to create and delete custom images in Ventus Cloud
 tags: [ featured, tutorial ]
 # permalink: /creating-custom-images/
 ---
-# Creating custom images on a Linux instance
+# Creating custom images 
 {: .no_toc }
 ---
 
-In this page, you can find an explanation of *how to create and delete custom images on a Linux instance*. 
+In this page, you can find an explanation of *how to create and delete custom images in Ventus Cloud*. 
 
 You can create custom images from:  
 - `source disks`,   
