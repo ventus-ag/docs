@@ -22,12 +22,11 @@ If you want to create incremental backups of your persistent disk data, use snap
 ## Prerequisites:
 
 For this tutorial you need:
-* login to your Linux virtual machine in the Ventus Cloud Portal, if you do not already have one, follow the instructions on the next page - [Creating a new Linux VM using Ventus Cloud](https://ventuscloud.eu/docs/quickstarts/create-linux-vm-using-ventus) 
-* create new API User if you do not already have one by following up the instructions on the next page - [API Users](https://ventuscloud.eu/docs/coretasks/api-users) and execute OpenRC file of the created Api User:
+* Create new API User, if you do not already have it, by following up the instructions on the next page - [API Users](https://ventuscloud.eu/docs/coretasks/api-users) and execute OpenRC file of the created Api User:
 ```
 . openrc
 ```
-* prepare your own image that you want to upload to the Ventus portal. In our case, we use just one of the Ubuntu images, but you can upload your own unique image that should be located locally on your virtual machine:
+* Prepare your own image that you want to upload to the Ventus portal. In our case, we use just one of the Ubuntu images, but you can upload your own unique image that should be located locally:
 ```
 wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
 ```
@@ -68,20 +67,21 @@ openstack image create \
                       ubuntu-server-Ventus-Test
 ```
 Let's take a closer look to this command:
-- _--disk-format_ - The supported options are: ami, ari, aki, vhd, vmdk, raw, qcow2, vhdx, vdi, iso, and ploop. The default format is: _raw_.    
-- _--container-format_ - The supported options are: ami, ari, aki, bare, docker, ova, ovf. The default format is: _bare_.  
-- _--file_ - Upload image from local file.  
-- _--property_ - Set a property on this image (repeat for multiple values).  
-- _--protected_ - Prevent image from being deleted. The default format is: _unprotected_.  
-- _ubuntu-server-Ventus-Test_ - New image name.  
+- *--disk-format* - The supported options are: ami, ari, aki, vhd, vmdk, raw, qcow2, vhdx, vdi, iso, and ploop. The default format is: *raw*.    
+- *--container-format* - The supported options are: ami, ari, aki, bare, docker, ova, ovf. The default format is: *bare*.  
+- *--file* - Upload image from local file.  
+- *--property* - Set a property on this image (repeat for multiple values).  
+- *--protected* - Prevent image from being deleted. The default format is: *unprotected*.  
+- *ubuntu-server-Ventus-Test* - New image name.  
 
-Also here you can use some other required arguments, for example:
-- _--location <image-url>_ - Download image from an existing URL.  
-- _--copy-from <image-url>_ - Copy image from the data store (similar to _--location_).  
-- _--volume <volume>_ - Create image from a volume.  
-To find more required arguments use `openstack image create --help`.  
+Also here you can use some other required arguments, for example:  
+- *--location <image-url>* - Download image from an existing URL.    
+- *--copy-from <image-url>* - Copy image from the data store (similar to *--location*).    
+- *--volume <volume>* - Create image from a volume.    
 
-If the creation was successful, the output will be as follows
+To find more required arguments use `openstack image create --help`.    
+
+If the creation was successful, the output will be as follows:
 ```console
 +------------------+--------------------------------------------------------------------------------------------------------------------+
 | Field            | Value                                                                                                              |
@@ -111,7 +111,7 @@ If the creation was successful, the output will be as follows
 | visibility       | shared                                                                                                             |
 +------------------+--------------------------------------------------------------------------------------------------------------------+
 ```
-3) To make sure that our new image appeared among the available, use the following command       
+3) To make sure that our new image appeared among the available, use the following command:  
 ```
 openstack image list
 ```
@@ -133,21 +133,25 @@ openstack image list
 ```
 Also you can find this new image in Ventus portal on the step of creating instances when you need to **Select boot source**:  
 ![](../../assets/img/creating-custom-images/1.png)  
-![](../../assets/img/creating-custom-images/3.png)  
+![](../../assets/img/creating-custom-images/3.png)      
 
-And on the page with your own images, this one will appear too. To find this page on the main Navigation Panel go to  `Cloud` and choose `Images`. Here you can see that our new ubuntu-server-Ventus-Test image is labeled `protected` what means that any destructive operation on this image will get rejected by Ventus Portal web and CLI interfaces:
+And on the page with your own images, this new image will appear too. To find this page on the main Navigation Panel go to  **Cloud** and choose **Images**. Here you can see that our new ubuntu-server-Ventus-Test image is labeled `protected` what means that any destructive operation on this image will get rejected by Ventus Portal web and CLI interfaces:  
 ![](../../assets/img/creating-custom-images/4.png)  
 
 
 
 ## Delete an image
-The first step to deleting a protected image is to unprotect it. You can simply set a flag to make image non-protected. This is the command to activate the unprotected property for a given image:
+
+The first step to deleting a `protected` image is to unprotect it. You can simply set a flag to make image non-protected. This is the command to activate the unprotected property for a given image:
 ```
 openstack image set --unprotected <IMAGE-ID>
 ```
+
 After successful completion of the above command, you can attempt deleting the image by using next command:
 ```
 openstack image delete <IMAGE-ID>
 ```
 Or through the Ventus portal on the **Image** page by clicking the icon for **Delete**:
 ![](../../assets/img/creating-custom-images/5.png) 
+
+
