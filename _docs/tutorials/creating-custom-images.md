@@ -1,15 +1,23 @@
 ---
-title: Creating custom images on a Linux instance. 
-description: How to create and delete custom images on a Linux instance. 
+title: Creating custom images on a Linux instance
+description: How to create and delete custom images on a Linux instance
 tags: [ featured, tutorial ]
 # permalink: /creating-custom-images/
 ---
-# Creating custom images on a Linux instance. 
+# Creating custom images on a Linux instance
 {: .no_toc }
 ---
 
-In this page, you can find an explanation of how to create and delete custom images on a Linux instance. 
-You can create custom images from source disks, images, snapshots, or images stored in Cloud Storage. You can use these images to create virtual machine (VM) instances. This is ideal for situations where you have created and modified a persistent boot disk or specific image to a certain state and need to save that state for creating instances.
+In this page, you can find an explanation of *how to create and delete custom images on a Linux instance*. 
+
+You can create custom images from:  
+- `source disks`,   
+- `images`,   
+- `snapshots`,   
+- `images stored in Cloud Storage`.    
+
+You can use these images to create virtual machine (VM) instances. This is ideal for situations where you have created and modified a persistent boot disk or specific image to a certain state and need to save that state for creating instances. 
+
 {% include alert.html type="info" title="Note:
 If you want to create incremental backups of your persistent disk data, use snapshots instead." %} 
 
@@ -22,17 +30,21 @@ If you want to create incremental backups of your persistent disk data, use snap
 ## Prerequisites:
 
 For this tutorial you need:
-* Create new API User, if you do not already have it, by following up the instructions on the next page - [API Users](https://ventuscloud.eu/docs/coretasks/api-users) and execute OpenRC file of the created Api User:
+* *Have a created API User in Ventus Portal.*
+If you don't, follow the instructions on the next page - [API Users](https://ventuscloud.eu/docs/coretasks/api-users)  
+
+* *Execute OpenRC file of that Api User:*  
 ```
 . openrc
 ```
-* Prepare your own image that you want to upload to the Ventus portal. In our case, we use just one of the Ubuntu images, but you can upload your own unique image that should be located locally:
+* *Prepare your own image that you want to upload to the Ventus portal.*   
+In our case, we use just one of the Ubuntu images, but you can upload your own unique image that should be located locally:
 ```
 wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
 ```
 ## Create/upload an image
 
-1) To get a list of all available images for your project use `openstack image list` command:
+1) **To get a list of all available images** for your project use next command:
 ```
 openstack image list
 ```
@@ -52,11 +64,12 @@ openstack image list
 +--------------------------------------+-----------------------------------------+--------+
 ```
 
-Also all this images you can find in Ventus portal on the step of creating instances when you need to **Select boot source**:  
-![](../../assets/img/creating-custom-images/1.png)  
+Also all this images you can find in Ventus portal on the step of *creating instances* when you need to **Select boot source**:    
+![](../../assets/img/creating-custom-images/1.png)    
 ![](../../assets/img/creating-custom-images/2.png)  
 
-2) To upload your own unique image, which is already located locally on your virtual machine, use the following command:
+
+2) **To upload your own unique image**, which is already located locally, use the following command:
 ```
 openstack image create \
                       --disk-format=qcow2 \
@@ -72,14 +85,14 @@ Let's take a closer look to this command:
 - *--file* - Upload image from local file.  
 - *--property* - Set a property on this image (repeat for multiple values).  
 - *--protected* - Prevent image from being deleted. The default format is: *unprotected*.  
-- *ubuntu-server-Ventus-Test* - New image name.  
+- *ubuntu-server-Ventus-Test* - New image name. 
 
 Also here you can use some other required arguments, for example:  
-- *--location <image-url>* - Download image from an existing URL.    
-- *--copy-from <image-url>* - Copy image from the data store (similar to *--location*).    
-- *--volume <volume>* - Create image from a volume.    
+- *--location* <image-url> - Download image from an existing URL.    
+- *--copy-from* <image-url> - Copy image from the data store (similar to *--location*).    
+- *--volume* <volume> - Create image from a volume.    
 
-To find more required arguments use `openstack image create --help`.    
+**To find more required arguments** use `openstack image create --help` command.    
 
 If the creation was successful, the output will be as follows:
 ```console
@@ -111,7 +124,8 @@ If the creation was successful, the output will be as follows:
 | visibility       | shared                                                                                                             |
 +------------------+--------------------------------------------------------------------------------------------------------------------+
 ```
-3) To make sure that our new image appeared among the available, use the following command:  
+
+3) To make sure that our new image appeared among the available, use the `openstack image list` command one more time:  
 ```
 openstack image list
 ```
@@ -131,18 +145,21 @@ openstack image list
 | 13aa1128-e7a1-4145-9e7c-9a6970e9bebd | windows_server_2019_datacenter          | active |
 +--------------------------------------+-----------------------------------------+--------+
 ```
-Also you can find this new image in Ventus portal on the step of creating instances when you need to **Select boot source**:  
+
+Also you can find this new image in Ventus portal on the step of *creating instances* when you need to **Select boot source**:  
 ![](../../assets/img/creating-custom-images/1.png)  
 ![](../../assets/img/creating-custom-images/3.png)      
 
-And on the page with your own images, this new image will appear too. To find this page on the main Navigation Panel go to  **Cloud** and choose **Images**. Here you can see that our new ubuntu-server-Ventus-Test image is labeled `protected` what means that any destructive operation on this image will get rejected by Ventus Portal web and CLI interfaces:  
+On the page with your own images, this new image will appear too. 
+To find this page on the main Navigation Panel go to  **Cloud** and choose **Images**. Here you can see that our new `ubuntu-server-Ventus-Test` image is labeled `protected` what means that any destructive operation on this image will get rejected by Ventus Portal web and CLI interfaces:  
 ![](../../assets/img/creating-custom-images/4.png)  
 
 
 
 ## Delete an image
 
-The first step to deleting a `protected` image is to unprotect it. You can simply set a flag to make image non-protected. This is the command to activate the unprotected property for a given image:
+The first step to deleting a `protected` image is to unprotect it. 
+You can simply set a flag to make image non-protected. This is the command to activate the unprotected property for a given image:
 ```
 openstack image set --unprotected <IMAGE-ID>
 ```
@@ -151,6 +168,7 @@ After successful completion of the above command, you can attempt deleting the i
 ```
 openstack image delete <IMAGE-ID>
 ```
+
 Or through the Ventus portal on the **Image** page by clicking the icon for **Delete**:
 ![](../../assets/img/creating-custom-images/5.png) 
 
