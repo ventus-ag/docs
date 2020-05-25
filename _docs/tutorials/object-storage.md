@@ -61,7 +61,7 @@ To get access to Ventus Cloud CLI you need do following:
 sudo apt install python-pip
 ```
 
-2) Install openstack cli tool by running two next commands one by one: 
+2) Install openstack cli tool by running next command: 
 ```
 sudo pip install python-openstackclient
 ```
