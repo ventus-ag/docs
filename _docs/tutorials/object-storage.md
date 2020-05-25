@@ -64,7 +64,6 @@ sudo apt install python-pip
 2) Install openstack cli tool by running two next commands one by one: 
 ```
 sudo pip install python-openstackclient
-sudo pip install python-magnumclient
 ```
 
 3) Configure "openrc" file to your server  
