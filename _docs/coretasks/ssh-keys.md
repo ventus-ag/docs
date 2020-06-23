@@ -16,7 +16,7 @@ In this page, you can find an explanation of how to add or generate a new SSH ke
 {:toc}
 
 ## Add new SSH key
-On the main Navigation Panel go to `Cloud` and choose `SSH Keys`. On this page you find all added SSH Keys whith their details area.
+On the main Navigation Panel go to `Cloud` and choose `SSH Keys`. On this page you find all added SSH Keys with their details area.
 
 **SSH key details area includes:** 
 

@@ -21,7 +21,7 @@ In this page, you can find an explanation of how to create new Kubernetes Cluste
 
 For creating new Kubernetes Cluster do following:
 
-1) On the main Navigation Panel go to  **Cloud**, choose **Clusters** and click the floating button **+** present in the lower right corner   
+1) On the main Navigation Panel go to  **Cloud**, choose **Kubernetes** and click the floating button **+** present in the lower right corner   
 
 ![](../../assets/img/coretasks/Kubernetes/cluster_create_1.png)
 ![](../../assets/img/new-linux-vm-V/instances-Ventus0.png)  
