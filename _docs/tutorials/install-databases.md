@@ -700,7 +700,7 @@ cqlsh
 ```
 ```console
 OUTPUT
-Connected to Linuxize Cluster at 127.0.0.1:9042.
+Connected to Test Cluster at 127.0.0.1:9042.
 [cqlsh 5.0.1 | Cassandra 3.9 | CQL spec 3.4.2 | Native protocol v4]
 Use HELP for help.
 cqlsh>
@@ -716,18 +716,18 @@ By default, the Cassandra cluster is named “Test Cluster”. If you want to ch
 cqlsh
 ```
 
-Run the following command to change the cluster name to “Linuxize Cluster”:
+Run the following command to change the cluster name to “TestVentus Cluster”:
 ```
-UPDATE system.local SET cluster_name = 'Linuxize Cluster' WHERE KEY = 'local';
+UPDATE system.local SET cluster_name = 'TestVentus Cluster' WHERE KEY = 'local';
 ```
-Change “Linuxize Cluster” with your desired name. Once done type exit to exit the console.
+Change “TestVentus Cluster” with your desired name. Once done type exit to exit the console.
 
 2) Edit the `cassandra.yaml` configuration file and enter your new cluster name.
 ```
 vi /etc/cassandra/cassandra.yaml
 ```
 ```
-cluster_name: 'Linuxize Cluster'
+cluster_name: 'TestVentus Cluster'
 ```
 
 3) Run the following command to clear the system cache:
