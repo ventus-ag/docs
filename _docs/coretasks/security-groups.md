@@ -36,7 +36,7 @@ For creating new Security Group do the following:
 ![](../../assets/img/security-groups/security_groups_4.png)
 ![](../../assets/img/security-groups/security_groups_5.png)    
 
-2) On the following page fill up the `group name`, `description` and click `Create`:  
+2) On the following page fill up the `group name` and `description`:  
 ![](../../assets/img/security-groups/security_groups_6.png)   
 
 3) Hit `Create` and the new Security Group will be created:  
