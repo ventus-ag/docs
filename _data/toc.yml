@@ -23,6 +23,8 @@
           url: "docs/coretasks/ssh-keys"          
         - title: "Snapshots"
           url: "docs/coretasks/snapshots" 
+        - title: "Security Groups"
+          url: "docs/coretasks/security-groups"           
         - title: "Resize virtual machines"
           url: "docs/coretasks/resize-vm"
     - title: "Kubernetes"
